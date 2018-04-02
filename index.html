@@ -285,6 +285,510 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/os/随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/os/随笔/" itemprop="url">操作系统随笔</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T17:13:51+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="操作系统随笔"><a href="#操作系统随笔" class="headerlink" title="操作系统随笔"></a>操作系统随笔</h1><!-- TOC -->
+<ul>
+<li><a href="#1-锁的概念以及死锁的概念">1. 锁的概念以及死锁的概念</a></li>
+<li><a href="#2-计算机ip保留地址">2. 计算机IP保留地址</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-锁的概念以及死锁的概念"><a href="#1-锁的概念以及死锁的概念" class="headerlink" title="1. 锁的概念以及死锁的概念"></a>1. 锁的概念以及死锁的概念</h2><ul>
+<li><p>牛客网参考答案：<a href="https://www.nowcoder.com/ta/review-java/review?page=16" target="_blank" rel="noopener">JAVA面试常考知识点：page16</a></p>
+<blockquote>
+<p>所谓死锁是指多个进 程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进。死锁产生的4个必要条件：</p>
+<ul>
+<li>互斥条件：进程要求对所分配的资源（如打印机）进行排他性控制，即在一段时间内某 资源仅为一个进程所占有。此时若有其他进程请求该资源，则请求进程只能等待。</li>
+<li>不剥夺条件：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能 由获得该资源的进程自己来释放（只能是主动释放)。</li>
+<li>请求和保持条件：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源 已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</li>
+<li>循环等待条件：存在一种进程资源的循环等待链，链中每一个进程已获得的资源同时被 链中下一个进程所请求。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如何解决死锁问题</p>
+</li>
+</ul>
+<p>目标就是破坏产生死锁的四个条件，一般最后一个条件比较容易破坏，也就是所有锁的需求都是按照一定顺序来的。可参考：<a href="https://www.jianshu.com/p/44125bb12ebf" target="_blank" rel="noopener">死锁是什么？如何避免死锁？</a></p>
+<h2 id="2-计算机IP保留地址"><a href="#2-计算机IP保留地址" class="headerlink" title="2. 计算机IP保留地址"></a>2. 计算机IP保留地址</h2><p>参考文章：<a href="http://www.cnblogs.com/ZJoy/archive/2011/03/24/1994308.html" target="_blank" rel="noopener">IP地址中的保留地址</a><br>根据用途和安全性级别的不同，IP地址还可以大致分为两类：公共地址和私有地址。</p>
+<ul>
+<li>公用地址在Internet中使用，可以在Internet中随意访问。</li>
+<li>私有地址只能在内部网络中使用，只有通过代理服务器才能与Internet通信。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/sortsummary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/sortsummary/" itemprop="url">各种排序方法的简单总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T17:13:51+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="各种排序方法的简单总结"><a href="#各种排序方法的简单总结" class="headerlink" title="各种排序方法的简单总结"></a>各种排序方法的简单总结</h1><p>排序算法算是计算机的经典算法，解决很多问题的时候排序算法的思想都值得参考。<br><!-- TOC --></p>
+<ul>
+<li><a href="#1-快速排序的思想">1. 快速排序的思想</a></li>
+<li><a href="#2-归并排序的思想">2. 归并排序的思想</a></li>
+<li><a href="#3-堆排序的思路">3. 堆排序的思路</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-快速排序的思想"><a href="#1-快速排序的思想" class="headerlink" title="1. 快速排序的思想"></a>1. 快速排序的思想</h2><p>学习容易记住的快排算法过程（Partition函数式最重要的，有两种写法，一种高效，另一种普通，参考<a href="http://selfboot.cn/2016/09/01/lost_partition/" target="_blank" rel="noopener">这里</a>）<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main sort function</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> len, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start == end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> index = partition(arr, len, start, end);</span><br><span class="line">	print_arr(arr, len);</span><br><span class="line">	<span class="keyword">if</span>(index &gt; start)</span><br><span class="line">		qsort(arr, len, start, index - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(index &lt; end)</span><br><span class="line">		qsort(arr, len, index + <span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// partition function 1</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> len, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(arr == <span class="literal">NULL</span> || start &lt; <span class="number">0</span> || end &lt; <span class="number">0</span> || end &gt;= len || end &lt; start)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"partition input invalid\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> pivot = arr[end];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> small = start - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i = start; i &lt; end; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(arr[i] &lt; pivot)&#123;</span><br><span class="line">			small++;</span><br><span class="line">			<span class="keyword">if</span>(i != small)</span><br><span class="line">				swap(&amp;arr[small], &amp;arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	small++;</span><br><span class="line">	swap(&amp;arr[small], &amp;arr[end]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> small;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// partition function which is more efficient</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> len, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(arr == <span class="literal">NULL</span> || start &lt; <span class="number">0</span> || end &lt; <span class="number">0</span> || end &gt;= len || end &lt; start)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"partition input invalid\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> pivot = arr[end];</span><br><span class="line">	start--;</span><br><span class="line">	<span class="keyword">while</span>(start &lt; end)&#123;</span><br><span class="line">		<span class="keyword">while</span>(start &lt; end &amp;&amp; arr[++start] &lt;= pivot);</span><br><span class="line">		arr[end] = arr[start];</span><br><span class="line">		<span class="keyword">while</span>(start &lt; end &amp;&amp; arr[--end] &gt;= pivot);</span><br><span class="line">		arr[start] = arr[end];</span><br><span class="line">	&#125;</span><br><span class="line">	arr[start] = pivot;</span><br><span class="line">	<span class="keyword">return</span> start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-归并排序的思想"><a href="#2-归并排序的思想" class="headerlink" title="2. 归并排序的思想"></a>2. 归并排序的思想</h2><p>归并排序就是将数组分成两个部分，然后分别对两个部分进行排序，然后再融合起来。可以递归实现，算法时间复杂度时O(nlogn)，空间复杂度O(n)，也就是需要辅助空间。</p>
+<h2 id="3-堆排序的思路"><a href="#3-堆排序的思路" class="headerlink" title="3. 堆排序的思路"></a>3. 堆排序的思路</h2><p>参考：<a href="http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/" target="_blank" rel="noopener">常见排序算法 - 堆排序 (Heap Sort)</a></p>
+<p>堆排序就是把最大堆堆顶的最大数取出，将剩余的堆继续调整为最大堆，再次将堆顶的最大数取出，这个过程持续到剩余数只有一个时结束。在堆中定义以下几种操作：</p>
+<ul>
+<li>最大堆调整（Max-Heapify）：将堆的末端子节点作调整，使得子节点永远小于父节点</li>
+<li>创建最大堆（Build-Max-Heap）：将堆所有数据重新排序，使其成为最大堆</li>
+<li>堆排序（Heap-Sort）：移除位在第一个数据的根节点，并做最大堆调整的递归运算</li>
+</ul>
+<p>最大堆调整（MAX‐HEAPIFY）的作用是保持最大堆的性质，是创建最大堆的核心子程序。下面是Java版本的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="comment">/* 堆排序的思路：</span></span><br><span class="line"><span class="comment"> * 1. 首先明确堆是一种数据结构，利用堆这种数据结构的特性可以很高效地做排序算法。</span></span><br><span class="line"><span class="comment"> * 2. 第一步：堆化。将原本不是堆结构的数组转换成堆，方法时从第一个不是叶节点的节点开始，到根节点，进行堆化操作。堆化操作就是数字的上浮和下沉，要注意的是下沉要彻底，也就是需要递归或者迭代处理下沉的点。</span></span><br><span class="line"><span class="comment"> * 3. 第二步：排序。以最大堆为例，堆顶（也就是树结构的根节点，也就是数组第一个元素）存的是最大值，堆顶元素与最末尾叶节点交换，交换后堆就不是最大堆了，需要重新调整，但是调整的时候就不管最后一个元素了，所以堆的长度减少1。循环此过程直到堆内只剩下一个元素。排序完成。</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HeapSortWiki</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HeapSortWiki</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.arr = arr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 堆排序的主要入口方法，共两步。</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 第一步：将数组堆化 beginIndex = 第一个非叶子节点。 从第一个非叶子节点开始即可。无需从最后一个叶子节点开始。</span></span><br><span class="line"><span class="comment">		 * 叶子节点可以看作已符合堆要求的节点，根节点就是它自己且自己以下值为最大。</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">int</span> len = arr.length - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> beginIndex = (len - <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = beginIndex; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">			maxHeapify(i, len);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 第二步：对堆化数据排序 每次都是移出最顶层的根节点A[0]，与最尾部节点位置调换，同时遍历长度 - 1。</span></span><br><span class="line"><span class="comment">		 * 然后从新整理被换到根节点的末尾元素，使其符合堆的特性。 直至未排序的堆长度为 0。</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = len; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">			swap(<span class="number">0</span>, i);</span><br><span class="line">			maxHeapify(<span class="number">0</span>, i - <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> temp = arr[i];</span><br><span class="line">		arr[i] = arr[j];</span><br><span class="line">		arr[j] = temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 调整索引为 index 处的数据，使其符合堆的特性。</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> index</span></span><br><span class="line"><span class="comment">	 *            需要堆化处理的数据的索引</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> len</span></span><br><span class="line"><span class="comment">	 *            未排序的堆（数组）的长度</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">maxHeapify</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> li = (index &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>; <span class="comment">// 左子节点索引</span></span><br><span class="line">		<span class="keyword">int</span> ri = li + <span class="number">1</span>; <span class="comment">// 右子节点索引</span></span><br><span class="line">		<span class="keyword">int</span> cMax = li; <span class="comment">// 子节点值最大索引，默认左子节点。</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (li &gt; len)</span><br><span class="line">			<span class="keyword">return</span>; <span class="comment">// 左子节点索引超出计算范围，直接返回。</span></span><br><span class="line">		<span class="keyword">if</span> (ri &lt;= len &amp;&amp; arr[ri] &gt; arr[li]) <span class="comment">// 先判断左右子节点，哪个较大。</span></span><br><span class="line">			cMax = ri;</span><br><span class="line">		<span class="keyword">if</span> (arr[cMax] &gt; arr[index]) &#123;</span><br><span class="line">			swap(cMax, index); <span class="comment">// 如果父节点被子节点调换，</span></span><br><span class="line">			maxHeapify(cMax, len); <span class="comment">// 则需要继续判断换下后的父节点是否符合堆的特性。</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 测试用例</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * 输出： [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7,</span></span><br><span class="line"><span class="comment">	 * 7, 8, 8, 8, 9, 9, 9]</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">3</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">2</span>,</span><br><span class="line">				<span class="number">6</span> &#125;;</span><br><span class="line">		<span class="keyword">new</span> HeapSortWiki(arr).sort();</span><br><span class="line">		System.out.println(Arrays.toString(arr));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/data structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/data structure/" itemprop="url">数据结构与算法随笔</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T17:13:51+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Data-Struture-Note"><a href="#Data-Struture-Note" class="headerlink" title="Data Struture Note"></a>Data Struture Note</h1><!-- TOC -->
+<ul>
+<li><a href="#1-如何解决hash冲突有哪几种方案">1. 如何解决<code>hash</code>冲突，有哪几种方案</a><ul>
+<li><a href="#11-开放定址法">1.1. 开放定址法</a></li>
+<li><a href="#12-链地址法拉链法">1.2. 链地址法（拉链法）</a></li>
+<li><a href="#13-再哈希法">1.3. 再哈希法</a></li>
+<li><a href="#14-建立公共溢出区">1.4. 建立公共溢出区</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-如何解决hash冲突，有哪几种方案"><a href="#1-如何解决hash冲突，有哪几种方案" class="headerlink" title="1. 如何解决hash冲突，有哪几种方案"></a>1. 如何解决<code>hash</code>冲突，有哪几种方案</h2><p>参考：<a href="https://www.jianshu.com/p/4d3cb99d7580" target="_blank" rel="noopener">解决哈希冲突的常用方法分析</a></p>
+<h3 id="1-1-开放定址法"><a href="#1-1-开放定址法" class="headerlink" title="1.1. 开放定址法"></a>1.1. 开放定址法</h3><ul>
+<li>线性探查法：找到下一个有空的位置放进去，查找的时候遍历（其实也可以有一个辅助的数组专门记录移动的位置），这个方法容易出现“聚集”的现象</li>
+<li>平方探查法：二次探测法的地址增量序列为 di = 12， -12， 22， -22，… ， q2, -q2 (q &lt;= m/2)。二次探测能有效避免“聚集”现象，但是不能够探测到哈希表上所有的存储单元，但是至少能够探测到一半。若探查到一半单元仍找不到一个空闲单元，表明此散列表太满，应该重新建立。</li>
+<li>双散列函数探查法： hp (key)若h(key)出现冲突，则再使用hp (key)求取散列地址。探查序列为：<code>h(k), h(k)+ hp(k),…, h((k)+ i*hp(k))</code>。</li>
+</ul>
+<h3 id="1-2-链地址法（拉链法）"><a href="#1-2-链地址法（拉链法）" class="headerlink" title="1.2. 链地址法（拉链法）"></a>1.2. 链地址法（拉链法）</h3><p><code>Java</code>中<code>HashMap</code>的经典实现算法。</p>
+<h3 id="1-3-再哈希法"><a href="#1-3-再哈希法" class="headerlink" title="1.3. 再哈希法"></a>1.3. 再哈希法</h3><p>当发生冲突时，使用第二个、第三个、哈希函数计算地址，直到无冲突时。缺点：计算时间增加。</p>
+<h3 id="1-4-建立公共溢出区"><a href="#1-4-建立公共溢出区" class="headerlink" title="1.4. 建立公共溢出区"></a>1.4. 建立公共溢出区</h3><p>将哈希表分为公共表和溢出表，当溢出发生时，将所有溢出数据统一放到溢出区。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/offer/面试随笔/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -304,7 +808,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/offer/面试随笔/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/offer/面试随笔/" itemprop="url">面试随笔</a></h1>
         
 
         <div class="post-meta">
@@ -326,6 +830,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -359,98 +896,19 @@
             <h1 id="面试随笔"><a href="#面试随笔" class="headerlink" title="面试随笔"></a>面试随笔</h1><p>记录一些在面试过程中遇到的问题</p>
 <!-- TOC -->
 <ul>
-<li><a href="#1-锁的概念以及死锁的概念">1. 锁的概念以及死锁的概念</a></li>
-<li><a href="#2-java的垃圾回收机制">2. Java的垃圾回收机制</a><ul>
-<li><a href="#21-可达性分析算法">2.1. 可达性分析算法</a></li>
-<li><a href="#22-垃圾回收什么情况下被触发">2.2. 垃圾回收什么情况下被触发</a></li>
+<li><a href="#1-程序lang掉无响应">1. 程序lang掉（无响应）</a></li>
+<li><a href="#3-网易的两道题">3. 网易的两道题</a><ul>
+<li><a href="#31-符合nk的数对有多少种">3.1. 符合n，k的数对有多少种</a></li>
+<li><a href="#32-有多少种装法">3.2. 有多少种装法</a></li>
 </ul>
 </li>
-<li><a href="#3-阻塞与非阻塞同步与异步">3. 阻塞与非阻塞、同步与异步</a></li>
-<li><a href="#4-进程与线程">4. 进程与线程</a></li>
-<li><a href="#5-什么是线程安全">5. 什么是线程安全</a></li>
-<li><a href="#6-waitnotifynotifyall的解释">6. <code>wait/notify/notifyAll</code>的解释</a></li>
-<li><a href="#7-程序lang掉无响应">7. 程序lang掉（无响应）</a></li>
-<li><a href="#8-计算机ip保留地址">8. 计算机IP保留地址</a></li>
+<li><a href="#腾讯面试题">腾讯面试题</a><ul>
+<li><a href="#带符号大数加减">带符号大数加减</a></li>
+</ul>
+</li>
 </ul>
 <!-- /TOC -->
-<h2 id="1-锁的概念以及死锁的概念"><a href="#1-锁的概念以及死锁的概念" class="headerlink" title="1. 锁的概念以及死锁的概念"></a>1. 锁的概念以及死锁的概念</h2><ul>
-<li><p>牛客网参考答案：<a href="https://www.nowcoder.com/ta/review-java/review?page=16" target="_blank" rel="noopener">JAVA面试常考知识点：page16</a></p>
-<blockquote>
-<p>所谓死锁是指多个进 程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进。死锁产生的4个必要条件：</p>
-<ul>
-<li>互斥条件：进程要求对所分配的资源（如打印机）进行排他性控制，即在一段时间内某 资源仅为一个进程所占有。此时若有其他进程请求该资源，则请求进程只能等待。</li>
-<li>不剥夺条件：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能 由获得该资源的进程自己来释放（只能是主动释放)。</li>
-<li>请求和保持条件：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源 已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</li>
-<li>循环等待条件：存在一种进程资源的循环等待链，链中每一个进程已获得的资源同时被 链中下一个进程所请求。</li>
-</ul>
-</blockquote>
-</li>
-<li><p>如何解决死锁问题</p>
-</li>
-</ul>
-<p>目标就是破坏产生死锁的四个条件，一般最后一个条件比较容易破坏，也就是所有锁的需求都是按照一定顺序来的。可参考：<a href="https://www.jianshu.com/p/44125bb12ebf" target="_blank" rel="noopener">死锁是什么？如何避免死锁？</a></p>
-<h2 id="2-Java的垃圾回收机制"><a href="#2-Java的垃圾回收机制" class="headerlink" title="2. Java的垃圾回收机制"></a>2. Java的垃圾回收机制</h2><p>参考：<a href="http://jayfeng.com/2016/03/11/%E7%90%86%E8%A7%A3Java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" target="_blank" rel="noopener">理解Java垃圾回收机制</a>、</p>
-<p>总结性来说：</p>
-<ul>
-<li>Java的垃圾回收机制是一个复杂的过程。</li>
-<li>判断对象已死的基本算法是<strong>引用计数算法</strong>，这种算法在python等语言中得到应用，但是在Java由于需要避免循环引用造成的内存泄漏问题，采用的是<strong>可达性分析算法</strong>，引用之间的依赖关系形成一棵树，当从根节点遍历找不到这个节点的时候说明这个节点死掉了。</li>
-<li>在进行垃圾回收的过程中，对象的生命周期一般分为3个部分：<strong>新生代、老年代和持久代</strong>，对象在不同代之间的转移根据一定的算法实现。不同代的内存大小也有讲究，可以在性能调优过程中进行配置。</li>
-<li>不同代使用不同的垃圾收集算法，新生代中大部分对象存活周期不超过1次gc，因此一般使用<strong>复制算法</strong>，而老年代对象声明周期较长，一般使用<strong>标记-整理/清除算法</strong>。</li>
-<li>Java虚拟在在实现这些算法的时候又有一系列算法来尽量做到高效和安全。</li>
-</ul>
-<h3 id="2-1-可达性分析算法"><a href="#2-1-可达性分析算法" class="headerlink" title="2.1. 可达性分析算法"></a>2.1. 可达性分析算法</h3><p>在Java语言里，可作为GC Roots对象的包括如下几种：</p>
-<ul>
-<li>虚拟机栈(栈桢中的本地变量表)中的引用的对象</li>
-<li>方法区中的类静态属性引用的对象</li>
-<li>方法区中的常量引用的对象</li>
-<li>本地方法栈中JNI的引用的对象 </li>
-</ul>
-<p>可达性分析的主要问题是这棵树是如何建立的，网上被没有找到过于这方面的内容。文章-<a href="https://blog.csdn.net/lamp_zy/article/details/53212909" target="_blank" rel="noopener">java垃圾回收机制–可达性算法</a>-中提到了这个过程，但是图片不见了。</p>
-<p>对于那些“食之无味，弃之可惜”的引用的处理方法：</p>
-<ul>
-<li>强引用</li>
-<li>软引用</li>
-<li>弱引用</li>
-<li>虚引用</li>
-</ul>
-<h3 id="2-2-垃圾回收什么情况下被触发"><a href="#2-2-垃圾回收什么情况下被触发" class="headerlink" title="2.2. 垃圾回收什么情况下被触发"></a>2.2. 垃圾回收什么情况下被触发</h3><p>java的垃圾回收也分不同程度的回收，并不是每次回收都是大范围搞一次，而是分层次分情况的。</p>
-<ul>
-<li>当Eden区满时，触发Minor GC。</li>
-<li>Full GC触发条件：<ul>
-<li>调用System.gc时，系统建议执行Full GC，但是不必然执行</li>
-<li>老年代空间不足</li>
-<li>方法去空间不足</li>
-<li>通过Minor GC后进入老年代的平均大小大于老年代的可用内存</li>
-<li>由Eden区、From Space区向To Space区复制时，对象大小大于To Space可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-阻塞与非阻塞、同步与异步"><a href="#3-阻塞与非阻塞、同步与异步" class="headerlink" title="3. 阻塞与非阻塞、同步与异步"></a>3. 阻塞与非阻塞、同步与异步</h2><p>参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=403270751&amp;idx=1&amp;sn=7269cd113d7b85e407319036d61ef786&amp;mpshare=1&amp;scene=24&amp;srcid=0324aakwIYUbrJ9ka1iUqxKg#rd" target="_blank" rel="noopener">深入理解同步/异步与阻塞/非阻塞区别</a></p>
-<p>文章中间讲的很好，图解释的也很好。同步和异步的区别是全程是不是你一个人做的，阻塞和非阻塞的区别是排队的过程中你有没有去做别的事情。</p>
-<p>异步一般是函数调用之后不管功能或者工作完成了没有，都会立刻接收到返回值，但可以通过回调函数告知该任务是否完成。同步当然就是一直等待结果了。</p>
-<p>阻塞的意思是在等待可以开始工作的时间内一直等着，什么都不干就是阻塞，但是如果等待期间做别的事情去了，每隔一段时间回来查看一下就属于非阻塞了。</p>
-<h2 id="4-进程与线程"><a href="#4-进程与线程" class="headerlink" title="4. 进程与线程"></a>4. 进程与线程</h2><p>进程是执行着的应用程序，而线程是进程内部的一个执行序列。一个进程可以有多个线程。线程又叫做轻量级进程。</p>
-<p>线程的划分小于进程，线程隶属于某个进程。 进程是程序的一种动态形式，是CPU、内存等资源占用的基本单位，而线程是不能占有这些资源的。 进程之间相互独立，通信比较困难，而线程之间共享一块内存区域，通信比较方便。 进程在执行的过程中，包含比较固定的入口，执行顺序，出口，而线程的这些过程会被应用程序所控制</p>
-<h2 id="5-什么是线程安全"><a href="#5-什么是线程安全" class="headerlink" title="5. 什么是线程安全"></a>5. 什么是线程安全</h2><p>当多个线程访问同一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替运行，也不需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获取正确的结果，那这个对象是线程安全的。</p>
-<h2 id="6-wait-notify-notifyAll的解释"><a href="#6-wait-notify-notifyAll的解释" class="headerlink" title="6. wait/notify/notifyAll的解释"></a>6. <code>wait/notify/notifyAll</code>的解释</h2><p>其实大部分人都能说出来他们的含义，但是其实大多数人也并不真正清楚他们的作用。请看下面的代码：</p>
-<p>分析结果：</p>
-<ul>
-<li>三个操作在进行时必须已经先获得了对象的锁。所以这些函数<strong>必须在同步代码块中使用</strong>。</li>
-<li><code>wait</code>方法其实是把线程放进了<code>等待池</code></li>
-<li><code>notify</code>方法其实是把<code>等待池</code>中的某一个线程放入了<code>锁池</code></li>
-<li><code>notifyAll</code>方法其实是把<code>等待池</code>中的所有线程放入了<code>锁池</code></li>
-<li><code>锁池</code>中的线程竞争锁，得到<code>锁</code>的线程（同时只能有一个）运行，并在同步代码块运行完成之后<code>释放锁</code></li>
-<li>只有处于<code>锁池</code>中的线程才能竞争锁</li>
-<li><code>等待池</code>中的线程在没有被<code>notify/notifyAll</code>方法唤醒的情况下，不会进入<code>锁池</code></li>
-<li><code>锁池</code>中的线程在没有调用<code>wait</code>方法情况下，不会进入<code>等待池</code></li>
-</ul>
-<p>只要按照上面的结果就能知道下面的代码如果主线程使用<code>notify</code>而不是<code>notifyAll</code>的话，五个线程中只有一个能完成，其余会一直等下去。因为被唤醒的那一个线程运行完之后已经释放了锁，而另外四个线程却一直处于<code>等待池</code>，连竞争锁的资格都没有。<a href="http://wiki.jikexueyuan.com/project/java-concurrency/collaboration-between-threads.html" target="_blank" rel="noopener">这里</a>讲的还挺清楚的。好看的代码就是下面这个了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Object co = <span class="keyword">new</span> Object();</span><br><span class="line">		System.out.println(co);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			MyThread t = <span class="keyword">new</span> MyThread(<span class="string">"Thread"</span> + i, co);</span><br><span class="line">			t.start();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			TimeUnit.SECONDS.sleep(<span class="number">20</span>);</span><br><span class="line">			<span class="keyword">synchronized</span> (co) &#123;</span><br><span class="line">				System.out.println(<span class="string">"Main Thread entered syn block...begin to invoke notifyAll()"</span>);</span><br><span class="line">				co.notifyAll();</span><br><span class="line">				System.out.println(<span class="string">"Main Thread return from notifyAll()...begin to sleep"</span>);</span><br><span class="line">				TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">				System.out.println(<span class="string">"Main Thread quit from syn block."</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> String name;</span><br><span class="line">		<span class="keyword">private</span> Object co;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">MyThread</span><span class="params">(String name, Object o)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.name = name;</span><br><span class="line">			<span class="keyword">this</span>.co = o;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				System.out.println(name + <span class="string">" trying to enter syn block."</span>);</span><br><span class="line">				<span class="keyword">synchronized</span> (co) &#123;</span><br><span class="line">					System.out.println(name + <span class="string">" entered the syn block.Now sleep 2s..."</span>);</span><br><span class="line">					TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">					System.out.println(name + <span class="string">" returm from sleep, begin to invoke wait()..."</span>);</span><br><span class="line">					co.wait();</span><br><span class="line">					System.out.println(name + <span class="string">" returm from wait()"</span>);</span><br><span class="line">					<span class="keyword">int</span> nLoopTime = <span class="number">3</span>;</span><br><span class="line">					<span class="keyword">while</span> (nLoopTime != <span class="number">0</span>) &#123;</span><br><span class="line">						System.out.println(name + <span class="string">" is in loop for "</span> + nLoopTime + <span class="string">" time"</span>);</span><br><span class="line">						TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">						nLoopTime--;</span><br><span class="line">					&#125;</span><br><span class="line"><span class="comment">//					co.notify();</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="7-程序lang掉（无响应）"><a href="#7-程序lang掉（无响应）" class="headerlink" title="7. 程序lang掉（无响应）"></a>7. 程序lang掉（无响应）</h2><h2 id="8-计算机IP保留地址"><a href="#8-计算机IP保留地址" class="headerlink" title="8. 计算机IP保留地址"></a>8. 计算机IP保留地址</h2><p>参考文章：<a href="http://www.cnblogs.com/ZJoy/archive/2011/03/24/1994308.html" target="_blank" rel="noopener">IP地址中的保留地址</a><br>根据用途和安全性级别的不同，IP地址还可以大致分为两类：公共地址和私有地址。</p>
-<ul>
-<li>公用地址在Internet中使用，可以在Internet中随意访问。</li>
-<li>私有地址只能在内部网络中使用，只有通过代理服务器才能与Internet通信。</li>
-</ul>
-
+<h2 id="1-程序lang掉（无响应）"><a href="#1-程序lang掉（无响应）" class="headerlink" title="1. 程序lang掉（无响应）"></a>1. 程序lang掉（无响应）</h2><h2 id="3-网易的两道题"><a href="#3-网易的两道题" class="headerlink" title="3. 网易的两道题"></a>3. 网易的两道题</h2><h3 id="3-1-符合n，k的数对有多少种"><a href="#3-1-符合n，k的数对有多少种" class="headerlink" title="3.1. 符合n，k的数对有多少种"></a>3.1. 符合n，k的数对有多少种</h3><h3 id="3-2-有多少种装法"><a href="#3-2-有多少种装法" class="headerlink" title="3.2. 有多少种装法"></a>3.2. 有多少种装法</h3><h2 id="腾讯面试题"><a href="#腾讯面试题" class="headerlink" title="腾讯面试题"></a>腾讯面试题</h2><h3 id="带符号大数加减"><a href="#带符号大数加减" class="headerlink" title="带符号大数加减"></a>带符号大数加减</h3>
           
         
       
@@ -660,7 +1118,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/offer/剑指offer阅读笔记/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/offer/剑指offer阅读笔记/" itemprop="url">剑指offer阅读笔记</a></h1>
         
 
         <div class="post-meta">
@@ -682,6 +1140,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -778,7 +1269,6 @@
 <li><a href="#260-滑动窗口的最大值">2.60. 滑动窗口的最大值</a></li>
 </ul>
 </li>
-<li><a href="#3-请回顾">3. 请回顾</a></li>
 </ul>
 <!-- /TOC -->
 <h2 id="1-面试需要注意的内容"><a href="#1-面试需要注意的内容" class="headerlink" title="1. 面试需要注意的内容"></a>1. 面试需要注意的内容</h2><ul>
@@ -861,666 +1351,6 @@
 <h3 id="2-58-二叉搜索树的第k个节点（第k大的节点）"><a href="#2-58-二叉搜索树的第k个节点（第k大的节点）" class="headerlink" title="2.58. 二叉搜索树的第k个节点（第k大的节点）"></a>2.58. 二叉搜索树的第k个节点（第k大的节点）</h3><p>中序遍历，一边遍历，一遍查找。</p>
 <h3 id="2-59-数据流的中位数"><a href="#2-59-数据流的中位数" class="headerlink" title="2.59. 数据流的中位数"></a>2.59. 数据流的中位数</h3><p>使用两个堆，最大堆在左边，最小堆在右边，保证最大堆的每个值都小于最小堆的每个值。发生冲突就往该放的堆里放，然后从这个堆里挑出最大值或者最小值放到另外一个堆里。</p>
 <h3 id="2-60-滑动窗口的最大值"><a href="#2-60-滑动窗口的最大值" class="headerlink" title="2.60. 滑动窗口的最大值"></a>2.60. 滑动窗口的最大值</h3><p>为了保证是O(n)复杂度，滑动窗口是用双向队列表示，里面只存储是最大值或者可能是下一个最大值的值。</p>
-<h2 id="3-请回顾"><a href="#3-请回顾" class="headerlink" title="3. 请回顾"></a>3. 请回顾</h2><ol>
-<li><p>什么是归并排序？（题36：找所有的逆序对）<br>归并排序就是将数组分成两个部分，然后分别对两个部分进行排序，然后再融合起来。可以递归实现，算法时间复杂度时O(nlogn)，空间复杂度O(n)，也就是需要辅助空间。</p>
-</li>
-<li><p>学习容易记住的快排算法过程（Partition函数式最重要的，有两种写法，一种高效，另一种普通，参考<a href="http://selfboot.cn/2016/09/01/lost_partition/" target="_blank" rel="noopener">这里</a>）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main sort function</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> len, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start == end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> index = partition(arr, len, start, end);</span><br><span class="line">	print_arr(arr, len);</span><br><span class="line">	<span class="keyword">if</span>(index &gt; start)</span><br><span class="line">		qsort(arr, len, start, index - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(index &lt; end)</span><br><span class="line">		qsort(arr, len, index + <span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// partition function 1</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> len, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(arr == <span class="literal">NULL</span> || start &lt; <span class="number">0</span> || end &lt; <span class="number">0</span> || end &gt;= len || end &lt; start)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"partition input invalid\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> pivot = arr[end];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> small = start - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i = start; i &lt; end; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(arr[i] &lt; pivot)&#123;</span><br><span class="line">			small++;</span><br><span class="line">			<span class="keyword">if</span>(i != small)</span><br><span class="line">				swap(&amp;arr[small], &amp;arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	small++;</span><br><span class="line">	swap(&amp;arr[small], &amp;arr[end]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> small;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// partition function which is more efficient</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> len, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(arr == <span class="literal">NULL</span> || start &lt; <span class="number">0</span> || end &lt; <span class="number">0</span> || end &gt;= len || end &lt; start)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"partition input invalid\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> pivot = arr[end];</span><br><span class="line">	start--;</span><br><span class="line">	<span class="keyword">while</span>(start &lt; end)&#123;</span><br><span class="line">		<span class="keyword">while</span>(start &lt; end &amp;&amp; arr[++start] &lt;= pivot);</span><br><span class="line">		arr[end] = arr[start];</span><br><span class="line">		<span class="keyword">while</span>(start &lt; end &amp;&amp; arr[--end] &gt;= pivot);</span><br><span class="line">		arr[start] = arr[end];</span><br><span class="line">	&#125;</span><br><span class="line">	arr[start] = pivot;</span><br><span class="line">	<span class="keyword">return</span> start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/offer/README/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/offer/README/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="求职漫漫长路，需要好好准备"><a href="#求职漫漫长路，需要好好准备" class="headerlink" title="求职漫漫长路，需要好好准备"></a>求职漫漫长路，需要好好准备</h1><h2 id="20180112：开始准备5月份要开始的实习"><a href="#20180112：开始准备5月份要开始的实习" class="headerlink" title="20180112：开始准备5月份要开始的实习"></a>20180112：开始准备5月份要开始的实习</h2><p>记录看面经的一些心得。</p>
-<p>面试大概分为三个步骤：一面就是考基础知识，二面考项目经历，三面考情商</p>
-<ul>
-<li><p>关于自我介绍</p>
-<p>  敲门砖，好好准备</p>
-</li>
-<li><p>关于一面：</p>
-</li>
-<li><p>关于二面：</p>
-</li>
-<li><p>关于三面：</p>
-</li>
-</ul>
-<ol>
-<li>职业规划是什么？</li>
-<li>你认为你的优缺点是什么？</li>
-<li>你找实习的目的是什么？</li>
-</ol>
-<h3 id="去面试前要看的内容"><a href="#去面试前要看的内容" class="headerlink" title="去面试前要看的内容"></a>去面试前要看的内容</h3><ol>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&amp;mid=2651479763&amp;idx=1&amp;sn=58373bea2e25d23a5f582f40e5aaa9c9&amp;chksm=bd2532ac8a52bbba65a7134d30ba082e9ffeabda360ddd42295ed0f1cd8a4b49f7321df78b92&amp;scene=0#rd" target="_blank" rel="noopener">ImportNew热文回顾</a>，以及后面的往期热文回顾，多看一看。</li>
-<li>了解一下Redis这个东西</li>
-<li>TCP的三次握手和四次握手，应该了解一下</li>
-<li>思考以分布式系统作为切入点的职业规划</li>
-</ol>
-<h3 id="有什么要问面试官的？"><a href="#有什么要问面试官的？" class="headerlink" title="有什么要问面试官的？"></a>有什么要问面试官的？</h3><p>1. </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/offer/python面试需要准备的知识点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/offer/python面试需要准备的知识点/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Python面试整理"><a href="#Python面试整理" class="headerlink" title="Python面试整理"></a>Python面试整理</h1><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDAxNjkyMA==&amp;mid=2650731809&amp;idx=1&amp;sn=48a7b8464ee7a18688bc6a87a75ce3b2&amp;chksm=be4161d68936e8c0fb741603401d4951749b6faeed008dc7e26d4665b7515736bfe2a9aed481&amp;scene=0#rd" target="_blank" rel="noopener">Python程序员面试，这些问题你必须提前准备！</a></p>
-<h1 id="what-how-difference-practice篇"><a href="#what-how-difference-practice篇" class="headerlink" title="what-how-difference-practice篇"></a>what-how-difference-practice篇</h1><h2 id="What？"><a href="#What？" class="headerlink" title="What？"></a>What？</h2><ol>
-<li>什么是Python？<br>一种面向对象的解释型计算机程序设计语言，是一种广泛使用的高级编程语言</li>
-<li>什么是Python自省？<blockquote>
-<p>这个机制被称为反射（反过来让对象告诉我们他是什么），或是自省（让对象自己告诉我们他是什么，好吧我承认括号里是我瞎掰的- -#），用于实现在运行时获取未知对象的信息。反射是个很吓唬人的名词，听起来高深莫测，在一般的编程语言里反射相对其他概念来说稍显复杂，一般来说都是作为高级主题来讲；但在Python中反射非常简单，用起来几乎感觉不到与其他的代码有区别，使用反射获取到的函数和方法可以像平常一样加上括号直接调用，获取到类后可以直接构造实例；不过获取到的字段不能直接赋值，因为拿到的其实是另一个指向同一个地方的引用，赋值只能改变当前的这个引用而已。</p>
-</blockquote>
-</li>
-</ol>
-<p>其实就是python提供的一些查看对象的内容的工具。如下示例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dir([obj]): </span><br><span class="line">hasattr(obj, attr): </span><br><span class="line">getattr(obj, attr): </span><br><span class="line">setattr(obj, attr, val): </span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> Cat.__doc__           <span class="comment"># None</span></span><br><span class="line"><span class="keyword">print</span> Cat.__name__          <span class="comment"># Cat</span></span><br><span class="line"><span class="keyword">print</span> Cat.__module__        <span class="comment"># __main__</span></span><br><span class="line"><span class="keyword">print</span> Cat.__bases__         <span class="comment"># (&lt;type&gt;,)</span></span><br><span class="line"><span class="keyword">print</span> Cat.__dict__          <span class="comment"># &#123;'__module__': '__main__', ...&#125;&lt;/type&gt;</span></span><br></pre></td></tr></table></figure></p>
-<ol start="3">
-<li>什么是PEP？<br>[百度百科]：PEP是Python Enhancement Proposals的缩写。一个PEP是一份为Python社区提供各种增强功能的技术规格，也是提交新特性，以便让社区指出问题，精确化技术文档的提案。</li>
-<li>什么是pickling和unpick？<br>Python中可以使用pickle 模块将对象转化为文件保存在磁盘上，在需要的时候再读取并还原</li>
-<li><p>什么是Python装饰器？</p>
-</li>
-<li><p>什么是Python的命名空间？</p>
-</li>
-<li><p>什么是字典推导式和列表推导式？</p>
-</li>
-<li><p>Lambda函数是什么？</p>
-</li>
-<li><p>*Argos，**warthogs参数是什么？</p>
-</li>
-<li><p>什么是Pass语句？</p>
-</li>
-<li><p>unittest是什么？</p>
-</li>
-<li><p>构造器是什么？</p>
-</li>
-<li><p>doc string是什么？</p>
-</li>
-<li><p>负索引是什么？</p>
-</li>
-<li><p>模块和包是什么？</p>
-</li>
-<li><p>垃圾回收是什么？</p>
-</li>
-<li><p>CSRF是什么？</p>
-</li>
-</ol>
-<p>How？</p>
-<ol>
-<li><p>如何让你的程序更具可读性？</p>
-</li>
-<li><p>Python是如何被解释的？</p>
-</li>
-<li><p>如何在Python中拷贝一个对象？</p>
-</li>
-<li><p>如何用Python删除一个文件？</p>
-</li>
-<li><p>如何将一个数字转换成一个字符串？</p>
-</li>
-<li><p>Python是如何进行内存管理的？</p>
-</li>
-<li><p>如何实现duple和list的转换？</p>
-</li>
-<li><p>Python里面如何生成随机数？</p>
-</li>
-<li><p>如何在一个function里面设置一个全局的变量</p>
-</li>
-<li><p>Python如何实现单例模式？其他23种设计模式python如何实现？</p>
-</li>
-<li><p>Deepcopy如何实现？</p>
-</li>
-<li><p>算法排序在最坏情况下如何优化？</p>
-</li>
-<li><p>如何判断单向链表中是否有环？</p>
-</li>
-<li><p>如何遍历一个内部未知的文件夹？</p>
-</li>
-<li><p>数据库如何分区、分表？</p>
-</li>
-<li><p>如何对查询命令进行优化？</p>
-</li>
-<li><p>如何理解开源？</p>
-</li>
-<li><p>如何用MVC/MTV的缓存？</p>
-</li>
-<li><p>Mys的死锁是如何产生的？</p>
-</li>
-<li><p>Sql注入是如何产生的，如何防止？</p>
-</li>
-<li><p>xxs如何预防？</p>
-</li>
-<li><p>如何生成共享秘钥？ 如何防范中间人攻击？</p>
-</li>
-<li><p>如何管理不同版本的代码？</p>
-</li>
-</ol>
-<p>Different</p>
-<ol>
-<li><p>数组和元组之间的区别？</p>
-</li>
-<li><p><em>new</em>和<em>init</em>的区别？</p>
-</li>
-</ol>
-<ul>
-<li><strong>init</strong>为初始化方法，<strong>new</strong>方法是真正的构造函数。</li>
-<li><strong>new</strong>是实例创建之前被调用，它的任务是创建并返回该实例，是静态方法</li>
-<li><strong>init</strong>是实例创建之后被调用的，然后设置对象属性的一些初始值。 </li>
-</ul>
-<p>总结：<strong>new</strong>方法在<strong>init</strong>方法之前被调用，并且<strong>new</strong>方法的返回值将传递给<strong>init</strong>方法作为第一个参数，最后<strong>init</strong>给这个实例设置一些参数。</p>
-<ol start="3">
-<li>Python中单下划线和双下划綫的区别？</li>
-</ol>
-<ul>
-<li><strong>name</strong>是一种约定，Python内部的名字，用来与用户自定义的名字区分开，防止冲突</li>
-<li>_name：一种约定，用来指定变量私有</li>
-<li><strong>name：解释器用_classname</strong>name来代替这个名字用以区别和其他类相同的命名</li>
-</ul>
-<ol start="4">
-<li><p>浅拷贝与深拷贝的区别是？</p>
-</li>
-<li><p>使用装饰器的单例和使用其他方法的单例，在后续使用中，有何区别？</p>
-</li>
-<li><p>多进程与多线程的区别？</p>
-</li>
-<li><p>select和epoll的区别？</p>
-</li>
-<li><p>TCP和UDP的区别？边缘触发和水平触发的区别？</p>
-</li>
-<li><p>HTTP连接：get和post的区别？</p>
-</li>
-<li><p>varchar与char的区别？</p>
-</li>
-<li><p>BTree索引和hash索引的区别？</p>
-</li>
-<li><p>在判断object是否是class的instances时，type和Constance函数的区别？</p>
-</li>
-<li><p>primary key和unique的区别？</p>
-</li>
-<li><p>ecb和cbc模式有什么区别？</p>
-</li>
-<li><p>对称加密与非对称加密的区别？</p>
-</li>
-<li><p>staticmethod和装饰器的区别？</p>
-</li>
-<li><p>Xrange和range的区别？</p>
-</li>
-<li><p>deepcopy 和 copy的区别？</p>
-</li>
-<li><p>os.path和sys.path的区别？</p>
-</li>
-<li><p>生成器(generator)与函数的区别？</p>
-</li>
-<li><p>os与sys模块的区别？</p>
-</li>
-</ol>
-<p>官方文档： </p>
-<ul>
-<li>os模板提供了一种方便的使用操作系统函数的方法</li>
-<li>sys模板可供访问由解释器使用或维护的变量和与解释器交互的函数</li>
-</ul>
-<p>另一种回答：</p>
-<p>os模块负责程序与操作系统的交互，提供了访问操作系统底层的接口。sys模块负责程序与Python解释器的交互，提供了一系列的函数和变量用户操作Python运行时的环境。</p>
-<ol start="22">
-<li>NoSQL和关系数据库的区别？</li>
-</ol>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/23526961?refer=passer" target="_blank" rel="noopener">常见面试题整理–Python概念篇</a></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/offer/2018春季实习信息整理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/offer/2018春季实习信息整理/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="实习信息整理"><a href="#实习信息整理" class="headerlink" title="实习信息整理"></a>实习信息整理</h1><!-- TOC -->
-<ul>
-<li><a href="#今日头条">今日头条</a></li>
-<li><a href="#菜鸟网络">菜鸟网络</a></li>
-<li><a href="#腾讯">腾讯</a></li>
-<li><a href="#百度">百度</a></li>
-<li><a href="#滴滴">滴滴</a></li>
-<li><a href="#搜狐">搜狐</a></li>
-<li><a href="#蚂蚁金服">蚂蚁金服</a></li>
-<li><a href="#阿里巴巴">阿里巴巴</a></li>
-<li><a href="#商汤">商汤</a></li>
-</ul>
-<!-- /TOC -->
-<h2 id="今日头条"><a href="#今日头条" class="headerlink" title="今日头条"></a>今日头条</h2><p>找内推，头条官方网址：<a href="https://job.toutiao.com/campus/position" target="_blank" rel="noopener">https://job.toutiao.com/campus/position</a></p>
-<p>适合的职位：</p>
-<ul>
-<li>大数据实习生</li>
-<li>后端研发实习生</li>
-</ul>
-<p><strong><em>消息1</em></strong> 来自于“北邮19届互联网求职群”，树莓-产品-柔柔</p>
-<pre><code>【今日头条春招—广告系统团队内推】
-
-关于我们：我们是今日头条广告系统团队，主要负责公司所有系列产品的商业变现，包括今日头条、西瓜视频、抖音、火山小视频、内涵段子等等。从2014年成立以来，广告系统团队专注于打造领先的信息流广告营销平台，使公司收入保持每年3倍的增速，目前团队100+的工程师支撑着每天1亿+的收入。这里有世界上最优质的、规模最大的数据等你来挖掘，这里有着最具挑战性的工作等你来参与，这里有一群顶尖的攻城狮等着你加入！
-
-我们需要你：
-- 负责国内外高并发商业平台的研发和优化（广告后台/前端研发工程师）
-- 研究海量数据的批量计算、实时计算（广告算法/大数据研发工程师）
-- 广告投放平台的架构设计与优化（广告投放研发工程师）
-- 把控广告营销平台的质量与稳定性（测试开发工程师）
-
-岗位要求：
-- 2019年毕业（有转正机会），算法和数据结构基础过硬。
-
-我们的优势：
-- 广告系统团队是今日头条最核心的研发团队之一，众多技术领域都走在业界技术前沿，非常注重
-团队同学技术能力和技术视野的培养。
-- 团队氛围很好，实习薪资高——400/天，转正几率高，免费三餐（外地同学还有租房补贴）。
-
-欢迎投递简历到qiangyumeng[a]bytedance[dot]com，有任何找实习找工作的问题也可以私信问我。
-</code></pre><p><strong><em>消息2</em></strong></p>
-<p>yinghong：内推请找我 内推码 TWW5BJ6</p>
-<h2 id="菜鸟网络"><a href="#菜鸟网络" class="headerlink" title="菜鸟网络"></a>菜鸟网络</h2><p>菜鸟网络是阿里旗下负责物流的集团，与阿里电商、支付宝并列为阿里集团铁三角之一。仓储技术部作为菜鸟网络的业务核心部门，拳头产品，承载着全国24小时，全球72小时的伟大愿景。拥有企业级的复杂度，互联网的高并发，金融级的安全性挑战，每天订单百万级别，双11承载着千万级订单！菜鸟网络正处在告诉发展时期，在这里，可以有更多的锻炼机会，更大的上升空间。此外，区别于集团、蚂蚁金服，优秀的学生除了有等同集团的薪资，应届生也会有期权激励。</p>
-<p>2018年菜鸟校招实习生已经启动，请同学们互相转发，奔走相告，加入菜鸟，一起圆梦～～</p>
-<ul>
-<li>实习地点：杭州、北京</li>
-<li>投递时间：2018.2.9~2018.4.14</li>
-<li>工作内容：前端开发、Java/C++后端开发、测试、产品、数据分析、算法等各岗位均可以内推</li>
-<li>简历和邮件标题命名格式：真名 + 岗位 + 学校</li>
-<li>简历投递：<a href="mailto:jundong.zjd@cainiao.com" target="_blank" rel="noopener">jundong.zjd@cainiao.com</a></li>
-</ul>
-<h2 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h2><p>可以找徐煦师兄内推一下</p>
-<h2 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h2><p>可以找嘉爱内推一下</p>
-<h2 id="滴滴"><a href="#滴滴" class="headerlink" title="滴滴"></a>滴滴</h2><p>找张恿师兄了解一下情况</p>
-<h2 id="搜狐"><a href="#搜狐" class="headerlink" title="搜狐"></a>搜狐</h2><p>搜狐招多岗位实习生，研发岗语言主要是c++/java，算法岗：java/Python/scala等。简历请发<a href="mailto:490568455@qq.com" target="_blank" rel="noopener">490568455@qq.com</a></p>
-<h2 id="蚂蚁金服"><a href="#蚂蚁金服" class="headerlink" title="蚂蚁金服"></a>蚂蚁金服</h2><ul>
-<li>蚂蚁实习生招聘</li>
-<li>职位： 研发工程师</li>
-<li>部门： 蚂蚁金服中间件团队</li>
-<li>职位描述：蚂蚁中间件团队是服务与整个蚂蚁金服集团的核心技术团队，期待您的加入，共同建设世界领先的金融级分布式架构的基础中间件平台。</li>
-<li>推荐方式： 发送简历到邮箱：<a href="mailto:lorne.cl@antfin.com" target="_blank" rel="noopener">lorne.cl@antfin.com</a></li>
-<li>职位要求：<ol>
-<li>精通至少一门编程语言：Java/Go/C 等；</li>
-<li>扎实的计算机基础,熟悉常用算法和数据结构，熟悉网络编程、多线程编程技术； </li>
-<li>善于学习新的知识，对解决具有挑战性问题充满激情； </li>
-<li>对常用开源产品 Spring、Struts、MyBatis、Redis、MQ、Dubbo等有深入研究者优先。</li>
-</ol>
-</li>
-</ul>
-<p>2019年毕业的师弟师妹们，蚂蚁金服实习生内推开始了，实习生校招时不参加笔试直接进入面试环节，有意向简历请发到 <a href="mailto:yanwen.jyw@antfin.com" target="_blank" rel="noopener">yanwen.jyw@antfin.com</a></p>
-<h2 id="阿里巴巴"><a href="#阿里巴巴" class="headerlink" title="阿里巴巴"></a>阿里巴巴</h2><p>【阿里巴巴】淘宝内容生态实习生招聘火热内推中</p>
-<p>淘宝内容生态团队邀你一起繁荣生态共创未来！！！</p>
-<p>关于我们：</p>
-<p>1、内容生态团队是支撑全淘宝内容生产、理解、分发、运营和商业化的核心团队，团队以大数据为驱动，负责构建从内容生产到内容消费的智能生态体系，服务千万创作者和数亿消费者。当前该体系已支撑了手机淘宝上包括淘宝头条、微淘、淘宝直播、必买清单、有好货、爱逛街等重要业务的全部内容场景，每天为数亿消费者提供数亿次的内容消费服务。</p>
-<p>2、淘宝技术部致力于成为全球最懂用户和商业的技术创新团队，连接人与生活，用技术创造全球最大的生活社区，促进新商业创业创新生态，这些无不依赖内容的创新和基于内容的新商业基础设施的构建，内容生态团队正是肩负这样的使命。我们的愿景是实现三年服务十亿消费者的目标，这里充满了机会和挑战。</p>
-<p>3、我们是一个充满梦想和激情的团队，拥有多名在阿里工作超过五年的技术大牛，技术经验丰富、技术储备深厚，团队打赢过很多攻坚战，赢得过多次创新项目大奖，并连续多次获得卓越团队称号。</p>
-<p>工作地点：<br>北京、杭州</p>
-<p>面向对象:<br>2019届毕业生（毕业时间：2019.1.1-2019.12.31）</p>
-<p>内推截至时间:<br>2018年4月14日</p>
-<p>简历投递至：<br><a href="mailto:xiduo.txd@alibaba-inc.com" target="_blank" rel="noopener">xiduo.txd@alibaba-inc.com</a></p>
-<p>简历格式：<br>姓名_职位</p>
-<p>职位简介：</p>
-<p>1、研发工程师JAVA</p>
-<p>如果你想了解JAVA开发在阿里巴巴互联网生态系统中无与伦比的应用广度与深度；<br>如果你对基础技术感兴趣，你可以参与基础软件的设计、开发和维护，如分布式文件系统、缓存系统、Key/Value存储系统、数据库、Linux操作系统和Java优化等； </p>
-<p>如果你热衷于高性能分布式技术，你可以参与高性能分布式服务端程序的系统设计，为阿里巴巴的产品提供强有力的后台支持，在海量的网络访问和数据处理中，设计并设施最强大的解决方案；<br>如果你喜欢研究搜索技术，你可以参与搜索引擎各个功能模块的设计和实现，构建高可靠性、高可用性、高可扩展性的体系结构，满足日趋复杂的业务需求； </p>
-<p>如果你对电子商务产品技术感兴趣，你可以参与产品的开发和维护，完成从需求到设计、开发和上线等整个项目周期内的工作； </p>
-<p>如果你对数据敏感，你可以参与海量数据处理和开发，通过sql、pl/sql、java进行etl程序开发，满足商业上对数据的开发需求； </p>
-<p>如果你热衷于客户端开发，你可以参与为用户提供丰富而有价值的桌面或无线软件产品。</p>
-<p>岗位要求：</p>
-<p>或许，你来自计算机专业，机械专业，甚至可能是学生物的； 但是，你酷爱着计算机以及互联网技术，热衷于解决挑战性的问题，追求极致的用户体验；<br>或许，你痴迷于数据结构和算法，热衷于ACM，常常为看到“accept”而兴奋的手足舞蹈；<br>或许，你熟悉Unix/Linux/Win32环境下编程，并有相关开发经验，熟练使用调试工具，并熟悉Perl，Python，shell等脚本语言；<br>或许，你熟悉网络编程和多线程编程，对TCP/IP，HTTP等网络协议有很深的理解，并了解XML和HTML语言；<br>或许，你热衷于数据库技术，能够熟练编写SQL脚本，有MySql或Oracle应用开发经验；<br>或许，你并不熟悉Java编程语言，更精通C，C++，PHP，.NET等编程语言中的一种或几种，但你有良好和快速的学习能力；<br>有可能，你参加过大学生数学建模竞赛，“挑战杯”，机器人足球比赛等；<br>也有可能，你在学校的时候作为骨干参与学生网站的建设和开发；<br>这些，都是我们想要的。来吧，加入我们！</p>
-<p>2、算法工程师</p>
-<p>我们专注于大数据之上的机器学习算法研究与应用，如果你了解机器学习、深度学习、强化学习、迁移学习、主动学习、特征提取与稀疏学习、等级学习等相关知识，对人工智能抱有极大的热情，勇于挑战各种实际应用难题，欢迎加入我们！</p>
-<p>具体职责包括但不限于：</p>
-<p>1、负责机器学习、深度学习领域的技术研发工作，包括但不限于神经元网络模型设计与优化、强化学习、迁移学习、主动学习、维度降低、核方法、谱方法、特征提取与稀疏学习、等级学习、推荐、随机优化等的算法和系统研发等；</p>
-<p>2、负责机器学习尤其是深度学习前沿问题的探索与研究，结合未来实际应用场景，提供全面的技术解决方案；</p>
-<p>3、负责提供分布式的算法实现的解决方案，大幅提升算法计算规模和性能；</p>
-<p>4、负责提供大数据分析建模方案，沉淀行业解决方案，协助拓展业务边界。</p>
-<p>岗位要求：</p>
-<p>1、本科及以上学历，硕士博士优先，计算机、数学、电子工程、通信等相关专业；</p>
-<p>2、熟悉常用机器学习算法，对模式识别、深度学习、增强学习等相关领域，极佳的工程实现能力，精通C/C++、Java、Python等至少一门编程语言；</p>
-<p>3、候选人有数理分析方面良好的素养以及数理统计基础；</p>
-<p>4、良好的数据敏感能力、较强的逻辑分析能力；</p>
-<p>5、良好的团队合作精神，能够做到严谨、皮实、乐观；</p>
-<p>6、有实际成果并发表在国际顶级会议、期刊者优先，有在ImageNet、MSCOCO、ICDAR等权威数据库上提交过结果并取得优异成绩者优先；</p>
-<p>7、有deeplearning的经验，有linux下开发经验的，大规模数据处理经验优先。</p>
-<p>非常期待您的加入！</p>
-<h2 id="商汤"><a href="#商汤" class="headerlink" title="商汤"></a>商汤</h2><p>【实习】【商汤科技】数据挖掘实习生<br>岗位职责：<br>        1.参与广告投放引擎系统开发与优化，包括但不限于索引结构、匹配算法、投放任务调度、接口耗时、系统稳定性与可扩展性的优化。<br>        2.与算法工程师协同工作，实现高效高质量的算法工程化。<br>        3.运用数据挖掘和机器学习方法和技术，深入挖掘和分析海量商业数据。<br>任职资格：<br>        1、计算机相关专业，良好的算法、数据结构基础，熟悉计算机操作系统、网络、数据库等课程。<br>        2、较强的工程能力，至少能够熟练使用一种语言进行开发（Java/C++/Golang）。<br>        3、具备数据挖掘，机器学习领域的知识和实践。<br>        4、要求有后台开发的实习/项目经验，热爱后台技术，熟悉thrift，redis，消息队列等常用技术者优先。<br>        5、有大规模系统开发经验者优先，熟悉计算广告，或者有相关开发经验者优先。</p>
 
           
         
@@ -1590,7 +1420,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/ml_ai_ann/机器学习中距离和相似性度量方法/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/ml_ai_ann/机器学习中距离和相似性度量方法/" itemprop="url">机器学习中距离和相似性度量方法</a></h1>
         
 
         <div class="post-meta">
@@ -1612,6 +1442,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1642,12 +1494,7 @@
       
         
           
-            <hr>
-<pre><code>机器学习中距离和相似性度量方法
-@author chenkh
-@createtime 2018-01-04
-</code></pre><hr>
-<h1 id="机器学习中距离和相似性度量方法"><a href="#机器学习中距离和相似性度量方法" class="headerlink" title="机器学习中距离和相似性度量方法"></a>机器学习中距离和相似性度量方法</h1><p>声明：本文主要参考文章 <a href="http://dataunion.org/11710.html" target="_blank" rel="noopener">机器学习中距离和相似性度量方法</a></p>
+            <h1 id="机器学习中距离和相似性度量方法"><a href="#机器学习中距离和相似性度量方法" class="headerlink" title="机器学习中距离和相似性度量方法"></a>机器学习中距离和相似性度量方法</h1><p>声明：本文主要参考文章 <a href="http://dataunion.org/11710.html" target="_blank" rel="noopener">机器学习中距离和相似性度量方法</a></p>
 <p>在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等等。根据数据特性的不同，可以采用不同的度量方法。一般而言，定义一个距离函数 d(x,y), 需要满足下面几个准则：<br>1) d(x,x) = 0                    // 到自己的距离为0<br>2) d(x,y) &gt;= 0                  // 距离非负<br>3) d(x,y) = d(y,x)             // 对称性: 如果 A 到 B 距离是 a，那么 B 到 A 的距离也应该是 a<br>4) d(x,k)+ d(k,y) &gt;= d(x,y)    // 三角形法则: (两边之和大于第三边)</p>
 <p>这篇博客主要介绍机器学习和数据挖掘中一些常见的距离公式，包括：<br><strong>闵可夫斯基距离、欧几里得距离、曼哈顿距离、切比雪夫距离、马氏距离、余弦相似度、皮尔逊相关系数、汉明距离、杰卡德相似系数、编辑距离、DTW距离、KL散度</strong></p>
 <p>有时间再整理</p>
@@ -1762,7 +1609,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/关于ssh/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/关于ssh/" itemprop="url">关于ssh的知识</a></h1>
         
 
         <div class="post-meta">
@@ -1784,6 +1631,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -2011,7 +1880,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/shellcmd/shellcommand随笔/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/shellcmd/shellcommand随笔/" itemprop="url">shellcommand 随笔</a></h1>
         
 
         <div class="post-meta">
@@ -2033,6 +1902,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux系统/" itemprop="url" rel="index">
+                    <span itemprop="name">linux系统</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux系统/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -2169,7 +2071,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -2180,7 +2082,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

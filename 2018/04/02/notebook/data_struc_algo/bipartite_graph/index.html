@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据结构与算法,图,二分图," />
 
 
 
@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="初识二分图 @author chenkh @createtime 2018-01-04  初识二分图  初识二分图 什么是二分图？ 二分图研究问题 最大匹配问题与完美匹配问题 匈牙利算法     参考资料     什么是二分图？Wiki定义 二分图指顶点可以分成两个不相交的集 U 和 V（U 和 V 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，">
-<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta name="description" content="初识二分图  什么是二分图？ 二分图研究问题 最大匹配问题与完美匹配问题 匈牙利算法     参考资料   什么是二分图？Wiki定义 二分图指顶点可以分成两个不相交的集 U 和 V（U 和 V 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，又称双分图、二部图、偶图。 符号化描述 设 G=(V, E) 是一个无向图，如果顶点 V 可分割为两个互不相">
+<meta name="keywords" content="数据结构与算法,图,二分图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="其鬼不神">
+<meta property="og:title" content="初识二分图">
 <meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/data_struc_algo/bipartite_graph/index.html">
 <meta property="og:site_name" content="其鬼不神">
-<meta property="og:description" content="初识二分图 @author chenkh @createtime 2018-01-04  初识二分图  初识二分图 什么是二分图？ 二分图研究问题 最大匹配问题与完美匹配问题 匈牙利算法     参考资料     什么是二分图？Wiki定义 二分图指顶点可以分成两个不相交的集 U 和 V（U 和 V 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，">
+<meta property="og:description" content="初识二分图  什么是二分图？ 二分图研究问题 最大匹配问题与完美匹配问题 匈牙利算法     参考资料   什么是二分图？Wiki定义 二分图指顶点可以分成两个不相交的集 U 和 V（U 和 V 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，又称双分图、二部图、偶图。 符号化描述 设 G=(V, E) 是一个无向图，如果顶点 V 可分割为两个互不相">
 <meta property="og:locale" content="Java, Python, C, Go language">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/250px-Simple-bipartite-graph.svg.png">
 <meta property="og:image" content="https://img.renfei.org/2013/08/1.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="https://img.renfei.org/2013/08/0.png">
 <meta property="og:image" content="https://img.renfei.org/2013/08/5.png">
 <meta property="og:image" content="https://img.renfei.org/2013/08/6.png">
-<meta property="og:updated_time" content="2018-04-02T08:39:27.966Z">
+<meta property="og:updated_time" content="2018-04-02T09:13:51.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="其鬼不神">
-<meta name="twitter:description" content="初识二分图 @author chenkh @createtime 2018-01-04  初识二分图  初识二分图 什么是二分图？ 二分图研究问题 最大匹配问题与完美匹配问题 匈牙利算法     参考资料     什么是二分图？Wiki定义 二分图指顶点可以分成两个不相交的集 U 和 V（U 和 V 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，">
+<meta name="twitter:title" content="初识二分图">
+<meta name="twitter:description" content="初识二分图  什么是二分图？ 二分图研究问题 最大匹配问题与完美匹配问题 匈牙利算法     参考资料   什么是二分图？Wiki定义 二分图指顶点可以分成两个不相交的集 U 和 V（U 和 V 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，又称双分图、二部图、偶图。 符号化描述 设 G=(V, E) 是一个无向图，如果顶点 V 可分割为两个互不相">
 <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/250px-Simple-bipartite-graph.svg.png">
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title> | 其鬼不神</title>
+  <title>初识二分图 | 其鬼不神</title>
   
 
 
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">初识二分图</h1>
         
 
         <div class="post-meta">
@@ -333,6 +333,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -361,14 +383,8 @@
       
 
       
-        <hr>
-<pre><code>初识二分图
-@author chenkh
-@createtime 2018-01-04
-</code></pre><hr>
-<h1 id="初识二分图"><a href="#初识二分图" class="headerlink" title="初识二分图"></a>初识二分图</h1><!-- TOC -->
+        <h1 id="初识二分图"><a href="#初识二分图" class="headerlink" title="初识二分图"></a>初识二分图</h1><!-- TOC -->
 <ul>
-<li><a href="#初识二分图">初识二分图</a><ul>
 <li><a href="#什么是二分图">什么是二分图？</a></li>
 <li><a href="#二分图研究问题">二分图研究问题</a><ul>
 <li><a href="#最大匹配问题与完美匹配问题">最大匹配问题与完美匹配问题</a><ul>
@@ -378,8 +394,6 @@
 </ul>
 </li>
 <li><a href="#参考资料">参考资料</a></li>
-</ul>
-</li>
 </ul>
 <!-- /TOC -->
 <h2 id="什么是二分图？"><a href="#什么是二分图？" class="headerlink" title="什么是二分图？"></a>什么是二分图？</h2><p><strong>Wiki定义</strong></p>
@@ -454,6 +468,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/" rel="tag"><i class="fa fa-tag"></i> 数据结构与算法</a>
+          
+            <a href="/tags/图/" rel="tag"><i class="fa fa-tag"></i> 图</a>
+          
+            <a href="/tags/二分图/" rel="tag"><i class="fa fa-tag"></i> 二分图</a>
+          
+        </div>
+      
 
       
       
@@ -463,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/02/notebook/README/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/04/02/notebook/data_struc_algo/B树和B+树/" rel="next" title="B树与B+树">
+                <i class="fa fa-chevron-left"></i> B树与B+树
               </a>
             
           </div>
@@ -473,8 +497,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/02/notebook/data_struc_algo/B树和B+树/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/02/notebook/data_struc_algo/classic dynamic program/" rel="prev" title="经典动态规划的题目">
+                经典动态规划的题目 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +591,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -578,7 +602,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="机器学习,相似性度量," />
 
 
 
@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="机器学习中距离和相似性度量方法 @author chenkh @createtime 2018-01-04  机器学习中距离和相似性度量方法声明：本文主要参考文章 机器学习中距离和相似性度量方法 在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等">
-<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta name="description" content="机器学习中距离和相似性度量方法声明：本文主要参考文章 机器学习中距离和相似性度量方法 在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等等。根据数据特性的不同，可以采用不同的度量方法。一般而言，定义一个距离函数 d(x,y), 需要满足下面几个准则">
+<meta name="keywords" content="机器学习,相似性度量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="其鬼不神">
+<meta property="og:title" content="机器学习中距离和相似性度量方法">
 <meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/ml_ai_ann/机器学习中距离和相似性度量方法/index.html">
 <meta property="og:site_name" content="其鬼不神">
-<meta property="og:description" content="机器学习中距离和相似性度量方法 @author chenkh @createtime 2018-01-04  机器学习中距离和相似性度量方法声明：本文主要参考文章 机器学习中距离和相似性度量方法 在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等">
+<meta property="og:description" content="机器学习中距离和相似性度量方法声明：本文主要参考文章 机器学习中距离和相似性度量方法 在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等等。根据数据特性的不同，可以采用不同的度量方法。一般而言，定义一个距离函数 d(x,y), 需要满足下面几个准则">
 <meta property="og:locale" content="Java, Python, C, Go language">
 <meta property="og:image" content="http://dataunion.org/wp-content/uploads/2015/03/07220422-b6c5a38eccb74824b92ba1b40c9dd92f.png">
 <meta property="og:image" content="http://dataunion.org/wp-content/uploads/2015/03/07220504-12655edb08dc45ae8a036d8028743042.png">
-<meta property="og:updated_time" content="2018-04-02T08:39:28.009Z">
+<meta property="og:updated_time" content="2018-04-02T09:13:51.997Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="其鬼不神">
-<meta name="twitter:description" content="机器学习中距离和相似性度量方法 @author chenkh @createtime 2018-01-04  机器学习中距离和相似性度量方法声明：本文主要参考文章 机器学习中距离和相似性度量方法 在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等">
+<meta name="twitter:title" content="机器学习中距离和相似性度量方法">
+<meta name="twitter:description" content="机器学习中距离和相似性度量方法声明：本文主要参考文章 机器学习中距离和相似性度量方法 在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等等。根据数据特性的不同，可以采用不同的度量方法。一般而言，定义一个距离函数 d(x,y), 需要满足下面几个准则">
 <meta name="twitter:image" content="http://dataunion.org/wp-content/uploads/2015/03/07220422-b6c5a38eccb74824b92ba1b40c9dd92f.png">
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title> | 其鬼不神</title>
+  <title>机器学习中距离和相似性度量方法 | 其鬼不神</title>
   
 
 
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">机器学习中距离和相似性度量方法</h1>
         
 
         <div class="post-meta">
@@ -327,6 +327,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -355,12 +377,7 @@
       
 
       
-        <hr>
-<pre><code>机器学习中距离和相似性度量方法
-@author chenkh
-@createtime 2018-01-04
-</code></pre><hr>
-<h1 id="机器学习中距离和相似性度量方法"><a href="#机器学习中距离和相似性度量方法" class="headerlink" title="机器学习中距离和相似性度量方法"></a>机器学习中距离和相似性度量方法</h1><p>声明：本文主要参考文章 <a href="http://dataunion.org/11710.html" target="_blank" rel="noopener">机器学习中距离和相似性度量方法</a></p>
+        <h1 id="机器学习中距离和相似性度量方法"><a href="#机器学习中距离和相似性度量方法" class="headerlink" title="机器学习中距离和相似性度量方法"></a>机器学习中距离和相似性度量方法</h1><p>声明：本文主要参考文章 <a href="http://dataunion.org/11710.html" target="_blank" rel="noopener">机器学习中距离和相似性度量方法</a></p>
 <p>在机器学习和数据挖掘中，我们经常需要知道个体间差异的大小，进而评价个体的相似性和类别。最常见的是数据分析中的相关分析，数据挖掘中的分类和聚类算法，如 K 最近邻（KNN）和 K 均值（K-Means）等等。根据数据特性的不同，可以采用不同的度量方法。一般而言，定义一个距离函数 d(x,y), 需要满足下面几个准则：<br>1) d(x,x) = 0                    // 到自己的距离为0<br>2) d(x,y) &gt;= 0                  // 距离非负<br>3) d(x,y) = d(y,x)             // 对称性: 如果 A 到 B 距离是 a，那么 B 到 A 的距离也应该是 a<br>4) d(x,k)+ d(k,y) &gt;= d(x,y)    // 三角形法则: (两边之和大于第三边)</p>
 <p>这篇博客主要介绍机器学习和数据挖掘中一些常见的距离公式，包括：<br><strong>闵可夫斯基距离、欧几里得距离、曼哈顿距离、切比雪夫距离、马氏距离、余弦相似度、皮尔逊相关系数、汉明距离、杰卡德相似系数、编辑距离、DTW距离、KL散度</strong></p>
 <p>有时间再整理</p>
@@ -429,6 +446,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+            <a href="/tags/相似性度量/" rel="tag"><i class="fa fa-tag"></i> 相似性度量</a>
+          
+        </div>
+      
 
       
       
@@ -438,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/02/notebook/linux和操作系统/关于ssh/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/04/02/notebook/linux和操作系统/关于ssh/" rel="next" title="关于ssh的知识">
+                <i class="fa fa-chevron-left"></i> 关于ssh的知识
               </a>
             
           </div>
@@ -448,8 +473,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/02/notebook/offer/2018春季实习信息整理/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/02/notebook/offer/剑指offer阅读笔记/" rel="prev" title="剑指offer阅读笔记">
+                剑指offer阅读笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -542,7 +567,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -553,7 +578,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

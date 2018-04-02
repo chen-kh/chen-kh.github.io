@@ -304,7 +304,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/min_sum_diff/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/min_sum_diff/" itemprop="url">面试算法题</a></h1>
         
 
         <div class="post-meta">
@@ -326,6 +326,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -449,7 +471,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/classic dynamic program/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/classic dynamic program/" itemprop="url">经典动态规划的题目</a></h1>
         
 
         <div class="post-meta">
@@ -471,6 +493,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -594,7 +638,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/B树和B+树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/bipartite_graph/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaiheng CHEN">
@@ -613,7 +657,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/B树和B+树/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/bipartite_graph/" itemprop="url">初识二分图</a></h1>
         
 
         <div class="post-meta">
@@ -635,6 +679,233 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="初识二分图"><a href="#初识二分图" class="headerlink" title="初识二分图"></a>初识二分图</h1><!-- TOC -->
+<ul>
+<li><a href="#什么是二分图">什么是二分图？</a></li>
+<li><a href="#二分图研究问题">二分图研究问题</a><ul>
+<li><a href="#最大匹配问题与完美匹配问题">最大匹配问题与完美匹配问题</a><ul>
+<li><a href="#匈牙利算法">匈牙利算法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="什么是二分图？"><a href="#什么是二分图？" class="headerlink" title="什么是二分图？"></a>什么是二分图？</h2><p><strong>Wiki定义</strong></p>
+<p>二分图指顶点可以分成两个不相交的集 <strong>U</strong> 和 <strong>V</strong>（<strong>U</strong> 和 <strong>V</strong> 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，又称双分图、二部图、偶图。</p>
+<p><strong>符号化描述</strong></p>
+<p>设 <strong><em>G=(V, E)</em></strong> 是一个无向图，如果顶点 <strong>V</strong> 可分割为两个互不相交的子集 <strong>U</strong> , <strong>V</strong>，并且图中的每条边 <strong>(i,j)</strong> 所关联的两个顶点 <strong>i</strong> 和 <strong>j</strong> 分别属于这两个不同的顶点集 ( <strong>i</strong> in <strong>U</strong>, <strong>j</strong> in <strong>V</strong>)，则称图 <strong><em>G</em></strong> 为一个二分图。</p>
+<p><strong>图形化描述</strong></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/250px-Simple-bipartite-graph.svg.png" alt="二分图范例"></p>
+<p><strong>应用场景示例</strong></p>
+<p>学生与课程的关系，商家与顾客的关系，司机与乘客的关系等等。</p>
+<h2 id="二分图研究问题"><a href="#二分图研究问题" class="headerlink" title="二分图研究问题"></a>二分图研究问题</h2><p>先引入几个概念，文章<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>中讲的非常好，这里直接引用。</p>
+<blockquote>
+<p><strong>匹配</strong>：在图论中，一个「匹配」（matching）是一个边的集合，其中任意两条边都没有公共顶点。例如，图 3、图 4 中红色的边就是图 2 的匹配。<br><!-- 图片 --><br><img src="https://img.renfei.org/2013/08/1.png" alt="Bipartite Graph(1)"><br><img src="https://img.renfei.org/2013/08/2.png" alt="Bipartite Graph(2)"><br><img src="https://img.renfei.org/2013/08/3.png" alt="Matching"><br><img src="https://img.renfei.org/2013/08/4.png" alt="Maximum Matching">  </p>
+<p>我们定义匹配点、匹配边、未匹配点、非匹配边，它们的含义非常显然。例如图 3 中 1、4、5、7 为匹配点，其他顶点为未匹配点；1-5、4-7为匹配边，其他边为非匹配边。<br><strong>最大匹配</strong>：一个图所有匹配中，所含匹配边数最多的匹配，称为这个图的最大匹配。图 4 是一个最大匹配，它包含 4 条匹配边。<br><strong>完美匹配</strong>：如果一个图的某个匹配中，所有的顶点都是匹配点，那么它就是一个完美匹配。图 4 是一个完美匹配。显然，完美匹配一定是最大匹配（完美匹配的任何一个点都已经匹配，添加一条新的匹配边一定会与已有的匹配边冲突）。但并非每个图都存在完美匹配。</p>
+</blockquote>
+<h3 id="最大匹配问题与完美匹配问题"><a href="#最大匹配问题与完美匹配问题" class="headerlink" title="最大匹配问题与完美匹配问题"></a>最大匹配问题与完美匹配问题</h3><blockquote>
+<p>举例来说：如下图所示，如果在某一对男孩和女孩之间存在相连的边，就意味着他们彼此喜欢。是否可能让所有男孩和女孩两两配对，使得每对儿都互相喜欢呢？图论中，这就是完美匹配问题。如果换一个说法：最多有多少互相喜欢的男孩/女孩可以配对儿？这就是最大匹配问题。  </p>
+<p><img src="https://img.renfei.org/2013/08/0.png" alt="boys and girls"></p>
+</blockquote>
+<h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><p>详见<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a> 这文章写的太好。</p>
+<p>匈牙利算法是解决最大匹配和完美匹配的一种算法，应用度很高。下面写一下匈牙利算法的大致过程，由于需要图形展示才能更好的理解，所以这里的大部分内容都是<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>中的内容。但我加入了个人的理解，比原版要更容易理解。</p>
+<p>首先明确两个概念：交替路和增广路</p>
+<blockquote>
+<p><img src="https://img.renfei.org/2013/08/5.png" alt="figure 5"></p>
+<p><strong>交替路</strong>：从一个未匹配点出发，依次经过非匹配边、匹配边、非匹配边…形成的路径叫交替路。</p>
+<p><strong>增广路</strong>：从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路（agumenting path）。例如，图 5 中的一条增广路如图 6 所示（图中的匹配点均用红色标出）：</p>
+<p><img src="https://img.renfei.org/2013/08/6.png" alt="figure 6"></p>
+</blockquote>
+<p>增广路的首尾是非匹配点。因此，增广路径的第一条和最后一条边，必然是非匹配边；同时它的第二条边（如果有）和倒数第二条边（如果有），必然是匹配边；以及第三条边（如果有）和倒数第三条边（如果有），一定是非匹配边。</p>
+<p>亦即，增广路径从非匹配边开始，匹配边和非匹配边依次交替，最后由非匹配边结束。这样一来，增广路径中非匹配边的数目会比匹配边大 1。</p>
+<p>如果我们置换增广路径中的匹配边和非匹配边，由于增广路径的首尾是非匹配点，其余则是匹配点，这样的置换不会影响原匹配中其他的匹配边和匹配点，因而不会破坏匹配；亦即增广路径的置换，可以得到比原有匹配更大的匹配（具体来说，匹配的边数增加了 1）。</p>
+<p>由于二分图的最大匹配必然存在（比如，上限是包含所有顶点的完全匹配），所以，再任意匹配的基础上，如果我们有办法不断地搜寻出增广路径，直到最终我们找不到新的增广路径为止，我们就有可能得到二分图的一个最大匹配。这就是<strong>匈牙利算法的核心思想</strong>。</p>
+<p><strong>贪心思路的证明</strong></p>
+<p>唯一的问题在于，在这种贪心的思路下，我们如何保证不存在例外的情况，即：当前匹配不是二分图的最大匹配，但已找不到一条新的增广路径。</p>
+<p>我们从反证法考虑，即假设存在这样的情况。因为当前匹配不是二分图的最大匹配，那么在两个集合中，分别至少存在一个非匹配点。那么情况分为两种：</p>
+<ul>
+<li>这两个点之间存在一条边——那么我们找到了一条新的增广路径，产生矛盾；</li>
+<li>这两个点之间不存在直接的边，即这两个点分别都只与匹配点相连——那么：<ul>
+<li>如果这两个点可以用已有的匹配点相连，那么我们找到了一条新的增广路径，产生矛盾；</li>
+<li>如果这两个点无法用已有的匹配点相连，那么这两个点也就无法增加匹配中边的数量，也就是我们已经找到了二分图的最大匹配，产生矛盾。<br>在所有可能的情况，上述假设都会产生矛盾。因此假设不成立，亦即贪心算法必然能求得最大匹配的解。</li>
+</ul>
+</li>
+</ul>
+<p><strong>贪心算法过程简述</strong></p>
+<p>对二分图中的某一部分遍历，对每个节点查找增广路，如果查找到，交换匹配边与非匹配边；如果没有找到，计算下个节点。遍历完成后便得到了一个最大匹配。<br>代码见<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>，此处引用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 顶点、边的编号均从 0 开始</span></span><br><span class="line"><span class="comment">// 邻接表储存</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> from;</span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    <span class="keyword">int</span> weight;</span><br><span class="line"></span><br><span class="line">    Edge(<span class="keyword">int</span> f, <span class="keyword">int</span> t, <span class="keyword">int</span> w):from(f), to(t), weight(w) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[__maxNodes]; <span class="comment">/* G[i] 存储顶点 i 出发的边的编号 */</span></span><br><span class="line"><span class="built_in">vector</span>&lt;Edge&gt; edges;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator <span class="keyword">iterator_t</span>;</span><br><span class="line"><span class="keyword">int</span> num_nodes;</span><br><span class="line"><span class="keyword">int</span> num_left;</span><br><span class="line"><span class="keyword">int</span> num_right;</span><br><span class="line"><span class="keyword">int</span> num_edges;</span><br><span class="line"><span class="keyword">int</span> matching[__maxNodes]; <span class="comment">/* 存储求解结果 */</span></span><br><span class="line"><span class="keyword">int</span> check[__maxNodes];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">iterator_t</span> i = G[u].begin(); i != G[u].end(); ++i) &#123; <span class="comment">// 对 u 的每个邻接点</span></span><br><span class="line">        <span class="keyword">int</span> v = edges[*i].to;</span><br><span class="line">        <span class="keyword">if</span> (!check[v]) &#123;     <span class="comment">// 要求不在交替路中</span></span><br><span class="line">            check[v] = <span class="literal">true</span>; <span class="comment">// 放入交替路</span></span><br><span class="line">            <span class="keyword">if</span> (matching[v] == <span class="number">-1</span> || dfs(matching[v])) &#123;</span><br><span class="line">                <span class="comment">// 如果是未盖点，说明交替路为增广路，则交换路径，并返回成功</span></span><br><span class="line">                matching[v] = u;</span><br><span class="line">                matching[u] = v;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 不存在增广路，返回失败</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(matching, <span class="number">-1</span>, <span class="keyword">sizeof</span>(matching));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> u=<span class="number">0</span>; u &lt; num_left; ++u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (matching[u] == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="built_in">memset</span>(check, <span class="number">0</span>, <span class="keyword">sizeof</span>(check));</span><br><span class="line">            <span class="keyword">if</span> (dfs(u))</span><br><span class="line">                ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line"><span class="keyword">int</span> prev[__maxNodes];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(matching, <span class="number">-1</span>, <span class="keyword">sizeof</span>(matching));</span><br><span class="line">    <span class="built_in">memset</span>(check, <span class="number">-1</span>, <span class="keyword">sizeof</span>(check));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;num_left; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (matching[i] == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!Q.empty()) Q.pop();</span><br><span class="line">            Q.push(i);</span><br><span class="line">            prev[i] = <span class="number">-1</span>; <span class="comment">// 设 i 为路径起点</span></span><br><span class="line">            <span class="keyword">bool</span> flag = <span class="literal">false</span>; <span class="comment">// 尚未找到增广路</span></span><br><span class="line">            <span class="keyword">while</span> (!Q.empty() &amp;&amp; !flag) &#123;</span><br><span class="line">                <span class="keyword">int</span> u = Q.front();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">iterator_t</span> ix = G[u].begin(); ix != G[u].end() &amp;&amp; !flag; ++ix) &#123;</span><br><span class="line">                    <span class="keyword">int</span> v = edges[*ix].to;</span><br><span class="line">                    <span class="keyword">if</span> (check[v] != i) &#123;</span><br><span class="line">                        check[v] = i;</span><br><span class="line">                        Q.push(matching[v]);</span><br><span class="line">                        <span class="keyword">if</span> (matching[v] &gt;= <span class="number">0</span>) &#123; <span class="comment">// 此点为匹配点</span></span><br><span class="line">                            prev[matching[v]] = u;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 找到未匹配点，交替路变为增广路</span></span><br><span class="line">                            flag = <span class="literal">true</span>;</span><br><span class="line">                            <span class="keyword">int</span> d=u, e=v;</span><br><span class="line">                            <span class="keyword">while</span> (d != <span class="number">-1</span>) &#123;</span><br><span class="line">                                <span class="keyword">int</span> t = matching[d];</span><br><span class="line">                                matching[d] = e;</span><br><span class="line">                                matching[e] = d;</span><br><span class="line">                                d = prev[d];</span><br><span class="line">                                e = t;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                Q.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (matching[i] != <span class="number">-1</span>) ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>匈牙利算法的要点如下</strong><br>从左边第 1 个顶点开始，挑选未匹配点进行搜索，寻找增广路。<br>如果经过一个未匹配点，说明寻找成功。更新路径信息，匹配边数 +1，停止搜索。<br>如果一直没有找到增广路，则不再从这个点开始搜索。事实上，此时搜索后会形成一棵匈牙利树。我们可以永久性地把它从图中删去，而不影响结果。<br>由于找到增广路之后需要沿着路径更新匹配，所以我们需要一个结构来记录路径上的点。DFS 版本通过函数调用隐式地使用一个栈，而 BFS 版本使用 prev 数组。  </p>
+<p><strong>性能比较</strong><br>两个版本的时间复杂度均为O(V⋅E)O(V⋅E)。DFS 的优点是思路清晰、代码量少，但是性能不如 BFS。我测试了两种算法的性能。对于稀疏图，BFS 版本明显快于 DFS 版本；而对于稠密图两者则不相上下。在完全随机数据 9000 个顶点 4,0000 条边时前者领先后者大约 97.6%，9000 个顶点 100,0000 条边时前者领先后者 8.6%, 而达到 500,0000 条边时 BFS 仅领先 0.85%。</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/B树和B+树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/B树和B+树/" itemprop="url">B树与B+树</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -697,197 +968,6 @@
 </ul>
 <p>数据库采用的是B+树进行索引，其实BST（搜索树）查询效率已经很高了，但是如果考虑磁盘IO的话，我们发现，树的深度一旦变得很高，IO次数会很多，这是很浪费时间的。</p>
 <p>B-树（这里还不是B+树）是一样多路平衡查找树，他的每一个节点最多包含k个孩子，k被称为B树的阶，k的大小取决于磁盘页的大小。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/bipartite_graph/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/data_struc_algo/bipartite_graph/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<pre><code>初识二分图
-@author chenkh
-@createtime 2018-01-04
-</code></pre><hr>
-<h1 id="初识二分图"><a href="#初识二分图" class="headerlink" title="初识二分图"></a>初识二分图</h1><!-- TOC -->
-<ul>
-<li><a href="#初识二分图">初识二分图</a><ul>
-<li><a href="#什么是二分图">什么是二分图？</a></li>
-<li><a href="#二分图研究问题">二分图研究问题</a><ul>
-<li><a href="#最大匹配问题与完美匹配问题">最大匹配问题与完美匹配问题</a><ul>
-<li><a href="#匈牙利算法">匈牙利算法</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#参考资料">参考资料</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
-<h2 id="什么是二分图？"><a href="#什么是二分图？" class="headerlink" title="什么是二分图？"></a>什么是二分图？</h2><p><strong>Wiki定义</strong></p>
-<p>二分图指顶点可以分成两个不相交的集 <strong>U</strong> 和 <strong>V</strong>（<strong>U</strong> 和 <strong>V</strong> 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，又称双分图、二部图、偶图。</p>
-<p><strong>符号化描述</strong></p>
-<p>设 <strong><em>G=(V, E)</em></strong> 是一个无向图，如果顶点 <strong>V</strong> 可分割为两个互不相交的子集 <strong>U</strong> , <strong>V</strong>，并且图中的每条边 <strong>(i,j)</strong> 所关联的两个顶点 <strong>i</strong> 和 <strong>j</strong> 分别属于这两个不同的顶点集 ( <strong>i</strong> in <strong>U</strong>, <strong>j</strong> in <strong>V</strong>)，则称图 <strong><em>G</em></strong> 为一个二分图。</p>
-<p><strong>图形化描述</strong></p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/250px-Simple-bipartite-graph.svg.png" alt="二分图范例"></p>
-<p><strong>应用场景示例</strong></p>
-<p>学生与课程的关系，商家与顾客的关系，司机与乘客的关系等等。</p>
-<h2 id="二分图研究问题"><a href="#二分图研究问题" class="headerlink" title="二分图研究问题"></a>二分图研究问题</h2><p>先引入几个概念，文章<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>中讲的非常好，这里直接引用。</p>
-<blockquote>
-<p><strong>匹配</strong>：在图论中，一个「匹配」（matching）是一个边的集合，其中任意两条边都没有公共顶点。例如，图 3、图 4 中红色的边就是图 2 的匹配。<br><!-- 图片 --><br><img src="https://img.renfei.org/2013/08/1.png" alt="Bipartite Graph(1)"><br><img src="https://img.renfei.org/2013/08/2.png" alt="Bipartite Graph(2)"><br><img src="https://img.renfei.org/2013/08/3.png" alt="Matching"><br><img src="https://img.renfei.org/2013/08/4.png" alt="Maximum Matching">  </p>
-<p>我们定义匹配点、匹配边、未匹配点、非匹配边，它们的含义非常显然。例如图 3 中 1、4、5、7 为匹配点，其他顶点为未匹配点；1-5、4-7为匹配边，其他边为非匹配边。<br><strong>最大匹配</strong>：一个图所有匹配中，所含匹配边数最多的匹配，称为这个图的最大匹配。图 4 是一个最大匹配，它包含 4 条匹配边。<br><strong>完美匹配</strong>：如果一个图的某个匹配中，所有的顶点都是匹配点，那么它就是一个完美匹配。图 4 是一个完美匹配。显然，完美匹配一定是最大匹配（完美匹配的任何一个点都已经匹配，添加一条新的匹配边一定会与已有的匹配边冲突）。但并非每个图都存在完美匹配。</p>
-</blockquote>
-<h3 id="最大匹配问题与完美匹配问题"><a href="#最大匹配问题与完美匹配问题" class="headerlink" title="最大匹配问题与完美匹配问题"></a>最大匹配问题与完美匹配问题</h3><blockquote>
-<p>举例来说：如下图所示，如果在某一对男孩和女孩之间存在相连的边，就意味着他们彼此喜欢。是否可能让所有男孩和女孩两两配对，使得每对儿都互相喜欢呢？图论中，这就是完美匹配问题。如果换一个说法：最多有多少互相喜欢的男孩/女孩可以配对儿？这就是最大匹配问题。  </p>
-<p><img src="https://img.renfei.org/2013/08/0.png" alt="boys and girls"></p>
-</blockquote>
-<h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><p>详见<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a> 这文章写的太好。</p>
-<p>匈牙利算法是解决最大匹配和完美匹配的一种算法，应用度很高。下面写一下匈牙利算法的大致过程，由于需要图形展示才能更好的理解，所以这里的大部分内容都是<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>中的内容。但我加入了个人的理解，比原版要更容易理解。</p>
-<p>首先明确两个概念：交替路和增广路</p>
-<blockquote>
-<p><img src="https://img.renfei.org/2013/08/5.png" alt="figure 5"></p>
-<p><strong>交替路</strong>：从一个未匹配点出发，依次经过非匹配边、匹配边、非匹配边…形成的路径叫交替路。</p>
-<p><strong>增广路</strong>：从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路（agumenting path）。例如，图 5 中的一条增广路如图 6 所示（图中的匹配点均用红色标出）：</p>
-<p><img src="https://img.renfei.org/2013/08/6.png" alt="figure 6"></p>
-</blockquote>
-<p>增广路的首尾是非匹配点。因此，增广路径的第一条和最后一条边，必然是非匹配边；同时它的第二条边（如果有）和倒数第二条边（如果有），必然是匹配边；以及第三条边（如果有）和倒数第三条边（如果有），一定是非匹配边。</p>
-<p>亦即，增广路径从非匹配边开始，匹配边和非匹配边依次交替，最后由非匹配边结束。这样一来，增广路径中非匹配边的数目会比匹配边大 1。</p>
-<p>如果我们置换增广路径中的匹配边和非匹配边，由于增广路径的首尾是非匹配点，其余则是匹配点，这样的置换不会影响原匹配中其他的匹配边和匹配点，因而不会破坏匹配；亦即增广路径的置换，可以得到比原有匹配更大的匹配（具体来说，匹配的边数增加了 1）。</p>
-<p>由于二分图的最大匹配必然存在（比如，上限是包含所有顶点的完全匹配），所以，再任意匹配的基础上，如果我们有办法不断地搜寻出增广路径，直到最终我们找不到新的增广路径为止，我们就有可能得到二分图的一个最大匹配。这就是<strong>匈牙利算法的核心思想</strong>。</p>
-<p><strong>贪心思路的证明</strong></p>
-<p>唯一的问题在于，在这种贪心的思路下，我们如何保证不存在例外的情况，即：当前匹配不是二分图的最大匹配，但已找不到一条新的增广路径。</p>
-<p>我们从反证法考虑，即假设存在这样的情况。因为当前匹配不是二分图的最大匹配，那么在两个集合中，分别至少存在一个非匹配点。那么情况分为两种：</p>
-<ul>
-<li>这两个点之间存在一条边——那么我们找到了一条新的增广路径，产生矛盾；</li>
-<li>这两个点之间不存在直接的边，即这两个点分别都只与匹配点相连——那么：<ul>
-<li>如果这两个点可以用已有的匹配点相连，那么我们找到了一条新的增广路径，产生矛盾；</li>
-<li>如果这两个点无法用已有的匹配点相连，那么这两个点也就无法增加匹配中边的数量，也就是我们已经找到了二分图的最大匹配，产生矛盾。<br>在所有可能的情况，上述假设都会产生矛盾。因此假设不成立，亦即贪心算法必然能求得最大匹配的解。</li>
-</ul>
-</li>
-</ul>
-<p><strong>贪心算法过程简述</strong></p>
-<p>对二分图中的某一部分遍历，对每个节点查找增广路，如果查找到，交换匹配边与非匹配边；如果没有找到，计算下个节点。遍历完成后便得到了一个最大匹配。<br>代码见<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>，此处引用。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 顶点、边的编号均从 0 开始</span></span><br><span class="line"><span class="comment">// 邻接表储存</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> from;</span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    <span class="keyword">int</span> weight;</span><br><span class="line"></span><br><span class="line">    Edge(<span class="keyword">int</span> f, <span class="keyword">int</span> t, <span class="keyword">int</span> w):from(f), to(t), weight(w) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[__maxNodes]; <span class="comment">/* G[i] 存储顶点 i 出发的边的编号 */</span></span><br><span class="line"><span class="built_in">vector</span>&lt;Edge&gt; edges;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator <span class="keyword">iterator_t</span>;</span><br><span class="line"><span class="keyword">int</span> num_nodes;</span><br><span class="line"><span class="keyword">int</span> num_left;</span><br><span class="line"><span class="keyword">int</span> num_right;</span><br><span class="line"><span class="keyword">int</span> num_edges;</span><br><span class="line"><span class="keyword">int</span> matching[__maxNodes]; <span class="comment">/* 存储求解结果 */</span></span><br><span class="line"><span class="keyword">int</span> check[__maxNodes];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">iterator_t</span> i = G[u].begin(); i != G[u].end(); ++i) &#123; <span class="comment">// 对 u 的每个邻接点</span></span><br><span class="line">        <span class="keyword">int</span> v = edges[*i].to;</span><br><span class="line">        <span class="keyword">if</span> (!check[v]) &#123;     <span class="comment">// 要求不在交替路中</span></span><br><span class="line">            check[v] = <span class="literal">true</span>; <span class="comment">// 放入交替路</span></span><br><span class="line">            <span class="keyword">if</span> (matching[v] == <span class="number">-1</span> || dfs(matching[v])) &#123;</span><br><span class="line">                <span class="comment">// 如果是未盖点，说明交替路为增广路，则交换路径，并返回成功</span></span><br><span class="line">                matching[v] = u;</span><br><span class="line">                matching[u] = v;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 不存在增广路，返回失败</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(matching, <span class="number">-1</span>, <span class="keyword">sizeof</span>(matching));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> u=<span class="number">0</span>; u &lt; num_left; ++u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (matching[u] == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="built_in">memset</span>(check, <span class="number">0</span>, <span class="keyword">sizeof</span>(check));</span><br><span class="line">            <span class="keyword">if</span> (dfs(u))</span><br><span class="line">                ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line"><span class="keyword">int</span> prev[__maxNodes];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(matching, <span class="number">-1</span>, <span class="keyword">sizeof</span>(matching));</span><br><span class="line">    <span class="built_in">memset</span>(check, <span class="number">-1</span>, <span class="keyword">sizeof</span>(check));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;num_left; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (matching[i] == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!Q.empty()) Q.pop();</span><br><span class="line">            Q.push(i);</span><br><span class="line">            prev[i] = <span class="number">-1</span>; <span class="comment">// 设 i 为路径起点</span></span><br><span class="line">            <span class="keyword">bool</span> flag = <span class="literal">false</span>; <span class="comment">// 尚未找到增广路</span></span><br><span class="line">            <span class="keyword">while</span> (!Q.empty() &amp;&amp; !flag) &#123;</span><br><span class="line">                <span class="keyword">int</span> u = Q.front();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">iterator_t</span> ix = G[u].begin(); ix != G[u].end() &amp;&amp; !flag; ++ix) &#123;</span><br><span class="line">                    <span class="keyword">int</span> v = edges[*ix].to;</span><br><span class="line">                    <span class="keyword">if</span> (check[v] != i) &#123;</span><br><span class="line">                        check[v] = i;</span><br><span class="line">                        Q.push(matching[v]);</span><br><span class="line">                        <span class="keyword">if</span> (matching[v] &gt;= <span class="number">0</span>) &#123; <span class="comment">// 此点为匹配点</span></span><br><span class="line">                            prev[matching[v]] = u;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 找到未匹配点，交替路变为增广路</span></span><br><span class="line">                            flag = <span class="literal">true</span>;</span><br><span class="line">                            <span class="keyword">int</span> d=u, e=v;</span><br><span class="line">                            <span class="keyword">while</span> (d != <span class="number">-1</span>) &#123;</span><br><span class="line">                                <span class="keyword">int</span> t = matching[d];</span><br><span class="line">                                matching[d] = e;</span><br><span class="line">                                matching[e] = d;</span><br><span class="line">                                d = prev[d];</span><br><span class="line">                                e = t;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                Q.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (matching[i] != <span class="number">-1</span>) ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>匈牙利算法的要点如下</strong><br>从左边第 1 个顶点开始，挑选未匹配点进行搜索，寻找增广路。<br>如果经过一个未匹配点，说明寻找成功。更新路径信息，匹配边数 +1，停止搜索。<br>如果一直没有找到增广路，则不再从这个点开始搜索。事实上，此时搜索后会形成一棵匈牙利树。我们可以永久性地把它从图中删去，而不影响结果。<br>由于找到增广路之后需要沿着路径更新匹配，所以我们需要一个结构来记录路径上的点。DFS 版本通过函数调用隐式地使用一个栈，而 BFS 版本使用 prev 数组。  </p>
-<p><strong>性能比较</strong><br>两个版本的时间复杂度均为O(V⋅E)O(V⋅E)。DFS 的优点是思路清晰、代码量少，但是性能不如 BFS。我测试了两种算法的性能。对于稀疏图，BFS 版本明显快于 DFS 版本；而对于稠密图两者则不相上下。在完全随机数据 9000 个顶点 4,0000 条边时前者领先后者大约 97.6%，9000 个顶点 100,0000 条边时前者领先后者 8.6%, 而达到 500,0000 条边时 BFS 仅领先 0.85%。</p>
-</blockquote>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a></p>
 
           
         
@@ -1949,7 +2029,7 @@ East London,SA  | London, Ontario |   13892160.9525778
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -1960,7 +2040,7 @@ East London,SA  | London, Ontario |   13892160.9525778
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
