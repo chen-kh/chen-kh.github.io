@@ -1,0 +1,2472 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="道莅天下，其鬼不神">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="website">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="道莅天下，其鬼不神">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="道莅天下，其鬼不神">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/3/"/>
+
+
+
+
+
+  <title>其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_java/java知识随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_java/java知识随笔/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java-知识随笔"><a href="#Java-知识随笔" class="headerlink" title="Java 知识随笔"></a>Java 知识随笔</h1><!-- TOC -->
+<ul>
+<li><a href="#1-等待线程结束的方法有哪些">1. 等待线程结束的方法有哪些？</a></li>
+<li><a href="#2-java中对应数据结构中的队列栈双向队列等的内容">2. Java中对应数据结构中的队列、栈、双向队列等的内容</a><ul>
+<li><a href="#21-队列与双向队列">2.1. 队列与双向队列</a></li>
+<li><a href="#22-链表与双向链表">2.2. 链表与双向链表</a></li>
+<li><a href="#23-栈">2.3. 栈</a></li>
+<li><a href="#24-树及红黑树实现的结构">2.4. 树及红黑树实现的结构</a></li>
+</ul>
+</li>
+<li><a href="#3-java-克隆">3. Java 克隆</a><ul>
+<li><a href="#31-浅拷贝与深拷贝">3.1. 浅拷贝与深拷贝</a></li>
+<li><a href="#32-cloneable接口">3.2. <code>Cloneable</code>接口</a></li>
+<li><a href="#33-serializable接口">3.3. <code>Serializable</code>接口</a></li>
+</ul>
+</li>
+<li><a href="#java中的final关键字">Java中的<code>final</code>关键字</a><ul>
+<li><a href="#final关键字的含义"><code>final</code>关键字的含义</a></li>
+<li><a href="#final变量引用"><code>final</code>变量/引用</a></li>
+<li><a href="#final方法"><code>final</code>方法</a></li>
+<li><a href="#final类"><code>final</code>类</a></li>
+<li><a href="#final关键字的好处"><code>final</code>关键字的好处</a></li>
+</ul>
+</li>
+<li><a href="#java中的transient关键字">Java中的<code>transient</code>关键字</a></li>
+<li><a href="#java中的listiterator">Java中的<code>ListIterator</code></a></li>
+<li><a href="#java中的hashmap">Java中的<code>HashMap</code></a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-等待线程结束的方法有哪些？"><a href="#1-等待线程结束的方法有哪些？" class="headerlink" title="1. 等待线程结束的方法有哪些？"></a>1. 等待线程结束的方法有哪些？</h2><p>等待线程结束的方法，当然可以通过在<code>run()</code>函数里面更改标示位（或者变量），然后检测这个标示位（变量）来判断线程是否已经完成任务。但是，但是，以上都是多余的（而且是非常复杂，不实用的设计）。JDK本身就已经提供了判断线程结束的方法。参考文章：<a href="http://blog.csdn.net/xiao__gui/article/details/9213413" target="_blank" rel="noopener">Java主线程等待子线程、线程池</a></p>
+<ul>
+<li>最基本的方法：调用<code>thread.join()</code></li>
+<li>不太基本的方法：设置<code>CountDownLatch</code>成员</li>
+<li>等待线程池所有线程执行完成的方法：<code>boolean awaitTermination(long timeout, TimeUnit unit)</code></li>
+</ul>
+<p><strong><em>代码1：join()方法调用</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JoinTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(Thread.currentThread() + <span class="string">": I am sleeping"</span>);</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread.start();</span><br><span class="line">        thread.join();</span><br><span class="line">        System.out.println(<span class="string">"main done"</span>);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>代码2：线程池等待所有线程执行完成</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        System.out.println(<span class="keyword">this</span>.getName() + <span class="string">"子线程开始"</span>);  </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// 子线程休眠五秒  </span></span><br><span class="line">            Thread.sleep(<span class="number">5000</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">catch</span> (InterruptedException e)  &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">        System.out.println(<span class="keyword">this</span>.getName() + <span class="string">"子线程结束"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;  </span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();  </span><br><span class="line">          </span><br><span class="line">        <span class="comment">// 创建一个同时允许两个线程并发执行的线程池  </span></span><br><span class="line">        ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;  </span><br><span class="line">            Thread thread = <span class="keyword">new</span> TestThread();  </span><br><span class="line">            executor.execute(thread);  </span><br><span class="line">        &#125;  </span><br><span class="line">        executor.shutdown();  </span><br><span class="line">          </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// awaitTermination返回false即超时会继续循环，返回true即线程池中的线程执行完成主线程跳出循环往下执行，每隔10秒循环一次  </span></span><br><span class="line">            <span class="keyword">while</span> (!executor.awaitTermination(<span class="number">10</span>, TimeUnit.SECONDS));  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">catch</span> (InterruptedException e)&#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">          </span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();  </span><br><span class="line">        System.out.println(<span class="string">"子线程执行时长："</span> + (end - start));</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Java中对应数据结构中的队列、栈、双向队列等的内容"><a href="#2-Java中对应数据结构中的队列、栈、双向队列等的内容" class="headerlink" title="2. Java中对应数据结构中的队列、栈、双向队列等的内容"></a>2. Java中对应数据结构中的队列、栈、双向队列等的内容</h2><h3 id="2-1-队列与双向队列"><a href="#2-1-队列与双向队列" class="headerlink" title="2.1. 队列与双向队列"></a>2.1. 队列与双向队列</h3><p>几点说明</p>
+<ul>
+<li>队列是一种特殊的线性表，它只允许在表的前端进行删除操作，而在表的后端进行插入操作。</li>
+<li><code>Queue</code>是一个接口，定义了<code>add,offer,remove,poll,element,peek</code>等方法，方法望文生义，只是针对同一种情况的不同设计。</li>
+<li><code>Deque</code>是一个接口，继承自<code>Queue</code>，定义了<code>add,offer,remove,poll,element,peek</code>和<code>addFirst,addLast,offerFirst,offerLast,pollFirst,pollLast,...</code>等方法，方法望文生义，也是针对同一种情况的不同设计。</li>
+</ul>
+<p>各种实现与源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">Deque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">abstract</span> <span class="title">class</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractCollection</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">PriorityQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// <span class="title">package</span> <span class="title">java</span>.<span class="title">util</span>.<span class="title">concurrent</span>    </span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ConcurrentLinkedDeque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractCollection</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ConcurrentLinkedQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">BlockingDeque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">DelayQueue</span>&lt;<span class="title">E</span> <span class="keyword">extends</span> <span class="title">Delayed</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedBlockingDeque</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingDeque</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedBlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedTransferQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">TransferQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">PriorityBlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">SynchronousQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ArrayBlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>从上面可以大致梳理出每种队列形式的类扩展于和实现于哪些类，各种类也是按照不同功能进行命名的，主要出于<code>java.util</code>和<code>java.util.concurrent</code>两个包。</li>
+<li><code>LinkedList</code>类实现了<code>Queue</code>和<code>Deque</code>接口，因此我们可以把<code>LinkedList</code>当成<code>Queue</code>来用。可以视为最普通的队列。</li>
+<li><code>PriorityQueue</code>是优先队列设计，内部使用堆这个数据结构实现。可以通过配置<code>Comparator</code>配置最小堆（默认）还是最大堆。</li>
+</ul>
+<p>最简单的示范代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//add()和remove()方法在失败的时候会抛出异常(不推荐)</span></span><br><span class="line">        Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        <span class="comment">//添加元素</span></span><br><span class="line">        queue.offer(<span class="string">"a"</span>);</span><br><span class="line">        queue.offer(<span class="string">"b"</span>);</span><br><span class="line">        queue.offer(<span class="string">"c"</span>);</span><br><span class="line">        queue.offer(<span class="string">"d"</span>);</span><br><span class="line">        queue.offer(<span class="string">"e"</span>);</span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"==="</span>);</span><br><span class="line">        System.out.println(<span class="string">"poll="</span>+queue.poll()); <span class="comment">//返回第一个元素，并在队列中删除</span></span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"==="</span>);</span><br><span class="line">        System.out.println(<span class="string">"element="</span>+queue.element()); <span class="comment">//返回第一个元素 </span></span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"==="</span>);</span><br><span class="line">        System.out.println(<span class="string">"peek="</span>+queue.peek()); <span class="comment">//返回第一个元素 </span></span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-链表与双向链表"><a href="#2-2-链表与双向链表" class="headerlink" title="2.2. 链表与双向链表"></a>2.2. 链表与双向链表</h3><p>链表不用多说，肯定有<code>LinkedList</code>，而且是一个双向队列和双向链表。</p>
+<ul>
+<li>链表的插入和删除操作比<code>ArrayList</code>要高，但是查询\随机访问的效率比<code>ArrayList</code>要差。</li>
+<li>一般说法中强调：链表要避免计算长度，因为需要遍历一遍。但是<code>java</code>的实现中，每一次<code>add,offer,remove</code>等操作都记录并修改了<code>size</code>的值。</li>
+</ul>
+<h3 id="2-3-栈"><a href="#2-3-栈" class="headerlink" title="2.3. 栈"></a>2.3. 栈</h3><p>Java中有专门的针对“栈”这种数据结构的类，就是<code>java.util.Stack</code>，他就是一个类，扩展自<code>java.util.Vector</code>，所以本质上基于数组实现。主要提供了<code>push,pop,peek,empty</code>等方法。<br>类中的大部分方法都是同步（线程安全）的。以下是简略源码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> E <span class="title">push</span><span class="params">(E item)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">pop</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">peek</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(Object o)</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-树及红黑树实现的结构"><a href="#2-4-树及红黑树实现的结构" class="headerlink" title="2.4. 树及红黑树实现的结构"></a>2.4. 树及红黑树实现的结构</h3><p>可惜了，java中几乎没有树的结构。跟树有关的可能就只有<code>TreeSet</code>和<code>TreeMap</code>了吧。</p>
+<p>另外，<code>HashMap</code>在设计的过程中使用了红黑树（since jdk1.8），当出现哈希碰撞的时候，我们都知道是使用链表来进行保存的，但是<strong>当链表的长度超过8的时候就转换成了红黑树存储了</strong>。</p>
+<ul>
+<li><code>TreeSet</code>和<code>TreeMap</code>都是为了集合和映射的排序而实现。都是为了实现有序的集合和映射。内部结构使用的是红黑树。</li>
+<li><code>TreeSet</code>的实现其实和<code>TreeMap</code>是很相似的，基本是基于<code>TreeMap</code>的方式实现的，毕竟很多集合都是通过映射实现的。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">NavigableSet</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> NavigableMap&lt;E,Object&gt; m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">NavigableMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">NavigableMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">SortedMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-Java-克隆"><a href="#3-Java-克隆" class="headerlink" title="3. Java 克隆"></a>3. Java 克隆</h2><h3 id="3-1-浅拷贝与深拷贝"><a href="#3-1-浅拷贝与深拷贝" class="headerlink" title="3.1. 浅拷贝与深拷贝"></a>3.1. 浅拷贝与深拷贝</h3><ul>
+<li>浅克隆（shallow clone），浅拷贝是指拷贝对象时仅仅拷贝对象本身和对象中的基本变量，而不拷贝对象包含的引用指向的对象。 </li>
+<li>深克隆（deep clone），深拷贝不仅拷贝对象本身，而且拷贝对象包含的引用指向的所有对象。</li>
+</ul>
+<p>举例：对象A1中包含对B1的引用，B1中包含对C1的引用。浅拷贝A1得到A2，A2中依然包含对B1的引用，B1中依然包含对C1的引用。深拷贝则是对浅拷贝的递归，深拷贝A1得到A2，A2中包含对B2（B1的copy）的引用，B2中包含对C2（C1的copy）的引用。</p>
+<p>拷贝最常用的就是<code>cloneable</code>和<code>serializable</code>。</p>
+<ul>
+<li><code>Cloneable</code>和<code>Serializable</code>都是<strong>标记型接口</strong>，它们内部都没有方法和属性</li>
+<li><a href="http://www.91yian.com/372.html" target="_blank" rel="noopener">Java中的标记接口（Tag or marker interfaces）</a>是为了声明该类在某个特定集合中的成员资格，JVM看到类标记时会做不同的处理。</li>
+</ul>
+<h3 id="3-2-Cloneable接口"><a href="#3-2-Cloneable接口" class="headerlink" title="3.2. Cloneable接口"></a>3.2. <code>Cloneable</code>接口</h3><p><code>implements Cloneable</code>表示该对象能被克隆，能使用<code>Object.clone()</code>方法。如果没有<code>implements Cloneable</code>的类调用<code>Object.clone()</code>方法就会抛出<code>CloneNotSupportedException</code>。</p>
+<p><code>clone()</code>方法是使用<code>Object</code>类的<code>clone()</code>方法，但是该方法存在一个缺陷，它并不会将对象的所有属性全部拷贝过来，而是有选择性的拷贝，基本规则如下：</p>
+<ul>
+<li>基本类型<br>如果变量是基本很类型，则拷贝其值，比如 int、float 等。</li>
+<li>对象<br>如果变量是一个实例对象，则拷贝其地址引用，也就是说此时新对象与原来对象是公用该实例变量。</li>
+<li>String 字符串<br>若变量为 String 字符串，则拷贝其地址引用。但是在修改时，它会从字符串池中重新生成一个新的字符串，原有紫都城对象保持不变。</li>
+</ul>
+<p>所以在使用<code>implements cloneable</code>的时候，想要实现深拷贝的话，必须注意在<code>clone()</code>方法中对一些对象的引用也进行深拷贝。</p>
+<h3 id="3-3-Serializable接口"><a href="#3-3-Serializable接口" class="headerlink" title="3.3. Serializable接口"></a>3.3. <code>Serializable</code>接口</h3><p><a href="http://www.runoob.com/java/java-serialization.html" target="_blank" rel="noopener">Java 序列化</a></p>
+<blockquote>
+<p>把母对象写入到一个字节流中，再从字节流中将其读出来，这样就可以创建一个新的对象了，并且该新对象与母对象之间并不存在引用共享的问题，真正实现对象的深拷贝。</p>
+</blockquote>
+<p>一个类的对象要想序列化成功，必须满足两个条件：</p>
+<ul>
+<li>该类必须实现 java.io.Serializable 对象。</li>
+<li>该类的所有属性必须是可序列化的。如果有一个属性不是可序列化的，则该属性必须注明是短暂的。</li>
+</ul>
+<p>如果你想知道一个 Java 标准类是否是可序列化的，请查看该类的文档。检验一个类的实例是否能序列化十分简单， 只需要查看该类有没有实现<code>java.io.Serializable</code>接口。</p>
+<h2 id="Java中的final关键字"><a href="#Java中的final关键字" class="headerlink" title="Java中的final关键字"></a>Java中的<code>final</code>关键字</h2><p>参考：<a href="http://www.importnew.com/7553.html" target="_blank" rel="noopener">深入理解Java中的final关键字</a></p>
+<h3 id="final关键字的含义"><a href="#final关键字的含义" class="headerlink" title="final关键字的含义"></a><code>final</code>关键字的含义</h3><p>final在Java中是一个保留的关键字，可以声明成员变量、方法、类以及本地变量。一旦你将引用声明作final，你将不能改变这个引用了，编译器会检查代码，如果你试图将变量再次初始化的话，编译器会报编译错误</p>
+<h3 id="final变量-引用"><a href="#final变量-引用" class="headerlink" title="final变量/引用"></a><code>final</code>变量/引用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOAN = <span class="string">"loan"</span>;</span><br><span class="line">LOAN = <span class="keyword">new</span> String(<span class="string">"loan"</span>) <span class="comment">//invalid compilation error</span></span><br></pre></td></tr></table></figure>
+<h3 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a><code>final</code>方法</h3><p>方法不可以被子类的方法重写。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonalLoan</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"personal loan"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheapPersonalLoan</span> <span class="keyword">extends</span> <span class="title">PersonalLoan</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"cheap personal loan"</span>; <span class="comment">//compilation error: overridden method is final</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="final类"><a href="#final类" class="headerlink" title="final类"></a><code>final</code>类</h3><p>final类通常功能是完整的，它们不能被继承。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonalLoan</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheapPersonalLoan</span> <span class="keyword">extends</span> <span class="title">PersonalLoan</span></span>&#123;  <span class="comment">//compilation error: cannot inherit from final class</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="final关键字的好处"><a href="#final关键字的好处" class="headerlink" title="final关键字的好处"></a><code>final</code>关键字的好处</h3><p>下面总结了一些使用final关键字的好处</p>
+<ul>
+<li>final关键字提高了性能。JVM和Java应用都会缓存final变量。</li>
+<li>final变量可以安全的在多线程环境下进行共享，而不需要额外的同步开销。</li>
+<li>使用final关键字，JVM会对方法、变量及类进行优化。</li>
+<li>不可变类：创建不可变类要使用final关键字。不可变类是指它的对象一旦被创建了就不能被更改了。String是不可变类的代表。不可变类有很多好处，譬如它们的对象是只读的，可以在多线程环境下安全的共享，不用额外的同步开销等等。</li>
+</ul>
+<h2 id="Java中的transient关键字"><a href="#Java中的transient关键字" class="headerlink" title="Java中的transient关键字"></a>Java中的<code>transient</code>关键字</h2><p>参考：<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MzIwMTY0NDU3Nw==&amp;mid=2651934932&amp;idx=1&amp;sn=0110681e23e281953bd9b9efdf93a3c4&amp;chksm=8d0f3f9aba78b68c4b265246667458175b767a5aec1e425c019bf6ae5f1f86ff867c6b1be878&amp;scene=7#rd" target="_blank" rel="noopener">Java transient关键字使用小记</a></p>
+<ul>
+<li>一旦变量被transient修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问。</li>
+<li>transient关键字只能修饰变量，而不能修饰方法和类。注意，本地变量是不能被transient关键字修饰的。变量如果是用户自定义类变量，则该类需要实现Serializable接口。</li>
+<li>被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化。</li>
+</ul>
+<p>第三点确实没错（一个静态变量不管是否被transient修饰，均不能被序列化），反序列化后类中static型变量username的值为当前JVM中对应static变量的值，这个值是JVM中的不是反序列化得出的</p>
+<h2 id="Java中的ListIterator"><a href="#Java中的ListIterator" class="headerlink" title="Java中的ListIterator"></a>Java中的<code>ListIterator</code></h2><p>参考：<a href="http://blog.csdn.net/longshengguoji/article/details/41551491" target="_blank" rel="noopener">JAVA中ListIterator和Iterator详解与辨析</a></p>
+<ul>
+<li>双向迭代器</li>
+<li>拥有<code>add, set</code>等方法，可以在遍历的同时添加、删除和更改元素</li>
+<li>可以定位当前的索引位置</li>
+</ul>
+<p><code>java.util.Collections</code>使用一个前向一个后向迭代器实现列表的翻转<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List&lt;?&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = list.size();</span><br><span class="line">        <span class="keyword">if</span> (size &lt; REVERSE_THRESHOLD || list <span class="keyword">instanceof</span> RandomAccess) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>, mid=size&gt;&gt;<span class="number">1</span>, j=size-<span class="number">1</span>; i&lt;mid; i++, j--)</span><br><span class="line">                swap(list, i, j);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// instead of using a raw type here, it's possible to capture</span></span><br><span class="line">            <span class="comment">// the wildcard but it will require a call to a supplementary</span></span><br><span class="line">            <span class="comment">// private method</span></span><br><span class="line">            ListIterator fwd = list.listIterator();</span><br><span class="line">            ListIterator rev = list.listIterator(size);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>, mid=list.size()&gt;&gt;<span class="number">1</span>; i&lt;mid; i++) &#123;</span><br><span class="line">                Object tmp = fwd.next();</span><br><span class="line">                fwd.set(rev.previous());</span><br><span class="line">                rev.set(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Java中的HashMap"><a href="#Java中的HashMap" class="headerlink" title="Java中的HashMap"></a>Java中的<code>HashMap</code></h2><p>java中的<code>HashMap</code>是一直在发展变化的，从基本的思想出发到性能的逐渐优化。jdk8中的<code>HashMap</code>是有一些变化的。参考文章<a href="https://tech.meituan.com/java-hashmap.html" target="_blank" rel="noopener">Java 8系列之重新认识HashMap</a>,有张图片讲的很好。</p>
+<p><img src="https://tech.meituan.com/img/java-hashmap/hashMap%20put%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="jdk8-hashmap-put.png"></p>
+<ul>
+<li>jdk8中链表长度超过8之后就转换成了一棵红黑树</li>
+<li>jdk8中rehash过程更简单，不用重新计算，只需要检测多出来的一位是1还是0就行，是1的话就移动oldCap的长度，否则与原来位置相同。而且resize之后链表不会倒过来。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_java/java基础知识总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_java/java基础知识总结/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java基础知识总结"><a href="#Java基础知识总结" class="headerlink" title="Java基础知识总结"></a>Java基础知识总结</h1><!-- TOC -->
+<ul>
+<li><a href="#面向对象">面向对象</a><ul>
+<li><a href="#三大特征与五大基本原则">三大特征与五大基本原则</a></li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<p>这里先总结一些零碎的笔记记录，是希望能有一个自己的Java笔记，以便于之后查询。这个文件应该会经常添加内容，然后当内容丰富到一定程度之后进行全面的整理。</p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>Java是面向对象吧编程语言的一个典范，也是应用最多的语言之一。这个部分总结一些面向对象的东西。</p>
+<h3 id="三大特征与五大基本原则"><a href="#三大特征与五大基本原则" class="headerlink" title="三大特征与五大基本原则"></a>三大特征与五大基本原则</h3><ul>
+<li><p>封装(Encapsulation)</p>
+<p>  所谓封装，也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。封装是面向对象的特征之一，是<strong>对象和类</strong>概念的主要特性。简单的说，一个类就是一个封装了数据以及操作这些数据的代码的逻辑实体。在一个对象内部，某些代码或某些数据可以是私有的，不能被外界访问。通过这种方式，对象对内部数据提供了不同级别的保护，以防止程序中无关的部分意外的改变或错误的使用了对象的私有部分.</p>
+</li>
+<li><p>继承(Inheritance)</p>
+<p>  继承是指这样一种能力：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。通过继承创建的新类称为<strong>子类或派生类</strong>，被继承的类称为“基类”、“父类”或“超类”。继承的过程，就是从一般到特殊的过程。要实现继承，可以通过“继承”（Inheritance）和“组合”（Composition）来实现。继承概念的实现方式有二类：实现继承与接口继承。实现继承是指直接使用基类的属性和方法而无需额外编码的能力；接口继承是指仅使用属性和方法的名称、但是子类必须提供实现的能力。</p>
+</li>
+<li><p>多态(Polymorphism)</p>
+<p>  所谓多态就是指一个<strong>类实例的相同方法在不同情形有不同表现形式</strong>。多态机制使具有不同内部结构的对象可以共享相同的外部接口。这意味着，虽然针对不同对象的具体操作不同，但通过一个公共的类，它们（那些操作）可以通过相同的方式予以调用。最常见的多态就是将子类传入父类参数中，运行时调用父类方法时通过传入的子类决定具体的内部结构或行为。</p>
+</li>
+<li><p>单一职责原则（Single-Resposibility Principle）</p>
+<p>  一个类应该仅有一个引起它变化的原因</p>
+<p>  职员类例子： 比如在职员类里，将工程师、销售人员、销售经理这些情况都放在职员类里考虑，其结果将会非常混乱，在这个假设下，职员类里的每个方法都要ifelse判断是哪种情况，从类结构上来说将会十分臃肿，并且上述三种的职员类型，不论哪一种发生需求变化，都会改变职员类！这个是大家所不愿意看到的！</p>
+</li>
+<li><p>开放封闭原则（Open-Closed principle）</p>
+<p>  对扩展是开放的，对更改是封闭的！</p>
+<p>  变化来临时，如果不必改动软件实体裁的源代码，就能扩充它的行为，那么这个软件实体设计就是满足开放封闭原则的。如果说我们预测到某种变化，或者某种变化发生了，我们应当创建抽象类来隔离以后发生的同类变化。</p>
+</li>
+<li><p>里氏替换原则（Liskov-Substituion Principle）</p>
+<p>  子类可以替换父类并且出现在父类能够出现的任何地方,贯彻GOF倡导的面向接口编程</p>
+<p>  在这个原则中父类应尽可能使用接口或者抽象类来实现！子类通过实现了父类接口，能够替父类的使用地方！通过这个原则，我们客户端在使用父类接口的时候，通过子类实现！意思就是说我们依赖父类接口，在客户端声明一个父类接口，通过其子类来实现。这个时候就要求子类必须能够替换父类所出现的任何地方，这样做的好处就是，在根据新要求扩展父类接口的新子类的时候而不影响当前客户端的使用！</p>
+</li>
+<li><p>依赖倒置原则（Dependecy-Inversion Principle）</p>
+<p>  传统的结构化编程中，最上层的模块通常都要依赖下面的子模块来实现，也称为高层依赖低层！</p>
+<p>  所以DIP原则就是要逆转这种依赖关系，让高层模块不要依赖低层模块，所以称之为依赖倒置原则！</p>
+</li>
+<li><p>ISP 接口隔离原则(Interface-Segregation Principle)</p>
+<p>  使用多个专门的接口比使用单个接口要好的多！</p>
+<p>  这个我有体会，在我实际编程中，为了减少接口的定义，将许多类似的方法都放在一个接口中，最后发现，维护和实现接口的时候花了太多精力，而接口所定义的操作相当于对客户端的一种承诺，这种承诺当然是越少越好，越精练越好，过多的承诺带来的就是你的大量精力和时间去维护！</p>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://www.bkjia.com/ASPjc/1019908.html" target="_blank" rel="noopener">Java基础：面向对象三大特征、五大原则</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_java/Java备考知识整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_java/Java备考知识整理/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java需要准备的考点"><a href="#Java需要准备的考点" class="headerlink" title="Java需要准备的考点"></a>Java需要准备的考点</h1><!-- TOC -->
+<ul>
+<li><a href="#java源码结构与基础">Java源码结构与基础</a><ul>
+<li><a href="#java集合collection和map">Java集合（collection和map）</a><ul>
+<li><a href="#list的逆向访问">List的逆向访问</a></li>
+<li><a href="#arraylist-与-linkedlist-的区别">ArrayList 与 LinkedList 的区别</a></li>
+<li><a href="#hashmap-与-hashtable-的区别">HashMap 与 HashTable 的区别</a></li>
+<li><a href="#linkedhashsetlinkedhashmap-concurrenthashmap">LinkedHashSet，LinkedHashMap, ConcurrentHashMap</a><ul>
+<li><a href="#concurrenthashmap其实属于javautilconcurrent包">ConcurrentHashMap：其实属于java.util.concurrent包</a></li>
+<li><a href="#linkedhashmap">LinkedHashMap</a></li>
+<li><a href="#linkedhashset与hashset">LinkedHashSet（与HashSet）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#java-collections">Java Collections</a></li>
+<li><a href="#接口与抽象类的区别">接口与抽象类的区别</a></li>
+<li><a href="#异常exceptions">异常Exceptions</a></li>
+<li><a href="#java并发工具类">Java并发工具类</a></li>
+<li><a href="#比较两个相似的数据类型要考虑的方面">比较两个相似的数据类型要考虑的方面</a></li>
+<li><a href="#参考问题">参考问题</a></li>
+</ul>
+</li>
+<li><a href="#多线程与并发">多线程与并发</a><ul>
+<li><a href="#volatile变量的理解">volatile变量的理解</a></li>
+<li><a href="#什么是线程安全">什么是线程安全</a></li>
+<li><a href="#java的runnablecollable以及future">Java的Runnable，Collable以及Future</a></li>
+<li><a href="#继承thread和实现runnable的区别是什么">继承Thread和实现Runnable的区别是什么</a></li>
+<li><a href="#difference-between-notify-and-notifyall-in-java">Difference between notify and notifyAll in Java</a></li>
+<li><a href="#线程池">线程池</a></li>
+<li><a href="#锁">锁</a><ul>
+<li><a href="#可重入锁-reentrantlock">可重入锁-<code>ReentrantLock</code></a></li>
+<li><a href="#读写锁-readwritelock">读写锁-<code>ReadWriteLock</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#java虚拟机">Java虚拟机</a><ul>
+<li><a href="#java内存区域">Java内存区域</a><ul>
+<li><a href="#程序计数器">程序计数器</a></li>
+<li><a href="#jvm栈与本地方法栈">JVM栈与本地方法栈</a></li>
+<li><a href="#java堆与方法区">Java堆与方法区</a></li>
+<li><a href="#运行时常量池">运行时常量池</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="Java源码结构与基础"><a href="#Java源码结构与基础" class="headerlink" title="Java源码结构与基础"></a>Java源码结构与基础</h2><p>参考：<a href="https://www.jianshu.com/p/f98c3acd8df8" target="_blank" rel="noopener">JDK基础概念及目录结构</a></p>
+<h3 id="Java集合（collection和map）"><a href="#Java集合（collection和map）" class="headerlink" title="Java集合（collection和map）"></a>Java集合（collection和map）</h3><p><img src="http://img.blog.csdn.net/20160121141321874" alt="java 集合结构图"><br><img src="http://www.runoob.com/wp-content/uploads/2014/01/java-coll.png" alt="java 集合结构图2"><br><img src="https://i2.wp.com/p3lang.com/wp-content/uploads/2013/06/Java-Collections-Framework-List-Set-Queue.png" alt="java 集合结构图3"><br><img src="https://i1.wp.com/p3lang.com/wp-content/uploads/2013/06/Java-Collections-Framwork-Map.png" alt="java Map结构图"></p>
+<h4 id="List的逆向访问"><a href="#List的逆向访问" class="headerlink" title="List的逆向访问"></a>List的逆向访问</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Substitute appropriate type.</span></span><br><span class="line">ArrayList&lt;...&gt; a = <span class="keyword">new</span> ArrayList&lt;...&gt;();<span class="comment">// OR LinkedList</span></span><br><span class="line"><span class="comment">// Add elements to list.</span></span><br><span class="line"><span class="comment">// Generate an iterator. Start just after the last element.</span></span><br><span class="line">ListIterator li = a.listIterator(a.size());</span><br><span class="line"><span class="comment">// Iterate in reverse.</span></span><br><span class="line"><span class="keyword">while</span>(li.hasPrevious()) &#123;</span><br><span class="line">  System.out.println(li.previous());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ArrayList-与-LinkedList-的区别"><a href="#ArrayList-与-LinkedList-的区别" class="headerlink" title="ArrayList 与 LinkedList 的区别"></a>ArrayList 与 LinkedList 的区别</h4><p>1) 因为Array是基于索引(index)的数据结构，它使用索引在数组中搜索和读取数据是很快的。Array获取数据的时间复杂度是O(1),但是要删除数据却是开销很大的，因为这需要重排数组中的所有数据。</p>
+<p>2) 相对于ArrayList，LinkedList插入是更快的。因为LinkedList不像ArrayList一样，不需要改变数组的大小，也不需要在数组装满的时候要将所有的数据重新装入一个新的数组，这是ArrayList最坏的一种情况，时间复杂度是O(n)，而LinkedList中插入或删除的时间复杂度仅为O(1)。ArrayList在插入数据时还需要更新索引（除了插入数组的尾部）。</p>
+<p>3) 类似于插入数据，删除数据时，LinkedList也优于ArrayList。</p>
+<p>4) LinkedList需要更多的内存，因为ArrayList的每个索引的位置是实际的数据，而LinkedList中的每个节点中存储的是实际的数据和前后节点的位置。</p>
+<h4 id="HashMap-与-HashTable-的区别"><a href="#HashMap-与-HashTable-的区别" class="headerlink" title="HashMap 与 HashTable 的区别"></a>HashMap 与 HashTable 的区别</h4><blockquote>
+<p>HashMap和Hashtable都实现了Map接口，但决定用哪一个之前先要弄清楚它们之间的分别。主要的区别有：线程安全性，同步(synchronization)，以及速度。</p>
+</blockquote>
+<p>参考：<a href="http://zhaox.github.io/2016/07/05/hashmap-vs-hashtable" target="_blank" rel="noopener">HashMap和HashTable到底哪不同？</a></p>
+<ol>
+<li>HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则不行)。  <blockquote>
+<p>HashMap是支持null键和null值的，而HashTable在遇到null时，会抛出NullPointerException异常。这并不是因为HashTable有什么特殊的实现层面的原因导致不能支持null键和null值，这仅仅是因为HashMap在实现时对null做了特殊处理，将null的hashCode值定为了0，从而将其存放在哈希表的第0个bucket中。</p>
+</blockquote>
+</li>
+<li>HashMap是非synchronized，而Hashtable是synchronized，这意味着Hashtable是线程安全的，多个线程可以共享一个Hashtable；而如果没有正确的同步的话，多个线程是不能共享HashMap的。<strong>Java 5提供了ConcurrentHashMap，它是HashTable的替代，比HashTable的扩展性更好。</strong>  我们能否让HashMap同步？HashMap可以通过下面的语句进行同步：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map m = Collections.synchronizeMap(hashMap);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>HashTable对线程安全的实现基本也就是给方法加了同步描述符：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    Entry tab[] = table;</span><br><span class="line">    <span class="keyword">int</span> hash = hash(key);</span><br><span class="line">    <span class="keyword">int</span> index = (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = tab[index] ; e != <span class="keyword">null</span> ; e = e.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((e.hash == hash) &amp;&amp; e.key.equals(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> e.value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Set&lt;K&gt; <span class="title">keySet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (keySet == <span class="keyword">null</span>)</span><br><span class="line">        keySet = Collections.synchronizedSet(<span class="keyword">new</span> KeySet(), <span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">return</span> keySet;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>另一个区别是HashMap的迭代器(Iterator)是fail-fast迭代器，而Hashtable的enumerator迭代器不是fail-fast的。所以当有其它线程改变了HashMap的结构（增加或者移除元素），将会抛出ConcurrentModificationException，但迭代器本身的remove()方法移除元素则不会抛出ConcurrentModificationException异常。但这并不是一个一定发生的行为，要看JVM。这条同样也是Enumeration和Iterator的区别。  </li>
+<li>由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。如果你不需要同步，只需要单一线程，那么使用HashMap性能要好过Hashtable。  </li>
+<li>HashMap不能保证随着时间的推移Map中的元素次序是不变的。<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MjM5MDcxMTU2Nw==&amp;mid=2650577125&amp;idx=2&amp;sn=adc4d9613b1ece8e824baf83818e61b2&amp;chksm=be489285893f1b93afe2607ce029126dd8323d606e3aea5e21b9569b90205f1739158bedbc7e&amp;scene=7#rd" target="_blank" rel="noopener">漫画：高并发下的HashMap</a></li>
+<li>HashTable已经被淘汰了，不要在代码中再使用它。<blockquote>
+<ul>
+<li>简单来说就是，如果你不需要线程安全，那么使用HashMap，如果需要线程安全，那么使用ConcurrentHashMap。HashTable已经被淘汰了，不要在新的代码中再使用它。  </li>
+<li>虽然HashMap和HashTable的公开接口应该不会改变，或者说改变不频繁。但每一版本的JDK，都会对HashMap和HashTable的内部实现做优化，比如上文曾提到的JDK 1.8的红黑树优化。所以，尽可能的使用新版本的JDK吧，除了那些炫酷的新功能，普通的API也会有性能上有提升。  </li>
+<li>为什么HashTable已经淘汰了，还要优化它？因为有老的代码还在使用它，所以优化了它之后，这些老的代码也能获得性能提升</li>
+</ul>
+</blockquote>
+<h4 id="LinkedHashSet，LinkedHashMap-ConcurrentHashMap"><a href="#LinkedHashSet，LinkedHashMap-ConcurrentHashMap" class="headerlink" title="LinkedHashSet，LinkedHashMap, ConcurrentHashMap"></a>LinkedHashSet，LinkedHashMap, ConcurrentHashMap</h4><h5 id="ConcurrentHashMap：其实属于java-util-concurrent包"><a href="#ConcurrentHashMap：其实属于java-util-concurrent包" class="headerlink" title="ConcurrentHashMap：其实属于java.util.concurrent包"></a>ConcurrentHashMap：其实属于java.util.concurrent包</h5>参考：</li>
+</ol>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653192083&amp;idx=1&amp;sn=5c4becd5724dd72ad489b9ed466329f5&amp;chksm=8c990d49bbee845f69345e4121888ec967df27988bc66afd984a25331d2f6464a61dc0335a54&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">漫画：什么是ConcurrentHashMap？</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html" target="_blank" rel="noopener">ConcurrentHashMap 的实现原理</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html" target="_blank" rel="noopener">探索 ConcurrentHashMap 高并发性的实现机制</a>、</li>
+<li><a href="http://www.importnew.com/22007.html" target="_blank" rel="noopener">ConcurrentHashMap总结</a>：最重要！！！jdk6、7和8的实现有很大差别！！！</li>
+<li><a href="http://www.jasongj.com/java/concurrenthashmap/" target="_blank" rel="noopener">Java进阶（六）从ConcurrentHashMap的演进看Java多线程核心技术</a>：主讲java8，图画的很好</li>
+</ul>
+<p><img src="http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap3.jpg" alt="concurrenthashmap segment"></p>
+<blockquote>
+<p>在实际的应用中，散列表一般的应用场景是：除了少数插入操作和删除操作外，绝大多数都是读取操作，而且读操作在大多数时候都是成功的。正是基于这个前提，ConcurrentHashMap 针对读操作做了大量的优化。通过 HashEntry 对象的不变性和用 volatile 型变量协调线程间的内存可见性，使得 大多数时候，读操作不需要加锁就可以正确获得值。这个特性使得 ConcurrentHashMap 的并发性能在分离锁的基础上又有了近一步的提高。</p>
+<p>ConcurrentHashMap 是一个并发散列映射表的实现，它允许完全并发的读取，并且支持给定数量的并发更新。相比于 HashTable 和用同步包装器包装的 HashMap（Collections.synchronizedMap(new HashMap())），ConcurrentHashMap 拥有更高的并发性。在 HashTable 和由同步包装器包装的 HashMap 中，使用一个全局的锁来同步不同线程间的并发访问。同一时间点，只能有一个线程持有锁，也就是说在同一时间点，只能有一个线程能访问容器。这虽然保证多线程间的安全并发访问，但同时也导致对容器的访问变成串行化的了。</p>
+<p>ConcurrentHashMap 的高并发性主要来自于三个方面：</p>
+<ul>
+<li>用分离锁实现多个线程间的更深层次的共享访问。</li>
+<li>用 HashEntery 对象的不变性来降低执行读操作的线程在遍历链表期间对加锁的需求。</li>
+<li>通过对同一个 Volatile 变量的写 / 读访问，协调不同线程间读 / 写操作的内存可见性。<br>使用分离锁，减小了请求 同一个锁的频率。</li>
+</ul>
+<p>通过 HashEntery 对象的不变性及对同一个 Volatile 变量的读 / 写来协调内存可见性，使得 读操作大多数时候不需要加锁就能成功获取到需要的值。由于散列映射表在实际应用中大多数操作都是成功的 读操作，所以 2 和 3 既可以减少请求同一个锁的频率，也可以有效减少持有锁的时间。通过减小请求同一个锁的频率和尽量减少持有锁的时间 ，使得 ConcurrentHashMap 的并发性相对于 HashTable 和用同步包装器包装的 HashMap有了质的提高。</p>
+</blockquote>
+<h5 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h5><p>参考：<a href="http://wiki.jikexueyuan.com/project/java-collection/linkedhashmap.html" target="_blank" rel="noopener">LinkedHashMap 的实现原理</a></p>
+<p>JAVA 在 JDK1.4 以后提供了 LinkedHashMap 来帮助我们实现了<strong>有序的 HashMap</strong>！</p>
+<blockquote>
+<p>LinkedHashMap 是 HashMap 的一个子类，它<strong>保留插入的顺序</strong>，如果需要输出的顺序和输入时的相同，那么就选用 LinkedHashMap。</p>
+</blockquote>
+<p>根据链表中元素的顺序可以分为：按插入顺序的链表，和按访问顺序(调用 get 方法)的链表。默认是按插入顺序排序，如果指定按访问顺序排序，那么调用get方法后，会将这次访问的元素移至链表尾部，不断访问可以形成按访问顺序排序的链表。</p>
+<p><img src="https://cloud.githubusercontent.com/assets/1736354/6981649/03eb9014-da38-11e4-9cbf-03d9c21f05f2.png" alt="linkedhashmap"></p>
+<h5 id="LinkedHashSet（与HashSet）"><a href="#LinkedHashSet（与HashSet）" class="headerlink" title="LinkedHashSet（与HashSet）"></a>LinkedHashSet（与HashSet）</h5><p>参考：<a href="http://wiki.jikexueyuan.com/project/java-collection/linkedhashset.html" target="_blank" rel="noopener">LinkedHashSet 的实现原理</a>、<a href="http://yikun.github.io/2015/04/09/Java-LinkedHashSet%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/" target="_blank" rel="noopener">Java LinkedHashSet工作原理及实现</a></p>
+<ol>
+<li>LinkedHashSet 是 Set 的一个具体实现，其维护着一个运行于所有条目的双重链接列表。此链接列表定义了迭代顺序，该迭代顺序可为插入顺序或是访问顺序。</li>
+<li>LinkedHashSet 继承与 HashSet，并且其内部是通过 LinkedHashMap 来实现的。有点类似于我们之前说的LinkedHashMap 其内部是基于 Hashmap 实现一样，不过还是有一点点区别的（具体的区别大家可以自己去思考一下）。</li>
+<li>如果我们需要迭代的顺序为插入顺序或者访问顺序，那么 LinkedHashSet 是需要你首先考虑的。</li>
+<li>关键代码<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedHashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">      </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HashSet(<span class="keyword">int</span> initialCapacity, <span class="keyword">float</span> loadFactor, <span class="keyword">boolean</span> dummy) &#123;</span><br><span class="line">    map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;(initialCapacity, loadFactor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>HashSet实现原理图：基于HashMap，PRESENT是补充的value<br><img src="https://cloud.githubusercontent.com/assets/1736354/7060522/0bcfd890-deb5-11e4-97b3-d4e811766893.png" alt="HashSet实现原理"></li>
+<li>LinkedHashSet实现原理图<br><img src="https://cloud.githubusercontent.com/assets/1736354/7082382/14d44b8e-df86-11e4-8e50-1e925f430b6e.png" alt="LinkedHashSet实现原理图"><h3 id="Java-Collections"><a href="#Java-Collections" class="headerlink" title="Java Collections"></a>Java Collections</h3><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html" target="_blank" rel="noopener">Collections (java.util.Collections)</a> 工具类包含了大量针对Collection/Map操作的<strong>静态方法</strong>，使用这些方法能帮我们简化代码。</li>
+</ul>
+<ol>
+<li>排序操作（主要针对List接口相关）</li>
+</ol>
+<ul>
+<li>reverse(List list)：反转指定List集合中元素的顺序</li>
+<li>shuffle(List list)：对List中的元素进行随机排序（洗牌）</li>
+<li>sort(List list)：对List里的元素根据自然升序排序</li>
+<li>sort(List list, Comparator c)：自定义比较器进行排序</li>
+<li>swap(List list, int i, int j)：将指定List集合中i处元素和j出元素进行交换</li>
+<li>rotate(List list, int distance)：将所有元素向右移位指定长度，如果distance等于size那么结果不变</li>
+</ul>
+<ol start="2">
+<li>查找和替换（主要针对Collection接口相关）</li>
+</ol>
+<ul>
+<li>binarySearch(List list, Object key)：使用二分搜索法，以获得指定对象在List中的索引，前提是集合已经排序</li>
+<li>max(Collection coll)：返回最大元素</li>
+<li>max(Collection coll, Comparator comp)：根据自定义比较器，返回最大元素</li>
+<li>min(Collection coll)：返回最小元素</li>
+<li>min(Collection coll, Comparator comp)：根据自定义比较器，返回最小元素</li>
+<li>fill(List list, Object obj)：使用指定对象填充</li>
+<li>frequency(Collection Object o)：返回指定集合中指定对象出现的次数</li>
+<li>replaceAll(List list, Object old, Object new)：替换</li>
+</ul>
+<ol start="3">
+<li>同步控制</li>
+</ol>
+<ul>
+<li>Collections工具类中提供了多个<code>synchronizedXxx</code>方法，该方法返回指定集合对象对应的同步对象，从而解决多线程并发访问集合时线程的安全问题。HashSet、ArrayList、HashMap都是线程不安全的，如果需要考虑同步，则使用这些方法。这些方法主要有：<code>synchronizedSet、synchronizedSortedSet、synchronizedList、synchronizedMap、synchronizedSortedMap</code>。</li>
+<li>特别需要指出的是，在使用迭代方法遍历集合时需要手工同步返回的集合。</li>
+</ul>
+<ol start="4">
+<li>设置不可变集合<br>Collections有三类方法可返回一个不可变集合：</li>
+</ol>
+<ul>
+<li>emptyXxx()：返回一个空的不可变的集合对象</li>
+<li>singletonXxx()：返回一个只包含指定对象的，不可变的集合对象。</li>
+<li>unmodifiableXxx()：返回指定集合对象的不可变视图</li>
+</ul>
+<ol start="5">
+<li>其它  </li>
+</ol>
+<ul>
+<li>disjoint(Collection&lt;?&gt; c1, Collection&lt;?&gt; c2) - 如果两个指定 collection 中没有相同的元素，则返回 true。</li>
+<li>addAll(Collection&lt;? super T&gt; c, T… a) - 一种方便的方式，将所有指定元素添加到指定 collection 中。示范：<br>Collections.addAll(flavors, “Peaches ‘n Plutonium”, “Rocky Racoon”);</li>
+<li>Comparator<t> reverseOrder(Comparator<t> cmp) - 返回一个比较器，它强行反转指定比较器的顺序。如果指定比较器为 null，则此方法等同于 reverseOrder()（换句话说，它返回一个比较器，该比较器将强行反转实现 Comparable 接口那些对象 collection 上的自然顺序）。<h3 id="接口与抽象类的区别"><a href="#接口与抽象类的区别" class="headerlink" title="接口与抽象类的区别"></a>接口与抽象类的区别</h3></t></t></li>
+<li>一个子类只能继承一个抽象类，但能实现多个接口</li>
+<li>抽象类可以有构造方法，接口没有构造方法</li>
+<li>抽象类可以有普通成员变量，接口没有普通成员变量</li>
+<li>抽象类和接口都可有静态成员变量，抽象类中的静态成员变量访问类型任意，接口只能public staic final （默认）</li>
+<li>抽象类可以没有抽象方法，抽象类可以有普通方法，接口中都是抽象方法</li>
+<li>抽象类可以有静态方法，接口不能有静态方法</li>
+<li>抽象类中的方法可以是public，protected，接口只有public abstract<h3 id="异常Exceptions"><a href="#异常Exceptions" class="headerlink" title="异常Exceptions"></a>异常Exceptions</h3><h3 id="Java并发工具类"><a href="#Java并发工具类" class="headerlink" title="Java并发工具类"></a>Java并发工具类</h3><h3 id="比较两个相似的数据类型要考虑的方面"><a href="#比较两个相似的数据类型要考虑的方面" class="headerlink" title="比较两个相似的数据类型要考虑的方面"></a>比较两个相似的数据类型要考虑的方面</h3></li>
+<li>接口实现的不同</li>
+<li>存储形式的不同（随机还是连续）</li>
+<li>针对的应用场景不同</li>
+<li>线程安全角度的不同</li>
+<li>共同操作的开销问题（效率问题，时间开销和内存开销）<h3 id="参考问题"><a href="#参考问题" class="headerlink" title="参考问题"></a>参考问题</h3></li>
+</ul>
+<ol>
+<li><a href="https://stackoverflow.com/questions/37769428/why-is-accessing-an-item-by-index-slower-in-a-linked-list-than-an-array" target="_blank" rel="noopener">为什么链表按照index访问比较慢？</a></li>
+<li><a href="https://stackoverflow.com/questions/4927858/java-util-linked-list-how-to-find-next" target="_blank" rel="noopener">为什么Java.util.LinkedList不方便访问元素的下一个（next和preview的直接调用）？</a><blockquote>
+<p>我不知道你使用的是什么 Node 类，但 LinkedList<t> 有它自己的内部节点类，你不能访问。 调用 add值添加到列表——你不能显式地插入一个节点值,或以任何其他方式访问节点本身。 是的有时候会很痛苦。<br>如果你需要具有节点 public 封装的链接列表，则需要找到另一个实现或者滚动你自己的列表。</t></p>
+</blockquote>
+</li>
+<li><a href="http://zhaox.github.io/2016/07/05/hashmap-vs-hashtable" target="_blank" rel="noopener">HashMap和HashTable到底哪不同？</a><h2 id="多线程与并发"><a href="#多线程与并发" class="headerlink" title="多线程与并发"></a>多线程与并发</h2>参考：<a href="http://www.cnblogs.com/dolphin0520/p/3949310.html" target="_blank" rel="noopener">Java并发编程：Callable、Future和FutureTask</a><h3 id="volatile变量的理解"><a href="#volatile变量的理解" class="headerlink" title="volatile变量的理解"></a>volatile变量的理解</h3></li>
+</ol>
+<p>参考<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MjM5NzM0MjcyMQ==&amp;mid=2650072057&amp;idx=3&amp;sn=0eb6dd4be610de53293d124c4e0498b3&amp;chksm=bedb389789acb181347f0867d234b5ef500afff2d986248cf53ea1e4b866afd1ace51da7faba&amp;scene=7#rd" target="_blank" rel="noopener">Java中volatile变量的理解与正确使用</a>，<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MzIxMjE5MTE1Nw==&amp;mid=2653192450&amp;idx=2&amp;sn=ad95717051c0c4af83923b736a5bc637&amp;chksm=8c99f3d8bbee7aceb123e4f6aa9a220630b5aa17743ba812d82308bfb6a8ed8303bdd181f144&amp;scene=7#rd" target="_blank" rel="noopener">漫画：什么是 volatile 关键字？</a></p>
+<blockquote>
+<ul>
+<li>volatile标示的变量保证了可见性，也就是线程用到该变量时必须从内存读取新值，在更改该变量时必须将指刷新到主内存中。  </li>
+<li>volatile变量适用于那些一写多读的应用场景，而多写的场景并不能保证线程安全</li>
+</ul>
+</blockquote>
+<p>Java语言提供了一种稍弱的同步机制，即volatile变量。作用与说明有三：</p>
+<ul>
+<li>用来确保将变量的更新操作通知到其它线程，保证了新值能够立即同步到主内存，以及每次使用前立即从主内存刷新。</li>
+<li>volatile的另一个语义是禁止指令重排序优化。</li>
+<li>volatile并不保证原子性，也就是不能保证线程安全。<h3 id="什么是线程安全"><a href="#什么是线程安全" class="headerlink" title="什么是线程安全"></a>什么是线程安全</h3>如果代码有多个线程同时运行，而这些线程可能会同时运行这段代码，如果运行结果和单线程运行结果一样，就是线程安全的。java.util.concurrent包里面的类，就是为并行线程安全提供的类型包。<h3 id="Java的Runnable，Collable以及Future"><a href="#Java的Runnable，Collable以及Future" class="headerlink" title="Java的Runnable，Collable以及Future"></a>Java的Runnable，Collable以及Future</h3></li>
+<li>Runnable应该是我们最熟悉的接口，它只有一个run()函数，用于将耗时操作写在其中，该函数<strong>没有返回值</strong>。</li>
+<li>Callable与Runnable的功能大致相似，Callable中有一个call()函数，<strong>但是call()函数有返回值</strong>，而Runnable的run()函数不能将结果返回给客户程序。</li>
+<li>Executor就是Runnable和Callable的调度容器，Future就是对于具体的Runnable或者Callable任务的执行结果进行取消、查询是否完成、获取结果、设置结果操作。get方法会阻塞，直到任务返回结果。</li>
+<li><p>FutureTask则是一个RunnableFuture<v>，而RunnableFuture实现了Runnbale又实现了Futrue<v>这两个接口</v></v></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callable</span>&lt;<span class="title">V</span>&gt; </span>&#123;  </span><br><span class="line">    <span class="function">V <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">cancel</span><span class="params">(<span class="keyword">boolean</span> mayInterruptIfRunning)</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCancelled</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, ExecutionException</span>;  </span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span>  </span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FutureTask</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt;  </span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Runnable</span>, <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简单示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Future;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> *  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> mrsimple </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunnableFutureTask</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * ExecutorService </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="keyword">static</span> ExecutorService mExecutor = Executors.newSingleThreadExecutor();  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        runnableDemo();  </span><br><span class="line">        futureDemo();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * runnable, 无返回值 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">runnableDemo</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">  </span><br><span class="line">            <span class="meta">@Override</span>  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                System.out.println(<span class="string">"runnable demo : "</span> + fibc(<span class="number">20</span>));  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;).start();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 其中Runnable实现的是void run()方法，无返回值；Callable实现的是 V </span></span><br><span class="line"><span class="comment">     * call()方法，并且可以返回执行结果。其中Runnable可以提交给Thread来包装下 </span></span><br><span class="line"><span class="comment">     * ，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">futureDemo</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * 提交runnable则没有返回值, future没有数据 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            Future&lt;?&gt; result = mExecutor.submit(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">  </span><br><span class="line">                <span class="meta">@Override</span>  </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                    fibc(<span class="number">20</span>);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;);  </span><br><span class="line">  </span><br><span class="line">            System.out.println(<span class="string">"future result from runnable : "</span> + result.get());  </span><br><span class="line">  </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * 提交Callable, 有返回值, future中能够获取返回值 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            Future&lt;Integer&gt; result2 = mExecutor.submit(<span class="keyword">new</span> Callable&lt;Integer&gt;() &#123;  </span><br><span class="line">                <span class="meta">@Override</span>  </span><br><span class="line">                <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">                    <span class="keyword">return</span> fibc(<span class="number">20</span>);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;);  </span><br><span class="line">  </span><br><span class="line">            System.out  </span><br><span class="line">                    .println(<span class="string">"future result from callable : "</span> + result2.get());  </span><br><span class="line">  </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * FutureTask则是一个RunnableFuture&lt;V&gt;，即实现了Runnbale又实现了Futrue&lt;V&gt;这两个接口， </span></span><br><span class="line"><span class="comment">             * 另外它还可以包装Runnable(实际上会转换为Callable)和Callable </span></span><br><span class="line"><span class="comment">             * &lt;V&gt;，所以一般来讲是一个符合体了，它可以通过Thread包装来直接执行，也可以提交给ExecuteService来执行 </span></span><br><span class="line"><span class="comment">             * ，并且还可以通过v get()返回执行结果，在线程体没有执行完成的时候，主线程一直阻塞等待，执行完则直接返回结果。 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            FutureTask&lt;Integer&gt; futureTask = <span class="keyword">new</span> FutureTask&lt;Integer&gt;(  </span><br><span class="line">                    <span class="keyword">new</span> Callable&lt;Integer&gt;() &#123;  </span><br><span class="line">                        <span class="meta">@Override</span>  </span><br><span class="line">                        <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">                            <span class="keyword">return</span> fibc(<span class="number">20</span>);  </span><br><span class="line">                        &#125;  </span><br><span class="line">                    &#125;);  </span><br><span class="line">            <span class="comment">// 提交futureTask  </span></span><br><span class="line">            mExecutor.submit(futureTask) ;  </span><br><span class="line">            System.out.println(<span class="string">"future result from futureTask : "</span>  </span><br><span class="line">                    + futureTask.get());  </span><br><span class="line">  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 效率底下的斐波那契数列, 耗时的操作 </span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibc</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">0</span>) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">1</span>) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> fibc(num - <span class="number">1</span>) + fibc(num - <span class="number">2</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="继承Thread和实现Runnable的区别是什么"><a href="#继承Thread和实现Runnable的区别是什么" class="headerlink" title="继承Thread和实现Runnable的区别是什么"></a>继承Thread和实现Runnable的区别是什么</h3><ol>
+<li>Thread和Runnable都可以实现多线程 </li>
+<li>Thread是类，而Runnable是接口，这就是类和接口区别，类只能继承一次，而接口可以实现多个接口。 </li>
+<li>Thread实现Runnable接口，这个可以查看Thread的源代码。 </li>
+<li>最重要的分享资源功能，一般我们使用多线程就是快速解决资源问题。Runnable可以实现资源分享，类实现Runnable并不具备线程功能，必须通过new Thread(runabble子类)调用start()启动线程，所以我们通常new一个runnable的子类，启动多个线程解决资源问题。Thread是类所以我们每次new一个对象时候资源已经实例化了，不能资源共享，Thread类要实现资源共享，可以声明变量为static，类共享的可以解决。 </li>
+<li>通过以上建议最好实现Runnable接口 实现多线程。 </li>
+<li>这2种方式都有一个<strong>缺陷</strong>就是：<strong>在执行完任务之后无法获取执行结果。</strong></li>
+</ol>
+<p>所以我们需要有Future</p>
+<h3 id="Difference-between-notify-and-notifyAll-in-Java"><a href="#Difference-between-notify-and-notifyAll-in-Java" class="headerlink" title="Difference between notify and notifyAll in Java"></a>Difference between notify and notifyAll in Java</h3><blockquote>
+<p>Java provides two methods notify and notifyAll for waking up threads waiting on some condition and you can use any of them but there is a subtle difference between notify and notifyAll in Java which makes it one of the popular multi-threading interview questions in Java. <u>When you call notify only <strong>one of waiting</strong> for the thread will be woken and it’s not guaranteed which thread will be woken, it depends on upon Thread scheduler. While if you call notifyAll method, <strong>all threads waiting</strong> on that lock will be woken up, but again all woken thread will fight for lock before executing remaining code</u> and that’s why <strong>wait is called on loop</strong> because if multiple threads are woken up, the thread which will get lock will first execute and it may reset waiting for condition, which will force subsequent threads to wait. So key difference between notify and notifyAll is that notify() will cause only one thread to wake up while notifyAll method will make all thread to wake up.</p>
+</blockquote>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>参考</p>
+<ul>
+<li><a href="http://www.cnblogs.com/qifengshi/p/6831055.html" target="_blank" rel="noopener">Java中的锁分类</a></li>
+<li><a href="https://www.jianshu.com/p/f47250702ee7" target="_blank" rel="noopener">Java可重入锁详解</a></li>
+<li><a href="https://www.jianshu.com/p/853b203a8d93" target="_blank" rel="noopener">Java同步框架AbstractQueuedSynchronizer</a><h4 id="可重入锁-ReentrantLock"><a href="#可重入锁-ReentrantLock" class="headerlink" title="可重入锁-ReentrantLock"></a>可重入锁-<code>ReentrantLock</code></h4>如果当前线程已经获得了某个监视器对象所持有的锁，那么该线程在该方法中调用另外一个同步方法也同样持有该锁。如果锁不具有可重入性特点的话，那么线程在调用同步方法、含有锁的方法时就会产生死锁。<h4 id="读写锁-ReadWriteLock"><a href="#读写锁-ReadWriteLock" class="headerlink" title="读写锁-ReadWriteLock"></a>读写锁-<code>ReadWriteLock</code></h4>其读锁是共享锁，其写锁是独享锁。<br>读锁的共享锁可保证并发读是非常高效的，读写，写读 ，写写的过程是互斥的。</li>
+</ul>
+<h2 id="Java虚拟机"><a href="#Java虚拟机" class="headerlink" title="Java虚拟机"></a>Java虚拟机</h2><h3 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h3><p>参考：<a href="https://www.jianshu.com/p/6173a467165e" target="_blank" rel="noopener">Java运行时数据区域</a></p>
+<p>Java运行时的数据区域：程序计数器（Program Counter Register）、JVM栈、本地方法栈（Native Method Stack）、Java堆（Heap）、方法区（Method Area）以及运行时常量池、直接内存</p>
+<p><img src="java运行时的数据区.png" alt="java运行时数据区"></p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>程序计数器占用较小的内存空间，可以看做是<strong>当前线程所执行的字节码的行号指示器</strong>，由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器（对于多核处理器来说就是一个内核）都只会执行一条线程中的指令。因此，为了<strong>线程切换后能够恢复到正确的执行位置</strong>，每条线程都需要有一个独立的程序计数器。</p>
+<p>如果线程正在执行Java方法，则计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是Native方法，则这个计数器则为空。</p>
+<h4 id="JVM栈与本地方法栈"><a href="#JVM栈与本地方法栈" class="headerlink" title="JVM栈与本地方法栈"></a>JVM栈与本地方法栈</h4><ul>
+<li>虚拟机栈</li>
+</ul>
+<p><img src="虚拟机栈.png" alt="虚拟机栈"></p>
+<h4 id="Java堆与方法区"><a href="#Java堆与方法区" class="headerlink" title="Java堆与方法区"></a>Java堆与方法区</h4><ul>
+<li>Java堆</li>
+</ul>
+<p>对大多数应用来说，Java堆（Heap）是Java虚拟机所管理的<strong>内存中最大的一块</strong>，Java堆是<strong>被所有线程共享</strong>的一块内存区域，在虚拟机启动时创建。该内存区域唯一的目的就是存放对象实例，<strong>Java对象实例以及数组</strong>都在堆上分配（随着JIT编译器发展等技术成熟，所有对象分配在堆上也渐渐不是那么“绝对”了）。</p>
+<p>Java堆是<strong>垃圾收集器管理的主要区域</strong>，因此Java堆也常被称为“GC堆”，由于现在收集器基于分代收集算法，Java堆还可以细分为：新生代和老年代。</p>
+<p>根据Java虚拟机规范的规定，Java堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可，就像我们的磁盘空间一样（或者说，像链表一样虽然内存上不一定连续，但逻辑上是连续）。如果在堆中没有内存完成实例分配，而且堆也没办法再扩展时，将会抛出<strong>OutOfMemoryError异常</strong>。</p>
+<ul>
+<li>方法区</li>
+</ul>
+<p>方法区与Java堆一样，是各个线程共享的内存区域，用于存储已被虚拟机加载的<strong>类信息、常量、静态变量、即时编译器编译后的代码</strong>等数据。Java虚拟机规范对方法区的限制非常宽松，除了和Java堆一样不需要连续的内存和可以选择固定大小或者可拓展外，还可以选择不实现垃圾收集。相对而言，垃圾收集行为在这个区域是比较少出现的，但并非数据进入了方法区就成为了永久代。该区域的内存回收目标主要是针对常量池的回收和对类型的卸载。</p>
+<p>Java虚拟机规范规定，当方法区无法满足内存分配需求时，讲抛出OutOfMemoryError异常。</p>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><p>运行时常量池与class文件的常量池不同，应该是运行时常量池包含class文件中的常量池。</p>
+<p><strong>运行时常量池是方法区</strong>的一部分，Class文件中除了有关类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。</p>
+<p>运行时常量池相对于Class文件常量池的另一个重要特征是具备动态性，Java语言并非不要求常量一定只有编译期才能产生，也就是并非预置入Class文件中常量池的内容才能进入方法区运行时常量池，运行期间也可以将新的常量池放入池中。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol start="0">
+<li><a href="http://www.cnblogs.com/dolphin0520/p/3958019.html" target="_blank" rel="noopener">Java线程面试题 Top 50</a></li>
+<li><a href="http://blog.csdn.net/column/details/java-source-study.html" target="_blank" rel="noopener">Java源码分析</a></li>
+<li><a href="http://zhaox.github.io/2016/07/05/hashmap-vs-hashtable" target="_blank" rel="noopener">HashMap和HashTable到底哪不同？</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html" target="_blank" rel="noopener">ConcurrentHashMap 的实现原理</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html" target="_blank" rel="noopener">探索 ConcurrentHashMap 高并发性的实现机制</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-collection/linkedhashmap.html" target="_blank" rel="noopener">LinkedHashMap 的实现原理</a></li>
+<li><a href="https://www.jianshu.com/p/f98c3acd8df8" target="_blank" rel="noopener">JDK基础概念及目录结构</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/详解shuffle过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_hadoop/详解shuffle过程/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Hadoop面试内容整理"><a href="#Hadoop面试内容整理" class="headerlink" title="Hadoop面试内容整理"></a>Hadoop面试内容整理</h1><p>Hadoop的面试内容主要分为3各部分，首先接触过Hadoop的一定会问MapReduce编程模型的详细过程，然后可以问一些文件系统的东西，最后可能问一下与Hadoop相关的衍生品：HBase等。</p>
+<ul>
+<li>MapReduce</li>
+<li>Hadoop Distributed File System（HDFS）  </li>
+<li>HBase等  </li>
+</ul>
+<p>参考资料： </p>
+<ul>
+<li><a href="https://www.jianshu.com/p/c97ff0ab5f49" target="_blank" rel="noopener">Hadoop 面试，有它就够了</a>、<a href="http://k.sina.com.cn/article_1708729084_65d922fc034002mnt.html" target="_blank" rel="noopener">同名另外一版本</a></li>
+<li><a href="https://my.oschina.net/itblog/blog/275294" target="_blank" rel="noopener">Hadoop MapReduce执行过程详解（带hadoop例子）</a></li>
+<li><a href="https://www.csdn.net/article/2014-02-17/2818431-HDFS+MapReduce+Hbase" target="_blank" rel="noopener">Hadoop核心架构HDFS+MapReduce+Hbase+Hive内部机理详解</a></li>
+</ul>
+<h2 id="Hadoop-MapReduce"><a href="#Hadoop-MapReduce" class="headerlink" title="Hadoop MapReduce"></a>Hadoop MapReduce</h2><p>只要搞懂下面这个架构图就可以了。<br><img src="https://upload-images.jianshu.io/upload_images/697231-2fd012f3d2074e26" alt="MR架构"></p>
+<p>下面把这个过程分为Mapper和Reducer两个阶段进行分析。</p>
+<h3 id="Mapper任务的执行过程详解"><a href="#Mapper任务的执行过程详解" class="headerlink" title="Mapper任务的执行过程详解"></a>Mapper任务的执行过程详解</h3><p>每个Mapper是一个java进程，Mapper之间做的工作都一样，数量可以配置。任务执行过程如下。</p>
+<ol>
+<li><p><strong>InputSplit</strong>：把输入文件按照一定的标准分片，每个输入片的大小是固定的。默认情况下，输入片(InputSplit)的大小与数据块(Block)的大小是相同的，默认值64MB。输入文件有两个，一个是32MB，一个是72MB。那么小的文件是一个输入片，大文件会分为两个数据块，那么是两个输入片。一共产生三个输入片。每一个输入片由一个Mapper进程处理。这里的三个输入片，会有三个Mapper进程处理。</p>
+</li>
+<li><p><strong>Map Phase</strong>：其实有两个阶段，如果我们看<code>WordCount</code>的源码就会发现，<code>Mapper</code>的输入包含<code>Object key, Text value, Context context</code>，输入已经包含了key-value对。根据第一步输入的分片，首先按行划分成key=行号，value=行内容的结构，然后Mapper使用map函数对没一个键值对进行处理，可以对value进行进一步的单词划分。其输出结果是单词-计数级别的键值对。</p>
+</li>
+<li><p><strong>Partition</strong>：对第二步的输出进行基于key的分区，分区数量与reducer数量相当。这样相同key的数据就到了一个分区中。</p>
+</li>
+<li><p><strong>Sort</strong>：相同分区中的键值对进行按照先键后值的比较方式排序。</p>
+</li>
+<li><p><strong>Combine</strong>：排序完成后，相同key（也相邻）进行整合以减少网络开销。一次partition级别的reduce</p>
+</li>
+</ol>
+<p>注意：为了减少网络开销，每个Mapper设置一个缓冲区，并设置一个溢出值，分别为100M和0.8。当数据量大的时候会有多个溢出文件，在进入Reduce阶段会进行多个溢出文件整合。</p>
+<h3 id="Reducer任务的执行过程详解"><a href="#Reducer任务的执行过程详解" class="headerlink" title="Reducer任务的执行过程详解"></a>Reducer任务的执行过程详解</h3><ol>
+<li><p>第一阶段是Reducer任务会主动从Mapper任务复制其输出的键值对。Mapper任务可能会有很多，因此Reducer会复制多个Mapper的输出。</p>
+</li>
+<li><p>第二阶段是把复制到Reducer本地数据，全部进行合并，即把分散的数据合并成一个大的数据。再对合并后的数据排序。这里复制的数据是某个<code>key.hash()</code>的partition数据，然后多个partition的数据进行融合。</p>
+</li>
+<li><p>第三阶段是对排序后的键值对调用reduce方法。键相等的键值对调用一次reduce方法，每次调用会产生零个或者多个键值对。最后把这些输出的键值对写入到HDFS文件中。</p>
+</li>
+</ol>
+<p>注意：由于一次Reducer处理过程只处理某相同<code>key.hash()</code>的分区，因此多个reducer的结果数据不需要合并。</p>
+<h2 id="Hadoop-Distributed-File-System"><a href="#Hadoop-Distributed-File-System" class="headerlink" title="Hadoop Distributed File System"></a>Hadoop Distributed File System</h2><p><img src="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsarchitecture.gif" alt="HDFS架构1"></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_design.html" target="_blank" rel="noopener">Hadoop分布式文件系统：架构与设计</a>：这是很早的一个文档，不过也挺有参考价值。</li>
+<li><a href="https://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#HDFS_Architecture" target="_blank" rel="noopener">HDFS_Architecture</a>：上个文件比较新的版本，基本内容差不多。</li>
+<li><a href="https://troywu0.gitbooks.io/spark/content/hdfs.html" target="_blank" rel="noopener">HDFS·面试宝典</a>：简略版面试总结，看完上面详细的文档之后可以看一下这个，梳理主要内容。</li>
+</ul>
+<h3 id="总结性介绍"><a href="#总结性介绍" class="headerlink" title="总结性介绍"></a>总结性介绍</h3><ul>
+<li>Hadoop分布式文件系统(HDFS)被设计成适合运行在通用硬件(commodity hardware)上的分布式文件系统。</li>
+<li>HDFS是一个高度容错性的系统，适合部署在廉价的机器上。</li>
+<li>HDFS能提供高吞吐量的数据访问，非常适合大规模数据集上的应用。</li>
+</ul>
+<h3 id="一些缺点"><a href="#一些缺点" class="headerlink" title="一些缺点"></a>一些缺点</h3><ul>
+<li>不适合低延迟数据访问</li>
+<li>无法高效存储大量小文件</li>
+<li>不支持多用户写入及任意修改文件。<blockquote>
+<p>副本系数可以在文件创建的时候指定，也可以在之后改变。HDFS中的文件都是一次性写入的，并且<strong>严格要求在任何时候只能有一个写入者</strong></p>
+</blockquote>
+<h3 id="简化的一致性模型"><a href="#简化的一致性模型" class="headerlink" title="简化的一致性模型"></a>简化的一致性模型</h3>HDFS应用需要一个“一次写入多次读取”的文件访问模型。一个文件经过创建、写入和关闭之后就不需要改变。这一假设简化了数据一致性问题，并且使高吞吐量的数据访问成为可能。Map/Reduce应用或者网络爬虫应用都非常适合这个模型。目前还有计划在将来扩充这个模型，使之支持文件的附加写操作。</li>
+</ul>
+<h2 id="Hadoop-DataBase"><a href="#Hadoop-DataBase" class="headerlink" title="Hadoop DataBase"></a>Hadoop DataBase</h2><p><img src="http://img.blog.csdn.net/20170528230853515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemdfaG92ZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="HBase架构1"></p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://blog.csdn.net/woshiwanxin102213/article/details/17584043" target="_blank" rel="noopener">Hbase原理、基本概念、基本架构</a></li>
+<li><a href="http://blog.javachen.com/2013/06/15/hbase-note-about-data-structure.html" target="_blank" rel="noopener">HBase笔记：存储结构</a></li>
+</ul>
+<h3 id="总结性介绍-1"><a href="#总结性介绍-1" class="headerlink" title="总结性介绍"></a>总结性介绍</h3><ul>
+<li>HBase是一个构建在HDFS上的分布式列存储系统，是基于Google BigTable模型开发的，典型的key/value系统。</li>
+<li>与传统mysql、Oracle数据库的主要区别就是列式存储和夯实存储的区别。</li>
+<li>Hbase适合大量插入同时又有读的情况。输入一个Key获取一个value或输入一些key获得一些value。</li>
+<li>Hbase目标主要依靠横向扩展，通过不断增加廉价的商用服务器，来增加计算和存储能力。</li>
+<li>Hbase表的特点<ul>
+<li>大：一个表可以有数十亿行，上百万列；</li>
+<li>无模式：每行都有一个可排序的主键和任意多的列，列可以根据需要动态的增加，同一张表中不同的行可以有截然不同的列；</li>
+<li>面向列：面向列（族）的存储和权限控制，列（族）独立检索；</li>
+<li>稀疏：空（null）列并不占用存储空间，表可以设计的非常稀疏；</li>
+<li>数据多版本：每个单元中的数据可以有多个版本，默认情况下版本号自动分配，是单元格插入时的时间戳；</li>
+<li>数据类型单一：Hbase中的数据都是字符串，没有类型。</li>
+</ul>
+</li>
+</ul>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop及WordCount详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_hadoop/Hadoop及WordCount详解/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/HBase面试整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_hadoop/HBase面试整理/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HBase面试整理"><a href="#HBase面试整理" class="headerlink" title="HBase面试整理"></a>HBase面试整理</h1><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://www.ixirong.com/2015/07/16/learn-about-hbase/" target="_blank" rel="noopener">列式存储hbase系统架构学习</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_git/git_note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_git/git_note/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git使用笔记"><a href="#Git使用笔记" class="headerlink" title="Git使用笔记"></a>Git使用笔记</h1><!-- TOC -->
+<ul>
+<li><a href="#1-git查看远程版本库和本地库的差异">1. git查看远程版本库和本地库的差异</a></li>
+<li><a href="#2-文件在工作目录缓存区本地仓库远程仓库之间的差别">2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别</a><ul>
+<li><a href="#21-工作目录-vs-暂存区">2.1. 工作目录 vs 暂存区</a></li>
+<li><a href="#22-暂存区-vs-git仓库">2.2. 暂存区 vs Git仓库</a></li>
+<li><a href="#23-工作目录-vs-git仓库">2.3. 工作目录 vs Git仓库</a></li>
+<li><a href="#24-git仓库-vs-git仓库">2.4. Git仓库 vs Git仓库</a></li>
+<li><a href="#25-本地文件-vs-远程git仓库">2.5. 本地文件 vs 远程Git仓库</a></li>
+</ul>
+</li>
+<li><a href="#3-个性化git-log输出格式">3. 个性化<code>git log</code>输出格式</a><ul>
+<li><a href="#31-动态定制">3.1. 动态定制</a></li>
+<li><a href="#32-静态定制">3.2. 静态定制</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-git查看远程版本库和本地库的差异"><a href="#1-git查看远程版本库和本地库的差异" class="headerlink" title="1. git查看远程版本库和本地库的差异"></a>1. git查看远程版本库和本地库的差异</h2><ul>
+<li><p><strong><code>git status</code></strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">On branch master</span><br><span class="line">Your branch is ahead of ‘origin/master’ by 2 commits.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>git fetch</code>加<code>git status</code></strong></p>
+<p>  <code>git fetch</code>可以取回远程分支的commit信息，但是不会进行本地文件的内容修改。之后<code>git status</code>同前面一样，显示本地仓库与本地远程仓库的区别。前面是ahead，如果本地落后就会显示behind。</p>
+</li>
+<li><p><strong><code>git cherry -v</code></strong>: 查看到未传送到远程代码库的提交描述/说明</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ b6568326134dc7d55073b289b07c4b3d64eff2e7 add default charset for table items_has_images</span><br><span class="line">+ 4cba858e87752363bd1ee8309c0048beef076c60 move Savant3 class into www/includes/class/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>git log master ^origin/master</code></strong>: 查看到未传送到远程代码库的提交详情<br>这是一个git log命令的过滤，^origin/master可改成其它分支。（注：master是当前本地库的分支，origin/master指origin指定的远程库的master分支。当然，master可以改为任意其他分支。）<br>显示结果类似于这样：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">commit 4cba858e87752363bd1ee8309c0048beef076c60</span><br><span class="line">Author: Zam &lt;zam@iaixue.com&gt;</span><br><span class="line">Date: Fri Aug 9 16:14:30 2013 +0800</span><br><span class="line"></span><br><span class="line">move Savant3 class into www/includes/class/</span><br><span class="line"></span><br><span class="line">commit b6568326134dc7d55073b289b07c4b3d64eff2e7</span><br><span class="line">Author: Zam &lt;zam@iaixue.com&gt;</span><br><span class="line">Date: Fri Aug 9 16:02:09 2013 +0800</span><br><span class="line">add default charset for table items_has_images</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>总结</strong></p>
+<ul>
+<li><code>git status</code> 只能查看未传送提交的次数</li>
+<li><code>git cherry -v</code> 只能查看未传送提交的描述/说明</li>
+<li><code>git log master ^origin/master</code> 则可以查看未传送提交的详细信息  </li>
+<li>使用<code>git log</code>的时候，也可以使用 -p 参数查看提交中的更详细信息</li>
+</ul>
+</li>
+</ul>
+<p><strong>[注]</strong>：以上内容转载互联网上的。<a href="http://bbs.iaixue.com/forum.php?mod=viewthread&amp;tid=1577" target="_blank" rel="noopener">http://bbs.iaixue.com/forum.php?mod=viewthread&amp;tid=1577</a></p>
+<p>由第3点，可以想到，将远程和本地分支位置调换一下，即变成 <code>git log origin/master ^master</code>，就可以查看远程库比本地库多的内容了。不过得先执行<code>git fetch origin master</code>命令，将远程库的commit内容同步到本地库。</p>
+<h2 id="2-文件在工作目录、缓存区、本地仓库、远程仓库之间的差别"><a href="#2-文件在工作目录、缓存区、本地仓库、远程仓库之间的差别" class="headerlink" title="2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别"></a>2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别</h2><p><strong>关键命令：<code>git diff</code></strong>（参考：[Git: git diff 命令详解]<br><strong>说明</strong>：</p>
+<ul>
+<li>以下命令可以不指定 <filename>，则对全部文件操作。</filename></li>
+<li>以下命令涉及和 Git仓库 对比的，均可指定 commit 的版本。</li>
+<li>HEAD 最近一次 commit</li>
+<li>HEAD^ 上次提交</li>
+<li>HEAD~100 上100次提交</li>
+<li>每次提交产生的哈希值</li>
+</ul>
+<h3 id="2-1-工作目录-vs-暂存区"><a href="#2-1-工作目录-vs-暂存区" class="headerlink" title="2.1. 工作目录 vs 暂存区"></a>2.1. 工作目录 vs 暂存区</h3><p>查看文件在工作目录与暂存区的差别。如果还没 add 进暂存区，则查看文件自身修改前后的差别。<code>&lt;branch&gt;</code>指定分支，默认当前分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;branch&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-暂存区-vs-Git仓库"><a href="#2-2-暂存区-vs-Git仓库" class="headerlink" title="2.2. 暂存区 vs Git仓库"></a>2.2. 暂存区 vs Git仓库</h3><p>添加参数：<code>--cached</code>。commit默认为最新一次提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached &lt;commit&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-工作目录-vs-Git仓库"><a href="#2-3-工作目录-vs-Git仓库" class="headerlink" title="2.3. 工作目录 vs Git仓库"></a>2.3. 工作目录 vs Git仓库</h3><p>查看工作目录同Git仓库指定 commit 的内容的差异。<br><code>&lt;commit&gt;=HEAD</code>时：查看工作目录同最近一次 commit 的内容的差异。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-Git仓库-vs-Git仓库"><a href="#2-4-Git仓库-vs-Git仓库" class="headerlink" title="2.4. Git仓库 vs Git仓库"></a>2.4. Git仓库 vs Git仓库</h3><p>Git仓库任意两次 commit 之间的差别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit&gt; &lt;commit&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-5-本地文件-vs-远程Git仓库"><a href="#2-5-本地文件-vs-远程Git仓库" class="headerlink" title="2.5. 本地文件 vs 远程Git仓库"></a>2.5. 本地文件 vs 远程Git仓库</h3><p>在pull之前，可以先比较本地仓库和远程仓库之间的差异，步骤为：</p>
+<ol>
+<li>添加需要比较的远程仓库：<code>git remote add foobar git://github.com/user/foobar.git</code></li>
+<li>取回foobar的内容，fetch不会修改本地的内容: <code>git fetch foobar</code></li>
+<li>比较本地分支和远程分支之间的差异: <code>git diff master foobar/master</code></li>
+<li>远程分支已经修改，本地未同步的变更: <code>git diff HEAD...origin/master</code></li>
+<li>本地分支已经修改，远程未同步的变更: <code>git diff origin/master...HEAD</code></li>
+</ol>
+<p>最后两步通用格式<code>git diff &lt;local branch&gt; &lt;remote&gt;/&lt;remote branch&gt;</code>或者更通用的<code>git diff &lt;branch1&gt; &lt;branch2&gt;</code>，即显示<code>branch1</code>相对于<code>branch2</code>的变动，所以<code>branch1 branch2</code>的前后位置变化，输出结果也会变化。</p>
+<h2 id="3-个性化git-log输出格式"><a href="#3-个性化git-log输出格式" class="headerlink" title="3. 个性化git log输出格式"></a>3. 个性化<code>git log</code>输出格式</h2><p>参考文章：<a href="https://ruby-china.org/topics/939" target="_blank" rel="noopener">个性化你的 Git Log 的输出格式</a></p>
+<h3 id="3-1-动态定制"><a href="#3-1-动态定制" class="headerlink" title="3.1. 动态定制"></a>3.1. 动态定制</h3><p>git log命令可一接受一个–pretty选项，来确定输出的格式。格式化参数详解请查看：<a href="https://git-scm.com/docs/pretty-formats" target="_blank" rel="noopener">https://git-scm.com/docs/pretty-formats</a></p>
+<h3 id="3-2-静态定制"><a href="#3-2-静态定制" class="headerlink" title="3.2. 静态定制"></a>3.2. 静态定制</h3><p>如果喜欢某个格式，可以保存到git config，或者设置alias以便日后使用。<br>~/.gitconfig中加入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[alias]</span><br><span class="line">    lg = your constomized type(eg. log --graph)</span><br></pre></td></tr></table></figure></p>
+<p>或者运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg &quot;log --graph&quot;</span><br></pre></td></tr></table></figure></p>
+<p>一些例子：其实差不多，都很好看。</p>
+<ul>
+<li>上面文章中提到的：<code>git log --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset&#39; --abbrev-commit --date=relative</code></li>
+<li>我自己使用的：<code>lg = log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_git/Github教程与简单笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_git/Github教程与简单笔记/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <link rel="stylesheet" type="text/css" href="learn_markdown/auto-number-title.css">
+
+<hr>
+<pre><code>Github教程与简单笔记
+@author 陈凯恒
+@createtime 2018-01-03V
+</code></pre><hr>
+<h1 id="Github教程与简单笔记"><a href="#Github教程与简单笔记" class="headerlink" title="Github教程与简单笔记"></a>Github教程与简单笔记</h1><!-- TOC -->
+<ul>
+<li><a href="#1-github简介">1. Github简介</a></li>
+<li><a href="#2-github功能标签介绍">2. Github功能标签介绍</a><ul>
+<li><a href="#21-关于watch">2.1. 关于watch</a></li>
+<li><a href="#22-关于star">2.2. 关于star</a></li>
+<li><a href="#23-关于fork">2.3. 关于Fork</a><ul>
+<li><a href="#231-fork并且更新github仓库的图表演示">2.3.1. Fork并且更新GitHub仓库的图表演示</a></li>
+<li><a href="#232-同步一个fork">2.3.2. 同步一个fork</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-参考资料">3. 参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-Github简介"><a href="#1-Github简介" class="headerlink" title="1. Github简介"></a>1. Github简介</h2><p>github是一个基于git的代码托管平台，付费用户可以建私人仓库，我们一般的免费用户只能使用公共仓库，也就是代码要公开。<br>Github 由Chris Wanstrath, PJ Hyett 与Tom Preston-Werner三位开发者在2008年4月创办。迄今拥有59名全职员工，主要提供基于git的版本托管服务。<br>目前看来，GitHub这场冒险已经胜出。根据来自维基百科关于GitHub的描述，我们可以形象地看出GitHub的增长速度：</p>
+<p><img src="https://camo.githubusercontent.com/9df81964b288254547c6607fe29e55b0e7dcef6a/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f343438332f313830333636372f62306564363634652d366332342d313165332d393535392d6535373032323135633437612e706e67" alt="github库的数量"></p>
+<p>今天，GitHub已是：</p>
+<ul>
+<li>一个拥有143万开发者的社区。其中不乏Linux发明者Torvalds这样的顶级黑客，以及Rails创始人DHH这样的年轻极客。</li>
+<li>这个星球上最流行的开源托管服务。目前已托管431万git项目，不仅越来越多知名开源项目迁入GitHub，比如Ruby on Rails、jQuery、Ruby、Erlang/OTP；近三年流行的开源库往往在GitHub首发，例如：BootStrap、Node.js、CoffeScript等。</li>
+<li>alexa全球排名414的网站。<h2 id="2-Github功能标签介绍"><a href="#2-Github功能标签介绍" class="headerlink" title="2. Github功能标签介绍"></a>2. Github功能标签介绍</h2><h3 id="2-1-关于watch"><a href="#2-1-关于watch" class="headerlink" title="2.1. 关于watch"></a>2.1. 关于watch</h3><img src="https://upload-images.jianshu.io/upload_images/588640-7aaa5676402d4ece.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="watch示意图"></li>
+</ul>
+<p>对于别人的项目，默认自己都处于 Not watching 的状态，当你选择 Watching，表示你以后会关注这个项目的所有动态，这个项目以后只要发生变动，如被别人提交了 pull request、被别人发起了issue等等情况，你都会在自己的个人通知中心，收到一条通知消息，如果你设置了个人邮箱，那么你的邮箱也可能收到相应的邮件。</p>
+<p>如下，我 watching 了开源项目android-cn/android-discuss，那么以后任何人只要在这个项目下提交了 issue 或者在 issue 下面有任何留言，我的通知中心就会通知我。如果你配置了邮箱，你还可能会因此不断的收到通知邮件。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/588640-f9145de159c4c6be.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="消息列表"></p>
+<h3 id="2-2-关于star"><a href="#2-2-关于star" class="headerlink" title="2.2. 关于star"></a>2.2. 关于star</h3><p>star 翻译过来是星，但这个翻译没任何具体意义，这里解释为<code>关注</code>或者<code>点赞</code>更合适，当你点击 star，表示你喜欢这个项目或者通俗点，可以把他理解成朋友圈的点赞吧，表示对这个项目的支持。</p>
+<p>不过相比朋友圈的点赞，github 里面会有一个列表，专门收集了你所有 star 过的项目，点击 github 个人头像，可以看到 your stars 的条目，点击就可以查看你 star 过的所有项目了</p>
+<h3 id="2-3-关于Fork"><a href="#2-3-关于Fork" class="headerlink" title="2.3. 关于Fork"></a>2.3. 关于Fork</h3><p>Fork 的本义是 <strong><em>叉子</em></strong>（名词）<br><img src="https://pic3.zhimg.com/50/37c8a551c139e20502088d978d4529cd_hd.jpg" alt="叉子"></p>
+<p>Git/GitHub 用户下面的图 来表达 Fork：分叉、克隆 出一个（仓库的）新拷贝。<br><img src="https://pic4.zhimg.com/50/3c13b2d3ddbf178b4debfea57644e520_hd.jpg" alt="github分支"></p>
+<p>现在有这样一种情形：有一个叫做Joe的程序猿写了一个游戏程序，而你可能要去改进它。并且Joe将他的代码放在了GitHub仓库上。下面是你要做的事情：<br><img src="https://pic2.zhimg.com/50/dadbcef0bca3d2eb68ef6009f45361e2_hd.jpg" alt="图片"></p>
+<h4 id="2-3-1-Fork并且更新GitHub仓库的图表演示"><a href="#2-3-1-Fork并且更新GitHub仓库的图表演示" class="headerlink" title="2.3.1. Fork并且更新GitHub仓库的图表演示"></a>2.3.1. Fork并且更新GitHub仓库的图表演示</h4><p><strong>Fork他的仓库</strong>：这是GitHub操作，这个操作会复制Joe的仓库（包括文件，提交历史，issues，和其余一些东西）。复制后的仓库在你自己的GitHub帐号下。目前，你本地计算机对这个仓库没有任何操作。</p>
+<p><strong>Clone你的仓库</strong>：这是Git操作。使用该操作让你发送”请给我发一份我仓库的复制文件”的命令给GitHub。现在这个仓库就会存储在你本地计算机上。</p>
+<p><strong>更新某些文件</strong>：现在，你可以在任何程序或者环境下更新仓库里的文件。</p>
+<p><strong>提交你的更改</strong>：这是Git操作。使用该操作让你发送”记录我的更改”的命令至GitHub。此操作只在你的本地计算机上完成。</p>
+<p>将你的更改push到你的GitHub仓库：这是Git操作。使用该操作让你发送”这是我的修改”的信息给GitHub。Push操作不会自动完成，所以直到你做了push操作，GitHub才知道你的提交。</p>
+<p><strong>给Joe发送一个pull request</strong>：如果你认为Joe会接受你的修改，你就可以给他发送一个pull request。这是GitHub操作，使用此操作可以帮助你和Joe交流你的修改，并且询问Joe是否愿意接受你的”pull request”，当然，接不接受完全取决于他自己。</p>
+<p>如果Joe接受了你的pull request，他将把那些修改拉到自己的仓库。胜利！</p>
+<h4 id="2-3-2-同步一个fork"><a href="#2-3-2-同步一个fork" class="headerlink" title="2.3.2. 同步一个fork"></a>2.3.2. 同步一个fork</h4><p>Joe和其余贡献者已经对这个项目做了一些修改，而你将在他们的修改的基础上，还要再做一些修改。在你开始之前，你最好”同步你的fork”，以确保在最新的复制版本里工作。下面是你要做的：<br><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201411/24/162416icr0h6wzr6ec2jze.png" alt="图片2"></p>
+<ol>
+<li><p>从Joe的仓库中取出那些变化的文件：这是Git操作，使用该命令让你可以从Joe的仓库获取最新的文件。</p>
+</li>
+<li><p>将这些修改合并到你自己的仓库：这是Git操作，使用该命令使得那些修改更新到你的本地计算机（那些修改暂时存放在一个”分支”中）。记住：步骤1和2经常结合为一个命令使用，合并后的Git命令叫做”pull”。</p>
+</li>
+<li><p>将那些修改更新推送到你的GitHub仓库（可选）：记住，你本地计算机不会自动更新你的GitHub仓库。所以，唯一更新GitHub仓库的办法就是将那些修改推送上去。你可以在步骤2完成后立即执行push，也可以等到你做了自己的一些修改，并已经本地提交后再执行推送操作。</p>
+</li>
+</ol>
+<p>比较一下fork和同步工作流程的区别：当你最初fork一个仓库的时候，信息的流向是从Joe的仓库到你的仓库，然后再到你本地计算机。但是最初的过程之后，信息的流向是从Joe的仓库到你的本地计算机，之后再到你的仓库。</p>
+<h2 id="3-参考资料"><a href="#3-参考资料" class="headerlink" title="3. 参考资料"></a>3. 参考资料</h2><p>[1] <a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="noopener">Github简明教程</a><br>[2] <a href="https://linux.cn/article-4292-1-rss.html" target="_blank" rel="noopener">在Github和Git上fork之简单指南</a><br>[3] <a href="https://www.jianshu.com/p/6c366b53ea41" target="_blank" rel="noopener">如何用好 github 中的 watch、star、fork</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_docker/docker简介与安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_docker/docker简介与安装/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker简介与安装"><a href="#Docker简介与安装" class="headerlink" title="Docker简介与安装"></a>Docker简介与安装</h1><h2 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h2><h2 id="Docker的优点"><a href="#Docker的优点" class="headerlink" title="Docker的优点"></a>Docker的优点</h2><h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><h2 id="Docker常用命令总结"><a href="#Docker常用命令总结" class="headerlink" title="Docker常用命令总结"></a>Docker常用命令总结</h2><h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>语法：<code>docker run [OPTIONS] IMAGE [COMMAND] [AR...]</code></p>
+<ol>
+<li>docker container ls</li>
+<li>docker stop/kill container_id</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://yeasy.gitbooks.io/docker_practice/content/introduction/" target="_blank" rel="noopener">Docker: 从入门到实践</a></li>
+<li><a href="http://www.cnblogs.com/52fhy/p/5638571.html" target="_blank" rel="noopener">Docker学习笔记</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

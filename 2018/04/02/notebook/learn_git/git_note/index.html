@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Git使用笔记  1. git查看远程版本库和本地库的差异 2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别 2.1. 工作目录 vs 暂存区 2.2. 暂存区 vs Git仓库 2.3. 工作目录 vs Git仓库 2.4. Git仓库 vs Git仓库 2.5. 本地文件 vs 远程Git仓库   3. 个性化git log输出格式 3.1. 动态定制 3.2. 静态定制     1">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/learn_git/git_note/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="Git使用笔记  1. git查看远程版本库和本地库的差异 2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别 2.1. 工作目录 vs 暂存区 2.2. 暂存区 vs Git仓库 2.3. 工作目录 vs Git仓库 2.4. Git仓库 vs Git仓库 2.5. 本地文件 vs 远程Git仓库   3. 个性化git log输出格式 3.1. 动态定制 3.2. 静态定制     1">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta property="og:updated_time" content="2018-04-02T08:39:27.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="Git使用笔记  1. git查看远程版本库和本地库的差异 2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别 2.1. 工作目录 vs 暂存区 2.2. 暂存区 vs Git仓库 2.3. 工作目录 vs Git仓库 2.4. Git仓库 vs Git仓库 2.5. 本地文件 vs 远程Git仓库   3. 个性化git log输出格式 3.1. 动态定制 3.2. 静态定制     1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/02/notebook/learn_git/git_note/"/>
+
+
+
+
+
+  <title> | 其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_git/git_note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Git使用笔记"><a href="#Git使用笔记" class="headerlink" title="Git使用笔记"></a>Git使用笔记</h1><!-- TOC -->
+<ul>
+<li><a href="#1-git查看远程版本库和本地库的差异">1. git查看远程版本库和本地库的差异</a></li>
+<li><a href="#2-文件在工作目录缓存区本地仓库远程仓库之间的差别">2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别</a><ul>
+<li><a href="#21-工作目录-vs-暂存区">2.1. 工作目录 vs 暂存区</a></li>
+<li><a href="#22-暂存区-vs-git仓库">2.2. 暂存区 vs Git仓库</a></li>
+<li><a href="#23-工作目录-vs-git仓库">2.3. 工作目录 vs Git仓库</a></li>
+<li><a href="#24-git仓库-vs-git仓库">2.4. Git仓库 vs Git仓库</a></li>
+<li><a href="#25-本地文件-vs-远程git仓库">2.5. 本地文件 vs 远程Git仓库</a></li>
+</ul>
+</li>
+<li><a href="#3-个性化git-log输出格式">3. 个性化<code>git log</code>输出格式</a><ul>
+<li><a href="#31-动态定制">3.1. 动态定制</a></li>
+<li><a href="#32-静态定制">3.2. 静态定制</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-git查看远程版本库和本地库的差异"><a href="#1-git查看远程版本库和本地库的差异" class="headerlink" title="1. git查看远程版本库和本地库的差异"></a>1. git查看远程版本库和本地库的差异</h2><ul>
+<li><p><strong><code>git status</code></strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">On branch master</span><br><span class="line">Your branch is ahead of ‘origin/master’ by 2 commits.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>git fetch</code>加<code>git status</code></strong></p>
+<p>  <code>git fetch</code>可以取回远程分支的commit信息，但是不会进行本地文件的内容修改。之后<code>git status</code>同前面一样，显示本地仓库与本地远程仓库的区别。前面是ahead，如果本地落后就会显示behind。</p>
+</li>
+<li><p><strong><code>git cherry -v</code></strong>: 查看到未传送到远程代码库的提交描述/说明</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ b6568326134dc7d55073b289b07c4b3d64eff2e7 add default charset for table items_has_images</span><br><span class="line">+ 4cba858e87752363bd1ee8309c0048beef076c60 move Savant3 class into www/includes/class/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>git log master ^origin/master</code></strong>: 查看到未传送到远程代码库的提交详情<br>这是一个git log命令的过滤，^origin/master可改成其它分支。（注：master是当前本地库的分支，origin/master指origin指定的远程库的master分支。当然，master可以改为任意其他分支。）<br>显示结果类似于这样：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">commit 4cba858e87752363bd1ee8309c0048beef076c60</span><br><span class="line">Author: Zam &lt;zam@iaixue.com&gt;</span><br><span class="line">Date: Fri Aug 9 16:14:30 2013 +0800</span><br><span class="line"></span><br><span class="line">move Savant3 class into www/includes/class/</span><br><span class="line"></span><br><span class="line">commit b6568326134dc7d55073b289b07c4b3d64eff2e7</span><br><span class="line">Author: Zam &lt;zam@iaixue.com&gt;</span><br><span class="line">Date: Fri Aug 9 16:02:09 2013 +0800</span><br><span class="line">add default charset for table items_has_images</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>总结</strong></p>
+<ul>
+<li><code>git status</code> 只能查看未传送提交的次数</li>
+<li><code>git cherry -v</code> 只能查看未传送提交的描述/说明</li>
+<li><code>git log master ^origin/master</code> 则可以查看未传送提交的详细信息  </li>
+<li>使用<code>git log</code>的时候，也可以使用 -p 参数查看提交中的更详细信息</li>
+</ul>
+</li>
+</ul>
+<p><strong>[注]</strong>：以上内容转载互联网上的。<a href="http://bbs.iaixue.com/forum.php?mod=viewthread&amp;tid=1577" target="_blank" rel="noopener">http://bbs.iaixue.com/forum.php?mod=viewthread&amp;tid=1577</a></p>
+<p>由第3点，可以想到，将远程和本地分支位置调换一下，即变成 <code>git log origin/master ^master</code>，就可以查看远程库比本地库多的内容了。不过得先执行<code>git fetch origin master</code>命令，将远程库的commit内容同步到本地库。</p>
+<h2 id="2-文件在工作目录、缓存区、本地仓库、远程仓库之间的差别"><a href="#2-文件在工作目录、缓存区、本地仓库、远程仓库之间的差别" class="headerlink" title="2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别"></a>2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别</h2><p><strong>关键命令：<code>git diff</code></strong>（参考：[Git: git diff 命令详解]<br><strong>说明</strong>：</p>
+<ul>
+<li>以下命令可以不指定 <filename>，则对全部文件操作。</filename></li>
+<li>以下命令涉及和 Git仓库 对比的，均可指定 commit 的版本。</li>
+<li>HEAD 最近一次 commit</li>
+<li>HEAD^ 上次提交</li>
+<li>HEAD~100 上100次提交</li>
+<li>每次提交产生的哈希值</li>
+</ul>
+<h3 id="2-1-工作目录-vs-暂存区"><a href="#2-1-工作目录-vs-暂存区" class="headerlink" title="2.1. 工作目录 vs 暂存区"></a>2.1. 工作目录 vs 暂存区</h3><p>查看文件在工作目录与暂存区的差别。如果还没 add 进暂存区，则查看文件自身修改前后的差别。<code>&lt;branch&gt;</code>指定分支，默认当前分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;branch&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-暂存区-vs-Git仓库"><a href="#2-2-暂存区-vs-Git仓库" class="headerlink" title="2.2. 暂存区 vs Git仓库"></a>2.2. 暂存区 vs Git仓库</h3><p>添加参数：<code>--cached</code>。commit默认为最新一次提交。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached &lt;commit&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-工作目录-vs-Git仓库"><a href="#2-3-工作目录-vs-Git仓库" class="headerlink" title="2.3. 工作目录 vs Git仓库"></a>2.3. 工作目录 vs Git仓库</h3><p>查看工作目录同Git仓库指定 commit 的内容的差异。<br><code>&lt;commit&gt;=HEAD</code>时：查看工作目录同最近一次 commit 的内容的差异。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-Git仓库-vs-Git仓库"><a href="#2-4-Git仓库-vs-Git仓库" class="headerlink" title="2.4. Git仓库 vs Git仓库"></a>2.4. Git仓库 vs Git仓库</h3><p>Git仓库任意两次 commit 之间的差别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;commit&gt; &lt;commit&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-5-本地文件-vs-远程Git仓库"><a href="#2-5-本地文件-vs-远程Git仓库" class="headerlink" title="2.5. 本地文件 vs 远程Git仓库"></a>2.5. 本地文件 vs 远程Git仓库</h3><p>在pull之前，可以先比较本地仓库和远程仓库之间的差异，步骤为：</p>
+<ol>
+<li>添加需要比较的远程仓库：<code>git remote add foobar git://github.com/user/foobar.git</code></li>
+<li>取回foobar的内容，fetch不会修改本地的内容: <code>git fetch foobar</code></li>
+<li>比较本地分支和远程分支之间的差异: <code>git diff master foobar/master</code></li>
+<li>远程分支已经修改，本地未同步的变更: <code>git diff HEAD...origin/master</code></li>
+<li>本地分支已经修改，远程未同步的变更: <code>git diff origin/master...HEAD</code></li>
+</ol>
+<p>最后两步通用格式<code>git diff &lt;local branch&gt; &lt;remote&gt;/&lt;remote branch&gt;</code>或者更通用的<code>git diff &lt;branch1&gt; &lt;branch2&gt;</code>，即显示<code>branch1</code>相对于<code>branch2</code>的变动，所以<code>branch1 branch2</code>的前后位置变化，输出结果也会变化。</p>
+<h2 id="3-个性化git-log输出格式"><a href="#3-个性化git-log输出格式" class="headerlink" title="3. 个性化git log输出格式"></a>3. 个性化<code>git log</code>输出格式</h2><p>参考文章：<a href="https://ruby-china.org/topics/939" target="_blank" rel="noopener">个性化你的 Git Log 的输出格式</a></p>
+<h3 id="3-1-动态定制"><a href="#3-1-动态定制" class="headerlink" title="3.1. 动态定制"></a>3.1. 动态定制</h3><p>git log命令可一接受一个–pretty选项，来确定输出的格式。格式化参数详解请查看：<a href="https://git-scm.com/docs/pretty-formats" target="_blank" rel="noopener">https://git-scm.com/docs/pretty-formats</a></p>
+<h3 id="3-2-静态定制"><a href="#3-2-静态定制" class="headerlink" title="3.2. 静态定制"></a>3.2. 静态定制</h3><p>如果喜欢某个格式，可以保存到git config，或者设置alias以便日后使用。<br>~/.gitconfig中加入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[alias]</span><br><span class="line">    lg = your constomized type(eg. log --graph)</span><br></pre></td></tr></table></figure></p>
+<p>或者运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg &quot;log --graph&quot;</span><br></pre></td></tr></table></figure></p>
+<p>一些例子：其实差不多，都很好看。</p>
+<ul>
+<li>上面文章中提到的：<code>git log --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset&#39; --abbrev-commit --date=relative</code></li>
+<li>我自己使用的：<code>lg = log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit</code></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_git/Github教程与简单笔记/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_hadoop/HBase面试整理/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git使用笔记"><span class="nav-number">1.</span> <span class="nav-text">Git使用笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-git查看远程版本库和本地库的差异"><span class="nav-number">1.1.</span> <span class="nav-text">1. git查看远程版本库和本地库的差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-文件在工作目录、缓存区、本地仓库、远程仓库之间的差别"><span class="nav-number">1.2.</span> <span class="nav-text">2. 文件在工作目录、缓存区、本地仓库、远程仓库之间的差别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-工作目录-vs-暂存区"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1. 工作目录 vs 暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-暂存区-vs-Git仓库"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2. 暂存区 vs Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-工作目录-vs-Git仓库"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3. 工作目录 vs Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-Git仓库-vs-Git仓库"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4. Git仓库 vs Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-本地文件-vs-远程Git仓库"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5. 本地文件 vs 远程Git仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-个性化git-log输出格式"><span class="nav-number">1.3.</span> <span class="nav-text">3. 个性化git log输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-动态定制"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1. 动态定制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-静态定制"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2. 静态定制</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

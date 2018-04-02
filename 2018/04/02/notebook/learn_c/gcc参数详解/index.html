@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="参见博客：GCC参数详解 [介绍]gcc and g++分别是gnu的c &amp;amp; c++编译器 gcc/g++在执行编译工作的时候，总共需要4步   预处理,生成.i的文件[预处理器cpp]  将预处理后的文件不转换成汇编语言,生成文件.s[编译器egcs]  有汇编变为目标代码(机器代码)生成.o的文件[汇编器as]  连接目标代码,生成可执行程序[链接器ld]   [参数详解]   -x">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/learn_c/gcc参数详解/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="参见博客：GCC参数详解 [介绍]gcc and g++分别是gnu的c &amp;amp; c++编译器 gcc/g++在执行编译工作的时候，总共需要4步   预处理,生成.i的文件[预处理器cpp]  将预处理后的文件不转换成汇编语言,生成文件.s[编译器egcs]  有汇编变为目标代码(机器代码)生成.o的文件[汇编器as]  连接目标代码,生成可执行程序[链接器ld]   [参数详解]   -x">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta property="og:updated_time" content="2018-04-02T08:39:27.976Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="参见博客：GCC参数详解 [介绍]gcc and g++分别是gnu的c &amp;amp; c++编译器 gcc/g++在执行编译工作的时候，总共需要4步   预处理,生成.i的文件[预处理器cpp]  将预处理后的文件不转换成汇编语言,生成文件.s[编译器egcs]  有汇编变为目标代码(机器代码)生成.o的文件[汇编器as]  连接目标代码,生成可执行程序[链接器ld]   [参数详解]   -x">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/02/notebook/learn_c/gcc参数详解/"/>
+
+
+
+
+
+  <title> | 其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_c/gcc参数详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参见博客：<a href="http://www.cppblog.com/SEMAN/archive/2005/11/30/1440.html" target="_blank" rel="noopener">GCC参数详解</a></p>
+<p>[介绍]<br>gcc and g++分别是gnu的c &amp; c++编译器 gcc/g++在执行编译工作的时候，总共需要4步 </p>
+<ol>
+<li>预处理,生成.i的文件[预处理器cpp] </li>
+<li>将预处理后的文件不转换成汇编语言,生成文件.s[编译器egcs] </li>
+<li>有汇编变为目标代码(机器代码)生成.o的文件[汇编器as] </li>
+<li>连接目标代码,生成可执行程序[链接器ld] </li>
+</ol>
+<p>[参数详解] </p>
+<ul>
+<li>-x language filename<br>　 设定文件所使用的语言,使后缀名无效,对以后的多个有效.也就是根据约定C语言的后<br>缀名称是.c的，而C++的后缀名是.C或者.cpp,如果你很个性，决定你的C代码文件的后缀<br>名是.pig 哈哈，那你就要用这个参数,这个参数对他后面的文件名都起作用，除非到了<br>下一个参数的使用。<br>　　可以使用的参数吗有下面的这些<br>　　<code>c&#39;,</code>objective-c’, <code>c-header&#39;,</code>c++’, <code>cpp-output&#39;,</code>assembler’, and `a<br>ssembler-with-cpp’.<br>　　看到英文，应该可以理解的。<br>　　例子用法:<br>　　gcc -x c hello.pig 
+　　 </li>
+<li>-x none filename<br>　　关掉上一个选项，也就是让gcc根据文件名后缀，自动识别文件类型<br>　　例子用法:<br>　　gcc -x c hello.pig -x none hello2.c 
+　　 </li>
+<li>-c<br>　　只激活预处理,编译,和汇编,也就是他只把程序做成obj文件<br>　　例子用法:<br>　　gcc -c hello.c<br>　　他将生成.o的obj文件 </li>
+<li>-S<br>　　只激活预处理和编译，就是指把文件编译成为汇编代码。<br>　　例子用法<br>　　gcc -S hello.c<br>　　他将生成.s的汇编代码，你可以用文本编辑器察看 </li>
+<li>-E<br>　　只激活预处理,这个不生成文件,你需要把它重定向到一个输出文件里面.<br>　　例子用法:<br>　　gcc -E hello.c &gt; pianoapan.txt<br>　　gcc -E hello.c | more<br>　　慢慢看吧,一个hello word 也要与处理成800行的代码 </li>
+<li>-o<br>　　制定目标名称,缺省的时候,gcc 编译出来的文件是a.out,很难听,如果你和我有同感<br>，改掉它,哈哈<br>　　例子用法<br>　　gcc -o hello.exe hello.c (哦,windows用习惯了)<br>　　gcc -o hello.asm -S hello.c </li>
+<li>-pipe<br>　　使用管道代替编译中临时文件,在使用非gnu汇编工具的时候,可能有些问题<br>　　gcc -pipe -o hello.exe hello.c </li>
+<li>-ansi<br>　　关闭gnu c中与ansi c不兼容的特性,激活ansi c的专有特性(包括禁止一些asm inl<br>ine typeof关键字,以及UNIX,vax等预处理宏, </li>
+<li>-fno-asm<br>　　此选项实现ansi选项的功能的一部分，它禁止将asm,inline和typeof用作关键字。 
+　　　　 </li>
+<li>-fno-strict-prototype<br>　　只对g++起作用,使用这个选项,g++将对不带参数的函数,都认为是没有显式的对参数<br>的个数和类型说明,而不是没有参数.<br>　　而gcc无论是否使用这个参数,都将对没有带参数的函数,认为城没有显式说明的类型 </li>
+</ul>
+<p>　　 </p>
+<ul>
+<li>-fthis-is-varialble<br>　　就是向传统c++看齐,可以使用this当一般变量使用. 
+　　 </li>
+<li>-fcond-mismatch<br>　　允许条件表达式的第二和第三参数类型不匹配,表达式的值将为void类型 
+　　 </li>
+<li>-funsigned-char </li>
+<li>-fno-signed-char </li>
+<li>-fsigned-char </li>
+<li>-fno-unsigned-char<br>　　这四个参数是对char类型进行设置,决定将char类型设置成unsigned char(前两个参<br>数)或者 signed char(后两个参数) 
+　　 </li>
+<li>-include file<br>　　包含某个代码,简单来说,就是便以某个文件,需要另一个文件的时候,就可以用它设<br>定,功能就相当于在代码中使用#include<filename><br>　　例子用法:<br>　　gcc hello.c -include /root/pianopan.h 
+　　 </filename></li>
+<li>-imacros file<br>　　将file文件的宏,扩展到gcc/g++的输入文件,宏定义本身并不出现在输入文件中 
+　　 </li>
+<li>-Dmacro<br>　　相当于C语言中的#define macro 
+　　 </li>
+<li><ul>
+<li>-Dmacro=defn<br>　　相当于C语言中的#define macro=defn 
+　　 </li>
+</ul>
+</li>
+<li><ul>
+<li>-Umacro<br>　　相当于C语言中的#undef macro </li>
+</ul>
+</li>
+<li><ul>
+<li>-undef<br>　　取消对任何非标准宏的定义 
+　　 </li>
+</ul>
+</li>
+<li>-Idir<br>　　在你是用#include”file”的时候,gcc/g++会先在当前目录查找你所制定的头文件,如<br>果没有找到,他回到缺省的头文件目录找,如果使用-I制定了目录,他<br>　　回先在你所制定的目录查找,然后再按常规的顺序去找.<br>　　对于#include<file>,gcc/g++会到-I制定的目录查找,查找不到,然后将到系统的缺<br>省的头文件目录查找 
+　　 </file></li>
+<li>-I-<br>　　就是取消前一个参数的功能,所以一般在-Idir之后使用 
+　　 </li>
+<li>-idirafter dir<br>　　在-I的目录里面查找失败,讲到这个目录里面查找. 
+　　 </li>
+<li>-iprefix prefix </li>
+<li>-iwithprefix dir<br>　　一般一起使用,当-I的目录查找失败,会到prefix+dir下查找 
+　　 </li>
+<li>-nostdinc<br>　　使编译器不再系统缺省的头文件目录里面找头文件,一般和-I联合使用,明确限定头<br>文件的位置 
+　　 </li>
+<li>-nostdin C++<br>　　规定不在g++指定的标准路经中搜索,但仍在其他路径中搜索,.此选项在创libg++库<br>使用 
+　　 </li>
+<li>-C<br>　　在预处理的时候,不删除注释信息,一般和-E使用,有时候分析程序，用这个很方便的 </li>
+</ul>
+<p>　　 </p>
+<ul>
+<li>-M<br>　　生成文件关联的信息。包含目标文件所依赖的所有源代码你可以用gcc -M hello.c<br>来测试一下，很简单。 
+　　 </li>
+<li>-MM<br>　　和上面的那个一样，但是它将忽略由#include<file>造成的依赖关系。 
+　　 </file></li>
+<li>-MD<br>　　和-M相同，但是输出将导入到.d的文件里面 
+　　 </li>
+<li>-MMD<br>　　和-MM相同，但是输出将导入到.d的文件里面 
+　　 </li>
+<li>-Wa,option<br>　　此选项传递option给汇编程序;如果option中间有逗号,就将option分成多个选项,然<br>后传递给会汇编程序 
+　　 </li>
+<li>-Wl.option<br>　　此选项传递option给连接程序;如果option中间有逗号,就将option分成多个选项,然<br>后传递给会连接程序. 
+　　 </li>
+<li>-llibrary<br>　　制定编译的时候使用的库<br>　　例子用法<br>　　gcc -lcurses hello.c<br>　　使用ncurses库编译程序 
+　　 </li>
+<li>-Ldir<br>　　制定编译的时候，搜索库的路径。比如你自己的库，可以用它制定目录，不然<br>　　编译器将只在标准库的目录找。这个dir就是目录的名称。 
+　　 </li>
+<li>-O0 </li>
+<li>-O1 </li>
+<li>-O2 </li>
+<li>-O3<br>　　编译器的优化选项的4个级别，-O0表示没有优化,-O1为缺省值，-O3优化级别最高　 
+　 　　 </li>
+<li>-g<br>　　只是编译器，在编译的时候，产生调试信息。 
+　　 </li>
+<li>-gstabs<br>　　此选项以stabs格式声称调试信息,但是不包括gdb调试信息. 
+　　 </li>
+<li>-gstabs+<br>　　此选项以stabs格式声称调试信息,并且包含仅供gdb使用的额外调试信息. 
+　　 </li>
+<li>-ggdb<br>　　此选项将尽可能的生成gdb的可以使用的调试信息. </li>
+<li>-static<br>　　此选项将禁止使用动态库，所以，编译出来的东西，一般都很大，也不需要什么<br>动态连接库，就可以运行. </li>
+<li>-share<br>　　此选项将尽量使用动态库，所以生成文件比较小，但是需要系统由动态库. </li>
+<li>-traditional<br>　　试图让编译器支持传统的C语言特性<br>[参考资料] </li>
+<li>-Linux/UNIX高级编程<br>　　中科红旗软件技术有限公司编著.清华大学出版社出版 </li>
+<li>-Gcc man page<br>　　<br>[ChangeLog]<br>-2002-08-10<br>　　ver 0.1 发布最初的文档<br>-2002-08-11<br>　　ver 0.11 修改文档格式<br>-2002-08-12<br>　　ver 0.12 加入了对静态库，动态库的参数<br>-2002-08-16<br>　　ver 0.16 增加了gcc编译的4个阶段的命令<br>运行 gcc/egcs<br><strong><strong>**</strong></strong>运行 gcc/egcs<strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong><br>　　GCC 是 GNU 的 C 和 C++ 编译器。实际上，GCC 能够编译三种语言：C、C++ 和 O<br>bject C（C 语言的一种面向对象扩展）。利用 gcc 命令可同时编译并连接 C 和 C++<br>源程序。<br>　　如果你有两个或少数几个 C 源文件，也可以方便地利用 GCC 编译、连接并生成可<br>执行文件。例如，假设你有两个源文件 main.c 和 factorial.c 两个源文件，现在要编<br>译生成一个计算阶乘的程序。<br>代码: </li>
+</ul>
+<hr>
+<h2 id="清单-factorial-c"><a href="#清单-factorial-c" class="headerlink" title="清单 factorial.c "></a>清单 factorial.c </h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span> <span class="params">(<span class="keyword">int</span> n)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">　　<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) </span><br><span class="line">　　　<span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">　　<span class="keyword">else</span> </span><br><span class="line">　　　<span class="keyword">return</span> factorial (n - <span class="number">1</span>) * n; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="清单-main-c"><a href="#清单-main-c" class="headerlink" title="清单 main.c "></a>清单 main.c </h2><pre><code class="c"><span class="meta">#<span class="meta-keyword">include</span>　<span class="meta-string">&lt;stdio.h&gt; </span></span>
+<span class="meta">#<span class="meta-keyword">include</span>　<span class="meta-string">&lt;unistd.h&gt; </span></span>
+<span class="function"><span class="keyword">int</span> <span class="title">factorial</span> <span class="params">(<span class="keyword">int</span> n)</span></span>; 
+<span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>
+<span class="function"></span>{ 
+　　<span class="keyword">int</span> n; 
+　　<span class="keyword">if</span> (argc &lt; <span class="number">2</span>) 
+　　{ 
+　　　　<span class="built_in">printf</span> (<span class="string">"Usage: %s n\n"</span>, argv [<span class="number">0</span>]); 
+　　　　<span class="keyword">return</span> <span class="number">-1</span>; 
+　　} 
+　　<span class="keyword">else</span> 
+　　{ 
+　　　n = atoi (argv[<span class="number">1</span>]); 
+　　　<span class="built_in">printf</span> (<span class="string">"Factorial of %d is %d.\n"</span>, n, factorial (n)); 
+　　 } 
+　　<span class="keyword">return</span> <span class="number">0</span>; 
+}
+</code></pre>
+<hr>
+<p>利用如下的命令可编译生成可执行文件，并执行程序：<br>$ gcc -o factorial main.c factorial.c<br>$ ./factorial 5<br>Factorial of 5 is 120.<br>　　GCC 可同时用来编译 C 程序和 C++ 程序。一般来说，C 编译器通过源文件的后缀<br>名来判断是 C 程序还是 C++ 程序。在 Linux 中，C 源文件的后缀名为 .c，而 C++ 源<br>文件的后缀名为 .C 或 .cpp。但是，gcc 命令只能编译 C++ 源文件，而不能自动和 C<br>++ 程序使用的库连接。因此，通常使用 g++ 命令来完成 C++ 程序的编译和连接，该程<br>序会自动调用 gcc 实现编译。假设我们有一个如下的 C++ 源文件（hello.C）： </p>
+<p>#include <iostream><br>void main (void)<br>{<br>　　cout &lt;&lt; “Hello, world!” &lt;&lt; endl;<br>}<br>则可以如下调用 g++ 命令编译、连接并生成可执行文件：<br>$ g++ -o hello hello.C<br>$ ./hello<br>Hello, world!<br><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong>gcc/egcs 的主要选项<strong><strong>*</strong></strong><br>gcc 命令的常用选项<br>选项 解释 </iostream></p>
+<ul>
+<li>-ansi 只支持 ANSI 标准的 C 语法。这一选项将禁止 GNU C 的某些特色，<br>例如 asm 或 typeof 关键词。 </li>
+<li>-c 只编译并生成目标文件。 </li>
+<li>-DMACRO 以字符串“1”定义 MACRO 宏。 </li>
+<li>-DMACRO=DEFN 以字符串“DEFN”定义 MACRO 宏。 </li>
+<li>-E 只运行 C 预编译器。 </li>
+<li>-g 生成调试信息。GNU 调试器可利用该信息。 </li>
+<li>-IDIRECTORY 指定额外的头文件搜索路径DIRECTORY。 </li>
+<li>-LDIRECTORY 指定额外的函数库搜索路径DIRECTORY。 </li>
+<li>-lLIBRARY 连接时搜索指定的函数库LIBRARY。 </li>
+<li>-m486 针对 486 进行代码优化。 </li>
+<li>-o FILE 生成指定的输出文件。用在生成可执行文件时。 </li>
+<li>-O0 不进行优化处理。 </li>
+<li>-O 或 -O1 优化生成代码。 </li>
+<li>-O2 进一步优化。 </li>
+<li>-O3 比 -O2 更进一步优化，包括 inline 函数。 </li>
+<li>-shared 生成共享目标文件。通常用在建立共享库时。 </li>
+<li>-static 禁止使用共享连接。 </li>
+<li>-UMACRO 取消对 MACRO 宏的定义。 </li>
+<li>-w 不生成任何警告信息。 </li>
+<li>-Wall 生成所有警告信息。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_c/define的用法详解/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_c/解析C语言中的.c和.h文件/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#清单-factorial-c"><span class="nav-number">1.</span> <span class="nav-text">清单 factorial.c </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清单-main-c"><span class="nav-number">2.</span> <span class="nav-text">清单 main.c </span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

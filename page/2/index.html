@@ -1,0 +1,2941 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="道莅天下，其鬼不神">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="website">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="道莅天下，其鬼不神">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="道莅天下，其鬼不神">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+
+
+
+
+
+  <title>其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/linux系统安装软件或服务的方法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/linux系统安装软件或服务的方法总结/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安装软件或者服务的方法的总结"><a href="#安装软件或者服务的方法的总结" class="headerlink" title="安装软件或者服务的方法的总结"></a>安装软件或者服务的方法的总结</h1><p>ppa是什么啊，apt-get是什么啊等等吧，什么是build-essential，软件依赖到底是个什么情况！</p>
+<p>##</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/linux知识随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/linux知识随笔/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="LINUX-知识随笔"><a href="#LINUX-知识随笔" class="headerlink" title="LINUX 知识随笔"></a>LINUX 知识随笔</h1><h2 id="如何在两台linux主机间同步目录或文件？"><a href="#如何在两台linux主机间同步目录或文件？" class="headerlink" title="如何在两台linux主机间同步目录或文件？"></a>如何在两台linux主机间同步目录或文件？</h2><p>Linux的Rsync服务（远程同步）</p>
+<p>参考：<a href="http://roclinux.cn/?p=2643" target="_blank" rel="noopener">《rsync同步的艺术》–linux命令五分钟系列之四十二</a>、<a href="http://man.linuxde.net/rsync" target="_blank" rel="noopener">rsync命令</a></p>
+<p>rsync命令是一个远程数据同步工具，可通过LAN/WAN（本地或者远程）快速同步多台主机间的文件。所谓的同步，并不是实时的同步，需要执行命令来保证数据的同步。</p>
+<p>Rsync命令的一些优点和功能：</p>
+<ul>
+<li>有效地将文件复制到远程系统或从远程系统同步。</li>
+<li>支持复制链接，设备，所有者，组和权限。</li>
+<li>比SCP（安全复制）更快，因为rsync使用远程更新协议，允许转让只是<strong>两套文件之间的差异</strong>。 第一次，它从源到目标复制文件或目录的整个内容，但从下一次，它只将已更改的块和字节复制到目标。</li>
+<li>rsync的消耗更少的带宽 ，因为它使用压缩和解压缩方法在发送和接收数据两端。</li>
+</ul>
+<p>rsync在使用的时候主要是熟悉使用方法和参数命令，在使用参数命令的时候需要主要考虑下面几点。</p>
+<ul>
+<li>rsync的quick check是否需要起作用，哪些参数在使用的使用quick check是默认开启的？</li>
+<li>文件的modify time是否需要同步？</li>
+<li>文件的权限是否需要同步？</li>
+<li>是否需要保持目的端文件的属主和属组保持一致（rsync不具备这个能力，除非使用root用户权限）？</li>
+<li>同步文件时是否需要压缩？</li>
+<li>同步文件夹的时候，是否需要recursive？</li>
+<li>同步中断是需要删除重新同步还是需要在中断时的基础上继续同步？</li>
+<li>软链接和硬链接如何同步？</li>
+<li>同步时，源端没有的文件是否在目的端删除？</li>
+</ul>
+<p>以上都可以在 <a href="http://roclinux.cn/?p=2643" target="_blank" rel="noopener">《rsync同步的艺术》–linux命令五分钟系列之四十二</a>中或者使用 <code>man rsync</code> 中找到解决方案。</p>
+<h2 id="两台Linux系统主机间传输文件的方法有哪些？"><a href="#两台Linux系统主机间传输文件的方法有哪些？" class="headerlink" title="两台Linux系统主机间传输文件的方法有哪些？"></a>两台Linux系统主机间传输文件的方法有哪些？</h2><p>参考：<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-filetransfer/" target="_blank" rel="noopener">Linux 上的常用文件传输方式介绍与比较</a></p>
+<ul>
+<li>ftp</li>
+<li>rcp</li>
+<li>scp</li>
+<li>wget</li>
+<li>curl</li>
+<li>rsync</li>
+</ul>
+<p><strong>总结与比较</strong></p>
+<ul>
+<li>传输性能</li>
+</ul>
+<p>wget 通过支持后台执行及断点续传提高文件传输效率 ； rsync 则以其高效的传输及压缩算法达到快传输的目的。</p>
+<ul>
+<li>配置难度</li>
+</ul>
+<p>rcp 只需进行简单的配置，创建 .rhost 文件以及设置 /etc/hosts 文件中主机名与 IP 地址列表； wget<br>设置设置方便简单，只需在客户端指定参数执行命令即可； rsync 在使用前需要对服务端 /etc/rsyncd.conf 进行参数设定，配置内容相对复杂。</p>
+<ul>
+<li>安全性能</li>
+</ul>
+<p>ftp、rcp 不保证传输的安全性，scp、rsync 则均可基于 ssh 认证进行传输，提供了较强的安全保障。 wget 也可通过指定安全协议做到安全传输。</p>
+<p>通过上述的对比不难发现，每种文件传输方法基于其自身的特点与优势均有其典型的适用场景：</p>
+<ul>
+<li>ftp 作为最常用的入门式的文件传输方法，使用简单，易于理解，并且可以实现脚本自动化；</li>
+<li>rcp 相对于 ftp 可以保留文件属性并可递归的拷贝子目录；</li>
+<li>scp 利用 ssh 传输数据，并使用与 ssh 相同的认证模式，相对于 rcp 提供更强的安全保障；</li>
+<li>wget，实现递归下载，可跟踪 HTML 页面上的链接依次下载来创建远程服务器的本地版本，完全重建原始站点的目录结构，适合实现远程网站的镜像；</li>
+<li>curl 则适合用来进行自动的文件传输或操作序列，是一个很好的模拟用户在网页浏览器上的行为的工具；</li>
+<li>rsync 更适用于大数据量的每日同步，拷贝的速度很快，相对 wget 来说速度快且安全高效。</li>
+</ul>
+<h2 id="文件传输过程中如何限速？"><a href="#文件传输过程中如何限速？" class="headerlink" title="文件传输过程中如何限速？"></a>文件传输过程中如何限速？</h2><p>限速的原因：有些机房会限制机器的流量，为了不触及底线，在使用scp和rsync的时候都要注意。为了避免你的scp或者rsync因为无良/懒惰的OPS设置防火墙的偷懒而造成的断流现象，我们必须对自己的数据传输进行一定的限流措施，慢一点总比被掐了的好。</p>
+<p>参考：<a href="http://www.nathanyan.com/2016/04/10/Linux-%E5%91%BD%E4%BB%A4-SCP-%E8%BF%9C%E7%A8%8B%E5%A4%8D%E5%88%B6/" target="_blank" rel="noopener">Linux 命令 SCP 远程复制</a>、<a href="http://www.54chen.com/life/%E5%A6%82%E4%BD%95%E5%AF%B9%E4%BB%98%E6%97%A0%E8%89%AF%E6%87%92%E6%83%B0ops%E7%9A%84%E5%8F%AF%E8%80%BB%E7%9A%84%E9%99%90%E6%B5%81%E6%8E%AA%E6%96%BD.html" target="_blank" rel="noopener">scp和rsync的限制流量（速度）方法</a></p>
+<ul>
+<li>SCP限制带宽使用</li>
+</ul>
+<blockquote>
+<p>“-l”参数能限制使用带宽。如果你为了拷贝很多文件而去执行了一份自动化脚本又不希望带宽被SCP进程耗尽，那这个参数会非常管用。  </p>
+<p>在“-l”参数后面的这个400值意思是我们给SCP进程限制了带宽为50 KB/秒。有一点要记住，带宽是以千比特/秒 (kbps)表示的，而8 比特等于1 字节。 </p>
+<p>因为SCP是用千字节/秒 (KB/s)计算的，所以如果你想要限制SCP的最大带宽只有50 KB/s，你就需要设置成50 x 8 = 400。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -l 400 ib_logfile2 root@mysql-2:/tmp</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>rsync带宽限速</li>
+</ul>
+<p>使用 –bwlimit 参数，例如限制为 60k Bytes/s<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -auvz --progress --delete --bwlimit=60 远程的文件  本地的文件</span><br><span class="line">rsync -auvz --progress --delete --bwlimit=60 本地的文件  远程的文件</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/linux core文件介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/linux core文件介绍/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关于Linux-core文件"><a href="#关于Linux-core文件" class="headerlink" title="关于Linux core文件"></a>关于Linux core文件</h1><h2 id="core文件的简单介绍"><a href="#core文件的简单介绍" class="headerlink" title="core文件的简单介绍"></a>core文件的简单介绍</h2><p>在一个程序崩溃时，它一般会在指定目录下生成一个core文件。core文件仅仅是一个内存映象(同时加上调试信息)，主要是用来调试的。</p>
+<h3 id="开启或关闭core文件的生成"><a href="#开启或关闭core文件的生成" class="headerlink" title="开启或关闭core文件的生成"></a>开启或关闭core文件的生成</h3><p>用以下命令来阻止系统生成core文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -c 0</span><br></pre></td></tr></table></figure></p>
+<p>下面的命令可以检查生成core文件的选项是否打开:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -a</span><br></pre></td></tr></table></figure></p>
+<p>该命令将显示所有的用户定制，其中选项-a代表“all”。</p>
+<p>也可以修改系统文件来调整core选项<br>在/etc/profile通常会有这样一句话来禁止产生core文件，通常这种设置是合理的:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> No core files by default</span></span><br><span class="line">ulimit -S -c 0 &gt; /dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure></p>
+<p>但是在开发过程中有时为了调试问题，还是需要在特定的用户环境下打开core文件产生的设置<br>在用户的~/.bash_profile里加上<code>ulimit -c unlimited</code>来让特定的用户可以产生core文件<br>如果<code>ulimit -c 0</code>则也是禁止产生core文件，而<code>ulimit -c 1024</code>则限制产生的core文件的大小不能超过1024kb</p>
+<h2 id="设置Core-Dump的核心转储文件目录和命名规则"><a href="#设置Core-Dump的核心转储文件目录和命名规则" class="headerlink" title="设置Core Dump的核心转储文件目录和命名规则"></a>设置Core Dump的核心转储文件目录和命名规则</h2><p>/proc/sys/kernel/core_uses_pid可以控制产生的core文件的文件名中是否添加pid作为扩展，如果添加则文件内容为1，否则为0</p>
+<p>/proc/sys/kernel/core_pattern可以设置格式化的core文件保存位置或文件名，比如原来文件内容是core-%e, 可以这样修改:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;/corefile/core-%e-%p-%t&quot; &gt; /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure></p>
+<p>将会控制所产生的core文件会存放到/corefile目录下，产生的文件名为core-命令名-pid-时间戳<br>以下是参数列表:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%p - insert pid into filename 添加pid</span><br><span class="line">%u - insert current uid into filename 添加当前uid</span><br><span class="line">%g - insert current gid into filename 添加当前gid</span><br><span class="line">%s - insert signal that caused the coredump into the filename 添加导致产生core的信号</span><br><span class="line">%t - insert UNIX time that the coredump occurred into filename 添加core文件生成时的unix时间</span><br><span class="line">%h - insert hostname where the coredump happened into filename 添加主机名</span><br><span class="line">%e - insert coredumping executable name into filename 添加命令名</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用core文件"><a href="#使用core文件" class="headerlink" title="使用core文件"></a>使用core文件</h2><p>在core文件所在目录下键入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb -c core</span><br></pre></td></tr></table></figure></p>
+<p>它会启动GNU的调试器，来调试core文件，并且会显示生成此core文件的程序名，中止此程序的信号等等</p>
+<p>如果你已经知道是由什么程序生成此core文件的，比如MyServer崩溃了生成core.12345，那么用此指令调试:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb -c core MyServer</span><br></pre></td></tr></table></figure></p>
+<p>以下怎么办就该去学习gdb的使用了</p>
+<h2 id="一个小方法来测试产生core文件"><a href="#一个小方法来测试产生core文件" class="headerlink" title="一个小方法来测试产生core文件"></a>一个小方法来测试产生core文件</h2><p>直接输入指令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -s SIGSEGV $$</span><br></pre></td></tr></table></figure></p>
+<h2 id="为何有时程序Down了，却没生成-Core文件。"><a href="#为何有时程序Down了，却没生成-Core文件。" class="headerlink" title="为何有时程序Down了，却没生成 Core文件。"></a>为何有时程序Down了，却没生成 Core文件。</h2><p>Linux下，有一些设置，标明了resources available to the shell and to processes。 可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#ulimit -a 来看这些设置。 (ulimit是bash built-in Command)</span><br><span class="line"></span><br><span class="line">             -a     All current limits are reported</span><br><span class="line">              -c     The maximum size of core files created</span><br><span class="line">              -d     The maximum size of a process鈥檚 data segment</span><br><span class="line">              -e     The maximum scheduling priority (&quot;nice&quot;)</span><br><span class="line">              -f     The maximum size of files written by the shell and its children</span><br><span class="line">              -i     The maximum number of pending signals</span><br><span class="line">              -l     The maximum size that may be locked into memory</span><br><span class="line">              -m     The maximum resident set size (has no effect on Linux)</span><br><span class="line">              -n     The maximum number of open file descriptors (most systems do not allow this value to be set)</span><br><span class="line">              -p     The pipe size in 512-byte blocks (this may not be set)</span><br><span class="line">              -q     The maximum number of bytes in POSIX message queues</span><br><span class="line">              -r     The maximum real-time scheduling priority</span><br><span class="line">              -s     The maximum stack size</span><br><span class="line">              -t     The maximum amount of cpu time in seconds</span><br><span class="line">              -u     The maximum number of processes available to a single user</span><br><span class="line">              -v     The maximum amount of virtual memory available to the shell</span><br><span class="line">              -x     The maximum number of file locks</span><br></pre></td></tr></table></figure></p>
+<p>从这里可以看出，如果 -c是显示：core file size          (blocks, -c)</p>
+<p>如果这个值为0，则无法生成core文件。所以可以使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#ulimit -c 1024 或者 #ulimit -c unlimited 来使能 core文件。</span><br></pre></td></tr></table></figure></p>
+<p>如果程序出错时生成Core 文件，则会显示Segmentation fault (core dumped)。</p>
+<h2 id="Core-Dump的核心转储文件目录和命名规则"><a href="#Core-Dump的核心转储文件目录和命名规则" class="headerlink" title="Core Dump的核心转储文件目录和命名规则:"></a>Core Dump的核心转储文件目录和命名规则:</h2><p>/proc/sys/kernel/core_uses_pid可以控制产生的core文件的文件名中是否添加pid作为扩展，如果添加则文件内容为1，否则为0</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_python/python虚拟环境学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_python/python虚拟环境学习/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<pre><code>python 虚拟环境学习与使用
+@author 陈凯恒
+@createtime 2018-01-01
+</code></pre><hr>
+<h1 id="Python-虚拟环境学习与使用"><a href="#Python-虚拟环境学习与使用" class="headerlink" title="Python 虚拟环境学习与使用"></a>Python 虚拟环境学习与使用</h1><!-- TOC -->
+<ul>
+<li><a href="#什么是python的虚拟环境">什么是python的虚拟环境</a></li>
+<li><a href="#如何搭建python虚拟环境">如何搭建python虚拟环境</a><ul>
+<li><a href="#virtualenv的安装">virtualenv的安装</a></li>
+<li><a href="#虚拟环境生命周期">虚拟环境生命周期</a></li>
+<li><a href="#virtaulenvwrapper">Virtaulenvwrapper</a></li>
+</ul>
+</li>
+<li><a href="#注意点">注意点</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="什么是python的虚拟环境"><a href="#什么是python的虚拟环境" class="headerlink" title="什么是python的虚拟环境"></a>什么是python的虚拟环境</h2><p>&emsp;&emsp;Python虚拟环境指虚拟的独立运行环境。Python虚拟环境指独立的python运行环境，一般用于解决不同项目依赖不同，而又不希望互相干扰的问题。Python最长用的虚拟工具是virtualenv，它是一个第三方包。  </p>
+<blockquote>
+<p>在一个 Python 环境下开发时间越久、安装依赖越多，就越容易出现依赖包冲突的问题。为了解决这个问题，开发者们开发出了 virtualenv，可以搭建虚拟且独立的 Python 环境。这样就可以使每个项目环境与其他项目独立开来，保持环境的干净，解决包冲突问题。</p>
+</blockquote>
+<blockquote>
+<p>动态语言中Ruby、Python都有自己的虚拟环境，通过创建虚拟环境能够使不同的项目之间的运行环境保持独立性而相互不受影响。例如项目A依赖Django1.4，而项目B依赖Django1.5，这时它就能解决此类问题。Ruby有Vagrant，Python有virtualenv，本文讨论Python虚拟环境。virtualenv可用于创建独立的Python环境，它会创建一个包含项目所必须要的执行文件。</p>
+</blockquote>
+<h2 id="如何搭建python虚拟环境"><a href="#如何搭建python虚拟环境" class="headerlink" title="如何搭建python虚拟环境"></a>如何搭建python虚拟环境</h2><h3 id="virtualenv的安装"><a href="#virtualenv的安装" class="headerlink" title="virtualenv的安装"></a>virtualenv的安装</h3><p>&emsp;&emsp;virtualenv实际上是一个第三方包，是管理虚拟环境的常用方法之一。Python3 中还自带了虚拟环境管理包。virtualenv的安装可以用easy_install或者pip安装。推荐使用pip安装。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure></p>
+<h3 id="虚拟环境生命周期"><a href="#虚拟环境生命周期" class="headerlink" title="虚拟环境生命周期"></a>虚拟环境生命周期</h3><p><strong>创建：</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">virtualenv testvirdir  <span class="comment">#创建名称为testvirdir的虚拟目录</span></span><br><span class="line"><span class="built_in">cd</span> testvirdir</span><br><span class="line"><span class="built_in">source</span> bin/activate <span class="comment">#激活虚拟环境</span></span><br><span class="line">python -V <span class="comment">#测试python</span></span><br><span class="line"><span class="built_in">which</span> python <span class="comment">#查看python位置（应该为testvirdir下面的python）此时命令行前面会多出一个括号，括号里为虚拟环境的名称。以后easy_install或者pip安装的所有模块都会安装到该虚拟环境目录里。</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>使用：</strong>  </p>
+<ul>
+<li>只要在虚拟环境中执行命令就行，跟正常python一样。  </li>
+<li>在虚拟环境安装Python packages时，Virtualenv 附带有pip安装工具，因此需要安装的packages可以直接运行pip命令  </li>
+</ul>
+<p><strong>退出：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure></p>
+<p><strong>删除：</strong><br>直接删除虚拟环境目录<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf [virtual dir]</span><br></pre></td></tr></table></figure></p>
+<p><strong>补充：</strong>  </p>
+<ul>
+<li>virtualenv 后加入 <em>–no-site-packages</em> 使得已经安装到系统Python环境中的所有第三方包都不会复制过来，这样就得到了一个不带任何第三方包的“干净”的Python运行环境。如果想依赖系统环境的第三方软件包，可以使用参数 <em>–system-site-packages</em>。  <h3 id="Virtaulenvwrapper"><a href="#Virtaulenvwrapper" class="headerlink" title="Virtaulenvwrapper"></a>Virtaulenvwrapper</h3>&emsp;&emsp;Virtaulenvwrapper是virtualenv的扩展包，提供了一系列命令，可以方便地<u>创建、删除、复制、切换</u>不同的虚拟环境。同时，使用该扩展后，所有虚拟环境都会被放置在同一个目录下。<br><strong>安装：</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;此时还不能使用virtualenvwrapper，默认virtualenvwrapper安装在/usr/local/bin下面，实际上需要运行virtualenvwrapper.sh文件才行。<br><strong>设置环境变量：</strong><br>&emsp;&emsp;把下面两行添加到~/.bashrc（或者~/.zshrc）里。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f /usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">export</span> WORKON_HOME=<span class="variable">$HOME</span>/.virtualenvs </span><br><span class="line">   <span class="built_in">source</span> /usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;其中，.virtualenvs 是可以自定义的虚拟环境管理目录。可以事先 <code>mkdir</code> 。然后执行：<code>source ~/.bashrc</code>，就可以使用 virtualenvwrapper 了。Windows 平台的安装过程，请参考<a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html" target="_blank" rel="noopener">官方文档</a>。<br><strong>使用:</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lsvirtualenv -b <span class="comment"># 列出虚拟环境</span></span><br><span class="line">workon [虚拟环境名称] <span class="comment"># 切换虚拟环境</span></span><br><span class="line">lssitepackages <span class="comment"># 查看环境里安装了哪些包</span></span><br><span class="line">cdvirtualenv [子目录名] <span class="comment"># 进入当前环境的目录</span></span><br><span class="line">cpvirtualenv [<span class="built_in">source</span>] [dest] <span class="comment"># 复制虚拟环境</span></span><br><span class="line">rmvirtualenv [虚拟环境名称] <span class="comment"># 删除虚拟环境</span></span><br><span class="line">deactivate <span class="comment"># 退出虚拟环境</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>待补充</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="https://github.com/lzjun567/note/blob/master/note/python/virtualenv.md" target="_blank" rel="noopener">Python虚拟环境</a><br>[2] <a href="http://codingpy.com/article/virtualenv-must-have-tool-for-python-development/" target="_blank" rel="noopener">Python开发必备神器之一：virtualenv</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_python/python编码问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_python/python编码问题/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python-编码问题"><a href="#Python-编码问题" class="headerlink" title="Python 编码问题"></a>Python 编码问题</h1><p><strong>Python encode and decode just like shit !!!!!!!!!!</strong></p>
+<p>参考博文：<a href="http://selfboot.cn/2016/12/28/py_encode_decode/#str-%E7%B1%BB%E5%9E%8B" target="_blank" rel="noopener">Python2.x 字符编码终极指南</a></p>
+<p>总结起来就是：</p>
+<h2 id="1-Python中的两个类型：-lt-type-39-str-39-gt-和-lt-type-39-unicode-39-gt"><a href="#1-Python中的两个类型：-lt-type-39-str-39-gt-和-lt-type-39-unicode-39-gt" class="headerlink" title="1. Python中的两个类型：&lt;type &#39;str&#39;&gt; 和 &lt;type &#39;unicode&#39;&gt;"></a>1. Python中的两个类型：<code>&lt;type &#39;str&#39;&gt;</code> 和 <code>&lt;type &#39;unicode&#39;&gt;</code></h2><p>简单来说：</p>
+<ul>
+<li>str：是字节串（container for bytes），由 Unicode 经过编码(encode)后的字节组成的。</li>
+<li>unicode：真正意义上的字符串，其中的每个字符用 Unicode 中对应的 Code Point 表示。<br><img src="http://xuelangzf-github.qiniudn.com/20161228_encode_decode_3.png" alt="unicode&lt;=&gt;str"></li>
+</ul>
+<h2 id="2-总结"><a href="#2-总结" class="headerlink" title="2. 总结"></a>2. 总结</h2><ul>
+<li>str可以看作是unicode字符串经过某种编码后的字节组成的数组</li>
+<li>unicode是真正意义上的字符串</li>
+<li>通过 encode 可以将unicode类型编码为str类型</li>
+<li>通过 decode 可以将str类型解码为unicode类型</li>
+<li>python 会隐式地进行编码、解码，默认采用 ascii</li>
+<li>所有的编码、解码错误都是由于所选的编码、解码方式无法表示某些字符造成的</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/给Markdown加上标题编号/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_markdown/给Markdown加上标题编号/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<pre><code>如何给Markdown文件自动加上标题编号
+@author chenkh
+@createtime 2018-01-02
+</code></pre><hr>
+<h1 id="如何给Markdown文件自动加上标题编号"><a href="#如何给Markdown文件自动加上标题编号" class="headerlink" title="如何给Markdown文件自动加上标题编号"></a>如何给Markdown文件自动加上标题编号</h1><p><strong>转自参考资料[1]</strong><br><!-- TOC --></p>
+<ul>
+<li><a href="#问题描述">问题描述</a></li>
+<li><a href="#解决方法">解决方法</a></li>
+<li><a href="#进一步优化">进一步优化</a></li>
+<li><a href="#补充说明">补充说明</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>我们都知道，MarkDown可以通过######等标记添加不同层次的标题，非常方便。但是问题来了：如何给标题加上编号呢？</p>
+<p>像这样：</p>
+<p># Title<br>## 1. sub-title<br>### 1.1 sub-sub-title<br>### 1.2 sub-sub-title<br>## 2. sub-title<br>## 3. sub-title  </p>
+<p>为了给标题加上编号，手动加上11.11.223，很麻烦有没有？如果插入或删除章节，后面的编号都要重新修改一遍。。。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>其实，MarkDown是可以直接支持CSS的。在md文件中加入CSS代码，即可给章节自动加上编号。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type="text/css"&gt;</span><br><span class="line">    <span class="selector-tag">h1</span> &#123; <span class="attribute">counter-reset</span>: h2counter; &#125;</span><br><span class="line">    <span class="selector-tag">h2</span> &#123; <span class="attribute">counter-reset</span>: h3counter; &#125;</span><br><span class="line">    <span class="selector-tag">h3</span> &#123; <span class="attribute">counter-reset</span>: h4counter; &#125;</span><br><span class="line">    <span class="selector-tag">h4</span> &#123; <span class="attribute">counter-reset</span>: h5counter; &#125;</span><br><span class="line">    <span class="selector-tag">h5</span> &#123; <span class="attribute">counter-reset</span>: h6counter; &#125;</span><br><span class="line">    <span class="selector-tag">h6</span> &#123; &#125;</span><br><span class="line">    <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">      <span class="attribute">counter-increment</span>: h2counter;</span><br><span class="line">      <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">      <span class="attribute">counter-increment</span>: h3counter;</span><br><span class="line">      <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h3counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">      <span class="attribute">counter-increment</span>: h4counter;</span><br><span class="line">      <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h3counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h4counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">      <span class="attribute">counter-increment</span>: h5counter;</span><br><span class="line">      <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h3counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h4counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h5counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">      <span class="attribute">counter-increment</span>: h6counter;</span><br><span class="line">      <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h3counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h4counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h5counter) <span class="string">"."</span></span><br><span class="line">                <span class="built_in">counter</span>(h6counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="进一步优化"><a href="#进一步优化" class="headerlink" title="进一步优化"></a>进一步优化</h2><p>每个MarkDown文件中都要加上上面这段CSS，还是有点麻烦。幸好，MarkDown也支持外部样式表。把上面的代码保存到一个独立的CSS文件中（去掉头尾的style标签），文件命名为 auto-number-title.css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123; <span class="attribute">counter-reset</span>: h2counter; &#125;</span><br><span class="line"><span class="selector-tag">h2</span> &#123; <span class="attribute">counter-reset</span>: h3counter; &#125;</span><br><span class="line"><span class="selector-tag">h3</span> &#123; <span class="attribute">counter-reset</span>: h4counter; &#125;</span><br><span class="line"><span class="selector-tag">h4</span> &#123; <span class="attribute">counter-reset</span>: h5counter; &#125;</span><br><span class="line"><span class="selector-tag">h5</span> &#123; <span class="attribute">counter-reset</span>: h6counter; &#125;</span><br><span class="line"><span class="selector-tag">h6</span> &#123; &#125;</span><br><span class="line"><span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h2counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h3counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h3counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h4counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h3counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h4counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h5counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h3counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h4counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h5counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h6counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h3counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h4counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h5counter) <span class="string">"."</span></span><br><span class="line">            <span class="built_in">counter</span>(h6counter) <span class="string">".\0000a0\0000a0"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来只要在md文件中加上引用外部样式表的代码就可以啦：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"auto-number-title.css"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>是不是很方便呢？</p>
+<h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p>为了能用本文的方法实现标题自动编号，文章必须有主标题，且必须是一级标题“#”，然后在正文中依次使用二级、三级标题等。自动编号是从二级标题开始的。一级标题是主标题，只应该有一个，也不应加上编号。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="https://yanwei.github.io/misc/markdown-auto-number-title.html" target="_blank" rel="noopener">MarkDown标题自动添加编号</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/在github上的md文件中添加公式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_markdown/在github上的md文件中添加公式/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<pre><code>如何在github上添加数学公式
+@author chenkh
+@createtime 2018-01-02
+</code></pre><hr>
+<h1 id="如何在github上添加数学公式"><a href="#如何在github上添加数学公式" class="headerlink" title="如何在github上添加数学公式"></a>如何在github上添加数学公式</h1><p>github上添加数学公式有很多种方法，总结起来两种形式：  </p>
+<ul>
+<li>使用公式编辑器生成公式图片链接，直接放在markdown文件中作为公式的图片链接。</li>
+<li>使用MathJax等高级公式编辑器进行数学公式直接书写和显示  </li>
+</ul>
+<p>目前只会使用第一种方法，第二种方法不是github直接支持的，比较复杂。另外github基于简单，快速，安全的理念，推荐使用第一种方法。</p>
+<p>下面介绍第一种方法的使用。第二种方法待补充。</p>
+<h2 id="生成公式图片链接"><a href="#生成公式图片链接" class="headerlink" title="生成公式图片链接"></a>生成公式图片链接</h2><p>CodeCogs 提供了一个<a href="https://link.jianshu.com/?t=https://www.codecogs.com/latex/eqneditor.php" target="_blank" rel="noopener">在线 LaTeX 编辑器</a>，可以将输入的数学公式转换为图片，并自动生成 HTML 代码（也支持其他格式）。<br>比如输入下面的代码：  </p>
+<p align="center">ax^{2} + by^{2} + c = 0</p>  
+
+<p>便可以得到：</p>
+<p></p><p align="center"><img src="https://latex.codecogs.com/png.latex?ax^{2}&space;&plus;&space;by^{2}&space;&plus;&space;c&space;=&space;0"></p>
+<p></p><p align="center"><img src="https://latex.codecogs.com/gif.latex?\normal&space;E=mc^{2}">  </p>
+<p>由于 Markdown 允许嵌入 HTML，所以直接把生成的代码粘贴过去就可以了。<br>另例如：<br>质能方程：<a href="https://www.codecogs.com/eqnedit.php?latex=\huge&space;E=mc^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\normal&space;E=mc^{2}" title="\huge E=mc^{2}"></a><br>此在线编辑器功能强大，可以选择文件输出格式，支持 <code>png,gif</code> 等多种；还支持多种表现写法，支持 <code>html, url</code> 等。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/markdown-github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_markdown/markdown-github/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            body {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.5;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,
+.pl-s .pl-v {
+    color: #0086b3;
+}
+
+.pl-e,
+.pl-en {
+    color: #795da3;
+}
+
+.pl-smi,
+.pl-s .pl-s1 {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k {
+    color: #a71d5d;
+}
+
+.pl-s,
+.pl-pds,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sre,
+.pl-sr .pl-sra {
+    color: #183691;
+}
+
+.pl-v {
+    color: #ed6a43;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    color: #f8f8f8;
+    background-color: #b52a1d;
+}
+
+.pl-sr .pl-cce {
+    font-weight: bold;
+    color: #63a35c;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+    font-weight: bold;
+    color: #1d3e81;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    font-style: italic;
+    color: #333;
+}
+
+.pl-mb {
+    font-weight: bold;
+    color: #333;
+}
+
+.pl-md {
+    color: #bd2c00;
+    background-color: #ffecec;
+}
+
+.pl-mi1 {
+    color: #55a532;
+    background-color: #eaffea;
+}
+
+.pl-mdr {
+    font-weight: bold;
+    color: #795da3;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+
+.octicon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: currentColor;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+}
+
+strong {
+    font-weight: inherit;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+img {
+    border-style: none;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+code,
+kbd,
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+input {
+    font: inherit;
+    margin: 0;
+}
+
+input {
+    overflow: visible;
+}
+
+[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+strong {
+    font-weight: 600;
+}
+
+hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+hr::before {
+    display: table;
+    content: "";
+}
+
+hr::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+blockquote {
+    margin: 0;
+}
+
+ul,
+ol {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ol ol,
+ul ol {
+    list-style-type: lower-roman;
+}
+
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+dd {
+    margin-left: 0;
+}
+
+code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.octicon {
+    vertical-align: text-bottom;
+}
+
+input {
+    -webkit-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0;
+}
+
+.markdown-body::before {
+    display: table;
+    content: "";
+}
+
+.markdown-body::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anchor {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+}
+
+.anchor:focus {
+    outline: none;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e7e7e7;
+    border: 0;
+}
+
+blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+}
+
+blockquote>:first-child {
+    margin-top: 0;
+}
+
+blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+    text-decoration: none;
+}
+
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.875em;
+}
+
+h6 {
+    font-size: 0.85em;
+    color: #777;
+}
+
+ul,
+ol {
+    padding-left: 2em;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li>p {
+    margin-top: 16px;
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+dl {
+    padding: 0;
+}
+
+dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table th,
+table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+
+table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+}
+
+code::before,
+code::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+pre {
+    word-wrap: normal;
+}
+
+pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.highlight {
+    margin-bottom: 16px;
+}
+
+.highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.highlight pre,
+pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+
+pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+pre code::before,
+pre code::after {
+    content: normal;
+}
+
+.pl-0 {
+    padding-left: 0 !important;
+}
+
+.pl-1 {
+    padding-left: 3px !important;
+}
+
+.pl-2 {
+    padding-left: 6px !important;
+}
+
+.pl-3 {
+    padding-left: 12px !important;
+}
+
+.pl-4 {
+    padding-left: 24px !important;
+}
+
+.pl-5 {
+    padding-left: 36px !important;
+}
+
+.pl-6 {
+    padding-left: 48px !important;
+}
+
+.full-commit .btn-outline:not(:disabled):hover {
+    color: #4078c0;
+    border: 1px solid #4078c0;
+}
+
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+:checked+.radio-label {
+    position: relative;
+    z-index: 1;
+    border-color: #4078c0;
+}
+
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.task-list-item input {
+    margin: 0 0.2em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+hr {
+    border-bottom-color: #eee;
+}
+
+
+/** Theming **/
+
+body {
+    color: #333;
+    background: white;
+    padding: 0 25px;
+}
+
+.vscode-light,
+.vscode-light pre code {
+    color: #333;
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+    color: #333;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+    color: #333;
+}
+
+.vscode-light code {
+    color: #333;
+}
+
+.vscode-dark code {
+    color: #333;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code>div {
+    background-color: #F6F8FA;
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code>div {
+    background-color: #F6F8FA;
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code>div {
+    background-color: #F6F8FA;
+}
+
+.vscode-high-contrast h1 {
+    border-color: transparent;
+}
+
+.vscode-light table>thead>tr>th {
+    border-color: #EAECEF;
+}
+
+.vscode-dark table>thead>tr>th {
+    border-color: #EAECEF;
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table>tbody>tr+tr>td {
+    border-color: #EAECEF;
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table>tbody>tr+tr>td {
+    border-color: #EAECEF;
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+    background: transparent;
+}
+
+.vscode-high-contrast blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+    background: transparent;
+}
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/auto-number-title/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_markdown/auto-number-title/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            h1 { counter-reset: h2counter; }
+h2 { counter-reset: h3counter; }
+h3 { counter-reset: h4counter; }
+h4 { counter-reset: h5counter; }
+h5 { counter-reset: h6counter; }
+h6 { }
+h2:before {
+  counter-increment: h2counter;
+  content: counter(h2counter) ".\0000a0\0000a0";
+}
+h3:before {
+  counter-increment: h3counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "\0000a0\0000a0";
+}
+h4:before {
+  counter-increment: h4counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "\0000a0\0000a0";
+}
+h5:before {
+  counter-increment: h5counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "."
+            counter(h5counter) "\0000a0\0000a0";
+}
+h6:before {
+  counter-increment: h6counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "."
+            counter(h5counter) "."
+            counter(h6counter) "\0000a0\0000a0";
+}
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/Markdown语法笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_markdown/Markdown语法笔记/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="markdown语法笔记"><a href="#markdown语法笔记" class="headerlink" title="markdown语法笔记"></a>markdown语法笔记</h1><p><strong>注</strong>：Markdown 并没有一个整体规范的写法，markdown只是提供了一些基本的规则，复杂的功能需要开发者自己实现。markdown有很多种，比如github使用github favorable markdown，基本语法大致相同，但是有些差别存在。需要用户自己发现。<br><!-- TOC --></p>
+<ul>
+<li><a href="#标题">标题</a></li>
+<li><a href="#粗体和斜体">粗体和斜体</a></li>
+<li><a href="#引用">引用</a><ul>
+<li><a href="#文本引用">文本引用</a></li>
+<li><a href="#代码引用">代码引用</a><ul>
+<li><a href="#单行代码引用">单行代码引用</a></li>
+<li><a href="#多行代码引用">多行代码引用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#列表">列表</a></li>
+<li><a href="#表格">表格</a></li>
+<li><a href="#分割线">分割线</a></li>
+<li><a href="#区段元素">区段元素</a></li>
+<li><a href="#插入图片">插入图片</a></li>
+<li><a href="#链接标题与生成目录">链接标题与生成目录</a><ul>
+<li><a href="#链接到标题">链接到标题</a></li>
+<li><a href="#生成目录">生成目录</a></li>
+</ul>
+</li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><ul>
+<li># [一级标题] </li>
+<li>## [二级标题]</li>
+<li>### [三级标题]</li>
+</ul>
+<h2 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h2><ul>
+<li>斜体效果：<em>VSCODE</em>  </li>
+<li>加粗效果：<strong>VSCODE</strong>  </li>
+<li>斜体加粗效果：<strong><em>VSCODE</em></strong>  </li>
+<li><del>删除线</del>：删除线  </li>
+<li>居中：<p align="center">我是居中</p></li>
+<li>左对齐：<p align="left">我是左对齐</p></li>
+<li>右对齐：<p align="right">我是右对齐</p></li>
+<li>Markdown没有下划线原生语法，因为会和链接的默认样式产生混淆。解决方法是使用行内 HTML. 比如：<u>Underlined Text</u>和<span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span>，其中后者三个参数分别为<a href="http://www.w3school.com.cn/cssref/pr_border-bottom_width.asp" target="_blank" rel="noopener">border-bottom-width</a>, <a href="http://www.w3school.com.cn/cssref/pr_border-bottom_style.asp" target="_blank" rel="noopener">border-bottom-style</a>, <a href="http://www.w3school.com.cn/cssref/pr_border-bottom_color.asp" target="_blank" rel="noopener">border-bottom-color</a></li>
+<li>首行缩进：可以在段首加入\&ensp;来输入一个空格。加入\&emsp;来输入两个空格。<br>&emsp;&emsp;一语未了，只听后院中有人笑声，说：“我来迟了，不曾迎接远客！”  </li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h3 id="文本引用"><a href="#文本引用" class="headerlink" title="文本引用"></a>文本引用</h3><blockquote>
+<p>我是引用  </p>
+<blockquote>
+<p>我是嵌套引用<br>我是引用  </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>我是引用</p>
+</blockquote>
+<h3 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h3><h4 id="单行代码引用"><a href="#单行代码引用" class="headerlink" title="单行代码引用"></a>单行代码引用</h4><p>Java中使用 <code>System.out.println(&quot;Hello World!&quot;)</code> 作为输出</p>
+<h4 id="多行代码引用"><a href="#多行代码引用" class="headerlink" title="多行代码引用"></a>多行代码引用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 代码高亮，在引用前写上语言就行了</span></span><br><span class="line">a = <span class="number">10</span></span><br><span class="line">b = <span class="number">20</span></span><br><span class="line">c = a +b</span><br><span class="line">print(<span class="string">'The result of a + b = '</span> + str(c))</span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
+<li>VSCODE<br>Hello world</li>
+<li>VSCODE</li>
+</ul>
+<ul>
+<li>RED</li>
+<li>RED</li>
+</ul>
+<ul>
+<li>BAD</li>
+<li>BAD</li>
+</ul>
+<ol>
+<li>文本<br>我是谁</li>
+<li>文本<br>需要换行在换行前多写两个空格</li>
+<li>注意这里是10，所以并没有考虑序号的正确性<br>1968. 如果遇到开头是数字的话，可以用 \ 处理</li>
+</ol>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><hr>
+<p>这是分割线</p>
+<hr>
+<p>这是分割线</p>
+<hr>
+<p>这是分割线</p>
+<hr>
+<p>这是分割线</p>
+<hr>
+<p>这是分割线</p>
+<hr>
+<h2 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h2><ul>
+<li>行内链接This is <a href="http://example.com/" title="Title" target="_blank" rel="noopener">an example</a> inline link.  </li>
+<li>See my <a href="/about/">About</a> page for details. // 这里是相对路径  </li>
+<li>This is <a href="https://avatars2.githubusercontent.com/u/3265208?v=3&amp;s=100" title="GitHub,Social Coding" target="_blank" rel="noopener">Google</a> reference-style link.  </li>
+<li>连接到本地的文件，例如<a href="E:\\毕业设计\\微信图片_20171214203534.png" target="_blank" rel="noopener">分类图</a>  </li>
+<li><a href="https://avatars2.githubusercontent.com/u/3265208?v=3&amp;s=100" title="GitHub,Social Coding" target="_blank" rel="noopener">Google</a>  </li>
+<li>自动链接<a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a></li>
+</ul>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><ul>
+<li>行内式：<img src="https://avatars2.githubusercontent.com/u/3265208?v=3&amp;s=100" alt="GitHub" title="GitHub,Social Coding">就是这样</li>
+<li>参考式：<img src="https://avatars2.githubusercontent.com/u/3265208?v=3&amp;s=100" alt="GitHub" title="GitHub,Social Coding">就是这样<h2 id="链接标题与生成目录"><a href="#链接标题与生成目录" class="headerlink" title="链接标题与生成目录"></a>链接标题与生成目录</h2><h3 id="链接到标题"><a href="#链接到标题" class="headerlink" title="链接到标题"></a>链接到标题</h3>可以直接使用 <u>[内容](#标题地址)</u> 的形式, 例如链接到<a href="#3-引用">3. 引用</a>， 注意括号里面(#链接到的地方)不能有英文句号。因此无法链接到带有“.”的次级标题，如“3.1 文本应用”是无法链接到的。<h3 id="生成目录"><a href="#生成目录" class="headerlink" title="生成目录"></a>生成目录</h3>示例如下：  <blockquote>
+<ul>
+<li><a href="#1">1. 生成目录</a><ul>
+<li><a href="#1.1">1.1 第二级1</a></li>
+<li><a href="#1.2">1.2 第二级2</a></li>
+</ul>
+</li>
+<li><a href="#2">2.结语</a><h2 id="1">1. 生成目录</h2><br>这是一个自动生成目录的语法。下面是下一级目录：<br><h3 id="1.1">1.1 第二级说明1</h3><br>这是二级目录的一个测试文本。<br><h3 id="1.2">1.2 第二级说明2</h3><br>这是二级目录的第二个测试文本。<br><h2 id="2">2. 结语</h2>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>[1] <a href="http://wowubuntu.com/markdown/" target="_blank" rel="noopener">Markdown 语法说明 (简体中文版)</a><br>[2] <a href="http://xianbai.me/learn-md/article/about/readme.html" target="_blank" rel="noopener">Learning-Markdown (Markdown 入门参考)</a>  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

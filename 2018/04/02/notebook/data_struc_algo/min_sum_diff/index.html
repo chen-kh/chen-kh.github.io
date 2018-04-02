@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="两个整型数组之间的数据互相调整，使得和之差的绝对值最小问题描述：整形数组A和B，长度分别为n和m，设计一个算法：两个数组之间可以交换数值，最终使得 | sum(A) - sum(B) | 最小 输入：数组A，B 输出：无 分析问题的终极版：[有一个数字集合，将集合分成多个（固定数量）子集合，使得子集的和的最大值最小]，已经被证明是NP问题了。当然还有集合和的方差最小等等更难的变形。近似算法一般都是">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/data_struc_algo/min_sum_diff/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="两个整型数组之间的数据互相调整，使得和之差的绝对值最小问题描述：整形数组A和B，长度分别为n和m，设计一个算法：两个数组之间可以交换数值，最终使得 | sum(A) - sum(B) | 最小 输入：数组A，B 输出：无 分析问题的终极版：[有一个数字集合，将集合分成多个（固定数量）子集合，使得子集的和的最大值最小]，已经被证明是NP问题了。当然还有集合和的方差最小等等更难的变形。近似算法一般都是">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta property="og:image" content="http://yoursite.com/2018/04/02/notebook/data_struc_algo/min_sum_diff/dp_sum_diff_min.png">
+<meta property="og:updated_time" content="2018-04-02T08:39:27.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="两个整型数组之间的数据互相调整，使得和之差的绝对值最小问题描述：整形数组A和B，长度分别为n和m，设计一个算法：两个数组之间可以交换数值，最终使得 | sum(A) - sum(B) | 最小 输入：数组A，B 输出：无 分析问题的终极版：[有一个数字集合，将集合分成多个（固定数量）子集合，使得子集的和的最大值最小]，已经被证明是NP问题了。当然还有集合和的方差最小等等更难的变形。近似算法一般都是">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/02/notebook/data_struc_algo/min_sum_diff/dp_sum_diff_min.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/min_sum_diff/"/>
+
+
+
+
+
+  <title> | 其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/data_struc_algo/min_sum_diff/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="两个整型数组之间的数据互相调整，使得和之差的绝对值最小"><a href="#两个整型数组之间的数据互相调整，使得和之差的绝对值最小" class="headerlink" title="两个整型数组之间的数据互相调整，使得和之差的绝对值最小"></a>两个整型数组之间的数据互相调整，使得和之差的绝对值最小</h1><p>问题描述：整形数组A和B，长度分别为n和m，设计一个算法：两个数组之间可以交换数值，最终使得 | sum(A) - sum(B) | 最小</p>
+<p>输入：数组A，B</p>
+<p>输出：无</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>问题的终极版：[有一个数字集合，将集合分成多个（固定数量）子集合，使得子集的和的最大值最小]，已经被证明是NP问题了。当然还有集合和的方差最小等等更难的变形。近似算法一般都是基于贪心的。问题太难了，简化一下。数字集合分成两组，数量不必相等，和的差最小，就是与本题类似的一个题目。可以转换为背包问题，背包重量为sum/2。其实再之后的一些问题，就是加一些限制了，比如本题，限制了两个子集的大小。</p>
+<p>下面分别给出没有限制和有限制的解题思路。</p>
+<h3 id="整型数组A，分解为两个数组，使得两个数组的和之差最小。"><a href="#整型数组A，分解为两个数组，使得两个数组的和之差最小。" class="headerlink" title="整型数组A，分解为两个数组，使得两个数组的和之差最小。"></a>整型数组A，分解为两个数组，使得两个数组的和之差最小。</h3><ul>
+<li>解题思路：动态规划中的0-1背包问题，背包重量bagweight=sum/2。  </li>
+<li>算法证明：使用动态规划求解的结果只有两种情况： 1. 背包被装满（物品重量正好等于背包重量） 2. 背包没有被装满。第一种情况当然就是最优解。至于第二种情况，假设存在另外一个解使得原解的物品总重量与背包重量之差abs(w1-bagweight)小于最优解的物品总重量与背包重量之差abs(wi-bagweight)。由于w1 &lt; bagweight，则wi &gt; bagweight，则sum-wi &lt; bagweight。sum-wi，wi与sum/2的距离相等。因此w1 &lt; sum-wi &lt; bagweight，因此sum-wi是0-1背包的最优解，而w1也是，所以矛盾。问题得证！</li>
+<li>解题代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''使用背包问题求解，设原数组S的长度为n, 和为sum。</span></span><br><span class="line"><span class="string">选择背包重量为sum/2，S中每个数值表示一件物品的重量和价值（相等）。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">min_sumdiff_subsets</span><span class="params">(intset)</span>:</span>    </span><br><span class="line">    bagweight = sum(intset)/<span class="number">2</span></span><br><span class="line">    indexarray = get_01knapsack_solution(bagweight, intset)</span><br><span class="line">    A = [intset[i] <span class="keyword">for</span> i <span class="keyword">in</span> indexarray]</span><br><span class="line">    B = [intset[i] <span class="keyword">for</span> i <span class="keyword">not</span> <span class="keyword">in</span> indexarray]</span><br><span class="line">    <span class="keyword">return</span> (A, B)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="在上面的基础上，限定一个集合的大小为-m，其中-m-lt-n"><a href="#在上面的基础上，限定一个集合的大小为-m，其中-m-lt-n" class="headerlink" title="在上面的基础上，限定一个集合的大小为 m，其中 m&lt;n"></a>在上面的基础上，限定一个集合的大小为 m，其中 m&lt;n</h3><ul>
+<li>解题思路：仍然认为是0-1背包问题，与上面一种情况不同的是，这里限定了选择东西的数量。只需要在计算动态规划问题的时候考虑选择东西数量的问题就好了。其实这里思考起来并不难，但是很多边界条件需要考虑进去，也就说如何保证选择确定的m个数值，既不多也不少。</li>
+<li>状态方程：<br><img src="dp_sum_diff_min.png" alt="状态方程"><br>其中w[i]和p[i]分别表示重量数组和价值数组，本题中相等。f(i,j,k)表示从第1到第i个元素中取k个，放在重量为j的包里的最大价值（重量）问题。边界条件主要有3点需要注意：1.当i &lt;= k时，需要将前i-i个元素都取出来；2.当j &lt;= 0而k != 0时，直接舍弃这种情况; 3. 如果重量不得已必须超过j时，开始选小的那一个。一个简单版的递归代码如下，仅仅表示思想，代码很乱，很没有技术含量。。。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knapsack</span><span class="params">(wlist, i, j, k)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i&lt;<span class="number">0</span> <span class="keyword">or</span> j&lt;<span class="number">0</span> <span class="keyword">or</span> k&lt;=<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> i+<span class="number">1</span> == k:</span><br><span class="line">        <span class="keyword">return</span> sum(wlist[:i+<span class="number">1</span>]) <span class="comment"># the sum maybe larger than j</span></span><br><span class="line">    <span class="keyword">if</span> j&lt;=<span class="number">0</span> <span class="keyword">and</span> k != <span class="number">0</span>: <span class="comment"># it tells us that there is no solution</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span> </span><br><span class="line">    <span class="keyword">if</span> wlist[i] &gt; j:</span><br><span class="line">        <span class="keyword">return</span> knapsack(wlist, i<span class="number">-1</span>, j, k)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a = knapsack(wlist, i<span class="number">-1</span>, j, k)</span><br><span class="line">        bt = knapsack(wlist, i<span class="number">-1</span>, j-wlist[i], k<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">if</span> bt <span class="keyword">is</span> <span class="keyword">None</span>: <span class="comment"># </span></span><br><span class="line">            b = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            b = bt + wlist[i]</span><br><span class="line">        <span class="keyword">if</span> a <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            a = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> a &gt;= b <span class="keyword">and</span> a &lt;= j: </span><br><span class="line">            <span class="keyword">return</span> a</span><br><span class="line">        <span class="keyword">if</span> a &lt; b <span class="keyword">and</span> b &lt;= j:</span><br><span class="line">            <span class="keyword">return</span> b</span><br><span class="line">        <span class="keyword">if</span> a &gt; j <span class="keyword">or</span> b &gt; j: <span class="comment"># in case of one of sum larger than j, the best result smaller than j does not exist, then we trying to find the result which is closest to j (althought it's larger than j)</span></span><br><span class="line">            <span class="keyword">return</span> min(a,b)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    wlist = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">10</span>,<span class="number">2</span>]</span><br><span class="line">    i = len(wlist)<span class="number">-1</span></span><br><span class="line">    j = sum(wlist)/<span class="number">2</span></span><br><span class="line">    <span class="comment"># k = len(wlist)/2</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">7</span>):</span><br><span class="line">        a = knapsack(wlist,i,j,k)</span><br><span class="line">        print(wlist,i+<span class="number">1</span>,j,k)</span><br><span class="line">        print(a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="回到最初的问题，交换两个数组的元素，使得数组和的差值最小"><a href="#回到最初的问题，交换两个数组的元素，使得数组和的差值最小" class="headerlink" title="回到最初的问题，交换两个数组的元素，使得数组和的差值最小"></a>回到最初的问题，交换两个数组的元素，使得数组和的差值最小</h3><p>从最初的角度思考问题，交换两个数组的元素。这种方法也达到目标。</p>
+<ul>
+<li>算法过程：从数组A的第一个元素开始，在数组B中寻找最优的下标i，即<code>argmin(sum(A) - A[1] + B[i] - sum(B) + B[i] - A[1]) = argmin(sum(A) - sum(B) - 2 * (A[1] - B[i]))</code>。然后交换A[1]与B[i]。之后对A[2]进行同样的操作。知道将数组A遍历完毕，会得到一个比原来和的差值小很多新的A和B。以上过程为一次迭代，直到和的差值为0或者上一次迭代与本次迭代没有变化，循环完毕。</li>
+<li>算法证明：明显可以看出，只要数组A和B中存在调优的空间（交换数值可以使和的差值更小），每次迭代总会有数值交换，因此总能到达最优的情况。</li>
+<li>问题思考：值得考虑的是，这种算法的时间复杂度有多少，因为迭代多少次似乎是未知的，最坏的情况时每次迭代优化一个单位，这样至少需要迭代abs(sum(A) - sum(B))次，时间复杂度最坏的情况是abs(sum(A) - sum(B)) <em> m </em> n</li>
+<li>算法代码示例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exchange2min_sumdiff</span><span class="params">(arr1, arr2)</span>:</span></span><br><span class="line">    n, m = len(arr1), len(arr2)</span><br><span class="line">    last_absdiff = abs(sum(arr2) - sum(arr1))</span><br><span class="line">    <span class="keyword">if</span> last_absdiff == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    best = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">not</span> best):</span><br><span class="line">        best_absdiff = last_absdiff</span><br><span class="line">        <span class="keyword">for</span> i, a <span class="keyword">in</span> enumerate(arr1):</span><br><span class="line">            best_index = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j, b <span class="keyword">in</span> enumerate(arr2):</span><br><span class="line">                newabsdiff = abs(sum(A) - sum(B) - <span class="number">2</span> * (a - b))</span><br><span class="line">                <span class="keyword">if</span> newabsdiff &lt; best_absdiff:</span><br><span class="line">                    best_absdiff = newabsdiff</span><br><span class="line">                    best_index = j</span><br><span class="line">                    <span class="keyword">if</span> best_absdiff == <span class="number">0</span>:</span><br><span class="line">                        arr1[i], arr2[best_index] = arr2[best_index], arr1[i]</span><br><span class="line">                        <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> best_absdiff &lt; last_absdiff:</span><br><span class="line">                print(<span class="string">'exchange A[&#123;0&#125;]='</span>.format(i) + str(arr1[i]) + <span class="string">' and B[&#123;0&#125;]='</span>.format(best_index) + str(arr2[best_index]) + <span class="string">", "</span> + str(best_absdiff))</span><br><span class="line">                arr1[i], arr2[best_index] = arr2[best_index], arr1[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> best_absdiff == last_absdiff:</span><br><span class="line">            best = <span class="number">1</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> best_absdiff &lt; last_absdiff:</span><br><span class="line">            last_absdiff = best_absdiff</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">    B = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">    exchange2min_sumdiff(A,B)</span><br><span class="line">    print(A)</span><br><span class="line">    print(B)</span><br><span class="line">    print(abs(sum(A) - sum(B)))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/notebook/data_struc_algo/classic dynamic program/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/notebook/data_struc_algo/各种树结构总结/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#两个整型数组之间的数据互相调整，使得和之差的绝对值最小"><span class="nav-number">1.</span> <span class="nav-text">两个整型数组之间的数据互相调整，使得和之差的绝对值最小</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">1.1.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整型数组A，分解为两个数组，使得两个数组的和之差最小。"><span class="nav-number">1.1.1.</span> <span class="nav-text">整型数组A，分解为两个数组，使得两个数组的和之差最小。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在上面的基础上，限定一个集合的大小为-m，其中-m-lt-n"><span class="nav-number">1.1.2.</span> <span class="nav-text">在上面的基础上，限定一个集合的大小为 m，其中 m&lt;n</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回到最初的问题，交换两个数组的元素，使得数组和的差值最小"><span class="nav-number">1.1.3.</span> <span class="nav-text">回到最初的问题，交换两个数组的元素，使得数组和的差值最小</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

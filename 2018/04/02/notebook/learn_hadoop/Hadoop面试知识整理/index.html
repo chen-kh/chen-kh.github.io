@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Hadoop面试内容整理Hadoop的面试内容主要分为3各部分，首先接触过Hadoop的一定会问MapReduce编程模型的详细过程，然后可以问一些文件系统的东西，最后可能问一下与Hadoop相关的衍生品：HBase等。  MapReduce Hadoop Distributed File System（HDFS）   HBase等    参考资料：   Hadoop 面试，有它就够了、同名另外一">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="Hadoop面试内容整理Hadoop的面试内容主要分为3各部分，首先接触过Hadoop的一定会问MapReduce编程模型的详细过程，然后可以问一些文件系统的东西，最后可能问一下与Hadoop相关的衍生品：HBase等。  MapReduce Hadoop Distributed File System（HDFS）   HBase等    参考资料：   Hadoop 面试，有它就够了、同名另外一">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/697231-2fd012f3d2074e26">
+<meta property="og:image" content="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsarchitecture.gif">
+<meta property="og:image" content="http://img.blog.csdn.net/20170528230853515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemdfaG92ZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2018-04-02T08:39:27.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="Hadoop面试内容整理Hadoop的面试内容主要分为3各部分，首先接触过Hadoop的一定会问MapReduce编程模型的详细过程，然后可以问一些文件系统的东西，最后可能问一下与Hadoop相关的衍生品：HBase等。  MapReduce Hadoop Distributed File System（HDFS）   HBase等    参考资料：   Hadoop 面试，有它就够了、同名另外一">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/697231-2fd012f3d2074e26">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/"/>
+
+
+
+
+
+  <title> | 其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Hadoop面试内容整理"><a href="#Hadoop面试内容整理" class="headerlink" title="Hadoop面试内容整理"></a>Hadoop面试内容整理</h1><p>Hadoop的面试内容主要分为3各部分，首先接触过Hadoop的一定会问MapReduce编程模型的详细过程，然后可以问一些文件系统的东西，最后可能问一下与Hadoop相关的衍生品：HBase等。</p>
+<ul>
+<li>MapReduce</li>
+<li>Hadoop Distributed File System（HDFS）  </li>
+<li>HBase等  </li>
+</ul>
+<p>参考资料： </p>
+<ul>
+<li><a href="https://www.jianshu.com/p/c97ff0ab5f49" target="_blank" rel="noopener">Hadoop 面试，有它就够了</a>、<a href="http://k.sina.com.cn/article_1708729084_65d922fc034002mnt.html" target="_blank" rel="noopener">同名另外一版本</a></li>
+<li><a href="https://my.oschina.net/itblog/blog/275294" target="_blank" rel="noopener">Hadoop MapReduce执行过程详解（带hadoop例子）</a></li>
+<li><a href="https://www.csdn.net/article/2014-02-17/2818431-HDFS+MapReduce+Hbase" target="_blank" rel="noopener">Hadoop核心架构HDFS+MapReduce+Hbase+Hive内部机理详解</a></li>
+</ul>
+<h2 id="Hadoop-MapReduce"><a href="#Hadoop-MapReduce" class="headerlink" title="Hadoop MapReduce"></a>Hadoop MapReduce</h2><p>只要搞懂下面这个架构图就可以了。<br><img src="https://upload-images.jianshu.io/upload_images/697231-2fd012f3d2074e26" alt="MR架构"></p>
+<p>下面把这个过程分为Mapper和Reducer两个阶段进行分析。</p>
+<h3 id="Mapper任务的执行过程详解"><a href="#Mapper任务的执行过程详解" class="headerlink" title="Mapper任务的执行过程详解"></a>Mapper任务的执行过程详解</h3><p>每个Mapper是一个java进程，Mapper之间做的工作都一样，数量可以配置。任务执行过程如下。</p>
+<ol>
+<li><p><strong>InputSplit</strong>：把输入文件按照一定的标准分片，每个输入片的大小是固定的。默认情况下，输入片(InputSplit)的大小与数据块(Block)的大小是相同的，默认值64MB。输入文件有两个，一个是32MB，一个是72MB。那么小的文件是一个输入片，大文件会分为两个数据块，那么是两个输入片。一共产生三个输入片。每一个输入片由一个Mapper进程处理。这里的三个输入片，会有三个Mapper进程处理。</p>
+</li>
+<li><p><strong>Map Phase</strong>：其实有两个阶段，如果我们看<code>WordCount</code>的源码就会发现，<code>Mapper</code>的输入包含<code>Object key, Text value, Context context</code>，输入已经包含了key-value对。根据第一步输入的分片，首先按行划分成key=行号，value=行内容的结构，然后Mapper使用map函数对没一个键值对进行处理，可以对value进行进一步的单词划分。其输出结果是单词-计数级别的键值对。</p>
+</li>
+<li><p><strong>Partition</strong>：对第二步的输出进行基于key的分区，分区数量与reducer数量相当。这样相同key的数据就到了一个分区中。</p>
+</li>
+<li><p><strong>Sort</strong>：相同分区中的键值对进行按照先键后值的比较方式排序。</p>
+</li>
+<li><p><strong>Combine</strong>：排序完成后，相同key（也相邻）进行整合以减少网络开销。一次partition级别的reduce</p>
+</li>
+</ol>
+<p>注意：为了减少网络开销，每个Mapper设置一个缓冲区，并设置一个溢出值，分别为100M和0.8。当数据量大的时候会有多个溢出文件，在进入Reduce阶段会进行多个溢出文件整合。</p>
+<h3 id="Reducer任务的执行过程详解"><a href="#Reducer任务的执行过程详解" class="headerlink" title="Reducer任务的执行过程详解"></a>Reducer任务的执行过程详解</h3><ol>
+<li><p>第一阶段是Reducer任务会主动从Mapper任务复制其输出的键值对。Mapper任务可能会有很多，因此Reducer会复制多个Mapper的输出。</p>
+</li>
+<li><p>第二阶段是把复制到Reducer本地数据，全部进行合并，即把分散的数据合并成一个大的数据。再对合并后的数据排序。这里复制的数据是某个<code>key.hash()</code>的partition数据，然后多个partition的数据进行融合。</p>
+</li>
+<li><p>第三阶段是对排序后的键值对调用reduce方法。键相等的键值对调用一次reduce方法，每次调用会产生零个或者多个键值对。最后把这些输出的键值对写入到HDFS文件中。</p>
+</li>
+</ol>
+<p>注意：由于一次Reducer处理过程只处理某相同<code>key.hash()</code>的分区，因此多个reducer的结果数据不需要合并。</p>
+<h2 id="Hadoop-Distributed-File-System"><a href="#Hadoop-Distributed-File-System" class="headerlink" title="Hadoop Distributed File System"></a>Hadoop Distributed File System</h2><p><img src="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsarchitecture.gif" alt="HDFS架构1"></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_design.html" target="_blank" rel="noopener">Hadoop分布式文件系统：架构与设计</a>：这是很早的一个文档，不过也挺有参考价值。</li>
+<li><a href="https://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#HDFS_Architecture" target="_blank" rel="noopener">HDFS_Architecture</a>：上个文件比较新的版本，基本内容差不多。</li>
+<li><a href="https://troywu0.gitbooks.io/spark/content/hdfs.html" target="_blank" rel="noopener">HDFS·面试宝典</a>：简略版面试总结，看完上面详细的文档之后可以看一下这个，梳理主要内容。</li>
+</ul>
+<h3 id="总结性介绍"><a href="#总结性介绍" class="headerlink" title="总结性介绍"></a>总结性介绍</h3><ul>
+<li>Hadoop分布式文件系统(HDFS)被设计成适合运行在通用硬件(commodity hardware)上的分布式文件系统。</li>
+<li>HDFS是一个高度容错性的系统，适合部署在廉价的机器上。</li>
+<li>HDFS能提供高吞吐量的数据访问，非常适合大规模数据集上的应用。</li>
+</ul>
+<h3 id="一些缺点"><a href="#一些缺点" class="headerlink" title="一些缺点"></a>一些缺点</h3><ul>
+<li>不适合低延迟数据访问</li>
+<li>无法高效存储大量小文件</li>
+<li>不支持多用户写入及任意修改文件。<blockquote>
+<p>副本系数可以在文件创建的时候指定，也可以在之后改变。HDFS中的文件都是一次性写入的，并且<strong>严格要求在任何时候只能有一个写入者</strong></p>
+</blockquote>
+<h3 id="简化的一致性模型"><a href="#简化的一致性模型" class="headerlink" title="简化的一致性模型"></a>简化的一致性模型</h3>HDFS应用需要一个“一次写入多次读取”的文件访问模型。一个文件经过创建、写入和关闭之后就不需要改变。这一假设简化了数据一致性问题，并且使高吞吐量的数据访问成为可能。Map/Reduce应用或者网络爬虫应用都非常适合这个模型。目前还有计划在将来扩充这个模型，使之支持文件的附加写操作。</li>
+</ul>
+<h2 id="Hadoop-DataBase"><a href="#Hadoop-DataBase" class="headerlink" title="Hadoop DataBase"></a>Hadoop DataBase</h2><p><img src="http://img.blog.csdn.net/20170528230853515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemdfaG92ZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="HBase架构1"></p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://blog.csdn.net/woshiwanxin102213/article/details/17584043" target="_blank" rel="noopener">Hbase原理、基本概念、基本架构</a></li>
+<li><a href="http://blog.javachen.com/2013/06/15/hbase-note-about-data-structure.html" target="_blank" rel="noopener">HBase笔记：存储结构</a></li>
+</ul>
+<h3 id="总结性介绍-1"><a href="#总结性介绍-1" class="headerlink" title="总结性介绍"></a>总结性介绍</h3><ul>
+<li>HBase是一个构建在HDFS上的分布式列存储系统，是基于Google BigTable模型开发的，典型的key/value系统。</li>
+<li>与传统mysql、Oracle数据库的主要区别就是列式存储和夯实存储的区别。</li>
+<li>Hbase适合大量插入同时又有读的情况。输入一个Key获取一个value或输入一些key获得一些value。</li>
+<li>Hbase目标主要依靠横向扩展，通过不断增加廉价的商用服务器，来增加计算和存储能力。</li>
+<li>Hbase表的特点<ul>
+<li>大：一个表可以有数十亿行，上百万列；</li>
+<li>无模式：每行都有一个可排序的主键和任意多的列，列可以根据需要动态的增加，同一张表中不同的行可以有截然不同的列；</li>
+<li>面向列：面向列（族）的存储和权限控制，列（族）独立检索；</li>
+<li>稀疏：空（null）列并不占用存储空间，表可以设计的非常稀疏；</li>
+<li>数据多版本：每个单元中的数据可以有多个版本，默认情况下版本号自动分配，是单元格插入时的时间戳；</li>
+<li>数据类型单一：Hbase中的数据都是字符串，没有类型。</li>
+</ul>
+</li>
+</ul>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_hadoop/Hadoop及WordCount详解/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_hadoop/详解shuffle过程/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop面试内容整理"><span class="nav-number">1.</span> <span class="nav-text">Hadoop面试内容整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-MapReduce"><span class="nav-number">1.1.</span> <span class="nav-text">Hadoop MapReduce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper任务的执行过程详解"><span class="nav-number">1.1.1.</span> <span class="nav-text">Mapper任务的执行过程详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer任务的执行过程详解"><span class="nav-number">1.1.2.</span> <span class="nav-text">Reducer任务的执行过程详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-Distributed-File-System"><span class="nav-number">1.2.</span> <span class="nav-text">Hadoop Distributed File System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结性介绍"><span class="nav-number">1.2.1.</span> <span class="nav-text">总结性介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些缺点"><span class="nav-number">1.2.2.</span> <span class="nav-text">一些缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的一致性模型"><span class="nav-number">1.2.3.</span> <span class="nav-text">简化的一致性模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-DataBase"><span class="nav-number">1.3.</span> <span class="nav-text">Hadoop DataBase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结性介绍-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">总结性介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构"><span class="nav-number">1.3.2.</span> <span class="nav-text">存储结构</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

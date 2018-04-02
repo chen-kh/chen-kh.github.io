@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Java 知识随笔  1. 等待线程结束的方法有哪些？ 2. Java中对应数据结构中的队列、栈、双向队列等的内容 2.1. 队列与双向队列 2.2. 链表与双向链表 2.3. 栈 2.4. 树及红黑树实现的结构   3. Java 克隆 3.1. 浅拷贝与深拷贝 3.2. Cloneable接口 3.3. Serializable接口   Java中的final关键字 final关键字的含义 f">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/learn_java/java知识随笔/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="Java 知识随笔  1. 等待线程结束的方法有哪些？ 2. Java中对应数据结构中的队列、栈、双向队列等的内容 2.1. 队列与双向队列 2.2. 链表与双向链表 2.3. 栈 2.4. 树及红黑树实现的结构   3. Java 克隆 3.1. 浅拷贝与深拷贝 3.2. Cloneable接口 3.3. Serializable接口   Java中的final关键字 final关键字的含义 f">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta property="og:image" content="https://tech.meituan.com/img/java-hashmap/hashMap%20put%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
+<meta property="og:updated_time" content="2018-04-02T08:39:27.992Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="Java 知识随笔  1. 等待线程结束的方法有哪些？ 2. Java中对应数据结构中的队列、栈、双向队列等的内容 2.1. 队列与双向队列 2.2. 链表与双向链表 2.3. 栈 2.4. 树及红黑树实现的结构   3. Java 克隆 3.1. 浅拷贝与深拷贝 3.2. Cloneable接口 3.3. Serializable接口   Java中的final关键字 final关键字的含义 f">
+<meta name="twitter:image" content="https://tech.meituan.com/img/java-hashmap/hashMap%20put%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/02/notebook/learn_java/java知识随笔/"/>
+
+
+
+
+
+  <title> | 其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_java/java知识随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java-知识随笔"><a href="#Java-知识随笔" class="headerlink" title="Java 知识随笔"></a>Java 知识随笔</h1><!-- TOC -->
+<ul>
+<li><a href="#1-等待线程结束的方法有哪些">1. 等待线程结束的方法有哪些？</a></li>
+<li><a href="#2-java中对应数据结构中的队列栈双向队列等的内容">2. Java中对应数据结构中的队列、栈、双向队列等的内容</a><ul>
+<li><a href="#21-队列与双向队列">2.1. 队列与双向队列</a></li>
+<li><a href="#22-链表与双向链表">2.2. 链表与双向链表</a></li>
+<li><a href="#23-栈">2.3. 栈</a></li>
+<li><a href="#24-树及红黑树实现的结构">2.4. 树及红黑树实现的结构</a></li>
+</ul>
+</li>
+<li><a href="#3-java-克隆">3. Java 克隆</a><ul>
+<li><a href="#31-浅拷贝与深拷贝">3.1. 浅拷贝与深拷贝</a></li>
+<li><a href="#32-cloneable接口">3.2. <code>Cloneable</code>接口</a></li>
+<li><a href="#33-serializable接口">3.3. <code>Serializable</code>接口</a></li>
+</ul>
+</li>
+<li><a href="#java中的final关键字">Java中的<code>final</code>关键字</a><ul>
+<li><a href="#final关键字的含义"><code>final</code>关键字的含义</a></li>
+<li><a href="#final变量引用"><code>final</code>变量/引用</a></li>
+<li><a href="#final方法"><code>final</code>方法</a></li>
+<li><a href="#final类"><code>final</code>类</a></li>
+<li><a href="#final关键字的好处"><code>final</code>关键字的好处</a></li>
+</ul>
+</li>
+<li><a href="#java中的transient关键字">Java中的<code>transient</code>关键字</a></li>
+<li><a href="#java中的listiterator">Java中的<code>ListIterator</code></a></li>
+<li><a href="#java中的hashmap">Java中的<code>HashMap</code></a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-等待线程结束的方法有哪些？"><a href="#1-等待线程结束的方法有哪些？" class="headerlink" title="1. 等待线程结束的方法有哪些？"></a>1. 等待线程结束的方法有哪些？</h2><p>等待线程结束的方法，当然可以通过在<code>run()</code>函数里面更改标示位（或者变量），然后检测这个标示位（变量）来判断线程是否已经完成任务。但是，但是，以上都是多余的（而且是非常复杂，不实用的设计）。JDK本身就已经提供了判断线程结束的方法。参考文章：<a href="http://blog.csdn.net/xiao__gui/article/details/9213413" target="_blank" rel="noopener">Java主线程等待子线程、线程池</a></p>
+<ul>
+<li>最基本的方法：调用<code>thread.join()</code></li>
+<li>不太基本的方法：设置<code>CountDownLatch</code>成员</li>
+<li>等待线程池所有线程执行完成的方法：<code>boolean awaitTermination(long timeout, TimeUnit unit)</code></li>
+</ul>
+<p><strong><em>代码1：join()方法调用</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JoinTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(Thread.currentThread() + <span class="string">": I am sleeping"</span>);</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread.start();</span><br><span class="line">        thread.join();</span><br><span class="line">        System.out.println(<span class="string">"main done"</span>);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>代码2：线程池等待所有线程执行完成</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        System.out.println(<span class="keyword">this</span>.getName() + <span class="string">"子线程开始"</span>);  </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// 子线程休眠五秒  </span></span><br><span class="line">            Thread.sleep(<span class="number">5000</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">catch</span> (InterruptedException e)  &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">        System.out.println(<span class="keyword">this</span>.getName() + <span class="string">"子线程结束"</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;  </span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();  </span><br><span class="line">          </span><br><span class="line">        <span class="comment">// 创建一个同时允许两个线程并发执行的线程池  </span></span><br><span class="line">        ExecutorService executor = Executors.newFixedThreadPool(<span class="number">2</span>);  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;  </span><br><span class="line">            Thread thread = <span class="keyword">new</span> TestThread();  </span><br><span class="line">            executor.execute(thread);  </span><br><span class="line">        &#125;  </span><br><span class="line">        executor.shutdown();  </span><br><span class="line">          </span><br><span class="line">        <span class="keyword">try</span>&#123;  </span><br><span class="line">            <span class="comment">// awaitTermination返回false即超时会继续循环，返回true即线程池中的线程执行完成主线程跳出循环往下执行，每隔10秒循环一次  </span></span><br><span class="line">            <span class="keyword">while</span> (!executor.awaitTermination(<span class="number">10</span>, TimeUnit.SECONDS));  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">catch</span> (InterruptedException e)&#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">          </span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();  </span><br><span class="line">        System.out.println(<span class="string">"子线程执行时长："</span> + (end - start));</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Java中对应数据结构中的队列、栈、双向队列等的内容"><a href="#2-Java中对应数据结构中的队列、栈、双向队列等的内容" class="headerlink" title="2. Java中对应数据结构中的队列、栈、双向队列等的内容"></a>2. Java中对应数据结构中的队列、栈、双向队列等的内容</h2><h3 id="2-1-队列与双向队列"><a href="#2-1-队列与双向队列" class="headerlink" title="2.1. 队列与双向队列"></a>2.1. 队列与双向队列</h3><p>几点说明</p>
+<ul>
+<li>队列是一种特殊的线性表，它只允许在表的前端进行删除操作，而在表的后端进行插入操作。</li>
+<li><code>Queue</code>是一个接口，定义了<code>add,offer,remove,poll,element,peek</code>等方法，方法望文生义，只是针对同一种情况的不同设计。</li>
+<li><code>Deque</code>是一个接口，继承自<code>Queue</code>，定义了<code>add,offer,remove,poll,element,peek</code>和<code>addFirst,addLast,offerFirst,offerLast,pollFirst,pollLast,...</code>等方法，方法望文生义，也是针对同一种情况的不同设计。</li>
+</ul>
+<p>各种实现与源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">Deque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">abstract</span> <span class="title">class</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractCollection</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">PriorityQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// <span class="title">package</span> <span class="title">java</span>.<span class="title">util</span>.<span class="title">concurrent</span>    </span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ConcurrentLinkedDeque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractCollection</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ConcurrentLinkedQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">BlockingDeque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">DelayQueue</span>&lt;<span class="title">E</span> <span class="keyword">extends</span> <span class="title">Delayed</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedBlockingDeque</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingDeque</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedBlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LinkedTransferQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">TransferQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">PriorityBlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">SynchronousQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">ArrayBlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>从上面可以大致梳理出每种队列形式的类扩展于和实现于哪些类，各种类也是按照不同功能进行命名的，主要出于<code>java.util</code>和<code>java.util.concurrent</code>两个包。</li>
+<li><code>LinkedList</code>类实现了<code>Queue</code>和<code>Deque</code>接口，因此我们可以把<code>LinkedList</code>当成<code>Queue</code>来用。可以视为最普通的队列。</li>
+<li><code>PriorityQueue</code>是优先队列设计，内部使用堆这个数据结构实现。可以通过配置<code>Comparator</code>配置最小堆（默认）还是最大堆。</li>
+</ul>
+<p>最简单的示范代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//add()和remove()方法在失败的时候会抛出异常(不推荐)</span></span><br><span class="line">        Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        <span class="comment">//添加元素</span></span><br><span class="line">        queue.offer(<span class="string">"a"</span>);</span><br><span class="line">        queue.offer(<span class="string">"b"</span>);</span><br><span class="line">        queue.offer(<span class="string">"c"</span>);</span><br><span class="line">        queue.offer(<span class="string">"d"</span>);</span><br><span class="line">        queue.offer(<span class="string">"e"</span>);</span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"==="</span>);</span><br><span class="line">        System.out.println(<span class="string">"poll="</span>+queue.poll()); <span class="comment">//返回第一个元素，并在队列中删除</span></span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"==="</span>);</span><br><span class="line">        System.out.println(<span class="string">"element="</span>+queue.element()); <span class="comment">//返回第一个元素 </span></span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"==="</span>);</span><br><span class="line">        System.out.println(<span class="string">"peek="</span>+queue.peek()); <span class="comment">//返回第一个元素 </span></span><br><span class="line">        <span class="keyword">for</span>(String q : queue)&#123;</span><br><span class="line">            System.out.println(q);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-链表与双向链表"><a href="#2-2-链表与双向链表" class="headerlink" title="2.2. 链表与双向链表"></a>2.2. 链表与双向链表</h3><p>链表不用多说，肯定有<code>LinkedList</code>，而且是一个双向队列和双向链表。</p>
+<ul>
+<li>链表的插入和删除操作比<code>ArrayList</code>要高，但是查询\随机访问的效率比<code>ArrayList</code>要差。</li>
+<li>一般说法中强调：链表要避免计算长度，因为需要遍历一遍。但是<code>java</code>的实现中，每一次<code>add,offer,remove</code>等操作都记录并修改了<code>size</code>的值。</li>
+</ul>
+<h3 id="2-3-栈"><a href="#2-3-栈" class="headerlink" title="2.3. 栈"></a>2.3. 栈</h3><p>Java中有专门的针对“栈”这种数据结构的类，就是<code>java.util.Stack</code>，他就是一个类，扩展自<code>java.util.Vector</code>，所以本质上基于数组实现。主要提供了<code>push,pop,peek,empty</code>等方法。<br>类中的大部分方法都是同步（线程安全）的。以下是简略源码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> E <span class="title">push</span><span class="params">(E item)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">pop</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">peek</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(Object o)</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-树及红黑树实现的结构"><a href="#2-4-树及红黑树实现的结构" class="headerlink" title="2.4. 树及红黑树实现的结构"></a>2.4. 树及红黑树实现的结构</h3><p>可惜了，java中几乎没有树的结构。跟树有关的可能就只有<code>TreeSet</code>和<code>TreeMap</code>了吧。</p>
+<p>另外，<code>HashMap</code>在设计的过程中使用了红黑树（since jdk1.8），当出现哈希碰撞的时候，我们都知道是使用链表来进行保存的，但是<strong>当链表的长度超过8的时候就转换成了红黑树存储了</strong>。</p>
+<ul>
+<li><code>TreeSet</code>和<code>TreeMap</code>都是为了集合和映射的排序而实现。都是为了实现有序的集合和映射。内部结构使用的是红黑树。</li>
+<li><code>TreeSet</code>的实现其实和<code>TreeMap</code>是很相似的，基本是基于<code>TreeMap</code>的方式实现的，毕竟很多集合都是通过映射实现的。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">NavigableSet</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> NavigableMap&lt;E,Object&gt; m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">NavigableMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">interface</span> <span class="title">NavigableMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">SortedMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-Java-克隆"><a href="#3-Java-克隆" class="headerlink" title="3. Java 克隆"></a>3. Java 克隆</h2><h3 id="3-1-浅拷贝与深拷贝"><a href="#3-1-浅拷贝与深拷贝" class="headerlink" title="3.1. 浅拷贝与深拷贝"></a>3.1. 浅拷贝与深拷贝</h3><ul>
+<li>浅克隆（shallow clone），浅拷贝是指拷贝对象时仅仅拷贝对象本身和对象中的基本变量，而不拷贝对象包含的引用指向的对象。 </li>
+<li>深克隆（deep clone），深拷贝不仅拷贝对象本身，而且拷贝对象包含的引用指向的所有对象。</li>
+</ul>
+<p>举例：对象A1中包含对B1的引用，B1中包含对C1的引用。浅拷贝A1得到A2，A2中依然包含对B1的引用，B1中依然包含对C1的引用。深拷贝则是对浅拷贝的递归，深拷贝A1得到A2，A2中包含对B2（B1的copy）的引用，B2中包含对C2（C1的copy）的引用。</p>
+<p>拷贝最常用的就是<code>cloneable</code>和<code>serializable</code>。</p>
+<ul>
+<li><code>Cloneable</code>和<code>Serializable</code>都是<strong>标记型接口</strong>，它们内部都没有方法和属性</li>
+<li><a href="http://www.91yian.com/372.html" target="_blank" rel="noopener">Java中的标记接口（Tag or marker interfaces）</a>是为了声明该类在某个特定集合中的成员资格，JVM看到类标记时会做不同的处理。</li>
+</ul>
+<h3 id="3-2-Cloneable接口"><a href="#3-2-Cloneable接口" class="headerlink" title="3.2. Cloneable接口"></a>3.2. <code>Cloneable</code>接口</h3><p><code>implements Cloneable</code>表示该对象能被克隆，能使用<code>Object.clone()</code>方法。如果没有<code>implements Cloneable</code>的类调用<code>Object.clone()</code>方法就会抛出<code>CloneNotSupportedException</code>。</p>
+<p><code>clone()</code>方法是使用<code>Object</code>类的<code>clone()</code>方法，但是该方法存在一个缺陷，它并不会将对象的所有属性全部拷贝过来，而是有选择性的拷贝，基本规则如下：</p>
+<ul>
+<li>基本类型<br>如果变量是基本很类型，则拷贝其值，比如 int、float 等。</li>
+<li>对象<br>如果变量是一个实例对象，则拷贝其地址引用，也就是说此时新对象与原来对象是公用该实例变量。</li>
+<li>String 字符串<br>若变量为 String 字符串，则拷贝其地址引用。但是在修改时，它会从字符串池中重新生成一个新的字符串，原有紫都城对象保持不变。</li>
+</ul>
+<p>所以在使用<code>implements cloneable</code>的时候，想要实现深拷贝的话，必须注意在<code>clone()</code>方法中对一些对象的引用也进行深拷贝。</p>
+<h3 id="3-3-Serializable接口"><a href="#3-3-Serializable接口" class="headerlink" title="3.3. Serializable接口"></a>3.3. <code>Serializable</code>接口</h3><p><a href="http://www.runoob.com/java/java-serialization.html" target="_blank" rel="noopener">Java 序列化</a></p>
+<blockquote>
+<p>把母对象写入到一个字节流中，再从字节流中将其读出来，这样就可以创建一个新的对象了，并且该新对象与母对象之间并不存在引用共享的问题，真正实现对象的深拷贝。</p>
+</blockquote>
+<p>一个类的对象要想序列化成功，必须满足两个条件：</p>
+<ul>
+<li>该类必须实现 java.io.Serializable 对象。</li>
+<li>该类的所有属性必须是可序列化的。如果有一个属性不是可序列化的，则该属性必须注明是短暂的。</li>
+</ul>
+<p>如果你想知道一个 Java 标准类是否是可序列化的，请查看该类的文档。检验一个类的实例是否能序列化十分简单， 只需要查看该类有没有实现<code>java.io.Serializable</code>接口。</p>
+<h2 id="Java中的final关键字"><a href="#Java中的final关键字" class="headerlink" title="Java中的final关键字"></a>Java中的<code>final</code>关键字</h2><p>参考：<a href="http://www.importnew.com/7553.html" target="_blank" rel="noopener">深入理解Java中的final关键字</a></p>
+<h3 id="final关键字的含义"><a href="#final关键字的含义" class="headerlink" title="final关键字的含义"></a><code>final</code>关键字的含义</h3><p>final在Java中是一个保留的关键字，可以声明成员变量、方法、类以及本地变量。一旦你将引用声明作final，你将不能改变这个引用了，编译器会检查代码，如果你试图将变量再次初始化的话，编译器会报编译错误</p>
+<h3 id="final变量-引用"><a href="#final变量-引用" class="headerlink" title="final变量/引用"></a><code>final</code>变量/引用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOAN = <span class="string">"loan"</span>;</span><br><span class="line">LOAN = <span class="keyword">new</span> String(<span class="string">"loan"</span>) <span class="comment">//invalid compilation error</span></span><br></pre></td></tr></table></figure>
+<h3 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a><code>final</code>方法</h3><p>方法不可以被子类的方法重写。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonalLoan</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"personal loan"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheapPersonalLoan</span> <span class="keyword">extends</span> <span class="title">PersonalLoan</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"cheap personal loan"</span>; <span class="comment">//compilation error: overridden method is final</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="final类"><a href="#final类" class="headerlink" title="final类"></a><code>final</code>类</h3><p>final类通常功能是完整的，它们不能被继承。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonalLoan</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheapPersonalLoan</span> <span class="keyword">extends</span> <span class="title">PersonalLoan</span></span>&#123;  <span class="comment">//compilation error: cannot inherit from final class</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="final关键字的好处"><a href="#final关键字的好处" class="headerlink" title="final关键字的好处"></a><code>final</code>关键字的好处</h3><p>下面总结了一些使用final关键字的好处</p>
+<ul>
+<li>final关键字提高了性能。JVM和Java应用都会缓存final变量。</li>
+<li>final变量可以安全的在多线程环境下进行共享，而不需要额外的同步开销。</li>
+<li>使用final关键字，JVM会对方法、变量及类进行优化。</li>
+<li>不可变类：创建不可变类要使用final关键字。不可变类是指它的对象一旦被创建了就不能被更改了。String是不可变类的代表。不可变类有很多好处，譬如它们的对象是只读的，可以在多线程环境下安全的共享，不用额外的同步开销等等。</li>
+</ul>
+<h2 id="Java中的transient关键字"><a href="#Java中的transient关键字" class="headerlink" title="Java中的transient关键字"></a>Java中的<code>transient</code>关键字</h2><p>参考：<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MzIwMTY0NDU3Nw==&amp;mid=2651934932&amp;idx=1&amp;sn=0110681e23e281953bd9b9efdf93a3c4&amp;chksm=8d0f3f9aba78b68c4b265246667458175b767a5aec1e425c019bf6ae5f1f86ff867c6b1be878&amp;scene=7#rd" target="_blank" rel="noopener">Java transient关键字使用小记</a></p>
+<ul>
+<li>一旦变量被transient修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问。</li>
+<li>transient关键字只能修饰变量，而不能修饰方法和类。注意，本地变量是不能被transient关键字修饰的。变量如果是用户自定义类变量，则该类需要实现Serializable接口。</li>
+<li>被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化。</li>
+</ul>
+<p>第三点确实没错（一个静态变量不管是否被transient修饰，均不能被序列化），反序列化后类中static型变量username的值为当前JVM中对应static变量的值，这个值是JVM中的不是反序列化得出的</p>
+<h2 id="Java中的ListIterator"><a href="#Java中的ListIterator" class="headerlink" title="Java中的ListIterator"></a>Java中的<code>ListIterator</code></h2><p>参考：<a href="http://blog.csdn.net/longshengguoji/article/details/41551491" target="_blank" rel="noopener">JAVA中ListIterator和Iterator详解与辨析</a></p>
+<ul>
+<li>双向迭代器</li>
+<li>拥有<code>add, set</code>等方法，可以在遍历的同时添加、删除和更改元素</li>
+<li>可以定位当前的索引位置</li>
+</ul>
+<p><code>java.util.Collections</code>使用一个前向一个后向迭代器实现列表的翻转<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(List&lt;?&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = list.size();</span><br><span class="line">        <span class="keyword">if</span> (size &lt; REVERSE_THRESHOLD || list <span class="keyword">instanceof</span> RandomAccess) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>, mid=size&gt;&gt;<span class="number">1</span>, j=size-<span class="number">1</span>; i&lt;mid; i++, j--)</span><br><span class="line">                swap(list, i, j);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// instead of using a raw type here, it's possible to capture</span></span><br><span class="line">            <span class="comment">// the wildcard but it will require a call to a supplementary</span></span><br><span class="line">            <span class="comment">// private method</span></span><br><span class="line">            ListIterator fwd = list.listIterator();</span><br><span class="line">            ListIterator rev = list.listIterator(size);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>, mid=list.size()&gt;&gt;<span class="number">1</span>; i&lt;mid; i++) &#123;</span><br><span class="line">                Object tmp = fwd.next();</span><br><span class="line">                fwd.set(rev.previous());</span><br><span class="line">                rev.set(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Java中的HashMap"><a href="#Java中的HashMap" class="headerlink" title="Java中的HashMap"></a>Java中的<code>HashMap</code></h2><p>java中的<code>HashMap</code>是一直在发展变化的，从基本的思想出发到性能的逐渐优化。jdk8中的<code>HashMap</code>是有一些变化的。参考文章<a href="https://tech.meituan.com/java-hashmap.html" target="_blank" rel="noopener">Java 8系列之重新认识HashMap</a>,有张图片讲的很好。</p>
+<p><img src="https://tech.meituan.com/img/java-hashmap/hashMap%20put%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="jdk8-hashmap-put.png"></p>
+<ul>
+<li>jdk8中链表长度超过8之后就转换成了一棵红黑树</li>
+<li>jdk8中rehash过程更简单，不用重新计算，只需要检测多出来的一位是1还是0就行，是1的话就移动oldCap的长度，否则与原来位置相同。而且resize之后链表不会倒过来。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_java/java基础知识总结/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_markdown/Markdown语法笔记/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-知识随笔"><span class="nav-number">1.</span> <span class="nav-text">Java 知识随笔</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-等待线程结束的方法有哪些？"><span class="nav-number">1.1.</span> <span class="nav-text">1. 等待线程结束的方法有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Java中对应数据结构中的队列、栈、双向队列等的内容"><span class="nav-number">1.2.</span> <span class="nav-text">2. Java中对应数据结构中的队列、栈、双向队列等的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-队列与双向队列"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1. 队列与双向队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-链表与双向链表"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2. 链表与双向链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-栈"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3. 栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-树及红黑树实现的结构"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4. 树及红黑树实现的结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Java-克隆"><span class="nav-number">1.3.</span> <span class="nav-text">3. Java 克隆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-浅拷贝与深拷贝"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1. 浅拷贝与深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Cloneable接口"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2. Cloneable接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Serializable接口"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3. Serializable接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的final关键字"><span class="nav-number">1.4.</span> <span class="nav-text">Java中的final关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final关键字的含义"><span class="nav-number">1.4.1.</span> <span class="nav-text">final关键字的含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final变量-引用"><span class="nav-number">1.4.2.</span> <span class="nav-text">final变量/引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final方法"><span class="nav-number">1.4.3.</span> <span class="nav-text">final方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final类"><span class="nav-number">1.4.4.</span> <span class="nav-text">final类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final关键字的好处"><span class="nav-number">1.4.5.</span> <span class="nav-text">final关键字的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的transient关键字"><span class="nav-number">1.5.</span> <span class="nav-text">Java中的transient关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的ListIterator"><span class="nav-number">1.6.</span> <span class="nav-text">Java中的ListIterator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的HashMap"><span class="nav-number">1.7.</span> <span class="nav-text">Java中的HashMap</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

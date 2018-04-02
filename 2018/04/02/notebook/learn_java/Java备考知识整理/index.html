@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Java需要准备的考点  Java源码结构与基础 Java集合（collection和map） List的逆向访问 ArrayList 与 LinkedList 的区别 HashMap 与 HashTable 的区别 LinkedHashSet，LinkedHashMap, ConcurrentHashMap ConcurrentHashMap：其实属于java.util.concurrent包">
+<meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其鬼不神">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/learn_java/Java备考知识整理/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="Java需要准备的考点  Java源码结构与基础 Java集合（collection和map） List的逆向访问 ArrayList 与 LinkedList 的区别 HashMap 与 HashTable 的区别 LinkedHashSet，LinkedHashMap, ConcurrentHashMap ConcurrentHashMap：其实属于java.util.concurrent包">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta property="og:image" content="http://img.blog.csdn.net/20160121141321874">
+<meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2014/01/java-coll.png">
+<meta property="og:image" content="https://i2.wp.com/p3lang.com/wp-content/uploads/2013/06/Java-Collections-Framework-List-Set-Queue.png">
+<meta property="og:image" content="https://i1.wp.com/p3lang.com/wp-content/uploads/2013/06/Java-Collections-Framwork-Map.png">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap3.jpg">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/1736354/6981649/03eb9014-da38-11e4-9cbf-03d9c21f05f2.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/1736354/7060522/0bcfd890-deb5-11e4-97b3-d4e811766893.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/1736354/7082382/14d44b8e-df86-11e4-8e50-1e925f430b6e.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/02/notebook/learn_java/Java备考知识整理/java运行时的数据区.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/02/notebook/learn_java/Java备考知识整理/虚拟机栈.png">
+<meta property="og:updated_time" content="2018-04-02T08:39:27.988Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="其鬼不神">
+<meta name="twitter:description" content="Java需要准备的考点  Java源码结构与基础 Java集合（collection和map） List的逆向访问 ArrayList 与 LinkedList 的区别 HashMap 与 HashTable 的区别 LinkedHashSet，LinkedHashMap, ConcurrentHashMap ConcurrentHashMap：其实属于java.util.concurrent包">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160121141321874">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/02/notebook/learn_java/Java备考知识整理/"/>
+
+
+
+
+
+  <title> | 其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_java/Java备考知识整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java需要准备的考点"><a href="#Java需要准备的考点" class="headerlink" title="Java需要准备的考点"></a>Java需要准备的考点</h1><!-- TOC -->
+<ul>
+<li><a href="#java源码结构与基础">Java源码结构与基础</a><ul>
+<li><a href="#java集合collection和map">Java集合（collection和map）</a><ul>
+<li><a href="#list的逆向访问">List的逆向访问</a></li>
+<li><a href="#arraylist-与-linkedlist-的区别">ArrayList 与 LinkedList 的区别</a></li>
+<li><a href="#hashmap-与-hashtable-的区别">HashMap 与 HashTable 的区别</a></li>
+<li><a href="#linkedhashsetlinkedhashmap-concurrenthashmap">LinkedHashSet，LinkedHashMap, ConcurrentHashMap</a><ul>
+<li><a href="#concurrenthashmap其实属于javautilconcurrent包">ConcurrentHashMap：其实属于java.util.concurrent包</a></li>
+<li><a href="#linkedhashmap">LinkedHashMap</a></li>
+<li><a href="#linkedhashset与hashset">LinkedHashSet（与HashSet）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#java-collections">Java Collections</a></li>
+<li><a href="#接口与抽象类的区别">接口与抽象类的区别</a></li>
+<li><a href="#异常exceptions">异常Exceptions</a></li>
+<li><a href="#java并发工具类">Java并发工具类</a></li>
+<li><a href="#比较两个相似的数据类型要考虑的方面">比较两个相似的数据类型要考虑的方面</a></li>
+<li><a href="#参考问题">参考问题</a></li>
+</ul>
+</li>
+<li><a href="#多线程与并发">多线程与并发</a><ul>
+<li><a href="#volatile变量的理解">volatile变量的理解</a></li>
+<li><a href="#什么是线程安全">什么是线程安全</a></li>
+<li><a href="#java的runnablecollable以及future">Java的Runnable，Collable以及Future</a></li>
+<li><a href="#继承thread和实现runnable的区别是什么">继承Thread和实现Runnable的区别是什么</a></li>
+<li><a href="#difference-between-notify-and-notifyall-in-java">Difference between notify and notifyAll in Java</a></li>
+<li><a href="#线程池">线程池</a></li>
+<li><a href="#锁">锁</a><ul>
+<li><a href="#可重入锁-reentrantlock">可重入锁-<code>ReentrantLock</code></a></li>
+<li><a href="#读写锁-readwritelock">读写锁-<code>ReadWriteLock</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#java虚拟机">Java虚拟机</a><ul>
+<li><a href="#java内存区域">Java内存区域</a><ul>
+<li><a href="#程序计数器">程序计数器</a></li>
+<li><a href="#jvm栈与本地方法栈">JVM栈与本地方法栈</a></li>
+<li><a href="#java堆与方法区">Java堆与方法区</a></li>
+<li><a href="#运行时常量池">运行时常量池</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="Java源码结构与基础"><a href="#Java源码结构与基础" class="headerlink" title="Java源码结构与基础"></a>Java源码结构与基础</h2><p>参考：<a href="https://www.jianshu.com/p/f98c3acd8df8" target="_blank" rel="noopener">JDK基础概念及目录结构</a></p>
+<h3 id="Java集合（collection和map）"><a href="#Java集合（collection和map）" class="headerlink" title="Java集合（collection和map）"></a>Java集合（collection和map）</h3><p><img src="http://img.blog.csdn.net/20160121141321874" alt="java 集合结构图"><br><img src="http://www.runoob.com/wp-content/uploads/2014/01/java-coll.png" alt="java 集合结构图2"><br><img src="https://i2.wp.com/p3lang.com/wp-content/uploads/2013/06/Java-Collections-Framework-List-Set-Queue.png" alt="java 集合结构图3"><br><img src="https://i1.wp.com/p3lang.com/wp-content/uploads/2013/06/Java-Collections-Framwork-Map.png" alt="java Map结构图"></p>
+<h4 id="List的逆向访问"><a href="#List的逆向访问" class="headerlink" title="List的逆向访问"></a>List的逆向访问</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Substitute appropriate type.</span></span><br><span class="line">ArrayList&lt;...&gt; a = <span class="keyword">new</span> ArrayList&lt;...&gt;();<span class="comment">// OR LinkedList</span></span><br><span class="line"><span class="comment">// Add elements to list.</span></span><br><span class="line"><span class="comment">// Generate an iterator. Start just after the last element.</span></span><br><span class="line">ListIterator li = a.listIterator(a.size());</span><br><span class="line"><span class="comment">// Iterate in reverse.</span></span><br><span class="line"><span class="keyword">while</span>(li.hasPrevious()) &#123;</span><br><span class="line">  System.out.println(li.previous());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ArrayList-与-LinkedList-的区别"><a href="#ArrayList-与-LinkedList-的区别" class="headerlink" title="ArrayList 与 LinkedList 的区别"></a>ArrayList 与 LinkedList 的区别</h4><p>1) 因为Array是基于索引(index)的数据结构，它使用索引在数组中搜索和读取数据是很快的。Array获取数据的时间复杂度是O(1),但是要删除数据却是开销很大的，因为这需要重排数组中的所有数据。</p>
+<p>2) 相对于ArrayList，LinkedList插入是更快的。因为LinkedList不像ArrayList一样，不需要改变数组的大小，也不需要在数组装满的时候要将所有的数据重新装入一个新的数组，这是ArrayList最坏的一种情况，时间复杂度是O(n)，而LinkedList中插入或删除的时间复杂度仅为O(1)。ArrayList在插入数据时还需要更新索引（除了插入数组的尾部）。</p>
+<p>3) 类似于插入数据，删除数据时，LinkedList也优于ArrayList。</p>
+<p>4) LinkedList需要更多的内存，因为ArrayList的每个索引的位置是实际的数据，而LinkedList中的每个节点中存储的是实际的数据和前后节点的位置。</p>
+<h4 id="HashMap-与-HashTable-的区别"><a href="#HashMap-与-HashTable-的区别" class="headerlink" title="HashMap 与 HashTable 的区别"></a>HashMap 与 HashTable 的区别</h4><blockquote>
+<p>HashMap和Hashtable都实现了Map接口，但决定用哪一个之前先要弄清楚它们之间的分别。主要的区别有：线程安全性，同步(synchronization)，以及速度。</p>
+</blockquote>
+<p>参考：<a href="http://zhaox.github.io/2016/07/05/hashmap-vs-hashtable" target="_blank" rel="noopener">HashMap和HashTable到底哪不同？</a></p>
+<ol>
+<li>HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则不行)。  <blockquote>
+<p>HashMap是支持null键和null值的，而HashTable在遇到null时，会抛出NullPointerException异常。这并不是因为HashTable有什么特殊的实现层面的原因导致不能支持null键和null值，这仅仅是因为HashMap在实现时对null做了特殊处理，将null的hashCode值定为了0，从而将其存放在哈希表的第0个bucket中。</p>
+</blockquote>
+</li>
+<li>HashMap是非synchronized，而Hashtable是synchronized，这意味着Hashtable是线程安全的，多个线程可以共享一个Hashtable；而如果没有正确的同步的话，多个线程是不能共享HashMap的。<strong>Java 5提供了ConcurrentHashMap，它是HashTable的替代，比HashTable的扩展性更好。</strong>  我们能否让HashMap同步？HashMap可以通过下面的语句进行同步：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map m = Collections.synchronizeMap(hashMap);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>HashTable对线程安全的实现基本也就是给方法加了同步描述符：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    Entry tab[] = table;</span><br><span class="line">    <span class="keyword">int</span> hash = hash(key);</span><br><span class="line">    <span class="keyword">int</span> index = (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = tab[index] ; e != <span class="keyword">null</span> ; e = e.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((e.hash == hash) &amp;&amp; e.key.equals(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> e.value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Set&lt;K&gt; <span class="title">keySet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (keySet == <span class="keyword">null</span>)</span><br><span class="line">        keySet = Collections.synchronizedSet(<span class="keyword">new</span> KeySet(), <span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">return</span> keySet;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>另一个区别是HashMap的迭代器(Iterator)是fail-fast迭代器，而Hashtable的enumerator迭代器不是fail-fast的。所以当有其它线程改变了HashMap的结构（增加或者移除元素），将会抛出ConcurrentModificationException，但迭代器本身的remove()方法移除元素则不会抛出ConcurrentModificationException异常。但这并不是一个一定发生的行为，要看JVM。这条同样也是Enumeration和Iterator的区别。  </li>
+<li>由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。如果你不需要同步，只需要单一线程，那么使用HashMap性能要好过Hashtable。  </li>
+<li>HashMap不能保证随着时间的推移Map中的元素次序是不变的。<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MjM5MDcxMTU2Nw==&amp;mid=2650577125&amp;idx=2&amp;sn=adc4d9613b1ece8e824baf83818e61b2&amp;chksm=be489285893f1b93afe2607ce029126dd8323d606e3aea5e21b9569b90205f1739158bedbc7e&amp;scene=7#rd" target="_blank" rel="noopener">漫画：高并发下的HashMap</a></li>
+<li>HashTable已经被淘汰了，不要在代码中再使用它。<blockquote>
+<ul>
+<li>简单来说就是，如果你不需要线程安全，那么使用HashMap，如果需要线程安全，那么使用ConcurrentHashMap。HashTable已经被淘汰了，不要在新的代码中再使用它。  </li>
+<li>虽然HashMap和HashTable的公开接口应该不会改变，或者说改变不频繁。但每一版本的JDK，都会对HashMap和HashTable的内部实现做优化，比如上文曾提到的JDK 1.8的红黑树优化。所以，尽可能的使用新版本的JDK吧，除了那些炫酷的新功能，普通的API也会有性能上有提升。  </li>
+<li>为什么HashTable已经淘汰了，还要优化它？因为有老的代码还在使用它，所以优化了它之后，这些老的代码也能获得性能提升</li>
+</ul>
+</blockquote>
+<h4 id="LinkedHashSet，LinkedHashMap-ConcurrentHashMap"><a href="#LinkedHashSet，LinkedHashMap-ConcurrentHashMap" class="headerlink" title="LinkedHashSet，LinkedHashMap, ConcurrentHashMap"></a>LinkedHashSet，LinkedHashMap, ConcurrentHashMap</h4><h5 id="ConcurrentHashMap：其实属于java-util-concurrent包"><a href="#ConcurrentHashMap：其实属于java-util-concurrent包" class="headerlink" title="ConcurrentHashMap：其实属于java.util.concurrent包"></a>ConcurrentHashMap：其实属于java.util.concurrent包</h5>参考：</li>
+</ol>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653192083&amp;idx=1&amp;sn=5c4becd5724dd72ad489b9ed466329f5&amp;chksm=8c990d49bbee845f69345e4121888ec967df27988bc66afd984a25331d2f6464a61dc0335a54&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">漫画：什么是ConcurrentHashMap？</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html" target="_blank" rel="noopener">ConcurrentHashMap 的实现原理</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html" target="_blank" rel="noopener">探索 ConcurrentHashMap 高并发性的实现机制</a>、</li>
+<li><a href="http://www.importnew.com/22007.html" target="_blank" rel="noopener">ConcurrentHashMap总结</a>：最重要！！！jdk6、7和8的实现有很大差别！！！</li>
+<li><a href="http://www.jasongj.com/java/concurrenthashmap/" target="_blank" rel="noopener">Java进阶（六）从ConcurrentHashMap的演进看Java多线程核心技术</a>：主讲java8，图画的很好</li>
+</ul>
+<p><img src="http://wiki.jikexueyuan.com/project/java-collection/images/concurrenthashmap3.jpg" alt="concurrenthashmap segment"></p>
+<blockquote>
+<p>在实际的应用中，散列表一般的应用场景是：除了少数插入操作和删除操作外，绝大多数都是读取操作，而且读操作在大多数时候都是成功的。正是基于这个前提，ConcurrentHashMap 针对读操作做了大量的优化。通过 HashEntry 对象的不变性和用 volatile 型变量协调线程间的内存可见性，使得 大多数时候，读操作不需要加锁就可以正确获得值。这个特性使得 ConcurrentHashMap 的并发性能在分离锁的基础上又有了近一步的提高。</p>
+<p>ConcurrentHashMap 是一个并发散列映射表的实现，它允许完全并发的读取，并且支持给定数量的并发更新。相比于 HashTable 和用同步包装器包装的 HashMap（Collections.synchronizedMap(new HashMap())），ConcurrentHashMap 拥有更高的并发性。在 HashTable 和由同步包装器包装的 HashMap 中，使用一个全局的锁来同步不同线程间的并发访问。同一时间点，只能有一个线程持有锁，也就是说在同一时间点，只能有一个线程能访问容器。这虽然保证多线程间的安全并发访问，但同时也导致对容器的访问变成串行化的了。</p>
+<p>ConcurrentHashMap 的高并发性主要来自于三个方面：</p>
+<ul>
+<li>用分离锁实现多个线程间的更深层次的共享访问。</li>
+<li>用 HashEntery 对象的不变性来降低执行读操作的线程在遍历链表期间对加锁的需求。</li>
+<li>通过对同一个 Volatile 变量的写 / 读访问，协调不同线程间读 / 写操作的内存可见性。<br>使用分离锁，减小了请求 同一个锁的频率。</li>
+</ul>
+<p>通过 HashEntery 对象的不变性及对同一个 Volatile 变量的读 / 写来协调内存可见性，使得 读操作大多数时候不需要加锁就能成功获取到需要的值。由于散列映射表在实际应用中大多数操作都是成功的 读操作，所以 2 和 3 既可以减少请求同一个锁的频率，也可以有效减少持有锁的时间。通过减小请求同一个锁的频率和尽量减少持有锁的时间 ，使得 ConcurrentHashMap 的并发性相对于 HashTable 和用同步包装器包装的 HashMap有了质的提高。</p>
+</blockquote>
+<h5 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h5><p>参考：<a href="http://wiki.jikexueyuan.com/project/java-collection/linkedhashmap.html" target="_blank" rel="noopener">LinkedHashMap 的实现原理</a></p>
+<p>JAVA 在 JDK1.4 以后提供了 LinkedHashMap 来帮助我们实现了<strong>有序的 HashMap</strong>！</p>
+<blockquote>
+<p>LinkedHashMap 是 HashMap 的一个子类，它<strong>保留插入的顺序</strong>，如果需要输出的顺序和输入时的相同，那么就选用 LinkedHashMap。</p>
+</blockquote>
+<p>根据链表中元素的顺序可以分为：按插入顺序的链表，和按访问顺序(调用 get 方法)的链表。默认是按插入顺序排序，如果指定按访问顺序排序，那么调用get方法后，会将这次访问的元素移至链表尾部，不断访问可以形成按访问顺序排序的链表。</p>
+<p><img src="https://cloud.githubusercontent.com/assets/1736354/6981649/03eb9014-da38-11e4-9cbf-03d9c21f05f2.png" alt="linkedhashmap"></p>
+<h5 id="LinkedHashSet（与HashSet）"><a href="#LinkedHashSet（与HashSet）" class="headerlink" title="LinkedHashSet（与HashSet）"></a>LinkedHashSet（与HashSet）</h5><p>参考：<a href="http://wiki.jikexueyuan.com/project/java-collection/linkedhashset.html" target="_blank" rel="noopener">LinkedHashSet 的实现原理</a>、<a href="http://yikun.github.io/2015/04/09/Java-LinkedHashSet%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/" target="_blank" rel="noopener">Java LinkedHashSet工作原理及实现</a></p>
+<ol>
+<li>LinkedHashSet 是 Set 的一个具体实现，其维护着一个运行于所有条目的双重链接列表。此链接列表定义了迭代顺序，该迭代顺序可为插入顺序或是访问顺序。</li>
+<li>LinkedHashSet 继承与 HashSet，并且其内部是通过 LinkedHashMap 来实现的。有点类似于我们之前说的LinkedHashMap 其内部是基于 Hashmap 实现一样，不过还是有一点点区别的（具体的区别大家可以自己去思考一下）。</li>
+<li>如果我们需要迭代的顺序为插入顺序或者访问顺序，那么 LinkedHashSet 是需要你首先考虑的。</li>
+<li>关键代码<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedHashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">      </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HashSet(<span class="keyword">int</span> initialCapacity, <span class="keyword">float</span> loadFactor, <span class="keyword">boolean</span> dummy) &#123;</span><br><span class="line">    map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;(initialCapacity, loadFactor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>HashSet实现原理图：基于HashMap，PRESENT是补充的value<br><img src="https://cloud.githubusercontent.com/assets/1736354/7060522/0bcfd890-deb5-11e4-97b3-d4e811766893.png" alt="HashSet实现原理"></li>
+<li>LinkedHashSet实现原理图<br><img src="https://cloud.githubusercontent.com/assets/1736354/7082382/14d44b8e-df86-11e4-8e50-1e925f430b6e.png" alt="LinkedHashSet实现原理图"><h3 id="Java-Collections"><a href="#Java-Collections" class="headerlink" title="Java Collections"></a>Java Collections</h3><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html" target="_blank" rel="noopener">Collections (java.util.Collections)</a> 工具类包含了大量针对Collection/Map操作的<strong>静态方法</strong>，使用这些方法能帮我们简化代码。</li>
+</ul>
+<ol>
+<li>排序操作（主要针对List接口相关）</li>
+</ol>
+<ul>
+<li>reverse(List list)：反转指定List集合中元素的顺序</li>
+<li>shuffle(List list)：对List中的元素进行随机排序（洗牌）</li>
+<li>sort(List list)：对List里的元素根据自然升序排序</li>
+<li>sort(List list, Comparator c)：自定义比较器进行排序</li>
+<li>swap(List list, int i, int j)：将指定List集合中i处元素和j出元素进行交换</li>
+<li>rotate(List list, int distance)：将所有元素向右移位指定长度，如果distance等于size那么结果不变</li>
+</ul>
+<ol start="2">
+<li>查找和替换（主要针对Collection接口相关）</li>
+</ol>
+<ul>
+<li>binarySearch(List list, Object key)：使用二分搜索法，以获得指定对象在List中的索引，前提是集合已经排序</li>
+<li>max(Collection coll)：返回最大元素</li>
+<li>max(Collection coll, Comparator comp)：根据自定义比较器，返回最大元素</li>
+<li>min(Collection coll)：返回最小元素</li>
+<li>min(Collection coll, Comparator comp)：根据自定义比较器，返回最小元素</li>
+<li>fill(List list, Object obj)：使用指定对象填充</li>
+<li>frequency(Collection Object o)：返回指定集合中指定对象出现的次数</li>
+<li>replaceAll(List list, Object old, Object new)：替换</li>
+</ul>
+<ol start="3">
+<li>同步控制</li>
+</ol>
+<ul>
+<li>Collections工具类中提供了多个<code>synchronizedXxx</code>方法，该方法返回指定集合对象对应的同步对象，从而解决多线程并发访问集合时线程的安全问题。HashSet、ArrayList、HashMap都是线程不安全的，如果需要考虑同步，则使用这些方法。这些方法主要有：<code>synchronizedSet、synchronizedSortedSet、synchronizedList、synchronizedMap、synchronizedSortedMap</code>。</li>
+<li>特别需要指出的是，在使用迭代方法遍历集合时需要手工同步返回的集合。</li>
+</ul>
+<ol start="4">
+<li>设置不可变集合<br>Collections有三类方法可返回一个不可变集合：</li>
+</ol>
+<ul>
+<li>emptyXxx()：返回一个空的不可变的集合对象</li>
+<li>singletonXxx()：返回一个只包含指定对象的，不可变的集合对象。</li>
+<li>unmodifiableXxx()：返回指定集合对象的不可变视图</li>
+</ul>
+<ol start="5">
+<li>其它  </li>
+</ol>
+<ul>
+<li>disjoint(Collection&lt;?&gt; c1, Collection&lt;?&gt; c2) - 如果两个指定 collection 中没有相同的元素，则返回 true。</li>
+<li>addAll(Collection&lt;? super T&gt; c, T… a) - 一种方便的方式，将所有指定元素添加到指定 collection 中。示范：<br>Collections.addAll(flavors, “Peaches ‘n Plutonium”, “Rocky Racoon”);</li>
+<li>Comparator<t> reverseOrder(Comparator<t> cmp) - 返回一个比较器，它强行反转指定比较器的顺序。如果指定比较器为 null，则此方法等同于 reverseOrder()（换句话说，它返回一个比较器，该比较器将强行反转实现 Comparable 接口那些对象 collection 上的自然顺序）。<h3 id="接口与抽象类的区别"><a href="#接口与抽象类的区别" class="headerlink" title="接口与抽象类的区别"></a>接口与抽象类的区别</h3></t></t></li>
+<li>一个子类只能继承一个抽象类，但能实现多个接口</li>
+<li>抽象类可以有构造方法，接口没有构造方法</li>
+<li>抽象类可以有普通成员变量，接口没有普通成员变量</li>
+<li>抽象类和接口都可有静态成员变量，抽象类中的静态成员变量访问类型任意，接口只能public staic final （默认）</li>
+<li>抽象类可以没有抽象方法，抽象类可以有普通方法，接口中都是抽象方法</li>
+<li>抽象类可以有静态方法，接口不能有静态方法</li>
+<li>抽象类中的方法可以是public，protected，接口只有public abstract<h3 id="异常Exceptions"><a href="#异常Exceptions" class="headerlink" title="异常Exceptions"></a>异常Exceptions</h3><h3 id="Java并发工具类"><a href="#Java并发工具类" class="headerlink" title="Java并发工具类"></a>Java并发工具类</h3><h3 id="比较两个相似的数据类型要考虑的方面"><a href="#比较两个相似的数据类型要考虑的方面" class="headerlink" title="比较两个相似的数据类型要考虑的方面"></a>比较两个相似的数据类型要考虑的方面</h3></li>
+<li>接口实现的不同</li>
+<li>存储形式的不同（随机还是连续）</li>
+<li>针对的应用场景不同</li>
+<li>线程安全角度的不同</li>
+<li>共同操作的开销问题（效率问题，时间开销和内存开销）<h3 id="参考问题"><a href="#参考问题" class="headerlink" title="参考问题"></a>参考问题</h3></li>
+</ul>
+<ol>
+<li><a href="https://stackoverflow.com/questions/37769428/why-is-accessing-an-item-by-index-slower-in-a-linked-list-than-an-array" target="_blank" rel="noopener">为什么链表按照index访问比较慢？</a></li>
+<li><a href="https://stackoverflow.com/questions/4927858/java-util-linked-list-how-to-find-next" target="_blank" rel="noopener">为什么Java.util.LinkedList不方便访问元素的下一个（next和preview的直接调用）？</a><blockquote>
+<p>我不知道你使用的是什么 Node 类，但 LinkedList<t> 有它自己的内部节点类，你不能访问。 调用 add值添加到列表——你不能显式地插入一个节点值,或以任何其他方式访问节点本身。 是的有时候会很痛苦。<br>如果你需要具有节点 public 封装的链接列表，则需要找到另一个实现或者滚动你自己的列表。</t></p>
+</blockquote>
+</li>
+<li><a href="http://zhaox.github.io/2016/07/05/hashmap-vs-hashtable" target="_blank" rel="noopener">HashMap和HashTable到底哪不同？</a><h2 id="多线程与并发"><a href="#多线程与并发" class="headerlink" title="多线程与并发"></a>多线程与并发</h2>参考：<a href="http://www.cnblogs.com/dolphin0520/p/3949310.html" target="_blank" rel="noopener">Java并发编程：Callable、Future和FutureTask</a><h3 id="volatile变量的理解"><a href="#volatile变量的理解" class="headerlink" title="volatile变量的理解"></a>volatile变量的理解</h3></li>
+</ol>
+<p>参考<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MjM5NzM0MjcyMQ==&amp;mid=2650072057&amp;idx=3&amp;sn=0eb6dd4be610de53293d124c4e0498b3&amp;chksm=bedb389789acb181347f0867d234b5ef500afff2d986248cf53ea1e4b866afd1ace51da7faba&amp;scene=7#rd" target="_blank" rel="noopener">Java中volatile变量的理解与正确使用</a>，<a href="https://mp.weixin.qq.com/s?subscene=23&amp;__biz=MzIxMjE5MTE1Nw==&amp;mid=2653192450&amp;idx=2&amp;sn=ad95717051c0c4af83923b736a5bc637&amp;chksm=8c99f3d8bbee7aceb123e4f6aa9a220630b5aa17743ba812d82308bfb6a8ed8303bdd181f144&amp;scene=7#rd" target="_blank" rel="noopener">漫画：什么是 volatile 关键字？</a></p>
+<blockquote>
+<ul>
+<li>volatile标示的变量保证了可见性，也就是线程用到该变量时必须从内存读取新值，在更改该变量时必须将指刷新到主内存中。  </li>
+<li>volatile变量适用于那些一写多读的应用场景，而多写的场景并不能保证线程安全</li>
+</ul>
+</blockquote>
+<p>Java语言提供了一种稍弱的同步机制，即volatile变量。作用与说明有三：</p>
+<ul>
+<li>用来确保将变量的更新操作通知到其它线程，保证了新值能够立即同步到主内存，以及每次使用前立即从主内存刷新。</li>
+<li>volatile的另一个语义是禁止指令重排序优化。</li>
+<li>volatile并不保证原子性，也就是不能保证线程安全。<h3 id="什么是线程安全"><a href="#什么是线程安全" class="headerlink" title="什么是线程安全"></a>什么是线程安全</h3>如果代码有多个线程同时运行，而这些线程可能会同时运行这段代码，如果运行结果和单线程运行结果一样，就是线程安全的。java.util.concurrent包里面的类，就是为并行线程安全提供的类型包。<h3 id="Java的Runnable，Collable以及Future"><a href="#Java的Runnable，Collable以及Future" class="headerlink" title="Java的Runnable，Collable以及Future"></a>Java的Runnable，Collable以及Future</h3></li>
+<li>Runnable应该是我们最熟悉的接口，它只有一个run()函数，用于将耗时操作写在其中，该函数<strong>没有返回值</strong>。</li>
+<li>Callable与Runnable的功能大致相似，Callable中有一个call()函数，<strong>但是call()函数有返回值</strong>，而Runnable的run()函数不能将结果返回给客户程序。</li>
+<li>Executor就是Runnable和Callable的调度容器，Future就是对于具体的Runnable或者Callable任务的执行结果进行取消、查询是否完成、获取结果、设置结果操作。get方法会阻塞，直到任务返回结果。</li>
+<li><p>FutureTask则是一个RunnableFuture<v>，而RunnableFuture实现了Runnbale又实现了Futrue<v>这两个接口</v></v></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callable</span>&lt;<span class="title">V</span>&gt; </span>&#123;  </span><br><span class="line">    <span class="function">V <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">cancel</span><span class="params">(<span class="keyword">boolean</span> mayInterruptIfRunning)</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCancelled</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, ExecutionException</span>;  </span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span>  </span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FutureTask</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt;  </span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Runnable</span>, <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简单示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Future;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> *  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> mrsimple </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunnableFutureTask</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * ExecutorService </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="keyword">static</span> ExecutorService mExecutor = Executors.newSingleThreadExecutor();  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        runnableDemo();  </span><br><span class="line">        futureDemo();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * runnable, 无返回值 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">runnableDemo</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">  </span><br><span class="line">            <span class="meta">@Override</span>  </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                System.out.println(<span class="string">"runnable demo : "</span> + fibc(<span class="number">20</span>));  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;).start();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 其中Runnable实现的是void run()方法，无返回值；Callable实现的是 V </span></span><br><span class="line"><span class="comment">     * call()方法，并且可以返回执行结果。其中Runnable可以提交给Thread来包装下 </span></span><br><span class="line"><span class="comment">     * ，直接启动一个线程来执行，而Callable则一般都是提交给ExecuteService来执行。 </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">futureDemo</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * 提交runnable则没有返回值, future没有数据 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            Future&lt;?&gt; result = mExecutor.submit(<span class="keyword">new</span> Runnable() &#123;  </span><br><span class="line">  </span><br><span class="line">                <span class="meta">@Override</span>  </span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">                    fibc(<span class="number">20</span>);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;);  </span><br><span class="line">  </span><br><span class="line">            System.out.println(<span class="string">"future result from runnable : "</span> + result.get());  </span><br><span class="line">  </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * 提交Callable, 有返回值, future中能够获取返回值 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            Future&lt;Integer&gt; result2 = mExecutor.submit(<span class="keyword">new</span> Callable&lt;Integer&gt;() &#123;  </span><br><span class="line">                <span class="meta">@Override</span>  </span><br><span class="line">                <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">                    <span class="keyword">return</span> fibc(<span class="number">20</span>);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;);  </span><br><span class="line">  </span><br><span class="line">            System.out  </span><br><span class="line">                    .println(<span class="string">"future result from callable : "</span> + result2.get());  </span><br><span class="line">  </span><br><span class="line">            <span class="comment">/** </span></span><br><span class="line"><span class="comment">             * FutureTask则是一个RunnableFuture&lt;V&gt;，即实现了Runnbale又实现了Futrue&lt;V&gt;这两个接口， </span></span><br><span class="line"><span class="comment">             * 另外它还可以包装Runnable(实际上会转换为Callable)和Callable </span></span><br><span class="line"><span class="comment">             * &lt;V&gt;，所以一般来讲是一个符合体了，它可以通过Thread包装来直接执行，也可以提交给ExecuteService来执行 </span></span><br><span class="line"><span class="comment">             * ，并且还可以通过v get()返回执行结果，在线程体没有执行完成的时候，主线程一直阻塞等待，执行完则直接返回结果。 </span></span><br><span class="line"><span class="comment">             */</span>  </span><br><span class="line">            FutureTask&lt;Integer&gt; futureTask = <span class="keyword">new</span> FutureTask&lt;Integer&gt;(  </span><br><span class="line">                    <span class="keyword">new</span> Callable&lt;Integer&gt;() &#123;  </span><br><span class="line">                        <span class="meta">@Override</span>  </span><br><span class="line">                        <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">                            <span class="keyword">return</span> fibc(<span class="number">20</span>);  </span><br><span class="line">                        &#125;  </span><br><span class="line">                    &#125;);  </span><br><span class="line">            <span class="comment">// 提交futureTask  </span></span><br><span class="line">            mExecutor.submit(futureTask) ;  </span><br><span class="line">            System.out.println(<span class="string">"future result from futureTask : "</span>  </span><br><span class="line">                    + futureTask.get());  </span><br><span class="line">  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 效率底下的斐波那契数列, 耗时的操作 </span></span><br><span class="line"><span class="comment">     *  </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibc</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">0</span>) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">1</span>) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> fibc(num - <span class="number">1</span>) + fibc(num - <span class="number">2</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="继承Thread和实现Runnable的区别是什么"><a href="#继承Thread和实现Runnable的区别是什么" class="headerlink" title="继承Thread和实现Runnable的区别是什么"></a>继承Thread和实现Runnable的区别是什么</h3><ol>
+<li>Thread和Runnable都可以实现多线程 </li>
+<li>Thread是类，而Runnable是接口，这就是类和接口区别，类只能继承一次，而接口可以实现多个接口。 </li>
+<li>Thread实现Runnable接口，这个可以查看Thread的源代码。 </li>
+<li>最重要的分享资源功能，一般我们使用多线程就是快速解决资源问题。Runnable可以实现资源分享，类实现Runnable并不具备线程功能，必须通过new Thread(runabble子类)调用start()启动线程，所以我们通常new一个runnable的子类，启动多个线程解决资源问题。Thread是类所以我们每次new一个对象时候资源已经实例化了，不能资源共享，Thread类要实现资源共享，可以声明变量为static，类共享的可以解决。 </li>
+<li>通过以上建议最好实现Runnable接口 实现多线程。 </li>
+<li>这2种方式都有一个<strong>缺陷</strong>就是：<strong>在执行完任务之后无法获取执行结果。</strong></li>
+</ol>
+<p>所以我们需要有Future</p>
+<h3 id="Difference-between-notify-and-notifyAll-in-Java"><a href="#Difference-between-notify-and-notifyAll-in-Java" class="headerlink" title="Difference between notify and notifyAll in Java"></a>Difference between notify and notifyAll in Java</h3><blockquote>
+<p>Java provides two methods notify and notifyAll for waking up threads waiting on some condition and you can use any of them but there is a subtle difference between notify and notifyAll in Java which makes it one of the popular multi-threading interview questions in Java. <u>When you call notify only <strong>one of waiting</strong> for the thread will be woken and it’s not guaranteed which thread will be woken, it depends on upon Thread scheduler. While if you call notifyAll method, <strong>all threads waiting</strong> on that lock will be woken up, but again all woken thread will fight for lock before executing remaining code</u> and that’s why <strong>wait is called on loop</strong> because if multiple threads are woken up, the thread which will get lock will first execute and it may reset waiting for condition, which will force subsequent threads to wait. So key difference between notify and notifyAll is that notify() will cause only one thread to wake up while notifyAll method will make all thread to wake up.</p>
+</blockquote>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>参考</p>
+<ul>
+<li><a href="http://www.cnblogs.com/qifengshi/p/6831055.html" target="_blank" rel="noopener">Java中的锁分类</a></li>
+<li><a href="https://www.jianshu.com/p/f47250702ee7" target="_blank" rel="noopener">Java可重入锁详解</a></li>
+<li><a href="https://www.jianshu.com/p/853b203a8d93" target="_blank" rel="noopener">Java同步框架AbstractQueuedSynchronizer</a><h4 id="可重入锁-ReentrantLock"><a href="#可重入锁-ReentrantLock" class="headerlink" title="可重入锁-ReentrantLock"></a>可重入锁-<code>ReentrantLock</code></h4>如果当前线程已经获得了某个监视器对象所持有的锁，那么该线程在该方法中调用另外一个同步方法也同样持有该锁。如果锁不具有可重入性特点的话，那么线程在调用同步方法、含有锁的方法时就会产生死锁。<h4 id="读写锁-ReadWriteLock"><a href="#读写锁-ReadWriteLock" class="headerlink" title="读写锁-ReadWriteLock"></a>读写锁-<code>ReadWriteLock</code></h4>其读锁是共享锁，其写锁是独享锁。<br>读锁的共享锁可保证并发读是非常高效的，读写，写读 ，写写的过程是互斥的。</li>
+</ul>
+<h2 id="Java虚拟机"><a href="#Java虚拟机" class="headerlink" title="Java虚拟机"></a>Java虚拟机</h2><h3 id="Java内存区域"><a href="#Java内存区域" class="headerlink" title="Java内存区域"></a>Java内存区域</h3><p>参考：<a href="https://www.jianshu.com/p/6173a467165e" target="_blank" rel="noopener">Java运行时数据区域</a></p>
+<p>Java运行时的数据区域：程序计数器（Program Counter Register）、JVM栈、本地方法栈（Native Method Stack）、Java堆（Heap）、方法区（Method Area）以及运行时常量池、直接内存</p>
+<p><img src="java运行时的数据区.png" alt="java运行时数据区"></p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>程序计数器占用较小的内存空间，可以看做是<strong>当前线程所执行的字节码的行号指示器</strong>，由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器（对于多核处理器来说就是一个内核）都只会执行一条线程中的指令。因此，为了<strong>线程切换后能够恢复到正确的执行位置</strong>，每条线程都需要有一个独立的程序计数器。</p>
+<p>如果线程正在执行Java方法，则计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是Native方法，则这个计数器则为空。</p>
+<h4 id="JVM栈与本地方法栈"><a href="#JVM栈与本地方法栈" class="headerlink" title="JVM栈与本地方法栈"></a>JVM栈与本地方法栈</h4><ul>
+<li>虚拟机栈</li>
+</ul>
+<p><img src="虚拟机栈.png" alt="虚拟机栈"></p>
+<h4 id="Java堆与方法区"><a href="#Java堆与方法区" class="headerlink" title="Java堆与方法区"></a>Java堆与方法区</h4><ul>
+<li>Java堆</li>
+</ul>
+<p>对大多数应用来说，Java堆（Heap）是Java虚拟机所管理的<strong>内存中最大的一块</strong>，Java堆是<strong>被所有线程共享</strong>的一块内存区域，在虚拟机启动时创建。该内存区域唯一的目的就是存放对象实例，<strong>Java对象实例以及数组</strong>都在堆上分配（随着JIT编译器发展等技术成熟，所有对象分配在堆上也渐渐不是那么“绝对”了）。</p>
+<p>Java堆是<strong>垃圾收集器管理的主要区域</strong>，因此Java堆也常被称为“GC堆”，由于现在收集器基于分代收集算法，Java堆还可以细分为：新生代和老年代。</p>
+<p>根据Java虚拟机规范的规定，Java堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可，就像我们的磁盘空间一样（或者说，像链表一样虽然内存上不一定连续，但逻辑上是连续）。如果在堆中没有内存完成实例分配，而且堆也没办法再扩展时，将会抛出<strong>OutOfMemoryError异常</strong>。</p>
+<ul>
+<li>方法区</li>
+</ul>
+<p>方法区与Java堆一样，是各个线程共享的内存区域，用于存储已被虚拟机加载的<strong>类信息、常量、静态变量、即时编译器编译后的代码</strong>等数据。Java虚拟机规范对方法区的限制非常宽松，除了和Java堆一样不需要连续的内存和可以选择固定大小或者可拓展外，还可以选择不实现垃圾收集。相对而言，垃圾收集行为在这个区域是比较少出现的，但并非数据进入了方法区就成为了永久代。该区域的内存回收目标主要是针对常量池的回收和对类型的卸载。</p>
+<p>Java虚拟机规范规定，当方法区无法满足内存分配需求时，讲抛出OutOfMemoryError异常。</p>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><p>运行时常量池与class文件的常量池不同，应该是运行时常量池包含class文件中的常量池。</p>
+<p><strong>运行时常量池是方法区</strong>的一部分，Class文件中除了有关类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。</p>
+<p>运行时常量池相对于Class文件常量池的另一个重要特征是具备动态性，Java语言并非不要求常量一定只有编译期才能产生，也就是并非预置入Class文件中常量池的内容才能进入方法区运行时常量池，运行期间也可以将新的常量池放入池中。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol start="0">
+<li><a href="http://www.cnblogs.com/dolphin0520/p/3958019.html" target="_blank" rel="noopener">Java线程面试题 Top 50</a></li>
+<li><a href="http://blog.csdn.net/column/details/java-source-study.html" target="_blank" rel="noopener">Java源码分析</a></li>
+<li><a href="http://zhaox.github.io/2016/07/05/hashmap-vs-hashtable" target="_blank" rel="noopener">HashMap和HashTable到底哪不同？</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-collection/concurrenthashmap.html" target="_blank" rel="noopener">ConcurrentHashMap 的实现原理</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html" target="_blank" rel="noopener">探索 ConcurrentHashMap 高并发性的实现机制</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-collection/linkedhashmap.html" target="_blank" rel="noopener">LinkedHashMap 的实现原理</a></li>
+<li><a href="https://www.jianshu.com/p/f98c3acd8df8" target="_blank" rel="noopener">JDK基础概念及目录结构</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_hadoop/详解shuffle过程/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/notebook/learn_java/java基础知识总结/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java需要准备的考点"><span class="nav-number">1.</span> <span class="nav-text">Java需要准备的考点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java源码结构与基础"><span class="nav-number">1.1.</span> <span class="nav-text">Java源码结构与基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java集合（collection和map）"><span class="nav-number">1.1.1.</span> <span class="nav-text">Java集合（collection和map）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#List的逆向访问"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">List的逆向访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList-与-LinkedList-的区别"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">ArrayList 与 LinkedList 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap-与-HashTable-的区别"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">HashMap 与 HashTable 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashSet，LinkedHashMap-ConcurrentHashMap"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">LinkedHashSet，LinkedHashMap, ConcurrentHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ConcurrentHashMap：其实属于java-util-concurrent包"><span class="nav-number">1.1.1.4.1.</span> <span class="nav-text">ConcurrentHashMap：其实属于java.util.concurrent包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">1.1.1.4.2.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LinkedHashSet（与HashSet）"><span class="nav-number">1.1.1.4.3.</span> <span class="nav-text">LinkedHashSet（与HashSet）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Collections"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java Collections</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口与抽象类的区别"><span class="nav-number">1.1.3.</span> <span class="nav-text">接口与抽象类的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常Exceptions"><span class="nav-number">1.1.4.</span> <span class="nav-text">异常Exceptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java并发工具类"><span class="nav-number">1.1.5.</span> <span class="nav-text">Java并发工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较两个相似的数据类型要考虑的方面"><span class="nav-number">1.1.6.</span> <span class="nav-text">比较两个相似的数据类型要考虑的方面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考问题"><span class="nav-number">1.1.7.</span> <span class="nav-text">参考问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程与并发"><span class="nav-number">1.2.</span> <span class="nav-text">多线程与并发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile变量的理解"><span class="nav-number">1.2.1.</span> <span class="nav-text">volatile变量的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是线程安全"><span class="nav-number">1.2.2.</span> <span class="nav-text">什么是线程安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的Runnable，Collable以及Future"><span class="nav-number">1.2.3.</span> <span class="nav-text">Java的Runnable，Collable以及Future</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承Thread和实现Runnable的区别是什么"><span class="nav-number">1.2.4.</span> <span class="nav-text">继承Thread和实现Runnable的区别是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-between-notify-and-notifyAll-in-Java"><span class="nav-number">1.2.5.</span> <span class="nav-text">Difference between notify and notifyAll in Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池"><span class="nav-number">1.2.6.</span> <span class="nav-text">线程池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁"><span class="nav-number">1.2.7.</span> <span class="nav-text">锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可重入锁-ReentrantLock"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">可重入锁-ReentrantLock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读写锁-ReadWriteLock"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">读写锁-ReadWriteLock</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.3.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存区域"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java内存区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#程序计数器"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM栈与本地方法栈"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">JVM栈与本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java堆与方法区"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">Java堆与方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时常量池"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">运行时常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
