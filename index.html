@@ -285,6 +285,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/07/notebook/offer/leetcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/07/notebook/offer/leetcode/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-07T20:54:24+08:00">
+                2018-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="前序遍历（递归、非递归）"><a href="#前序遍历（递归、非递归）" class="headerlink" title="前序遍历（递归、非递归）"></a>前序遍历（递归、非递归）</h3><p>递归版本是最基本的了。非递归的版本需要使用stack来保存访问的路径。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="comment">// method 1</span></span><br><span class="line">        <span class="comment">// preorderTraversalIter(root,list);</span></span><br><span class="line">        <span class="comment">// method 2</span></span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">while</span>(root != <span class="keyword">null</span> || !stack.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">if</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">                stack.push(root);</span><br><span class="line">                list.add(root.val);</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                root = stack.pop().right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preorderTraversalIter</span><span class="params">(TreeNode root, List&lt;Integer&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root != <span class="keyword">null</span>)</span><br><span class="line">            list.add(root.val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(root.left != <span class="keyword">null</span>)</span><br><span class="line">            preorderTraversalIter(root.left, list);</span><br><span class="line">        <span class="keyword">if</span>(root.right != <span class="keyword">null</span>)</span><br><span class="line">            preorderTraversalIter(root.right, list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="中序遍历（递归、非递归）"><a href="#中序遍历（递归、非递归）" class="headerlink" title="中序遍历（递归、非递归）"></a>中序遍历（递归、非递归）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="comment">// method 1</span></span><br><span class="line">        <span class="comment">// inorderTraversalIter(root,list);</span></span><br><span class="line">        <span class="comment">// method 2</span></span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">while</span>(root != <span class="keyword">null</span> || !stack.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">if</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">                stack.push(root);</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                root = stack.pop();</span><br><span class="line">                list.add(root.val);</span><br><span class="line">                root = root.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inorderTraversalIter</span><span class="params">(TreeNode root, List&lt;Integer&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.left != <span class="keyword">null</span>)</span><br><span class="line">                inorderTraversalIter(root.left, list);</span><br><span class="line">            list.add(root.val);</span><br><span class="line">            <span class="keyword">if</span>(root.right != <span class="keyword">null</span>)</span><br><span class="line">                inorderTraversalIter(root.right, list);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="后序遍历（递归、非递归）"><a href="#后序遍历（递归、非递归）" class="headerlink" title="后序遍历（递归、非递归）"></a>后序遍历（递归、非递归）</h3><p>后序遍历其实是镜像+颠倒版的前序遍历。使用右先前序遍历（先访问右节点）思想，最后倒着输出。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">        <span class="comment">// method 1</span></span><br><span class="line">        <span class="comment">// postorderTraversalIter(root,list);</span></span><br><span class="line">        <span class="comment">// method 2</span></span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">while</span>(root != <span class="keyword">null</span> || !stack.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">if</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">                stack.push(root);</span><br><span class="line">                list.add(<span class="number">0</span>, root.val);</span><br><span class="line">                root = root.right;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                root = stack.pop();</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postorderTraversalIter</span><span class="params">(TreeNode root, List&lt;Integer&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.left != <span class="keyword">null</span>)</span><br><span class="line">                postorderTraversalIter(root.left, list);</span><br><span class="line">            <span class="keyword">if</span>(root.right != <span class="keyword">null</span>)</span><br><span class="line">                postorderTraversalIter(root.right, list);</span><br><span class="line">            list.add(root.val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="层次遍历与层次输出"><a href="#层次遍历与层次输出" class="headerlink" title="层次遍历与层次输出"></a>层次遍历与层次输出</h3><p>层次遍历很简单，使用队列辅助就行了。但是如何进行层次输出呢？这就是102号题目：<a href="https://leetcode.com/problems/binary-tree-level-order-traversal/description/" target="_blank" rel="noopener">Binary Tree Level Order Traversal</a>。思路如下。</p>
+<p>思路1：递归。设置level记录层数。每进行一次子节点访问，层数加1。不同层用不同list存储。具体见代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; levelList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        helper(root, levelList, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> levelList;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode node, List&lt;List&lt;Integer&gt;&gt; levelList, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (levelList.size() &lt;= level) &#123;</span><br><span class="line">            levelList.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;());</span><br><span class="line">        &#125;</span><br><span class="line">        levelList.get(level).add(node.val);</span><br><span class="line">        helper(node.left, levelList, level+<span class="number">1</span>);</span><br><span class="line">        helper(node.right, levelList, level+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>思路2：迭代。记录上下两层的数量。使用队列进行存储，但是记录前一层和当前层分别有多少个节点被存储了。当前一层还剩下0个节点的时候，存储成新的list。详见代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; lists = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">int</span> preCount=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> curCount=<span class="number">0</span>;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">if</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">            queue.offer(root);</span><br><span class="line">            preCount++;</span><br><span class="line">            <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">                TreeNode node = queue.poll();</span><br><span class="line">                list.add(node.val);</span><br><span class="line">                preCount--;</span><br><span class="line">                <span class="keyword">if</span>(node.left != <span class="keyword">null</span>)&#123;</span><br><span class="line">                    queue.offer(node.left);</span><br><span class="line">                    curCount++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(node.right != <span class="keyword">null</span>)&#123;</span><br><span class="line">                    queue.offer(node.right);</span><br><span class="line">                    curCount++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(preCount == <span class="number">0</span>)&#123;</span><br><span class="line">                    lists.add(<span class="keyword">new</span> ArrayList(list));</span><br><span class="line">                    list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">                    preCount = curCount;</span><br><span class="line">                    curCount = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lists;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>思路3：迭代。双队列，第一个队列存储已经访问过的上一层的节点值，第二个队列存储当前访问层的节点值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        Queue&lt;TreeNode&gt; queue=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        queue.add(root);</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">            List&lt;Integer&gt; list=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            Queue&lt;TreeNode&gt; temp=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">            <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">                TreeNode node=queue.poll();</span><br><span class="line">                list.add(node.val);</span><br><span class="line">                <span class="keyword">if</span>(node.left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    temp.add(node.left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(node.right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                    temp.add(node.right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(list);</span><br><span class="line">            queue=temp;     </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/os/随笔/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1342,7 +1470,7 @@
 </ul>
 <h3 id="2-50-构建乘积数组（不能使用除法）"><a href="#2-50-构建乘积数组（不能使用除法）" class="headerlink" title="2.50. 构建乘积数组（不能使用除法）"></a>2.50. 构建乘积数组（不能使用除法）</h3><p>建立一个矩阵，然后使用两个辅助数组。</p>
 <h3 id="2-51-字符串正则表达式匹配"><a href="#2-51-字符串正则表达式匹配" class="headerlink" title="2.51. 字符串正则表达式匹配"></a>2.51. 字符串正则表达式匹配</h3><p>使用递归的思想，两个指针，一个指向字符，一个指向模式。匹配后把后面的部分递归处理。主要问题是处理<code>*</code>的情况，指向字符的指针可以移动1次或两次或者不移动。</p>
-<h3 id="2-52-链表中环的入口结点"><a href="#2-52-链表中环的入口结点" class="headerlink" title="2.52. 链表中环的入口结点"></a>2.52. 链表中环的入口结点</h3><p>分两步走，第一步确定环的数量，第二步两个指针，第一个指针先走n步(n就是环内结点数量)，然后两个指针齐头并进，相遇的时候就是入口结点。第一步确定环的数量，同样设定两个指针，第一个每次走一步，第二个每次走两步，相遇的时候就是在节点内（其实相遇的时候第一个节点走了几步就是有几个节点了）。然后可以循环一次算出节点数。</p>
+<h3 id="2-52-链表中环的入口结点"><a href="#2-52-链表中环的入口结点" class="headerlink" title="2.52. 链表中环的入口结点"></a>2.52. 链表中环的入口结点</h3><p>分两步走，第一步确定环的数量，第二步两个指针，第一个指针先走n步(n就是环内结点数量)，然后两个指针齐头并进，相遇的时候就是入口结点。第一步确定环的数量，同样设定两个指针，第一个每次走一步，第二个每次走两步，相遇的时候就是在节点内。然后可以循环一次算出节点数。</p>
 <h3 id="2-53-删除链表中重复的节点"><a href="#2-53-删除链表中重复的节点" class="headerlink" title="2.53. 删除链表中重复的节点"></a>2.53. 删除链表中重复的节点</h3><p>常规思路</p>
 <h3 id="2-54-二叉树的下一个节点（数中存在指向父节点的指针，找到中序遍历的下一个节点）"><a href="#2-54-二叉树的下一个节点（数中存在指向父节点的指针，找到中序遍历的下一个节点）" class="headerlink" title="2.54. 二叉树的下一个节点（数中存在指向父节点的指针，找到中序遍历的下一个节点）"></a>2.54. 二叉树的下一个节点（数中存在指向父节点的指针，找到中序遍历的下一个节点）</h3><p>其实很简单，一步一步考虑算法就可以了。如果这个节点存在右节点，那么肯定就是右节点中序遍历的第一个值，如果这个节点不存在右节点，但是他是某个节点的左节点，那下一个节点就是他的父节点，如果他是父节点的右节点，就要向上去找父节点，直到找到一个父节点是它父节点的左子节点，那就是这个父节点了。</p>
 <h3 id="2-55-对称的二叉树"><a href="#2-55-对称的二叉树" class="headerlink" title="2.55. 对称的二叉树"></a>2.55. 对称的二叉树</h3><p>把NULL节点的值也输出，这样如果后序遍历和从右开始的后序遍历输出结果一样的话就是对称的。</p>
@@ -1848,164 +1976,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/shellcmd/shellcommand随笔/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/shellcmd/shellcommand随笔/" itemprop="url">shellcommand 随笔</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux系统/" itemprop="url" rel="index">
-                    <span itemprop="name">linux系统</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux系统/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="shellcommand-随笔"><a href="#shellcommand-随笔" class="headerlink" title="shellcommand 随笔"></a>shellcommand 随笔</h1><ul>
-<li>命令行中打开ubuntu的文件浏览器：<code>nautilus [path]</code></li>
-<li>在多个文件中查找包含某关键字的行（显示文件名和行号）：<code>grep -rHn &quot;keyword&quot; files</code></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2060,7 +2030,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
