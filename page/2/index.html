@@ -285,6 +285,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/softwareinstall/something/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/linux和操作系统/softwareinstall/something/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:28+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ubuntu14-04-中安装一些常用软件"><a href="#ubuntu14-04-中安装一些常用软件" class="headerlink" title="ubuntu14.04 中安装一些常用软件"></a>ubuntu14.04 中安装一些常用软件</h1><h2 id="安装vscode"><a href="#安装vscode" class="headerlink" title="安装vscode"></a>安装vscode</h2><p>参考：<a href="https://linux.cn/article-5423-1.html" target="_blank" rel="noopener">在Ubuntu中安装Visual Studio Code</a></p>
+<p>主要命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装ubuntu-make</span></span><br><span class="line"><span class="comment"># 更新源</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ubuntu-make</span><br><span class="line"><span class="comment"># 安装vscode</span></span><br><span class="line">umake web visual-studio-code</span><br><span class="line"><span class="comment"># 卸载vscode</span></span><br><span class="line">umake web visual-studio-code --remove</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>使用<code>sudo apt-get install git</code>安装的是系统的默认版本，我自己安装的时候默认是1.9.1，有点老。网上有个更新的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line"><span class="comment"># git version 1.9.1</span></span><br><span class="line"><span class="comment"># 可以使用下面命令升级git（如果不是root用户，需在命令前加sudo）：</span></span><br><span class="line">sudo add-apt-repository ppa:git-core/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sduo apt-get install git</span><br><span class="line"><span class="comment"># 安装完成后，再查看git版本：</span></span><br><span class="line">git --version</span><br><span class="line"><span class="comment"># git version 2.10.1</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/linux和操作系统/shellcmd/shellcommand随笔/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -771,7 +895,12 @@
 <li>rsync带宽限速</li>
 </ul>
 <p>使用 –bwlimit 参数，例如限制为 60k Bytes/s<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -auvz --progress --delete --bwlimit=60 远程的文件  本地的文件</span><br><span class="line">rsync -auvz --progress --delete --bwlimit=60 本地的文件  远程的文件</span><br></pre></td></tr></table></figure></p>
-
+<h2 id="查看文件大小并排序"><a href="#查看文件大小并排序" class="headerlink" title="查看文件大小并排序"></a>查看文件大小并排序</h2><p>参考资料</p>
+<ul>
+<li><a href="https://blog.csdn.net/wangjunjun2008/article/details/19840671" target="_blank" rel="noopener">Linux命令之查看文件占用空间大小-du,df</a></li>
+<li><a href="http://www.cnblogs.com/mfryf/p/3243211.html" target="_blank" rel="noopener">du命令 实现Linux 某个文件夹下的文件按大小排序</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">df -lh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按字节排序</span></span><br><span class="line">du -s /usr/* | sort -rn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按兆（M）来排序</span></span><br><span class="line">du -sh /usr/* | sort -rn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选出排在前面的10个</span></span><br><span class="line">du -s /usr/* | sort -rn | head</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选出排在后面的10个</span></span><br><span class="line">du -s /usr/* | sort -rn | tail</span><br><span class="line"></span><br><span class="line">du -h –-max-depth=0 user</span><br><span class="line">du -sh –-max-depth=2 | more</span><br></pre></td></tr></table></figure>
           
         
       
@@ -2494,162 +2623,6 @@ body {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/auto-number-title/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/learn_markdown/auto-number-title/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            h1 { counter-reset: h2counter; }
-h2 { counter-reset: h3counter; }
-h3 { counter-reset: h4counter; }
-h4 { counter-reset: h5counter; }
-h5 { counter-reset: h6counter; }
-h6 { }
-h2:before {
-  counter-increment: h2counter;
-  content: counter(h2counter) ".\0000a0\0000a0";
-}
-h3:before {
-  counter-increment: h3counter;
-  content: counter(h2counter) "."
-            counter(h3counter) "\0000a0\0000a0";
-}
-h4:before {
-  counter-increment: h4counter;
-  content: counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "\0000a0\0000a0";
-}
-h5:before {
-  counter-increment: h5counter;
-  content: counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "."
-            counter(h5counter) "\0000a0\0000a0";
-}
-h6:before {
-  counter-increment: h6counter;
-  content: counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "."
-            counter(h5counter) "."
-            counter(h6counter) "\0000a0\0000a0";
-}
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2715,7 +2688,7 @@ h6:before {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2726,7 +2699,7 @@ h6:before {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

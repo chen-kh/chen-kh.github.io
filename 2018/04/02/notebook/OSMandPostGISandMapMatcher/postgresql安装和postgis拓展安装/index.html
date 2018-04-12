@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="PostGIS 学习笔记 @author： 陈凯恒 @createtime： 2017-12-29  PostGIS 学习笔记postgresql安装安装过程参见博客,其中涉及到的主要问题：   postgresql的版本选择问题 postgresql安装之后修改配置、添加用户、添加用户权限更改等等问题  postgis扩展安装安装过程参见博客注意：很多博客中的安装过程只需要 apt-get">
+<meta name="description" content="PostGIS 学习笔记 @author： 陈凯恒 @createtime： 2017-12-29  PostGIS 学习笔记postgresql安装安装过程参见博客,其中涉及到的主要问题：   postgresql的版本选择问题 postgresql安装之后修改配置、添加用户、添加用户权限更改等等问题  postgis扩展安装ubuntu 安装参考：博客   注意：很多博客中的安装过程只需">
 <meta name="keywords" content="分布式系统，数据结构与算法，操作系统与网络，编程语言与设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="其鬼不神">
 <meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/OSMandPostGISandMapMatcher/postgresql安装和postgis拓展安装/index.html">
 <meta property="og:site_name" content="其鬼不神">
-<meta property="og:description" content="PostGIS 学习笔记 @author： 陈凯恒 @createtime： 2017-12-29  PostGIS 学习笔记postgresql安装安装过程参见博客,其中涉及到的主要问题：   postgresql的版本选择问题 postgresql安装之后修改配置、添加用户、添加用户权限更改等等问题  postgis扩展安装安装过程参见博客注意：很多博客中的安装过程只需要 apt-get">
+<meta property="og:description" content="PostGIS 学习笔记 @author： 陈凯恒 @createtime： 2017-12-29  PostGIS 学习笔记postgresql安装安装过程参见博客,其中涉及到的主要问题：   postgresql的版本选择问题 postgresql安装之后修改配置、添加用户、添加用户权限更改等等问题  postgis扩展安装ubuntu 安装参考：博客   注意：很多博客中的安装过程只需">
 <meta property="og:locale" content="Java, Python, C, Go language">
-<meta property="og:updated_time" content="2018-04-02T08:39:27.937Z">
+<meta property="og:updated_time" content="2018-04-12T06:33:09.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="其鬼不神">
-<meta name="twitter:description" content="PostGIS 学习笔记 @author： 陈凯恒 @createtime： 2017-12-29  PostGIS 学习笔记postgresql安装安装过程参见博客,其中涉及到的主要问题：   postgresql的版本选择问题 postgresql安装之后修改配置、添加用户、添加用户权限更改等等问题  postgis扩展安装安装过程参见博客注意：很多博客中的安装过程只需要 apt-get">
+<meta name="twitter:description" content="PostGIS 学习笔记 @author： 陈凯恒 @createtime： 2017-12-29  PostGIS 学习笔记postgresql安装安装过程参见博客,其中涉及到的主要问题：   postgresql的版本选择问题 postgresql安装之后修改配置、添加用户、添加用户权限更改等等问题  postgis扩展安装ubuntu 安装参考：博客   注意：很多博客中的安装过程只需">
 
 
 
@@ -364,10 +364,15 @@
 <li>postgresql的版本选择问题</li>
 <li>postgresql安装之后修改配置、添加用户、添加用户权限更改等等问题</li>
 </ul>
-<h2 id="postgis扩展安装"><a href="#postgis扩展安装" class="headerlink" title="postgis扩展安装"></a>postgis扩展安装</h2><h3 id="安装过程参见博客"><a href="#安装过程参见博客" class="headerlink" title="安装过程参见博客"></a>安装过程参见<a href="https://www.howtoing.com/how-to-install-and-configure-postgis-on-ubuntu-14-04" target="_blank" rel="noopener">博客</a></h3><p><strong>注意</strong>：很多博客中的安装过程只需要 <code>apt-get install postgis</code>，实际测试发现 <code>apt-get install postgis*</code> 最好。第一种安装方式可能没有postgis-scripts，导致在数据库中<code>create extension</code>执行时出现<em>[ERROR: could not open extension control file “/usr/share/postgresql/9.3/extension/ postgis.control”: No such file or directory]</em>的错误。  </p>
+<h2 id="postgis扩展安装"><a href="#postgis扩展安装" class="headerlink" title="postgis扩展安装"></a>postgis扩展安装</h2><h3 id="ubuntu-安装"><a href="#ubuntu-安装" class="headerlink" title="ubuntu 安装"></a>ubuntu 安装</h3><p>参考：<a href="https://www.howtoing.com/how-to-install-and-configure-postgis-on-ubuntu-14-04" target="_blank" rel="noopener">博客</a>  </p>
+<p><strong>注意</strong>：很多博客中的安装过程只需要 <code>apt-get install postgis</code>，实际测试发现 <code>apt-get install postgis*</code> 最好。第一种安装方式可能没有postgis-scripts，导致在数据库中<code>create extension</code>执行时出现<em>[ERROR: could not open extension control file “/usr/share/postgresql/9.3/extension/ postgis.control”: No such file or directory]</em>的错误。  </p>
+<h3 id="centos-7-安装"><a href="#centos-7-安装" class="headerlink" title="centos 7 安装"></a>centos 7 安装</h3><p>参考博客：<a href="https://my.oschina.net/freegis/blog/781657" target="_blank" rel="noopener">CentOS 7 源码安装PostGIS</a>：文章写得算是很不错了，只是需要注意一下postgres这个目录，有的时候指的是你自己的postgres的安装目录。</p>
 <h3 id="PostGIS使用"><a href="#PostGIS使用" class="headerlink" title="PostGIS使用"></a>PostGIS使用</h3><p>创建扩展：postgis安装后在使用时，需要在使用的数据库中添加拓展，在相应数据库执行<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> extension postgis</span><br></pre></td></tr></table></figure></p>
 <p>出现<code>CREAT EXTENSION</code>表示安装成功，可使用一下命令查看版本。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> PostGIS_version()</span><br></pre></td></tr></table></figure></p>
-<h3 id="具体使用见博客"><a href="#具体使用见博客" class="headerlink" title="具体使用见博客"></a>具体使用见<a href="https://www.howtoing.com/how-to-install-and-configure-postgis-on-ubuntu-14-04" target="_blank" rel="noopener">博客</a></h3>
+<ul>
+<li>具体使用见<a href="https://www.howtoing.com/how-to-install-and-configure-postgis-on-ubuntu-14-04" target="_blank" rel="noopener">博客</a></li>
+</ul>
+
       
     </div>
     
@@ -503,7 +508,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -514,7 +519,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -570,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PostGIS-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">PostGIS 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#postgresql安装"><span class="nav-number">1.1.</span> <span class="nav-text">postgresql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postgis扩展安装"><span class="nav-number">1.2.</span> <span class="nav-text">postgis扩展安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程参见博客"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装过程参见博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PostGIS使用"><span class="nav-number">1.2.2.</span> <span class="nav-text">PostGIS使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体使用见博客"><span class="nav-number">1.2.3.</span> <span class="nav-text">具体使用见博客</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PostGIS-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">PostGIS 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#postgresql安装"><span class="nav-number">1.1.</span> <span class="nav-text">postgresql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postgis扩展安装"><span class="nav-number">1.2.</span> <span class="nav-text">postgis扩展安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu-安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">ubuntu 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos-7-安装"><span class="nav-number">1.2.2.</span> <span class="nav-text">centos 7 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PostGIS使用"><span class="nav-number">1.2.3.</span> <span class="nav-text">PostGIS使用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

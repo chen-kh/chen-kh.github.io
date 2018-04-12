@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Java, Python, C, Go language">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="OSM,osm2ogsql," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="其鬼不神" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="OSM 介绍与使用  什么是OSM? 获取地图数据 osm数据导入 centos 7: osm2pgsql安装 ubuntu: osm2pgsql安装 导入地图数据   基于OSM的开源导航服务 OSRM安装 导航API重要参数记录   参考资料   什么是OSM?开放街道地图（OpenStreetMap，简称OSM）是一个网上地图协作计划，目标是创造一个内容自由且能让所有人编辑的世界地图[wik">
+<meta name="keywords" content="OSM,osm2ogsql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSM 介绍与使用">
+<meta property="og:url" content="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM 介绍与使用/index.html">
+<meta property="og:site_name" content="其鬼不神">
+<meta property="og:description" content="OSM 介绍与使用  什么是OSM? 获取地图数据 osm数据导入 centos 7: osm2pgsql安装 ubuntu: osm2pgsql安装 导入地图数据   基于OSM的开源导航服务 OSRM安装 导航API重要参数记录   参考资料   什么是OSM?开放街道地图（OpenStreetMap，简称OSM）是一个网上地图协作计划，目标是创造一个内容自由且能让所有人编辑的世界地图[wik">
+<meta property="og:locale" content="Java, Python, C, Go language">
+<meta property="og:image" content="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM%20介绍与使用/export_osm_smallrange.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM%20介绍与使用/osm_table_imported.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM%20介绍与使用/osrm_route_exception.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM%20介绍与使用/osrm_route_workwell.png">
+<meta property="og:updated_time" content="2018-04-12T06:33:09.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSM 介绍与使用">
+<meta name="twitter:description" content="OSM 介绍与使用  什么是OSM? 获取地图数据 osm数据导入 centos 7: osm2pgsql安装 ubuntu: osm2pgsql安装 导入地图数据   基于OSM的开源导航服务 OSRM安装 导航API重要参数记录   参考资料   什么是OSM?开放街道地图（OpenStreetMap，简称OSM）是一个网上地图协作计划，目标是创造一个内容自由且能让所有人编辑的世界地图[wik">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM%20介绍与使用/export_osm_smallrange.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM 介绍与使用/"/>
+
+
+
+
+
+  <title>OSM 介绍与使用 | 其鬼不神</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Java, Python, C, Go language">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">其鬼不神</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ACT北航愣头青的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/OSM 介绍与使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OSM 介绍与使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-12T14:33:09+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OSM/" itemprop="url" rel="index">
+                    <span itemprop="name">OSM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OSM-介绍与使用"><a href="#OSM-介绍与使用" class="headerlink" title="OSM 介绍与使用"></a>OSM 介绍与使用</h1><!-- TOC -->
+<ul>
+<li><a href="#什么是osm">什么是OSM?</a></li>
+<li><a href="#获取地图数据">获取地图数据</a></li>
+<li><a href="#osm数据导入">osm数据导入</a><ul>
+<li><a href="#centos-7-osm2pgsql安装">centos 7: osm2pgsql安装</a></li>
+<li><a href="#ubuntu-osm2pgsql安装">ubuntu: osm2pgsql安装</a></li>
+<li><a href="#导入地图数据">导入地图数据</a></li>
+</ul>
+</li>
+<li><a href="#基于osm的开源导航服务">基于OSM的开源导航服务</a><ul>
+<li><a href="#osrm安装">OSRM安装</a></li>
+<li><a href="#导航api重要参数记录">导航API重要参数记录</a></li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="什么是OSM"><a href="#什么是OSM" class="headerlink" title="什么是OSM?"></a>什么是OSM?</h2><p>开放街道地图（OpenStreetMap，简称OSM）是一个网上地图协作计划，目标是创造一个内容自由且能让所有人编辑的世界地图[wiki：<a href="http://wiki.openstreetmap.org/wiki/Main_Page].尤其值得称道的是，osm数据开源，可以自由下载使用。" target="_blank" rel="noopener">http://wiki.openstreetmap.org/wiki/Main_Page].尤其值得称道的是，osm数据开源，可以自由下载使用。</a></p>
+<h2 id="获取地图数据"><a href="#获取地图数据" class="headerlink" title="获取地图数据"></a>获取地图数据</h2><p>获取地图数据主要分两种情况，获取大范围数据还是小范围数据。</p>
+<p><strong>小范围数据的获取</strong>比较简单，基本<code>进入官网-&gt;点击导出-&gt;手动选择不同的区域-&gt;在地图选定导出范围-&gt;点击导出</code>就出来了。其实就是做了一个url请求，也可以根据在url中直接填写经纬度。</p>
+<p><img src="export_osm_smallrange.png" alt="export osm data for small range"></p>
+<p><strong>大范围数据的获取</strong> 有多种方式，主要参考上图中的篮框中的内容，这里不多记录，如果在地图中框选范围太大，导出失败，可以直接点击Overpass API的连接，就能够导出数据来了，数据格式可以定义为xml文件。另外，知乎上有个介绍写的很好，参考<a href="https://zhuanlan.zhihu.com/p/25889246" target="_blank" rel="noopener">获取OpenStreetMap（OSM）数据方法知多少？</a>，主要参考其中的第一种方法。</p>
+<h2 id="osm数据导入"><a href="#osm数据导入" class="headerlink" title="osm数据导入"></a>osm数据导入</h2><h3 id="centos-7-osm2pgsql安装"><a href="#centos-7-osm2pgsql安装" class="headerlink" title="centos 7: osm2pgsql安装"></a>centos 7: osm2pgsql安装</h3><p>这个简直太神奇了，参照博客：<a href="http://www.cnblogs.com/think8848/p/6011073.html" target="_blank" rel="noopener">centos 7 osm2pgsql安装</a>。基本内容/过程没有问题，只是我安装过程中出现了这么几个问题。</p>
+<ul>
+<li>boost-devel版本太低</li>
+<li>gcc版本太低</li>
+<li>gcc多个版本存在选择最低的版本</li>
+<li><code>make install</code>成功后运行<code>osm2pgsql -version</code>出现GLIBCXX问题</li>
+</ul>
+<p><strong>解决办法</strong>  </p>
+<ol>
+<li><p>升级boost-devel： </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主要是由于更新源的问题，有些源跟踪不到</span></span><br><span class="line"><span class="comment"># 大部分网址的推荐方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我这里可以用的方法</span></span><br><span class="line">sudo wget https://bintray.com/vicendominguez/CentOS6/rpm -O etc/yum.repos.d/bintray-vicendominguez-CentOS6.repo</span><br><span class="line">sudo yum install boost-devel</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>gcc升级版本（4.4.7 -&gt; 4.8.1）<br>centos 7最烦我的就是安装什么东西都需要源码安装，好烦的说。安装过程如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取源码</span></span><br><span class="line">wget http://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.gz</span><br><span class="line">tar -xvzf gcc-4.8.1.tar.gz -C /opt/gcc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载prerequisites时，如果连接不上服务地址</span></span><br><span class="line"><span class="comment"># 就去看一下这个文件的内容（下载，解压，建立连接，删除）</span></span><br><span class="line"><span class="comment"># 用别的方式下载一下。然后更改这个文件的内容。</span></span><br><span class="line"><span class="built_in">cd</span> /opt/gcc/gcc-4.8.1 </span><br><span class="line">./contrib/download_prerequisites  </span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ..  </span><br><span class="line">mkdir build_gcc_4.8.1 </span><br><span class="line"><span class="built_in">cd</span> build_gcc_4.8.1  </span><br><span class="line">../gcc-4.8.1/configure --<span class="built_in">enable</span>-checking=release --<span class="built_in">enable</span>-languages=c,c++ --<span class="built_in">disable</span>-multilib    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译时间很长</span></span><br><span class="line">make -j4  </span><br><span class="line">make install  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级版本</span></span><br><span class="line">/usr/sbin/update-alternatives --install  /usr/bin/gcc gcc /usr/<span class="built_in">local</span>/bin/x86_64-unknown-linux-gnu-gcc-4.8.1 40    </span><br><span class="line">/usr/sbin/update-alternatives --install /usr/bin/g++ g++ /usr/<span class="built_in">local</span>/bin/g++ 40</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改掉旧版本的链接文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 因为系统默认使用低版本的gcc，如果同时存在多个版本也会出问题，所以进行下面操作。</span></span><br><span class="line">mv /usr/bin/gcc /usr/bin/gcc4.4.7</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/gcc /usr/bin/gcc</span><br><span class="line">mv /usr/bin/g++ /usr/bin/g++4.4.7</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/g++ /usr/bin/g++</span><br><span class="line">mv /usr/bin/cc /usr/bin/cc4.4.7</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/cc /usr/bin/cc</span><br><span class="line">mv /usr/bin/c++ /usr/bin/c++4.4.7</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/c++ /usr/bin/c++</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对文件进行补充</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings /usr/lib64/libstdc++.so.6|grep GLIBCXX</span><br></pre></td></tr></table></figure>
+<pre><code>GLIBCXX_3.4
+GLIBCXX_3.4.1
+GLIBCXX_3.4.2
+GLIBCXX_3.4.3
+GLIBCXX_3.4.4
+GLIBCXX_3.4.5
+GLIBCXX_3.4.6  
+GLIBCXX_3.4.7
+GLIBCXX_3.4.8
+GLIBCXX_3.4.9
+GLIBCXX_3.4.10
+GLIBCXX_3.4.11
+GLIBCXX_3.4.12
+GLIBCXX_3.4.13
+GLIBCXX_FORCE_NEW
+GLIBCXX_DEBUG_MESSAGE_LENGTH
+</code></pre></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 到编译时的目录下面找到文件：libstdc++.so.6.0.18</span></span><br><span class="line"><span class="comment"># 我编译的时候，建立build_gcc_4.8.1文件夹，具体方法参见：centos升级gcc到4.8.1</span></span><br><span class="line"><span class="comment"># 注意，进入目录是，.libs是隐藏的：</span></span><br><span class="line"><span class="comment"># /home/build_gcc_4.8.1/x86_64-unknown-linux-gnu/libstdc++-v3/src/.libs</span></span><br><span class="line"><span class="comment"># 用下面的命令查看：</span></span><br><span class="line">strings libstdc++.so.6.0.18|grep GLIBCXX</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一般来讲，里面就有满足需要的GLIBCXX版本了。</span></span><br><span class="line"><span class="comment"># 然后，把该文件拷贝到了/usr/lib64下.</span></span><br><span class="line"><span class="comment"># 然后将libstdc++.so.6指向libstdc++.so.6.0.18:</span></span><br><span class="line">rm -r libstdc++.so.6</span><br><span class="line">ln -s libstdc++.so.6.0.18 libstdc++.so.6</span><br></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://github.com/qiwsir/ITArticles/blob/master/Linux/How_to_solve_GLIBCXX_3.4.19.md" target="_blank" rel="noopener">How_to_solve_GLIBCXX_3.4.19</a></li>
+<li><a href="https://blog.csdn.net/clirus/article/details/62424517" target="_blank" rel="noopener">CentOS gcc升级4.8步骤</a></li>
+<li><a href="https://www.bbsmax.com/A/GBJrlMBd0e/" target="_blank" rel="noopener">CentOS7部署osm2pgsql</a></li>
+</ul>
+<h3 id="ubuntu-osm2pgsql安装"><a href="#ubuntu-osm2pgsql安装" class="headerlink" title="ubuntu: osm2pgsql安装"></a>ubuntu: osm2pgsql安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ubuntu版本安装就很简单了，一条命令</span></span><br><span class="line">apt-get intall osm2pgsql</span><br></pre></td></tr></table></figure>
+<h3 id="导入地图数据"><a href="#导入地图数据" class="headerlink" title="导入地图数据"></a>导入地图数据</h3><p>地图数据导入pg数据库，使用osm2pgsql导入，命令类似于<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 如果出现ident authentication <span class="keyword">for</span> user postgres问题的话，su - postgres切换用户</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 但是需要注意postgres读取文件权限问题，把owner和group都改成postgres就好了。</span></span><br><span class="line">osm2pgsql -s -U postgres -d osm /tmp/map.xml -H 192.168.6.133 -W</span><br></pre></td></tr></table></figure></p>
+<p><strong>注</strong>：osm2pgsql导入数据有两种模式， normal and slim mode。</p>
+<ul>
+<li><p>normal mode会在内存中产生如下三张中间表，并在导入结束后丢弃，因此速度较快。<br>planet_osm_nodes<br>planet_osm_ways<br>planet_osm_rels</p>
+</li>
+<li><p>而slim mode则将中间结果完全放置到数据库中。slim模式的好处是方便更新。</p>
+</li>
+</ul>
+<p>两者使用的区别在于是否加“-s”，加了表示slim mode，本文使用slim mode。<br>使用slim mode导入数据后在数据库中会产生如下表。</p>
+<p><img src="osm_table_imported.png" alt="osm数据导入后的表"></p>
+<ul>
+<li><p>三张临时表：planet_osm_nodes, planet_osm_ways, planet_osm_rels<br>需要注意的是nodes表中的lat和lon是bigint类型的数据，它们并不是经纬度的多少倍或是什么样子，而是一种表示方式（你可以认为是一种编码方式）。从bigint类型转换到经纬度编码的过程，在进行osm2pgsql的时候其实已经做了，只不过数据改存到了point表里面的way值中，这是一种geometry数据类型，更方便使用。这也是这张临时表没什么用的原因。</p>
+</li>
+<li><p>planet_osm_point<br>将原始geometry数据展示成4326（也就是wgs84标准）格式的经纬度的代码类似于：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ST_AsText(ST_Transform(way, <span class="number">4326</span>)) <span class="keyword">from</span> planet_osm_point <span class="keyword">where</span> osm_id = <span class="number">1422005356</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="基于OSM的开源导航服务"><a href="#基于OSM的开源导航服务" class="headerlink" title="基于OSM的开源导航服务"></a>基于OSM的开源导航服务</h2><p>基于OSM的开源导航服务有OSRM和GraphHopper。这里重点记录OSRM，项目放在了github上，叫做<a href="https://github.com/Project-OSRM/osrm-backend" target="_blank" rel="noopener">Open Source Routing Machine</a>。</p>
+<p>官网地址：<a href="http://project-osrm.org/" target="_blank" rel="noopener">http://project-osrm.org/</a><br>API文档说明地址：<a href="http://project-osrm.org/docs/v5.10.0/api/#general-options" target="_blank" rel="noopener">http://project-osrm.org/docs/v5.10.0/api/#general-options</a></p>
+<h3 id="OSRM安装"><a href="#OSRM安装" class="headerlink" title="OSRM安装"></a>OSRM安装</h3><p>参见github项目的<a href="https://github.com/Project-OSRM/osrm-backend" target="_blank" rel="noopener"><strong>README</strong></a>和<a href="https://my.oschina.net/u/1266171/blog/918232" target="_blank" rel="noopener">OSRM笔记</a>（博客），都写的很详细，后者基本是前者的翻译。</p>
+<p>涉及的主要过程记录在下：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install docker</span></span><br><span class="line"><span class="comment"># daocloud.io 国内镜像</span></span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br><span class="line"><span class="comment"># Download OpenStreetMap extracts for example from Geofabrik</span></span><br><span class="line">wget http://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf</span><br><span class="line"><span class="comment"># Pre-process the extract with the car profile and start a routing engine HTTP server on port 5000</span></span><br><span class="line">docker run -t -v $(<span class="built_in">pwd</span>):/data osrm/osrm-backend osrm-extract -p /opt/car.lua /data/berlin-latest.osm.pbf</span><br><span class="line">docker run -t -v $(<span class="built_in">pwd</span>):/data osrm/osrm-backend osrm-partition /data/berlin-latest.osrm</span><br><span class="line">docker run -t -v $(<span class="built_in">pwd</span>):/data osrm/osrm-backend osrm-customize /data/berlin-latest.osrm</span><br><span class="line"></span><br><span class="line">docker run -t -i -p 5000:5000 -v $(<span class="built_in">pwd</span>):/data osrm/osrm-backend osrm-routed --algorithm mld /data/berlin-latest.osrm</span><br><span class="line"><span class="comment"># Make requests against the HTTP server</span></span><br><span class="line">curl <span class="string">"http://127.0.0.1:5000/route/v1/driving/13.388860,52.517037;13.385983,52.496891?steps=true"</span></span><br><span class="line"><span class="comment"># Optionally start a user-friendly frontend on port 9966, and open it up in your browser</span></span><br><span class="line">docker run -p 9966:9966 osrm/osrm-frontend</span><br><span class="line">xdg-open <span class="string">'http://127.0.0.1:9966'</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>几点说明</li>
+</ul>
+<ol>
+<li><strong>customize过程</strong>比较费时，也比较占用计算资源。在10.1.1.58上运行china-latest时，这一步可以把32个cpu都用上，并且至少花费10分钟才能算完。</li>
+<li><p><strong>遗留的问题</strong>：9966端口的页面可以展示，但是无法真正使用。</p>
+<p> 不正常工作</p>
+<p> <img src="osrm_route_exception.png" alt="route_exception"></p>
+<p> 正常工作</p>
+<p> <img src="osrm_route_workwell.png" alt="route_workwell"></p>
+</li>
+</ol>
+<h3 id="导航API重要参数记录"><a href="#导航API重要参数记录" class="headerlink" title="导航API重要参数记录"></a>导航API重要参数记录</h3><p><a href="http://project-osrm.org/docs/v5.10.0/api/#general-options" target="_blank" rel="noopener">API文档</a>中的说明很详细，仔细读一遍就知道各个字段是什么意思了。</p>
+<ul>
+<li><p>RouteLeg对象中的annotations属性</p>
+<p>  distance和duration单位分别为米和秒，speed单位米/秒，由distance/duration计算得到。nodes就是osm_node表中的id（也是osm_line表中的osm_id）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"distance"</span>: <span class="number">30.0</span>,</span><br><span class="line">  <span class="attr">"duration"</span>: <span class="number">100.0</span>,</span><br><span class="line">  <span class="attr">"weight"</span>: <span class="number">100.0</span>,</span><br><span class="line">  <span class="attr">"steps"</span>: [],</span><br><span class="line">  <span class="attr">"annotation"</span>: &#123;</span><br><span class="line">    <span class="attr">"distance"</span>: [<span class="number">5</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">5</span>,<span class="number">5</span>],</span><br><span class="line">    <span class="attr">"duration"</span>: [<span class="number">15</span>,<span class="number">15</span>,<span class="number">40</span>,<span class="number">15</span>,<span class="number">15</span>],</span><br><span class="line">    <span class="attr">"datasources"</span>: [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],</span><br><span class="line">    <span class="attr">"nodes"</span>: [<span class="number">49772551</span>,<span class="number">49772552</span>,<span class="number">49786799</span>,<span class="number">49786800</span>,<span class="number">49786801</span>,<span class="number">49786802</span>],</span><br><span class="line">    <span class="attr">"speed"</span>: [<span class="number">0.3</span>, <span class="number">0.3</span>, <span class="number">0.3</span>, <span class="number">0.3</span>, <span class="number">0.3</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://www.cnblogs.com/LBSer/p/4451471.html" target="_blank" rel="noopener">OSM入门+搭建地图服务</a>, 讲的很详细，值得参考一看</li>
+<li><a href="https://gis.stackexchange.com/questions/163173/how-do-i-convert-the-coordinate-data-from-osm-into-actual-longitude-latitude-poi" target="_blank" rel="noopener">How do I convert the coordinate data from osm into actual longitude latitude points</a></li>
+<li><a href="https://gis.stackexchange.com/questions/57003/what-format-is-lat-long-stored-in-osm-postgis" target="_blank" rel="noopener">What format is lat/long stored in OSM PostGIS?</a></li>
+<li><a href="http://www.cnblogs.com/Micang/p/6346446.html" target="_blank" rel="noopener">OpenStreetMap、googleMap等经纬度和行列号之间相互转化</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OSM/" rel="tag"><i class="fa fa-tag"></i> OSM</a>
+          
+            <a href="/tags/osm2ogsql/" rel="tag"><i class="fa fa-tag"></i> osm2ogsql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/07/notebook/offer/leetcode/" rel="next" title="leetcode 题目与总结">
+                <i class="fa fa-chevron-left"></i> leetcode 题目与总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/timg.jpg"
+                alt="Kaiheng CHEN" />
+            
+              <p class="site-author-name" itemprop="name">Kaiheng CHEN</p>
+              <p class="site-description motion-element" itemprop="description">道莅天下，其鬼不神</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chen-kh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhongfajean@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSM-介绍与使用"><span class="nav-number">1.</span> <span class="nav-text">OSM 介绍与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是OSM"><span class="nav-number">1.1.</span> <span class="nav-text">什么是OSM?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取地图数据"><span class="nav-number">1.2.</span> <span class="nav-text">获取地图数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#osm数据导入"><span class="nav-number">1.3.</span> <span class="nav-text">osm数据导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#centos-7-osm2pgsql安装"><span class="nav-number">1.3.1.</span> <span class="nav-text">centos 7: osm2pgsql安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu-osm2pgsql安装"><span class="nav-number">1.3.2.</span> <span class="nav-text">ubuntu: osm2pgsql安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入地图数据"><span class="nav-number">1.3.3.</span> <span class="nav-text">导入地图数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于OSM的开源导航服务"><span class="nav-number">1.4.</span> <span class="nav-text">基于OSM的开源导航服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSRM安装"><span class="nav-number">1.4.1.</span> <span class="nav-text">OSRM安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导航API重要参数记录"><span class="nav-number">1.4.2.</span> <span class="nav-text">导航API重要参数记录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiheng CHEN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+  <span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

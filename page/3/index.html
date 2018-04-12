@@ -285,6 +285,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/auto-number-title/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_markdown/auto-number-title/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            h1 { counter-reset: h2counter; }
+h2 { counter-reset: h3counter; }
+h3 { counter-reset: h4counter; }
+h4 { counter-reset: h5counter; }
+h5 { counter-reset: h6counter; }
+h6 { }
+h2:before {
+  counter-increment: h2counter;
+  content: counter(h2counter) ".\0000a0\0000a0";
+}
+h3:before {
+  counter-increment: h3counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "\0000a0\0000a0";
+}
+h4:before {
+  counter-increment: h4counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "\0000a0\0000a0";
+}
+h5:before {
+  counter-increment: h5counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "."
+            counter(h5counter) "\0000a0\0000a0";
+}
+h6:before {
+  counter-increment: h6counter;
+  content: counter(h2counter) "."
+            counter(h3counter) "."
+            counter(h4counter) "."
+            counter(h5counter) "."
+            counter(h6counter) "\0000a0\0000a0";
+}
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_markdown/Markdown语法笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -999,10 +1155,8 @@
 <p>线程的划分小于进程，线程隶属于某个进程。 进程是程序的一种动态形式，是CPU、内存等资源占用的基本单位，而线程是不能占有这些资源的。 进程之间相互独立，通信比较困难，而线程之间共享一块内存区域，通信比较方便。 进程在执行的过程中，包含比较固定的入口，执行顺序，出口，而线程的这些过程会被应用程序所控制</p>
 <h3 id="2-2-什么是线程安全"><a href="#2-2-什么是线程安全" class="headerlink" title="2.2. 什么是线程安全"></a>2.2. 什么是线程安全</h3><p>当多个线程访问同一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替运行，也不需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获取正确的结果，那这个对象是线程安全的。</p>
 <h3 id="2-3-wait-notify-notifyAll的解释"><a href="#2-3-wait-notify-notifyAll的解释" class="headerlink" title="2.3. wait/notify/notifyAll的解释"></a>2.3. <code>wait/notify/notifyAll</code>的解释</h3><p>其实大部分人都能说出来他们的含义，但是其实大多数人也并不真正清楚他们的作用。请看下面的代码：</p>
-<h3 id="2-4-阻塞与非阻塞、同步与异步"><a href="#2-4-阻塞与非阻塞、同步与异步" class="headerlink" title="2.4. 阻塞与非阻塞、同步与异步"></a>2.4. 阻塞与非阻塞、同步与异步</h3><p>参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=403270751&amp;idx=1&amp;sn=7269cd113d7b85e407319036d61ef786&amp;mpshare=1&amp;scene=24&amp;srcid=0324aakwIYUbrJ9ka1iUqxKg#rd" target="_blank" rel="noopener">深入理解同步/异步与阻塞/非阻塞区别</a></p>
-<p>文章中间讲的很好，图解释的也很好。同步和异步的区别是全程是不是你一个人做的，阻塞和非阻塞的区别是排队的过程中你有没有去做别的事情。</p>
-<p>异步一般是函数调用之后不管功能或者工作完成了没有，都会立刻接收到返回值，但可以通过回调函数告知该任务是否完成。同步当然就是一直等待结果了。</p>
-<p>阻塞的意思是在等待可以开始工作的时间内一直等着，什么都不干就是阻塞，但是如果等待期间做别的事情去了，每隔一段时间回来查看一下就属于非阻塞了。<br>分析结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Object co = <span class="keyword">new</span> Object();</span><br><span class="line">		System.out.println(co);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			MyThread t = <span class="keyword">new</span> MyThread(<span class="string">"Thread"</span> + i, co);</span><br><span class="line">			t.start();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			TimeUnit.SECONDS.sleep(<span class="number">20</span>);</span><br><span class="line">			<span class="keyword">synchronized</span> (co) &#123;</span><br><span class="line">				System.out.println(<span class="string">"Main Thread entered syn block...begin to invoke notifyAll()"</span>);</span><br><span class="line">				co.notifyAll();</span><br><span class="line">				System.out.println(<span class="string">"Main Thread return from notifyAll()...begin to sleep"</span>);</span><br><span class="line">				TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">				System.out.println(<span class="string">"Main Thread quit from syn block."</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> String name;</span><br><span class="line">		<span class="keyword">private</span> Object co;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">MyThread</span><span class="params">(String name, Object o)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.name = name;</span><br><span class="line">			<span class="keyword">this</span>.co = o;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				System.out.println(name + <span class="string">" trying to enter syn block."</span>);</span><br><span class="line">				<span class="keyword">synchronized</span> (co) &#123;</span><br><span class="line">					System.out.println(name + <span class="string">" entered the syn block.Now sleep 2s..."</span>);</span><br><span class="line">					TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">					System.out.println(name + <span class="string">" returm from sleep, begin to invoke wait()..."</span>);</span><br><span class="line">					co.wait();</span><br><span class="line">					System.out.println(name + <span class="string">" returm from wait()"</span>);</span><br><span class="line">					<span class="keyword">int</span> nLoopTime = <span class="number">3</span>;</span><br><span class="line">					<span class="keyword">while</span> (nLoopTime != <span class="number">0</span>) &#123;</span><br><span class="line">						System.out.println(name + <span class="string">" is in loop for "</span> + nLoopTime + <span class="string">" time"</span>);</span><br><span class="line">						TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">						nLoopTime--;</span><br><span class="line">					&#125;</span><br><span class="line"><span class="comment">//					co.notify();</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析结果：</p>
 <ul>
 <li>三个操作在进行时必须已经先获得了对象的锁。所以这些函数<strong>必须在同步代码块中使用</strong>。</li>
 <li><code>wait</code>方法其实是把线程放进了<code>等待池</code></li>
@@ -1013,7 +1167,11 @@
 <li><code>等待池</code>中的线程在没有被<code>notify/notifyAll</code>方法唤醒的情况下，不会进入<code>锁池</code></li>
 <li><code>锁池</code>中的线程在没有调用<code>wait</code>方法情况下，不会进入<code>等待池</code></li>
 </ul>
-<p>只要按照上面的结果就能知道下面的代码如果主线程使用<code>notify</code>而不是<code>notifyAll</code>的话，五个线程中只有一个能完成，其余会一直等下去。因为被唤醒的那一个线程运行完之后已经释放了锁，而另外四个线程却一直处于<code>等待池</code>，连竞争锁的资格都没有。<a href="http://wiki.jikexueyuan.com/project/java-concurrency/collaboration-between-threads.html" target="_blank" rel="noopener">这里</a>讲的还挺清楚的。好看的代码就是下面这个了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Object co = <span class="keyword">new</span> Object();</span><br><span class="line">		System.out.println(co);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			MyThread t = <span class="keyword">new</span> MyThread(<span class="string">"Thread"</span> + i, co);</span><br><span class="line">			t.start();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			TimeUnit.SECONDS.sleep(<span class="number">20</span>);</span><br><span class="line">			<span class="keyword">synchronized</span> (co) &#123;</span><br><span class="line">				System.out.println(<span class="string">"Main Thread entered syn block...begin to invoke notifyAll()"</span>);</span><br><span class="line">				co.notifyAll();</span><br><span class="line">				System.out.println(<span class="string">"Main Thread return from notifyAll()...begin to sleep"</span>);</span><br><span class="line">				TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">				System.out.println(<span class="string">"Main Thread quit from syn block."</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> String name;</span><br><span class="line">		<span class="keyword">private</span> Object co;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">MyThread</span><span class="params">(String name, Object o)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.name = name;</span><br><span class="line">			<span class="keyword">this</span>.co = o;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				System.out.println(name + <span class="string">" trying to enter syn block."</span>);</span><br><span class="line">				<span class="keyword">synchronized</span> (co) &#123;</span><br><span class="line">					System.out.println(name + <span class="string">" entered the syn block.Now sleep 2s..."</span>);</span><br><span class="line">					TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">					System.out.println(name + <span class="string">" returm from sleep, begin to invoke wait()..."</span>);</span><br><span class="line">					co.wait();</span><br><span class="line">					System.out.println(name + <span class="string">" returm from wait()"</span>);</span><br><span class="line">					<span class="keyword">int</span> nLoopTime = <span class="number">3</span>;</span><br><span class="line">					<span class="keyword">while</span> (nLoopTime != <span class="number">0</span>) &#123;</span><br><span class="line">						System.out.println(name + <span class="string">" is in loop for "</span> + nLoopTime + <span class="string">" time"</span>);</span><br><span class="line">						TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">						nLoopTime--;</span><br><span class="line">					&#125;</span><br><span class="line"><span class="comment">//					co.notify();</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>只要按照上面的结果就能知道下面的代码如果主线程使用<code>notify</code>而不是<code>notifyAll</code>的话，五个线程中只有一个能完成，其余会一直等下去。因为被唤醒的那一个线程运行完之后已经释放了锁，而另外四个线程却一直处于<code>等待池</code>，连竞争锁的资格都没有。<a href="http://wiki.jikexueyuan.com/project/java-concurrency/collaboration-between-threads.html" target="_blank" rel="noopener">这里</a>讲的还挺清楚的。好看的代码就是下面这个了。</p>
+<h3 id="2-4-阻塞与非阻塞、同步与异步"><a href="#2-4-阻塞与非阻塞、同步与异步" class="headerlink" title="2.4. 阻塞与非阻塞、同步与异步"></a>2.4. 阻塞与非阻塞、同步与异步</h3><p>参考：<a href="https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=403270751&amp;idx=1&amp;sn=7269cd113d7b85e407319036d61ef786&amp;mpshare=1&amp;scene=24&amp;srcid=0324aakwIYUbrJ9ka1iUqxKg#rd" target="_blank" rel="noopener">深入理解同步/异步与阻塞/非阻塞区别</a></p>
+<p>文章中间讲的很好，图解释的也很好。同步和异步的区别是全程是不是你一个人做的，阻塞和非阻塞的区别是排队的过程中你有没有去做别的事情。</p>
+<p>异步一般是函数调用之后不管功能或者工作完成了没有，都会立刻接收到返回值，但可以通过回调函数告知该任务是否完成。同步当然就是一直等待结果了。</p>
+<p>阻塞的意思是在等待可以开始工作的时间内一直等着，什么都不干就是阻塞，但是如果等待期间做别的事情去了，每隔一段时间回来查看一下就属于非阻塞了。</p>
 <h2 id="3-Java-Virtual-Machine"><a href="#3-Java-Virtual-Machine" class="headerlink" title="3. Java Virtual Machine"></a>3. Java Virtual Machine</h2><h3 id="3-1-Java的垃圾回收机制"><a href="#3-1-Java的垃圾回收机制" class="headerlink" title="3.1. Java的垃圾回收机制"></a>3.1. Java的垃圾回收机制</h3><p>参考：<a href="http://jayfeng.com/2016/03/11/%E7%90%86%E8%A7%A3Java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" target="_blank" rel="noopener">理解Java垃圾回收机制</a>、</p>
 <p>总结性来说：</p>
 <ul>
@@ -1506,127 +1664,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/详解shuffle过程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/learn_hadoop/详解shuffle过程/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1810,6 +1847,127 @@
 </li>
 </ul>
 <h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/详解shuffle过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/notebook/learn_hadoop/详解shuffle过程/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
           
         
       
@@ -2340,199 +2498,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/notebook/learn_git/Github教程与简单笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaiheng CHEN">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="其鬼不神">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/notebook/learn_git/Github教程与简单笔记/" itemprop="url">Github教程与简单笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Github/" itemprop="url" rel="index">
-                    <span itemprop="name">Github</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Github教程与简单笔记"><a href="#Github教程与简单笔记" class="headerlink" title="Github教程与简单笔记"></a>Github教程与简单笔记</h1><!-- TOC -->
-<ul>
-<li><a href="#1-github简介">1. Github简介</a></li>
-<li><a href="#2-github功能标签介绍">2. Github功能标签介绍</a><ul>
-<li><a href="#21-关于watch">2.1. 关于watch</a></li>
-<li><a href="#22-关于star">2.2. 关于star</a></li>
-<li><a href="#23-关于fork">2.3. 关于Fork</a><ul>
-<li><a href="#231-fork并且更新github仓库的图表演示">2.3.1. Fork并且更新GitHub仓库的图表演示</a></li>
-<li><a href="#232-同步一个fork">2.3.2. 同步一个fork</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#3-参考资料">3. 参考资料</a></li>
-</ul>
-<!-- /TOC -->
-<h2 id="1-Github简介"><a href="#1-Github简介" class="headerlink" title="1. Github简介"></a>1. Github简介</h2><p>github是一个基于git的代码托管平台，付费用户可以建私人仓库，我们一般的免费用户只能使用公共仓库，也就是代码要公开。<br>Github 由Chris Wanstrath, PJ Hyett 与Tom Preston-Werner三位开发者在2008年4月创办。迄今拥有59名全职员工，主要提供基于git的版本托管服务。<br>目前看来，GitHub这场冒险已经胜出。根据来自维基百科关于GitHub的描述，我们可以形象地看出GitHub的增长速度：</p>
-<p><img src="https://camo.githubusercontent.com/9df81964b288254547c6607fe29e55b0e7dcef6a/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f343438332f313830333636372f62306564363634652d366332342d313165332d393535392d6535373032323135633437612e706e67" alt="github库的数量"></p>
-<p>今天，GitHub已是：</p>
-<ul>
-<li>一个拥有143万开发者的社区。其中不乏Linux发明者Torvalds这样的顶级黑客，以及Rails创始人DHH这样的年轻极客。</li>
-<li>这个星球上最流行的开源托管服务。目前已托管431万git项目，不仅越来越多知名开源项目迁入GitHub，比如Ruby on Rails、jQuery、Ruby、Erlang/OTP；近三年流行的开源库往往在GitHub首发，例如：BootStrap、Node.js、CoffeScript等。</li>
-<li>alexa全球排名414的网站。<h2 id="2-Github功能标签介绍"><a href="#2-Github功能标签介绍" class="headerlink" title="2. Github功能标签介绍"></a>2. Github功能标签介绍</h2><h3 id="2-1-关于watch"><a href="#2-1-关于watch" class="headerlink" title="2.1. 关于watch"></a>2.1. 关于watch</h3><img src="https://upload-images.jianshu.io/upload_images/588640-7aaa5676402d4ece.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="watch示意图"></li>
-</ul>
-<p>对于别人的项目，默认自己都处于 Not watching 的状态，当你选择 Watching，表示你以后会关注这个项目的所有动态，这个项目以后只要发生变动，如被别人提交了 pull request、被别人发起了issue等等情况，你都会在自己的个人通知中心，收到一条通知消息，如果你设置了个人邮箱，那么你的邮箱也可能收到相应的邮件。</p>
-<p>如下，我 watching 了开源项目android-cn/android-discuss，那么以后任何人只要在这个项目下提交了 issue 或者在 issue 下面有任何留言，我的通知中心就会通知我。如果你配置了邮箱，你还可能会因此不断的收到通知邮件。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/588640-f9145de159c4c6be.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="消息列表"></p>
-<h3 id="2-2-关于star"><a href="#2-2-关于star" class="headerlink" title="2.2. 关于star"></a>2.2. 关于star</h3><p>star 翻译过来是星，但这个翻译没任何具体意义，这里解释为<code>关注</code>或者<code>点赞</code>更合适，当你点击 star，表示你喜欢这个项目或者通俗点，可以把他理解成朋友圈的点赞吧，表示对这个项目的支持。</p>
-<p>不过相比朋友圈的点赞，github 里面会有一个列表，专门收集了你所有 star 过的项目，点击 github 个人头像，可以看到 your stars 的条目，点击就可以查看你 star 过的所有项目了</p>
-<h3 id="2-3-关于Fork"><a href="#2-3-关于Fork" class="headerlink" title="2.3. 关于Fork"></a>2.3. 关于Fork</h3><p>Fork 的本义是 <strong><em>叉子</em></strong>（名词）<br><img src="https://pic3.zhimg.com/50/37c8a551c139e20502088d978d4529cd_hd.jpg" alt="叉子"></p>
-<p>Git/GitHub 用户下面的图 来表达 Fork：分叉、克隆 出一个（仓库的）新拷贝。<br><img src="https://pic4.zhimg.com/50/3c13b2d3ddbf178b4debfea57644e520_hd.jpg" alt="github分支"></p>
-<p>现在有这样一种情形：有一个叫做Joe的程序猿写了一个游戏程序，而你可能要去改进它。并且Joe将他的代码放在了GitHub仓库上。下面是你要做的事情：<br><img src="https://pic2.zhimg.com/50/dadbcef0bca3d2eb68ef6009f45361e2_hd.jpg" alt="图片"></p>
-<h4 id="2-3-1-Fork并且更新GitHub仓库的图表演示"><a href="#2-3-1-Fork并且更新GitHub仓库的图表演示" class="headerlink" title="2.3.1. Fork并且更新GitHub仓库的图表演示"></a>2.3.1. Fork并且更新GitHub仓库的图表演示</h4><p><strong>Fork他的仓库</strong>：这是GitHub操作，这个操作会复制Joe的仓库（包括文件，提交历史，issues，和其余一些东西）。复制后的仓库在你自己的GitHub帐号下。目前，你本地计算机对这个仓库没有任何操作。</p>
-<p><strong>Clone你的仓库</strong>：这是Git操作。使用该操作让你发送”请给我发一份我仓库的复制文件”的命令给GitHub。现在这个仓库就会存储在你本地计算机上。</p>
-<p><strong>更新某些文件</strong>：现在，你可以在任何程序或者环境下更新仓库里的文件。</p>
-<p><strong>提交你的更改</strong>：这是Git操作。使用该操作让你发送”记录我的更改”的命令至GitHub。此操作只在你的本地计算机上完成。</p>
-<p>将你的更改push到你的GitHub仓库：这是Git操作。使用该操作让你发送”这是我的修改”的信息给GitHub。Push操作不会自动完成，所以直到你做了push操作，GitHub才知道你的提交。</p>
-<p><strong>给Joe发送一个pull request</strong>：如果你认为Joe会接受你的修改，你就可以给他发送一个pull request。这是GitHub操作，使用此操作可以帮助你和Joe交流你的修改，并且询问Joe是否愿意接受你的”pull request”，当然，接不接受完全取决于他自己。</p>
-<p>如果Joe接受了你的pull request，他将把那些修改拉到自己的仓库。胜利！</p>
-<h4 id="2-3-2-同步一个fork"><a href="#2-3-2-同步一个fork" class="headerlink" title="2.3.2. 同步一个fork"></a>2.3.2. 同步一个fork</h4><p>Joe和其余贡献者已经对这个项目做了一些修改，而你将在他们的修改的基础上，还要再做一些修改。在你开始之前，你最好”同步你的fork”，以确保在最新的复制版本里工作。下面是你要做的：<br><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201411/24/162416icr0h6wzr6ec2jze.png" alt="图片2"></p>
-<ol>
-<li><p>从Joe的仓库中取出那些变化的文件：这是Git操作，使用该命令让你可以从Joe的仓库获取最新的文件。</p>
-</li>
-<li><p>将这些修改合并到你自己的仓库：这是Git操作，使用该命令使得那些修改更新到你的本地计算机（那些修改暂时存放在一个”分支”中）。记住：步骤1和2经常结合为一个命令使用，合并后的Git命令叫做”pull”。</p>
-</li>
-<li><p>将那些修改更新推送到你的GitHub仓库（可选）：记住，你本地计算机不会自动更新你的GitHub仓库。所以，唯一更新GitHub仓库的办法就是将那些修改推送上去。你可以在步骤2完成后立即执行push，也可以等到你做了自己的一些修改，并已经本地提交后再执行推送操作。</p>
-</li>
-</ol>
-<p>比较一下fork和同步工作流程的区别：当你最初fork一个仓库的时候，信息的流向是从Joe的仓库到你的仓库，然后再到你本地计算机。但是最初的过程之后，信息的流向是从Joe的仓库到你的本地计算机，之后再到你的仓库。</p>
-<h2 id="3-参考资料"><a href="#3-参考资料" class="headerlink" title="3. 参考资料"></a>3. 参考资料</h2><p>[1] <a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="noopener">Github简明教程</a><br>[2] <a href="https://linux.cn/article-4292-1-rss.html" target="_blank" rel="noopener">在Github和Git上fork之简单指南</a><br>[3] <a href="https://www.jianshu.com/p/6c366b53ea41" target="_blank" rel="noopener">如何用好 github 中的 watch、star、fork</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2598,7 +2563,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2609,7 +2574,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
