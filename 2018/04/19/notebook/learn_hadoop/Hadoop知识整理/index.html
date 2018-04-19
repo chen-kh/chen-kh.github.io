@@ -85,14 +85,13 @@
 <meta name="keywords" content="分布式系统,面试,Hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop面试内容整理">
-<meta property="og:url" content="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/19/notebook/learn_hadoop/Hadoop知识整理/index.html">
 <meta property="og:site_name" content="其鬼不神">
 <meta property="og:description" content="Hadoop面试内容整理Hadoop的面试内容主要分为3各部分，首先接触过Hadoop的一定会问MapReduce编程模型的详细过程，然后可以问一些文件系统的东西，最后可能问一下与Hadoop相关的衍生品：HBase等。  MapReduce Hadoop Distributed File System（HDFS）   HBase等    参考资料：   Hadoop 面试，有它就够了、同名另外一">
 <meta property="og:locale" content="Java, Python, C, Go language">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/697231-2fd012f3d2074e26">
 <meta property="og:image" content="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsarchitecture.gif">
-<meta property="og:image" content="http://img.blog.csdn.net/20170528230853515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemdfaG92ZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2018-04-02T09:13:51.968Z">
+<meta property="og:updated_time" content="2018-04-19T08:54:43.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop面试内容整理">
 <meta name="twitter:description" content="Hadoop面试内容整理Hadoop的面试内容主要分为3各部分，首先接触过Hadoop的一定会问MapReduce编程模型的详细过程，然后可以问一些文件系统的东西，最后可能问一下与Hadoop相关的衍生品：HBase等。  MapReduce Hadoop Distributed File System（HDFS）   HBase等    参考资料：   Hadoop 面试，有它就够了、同名另外一">
@@ -126,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/02/notebook/learn_hadoop/Hadoop面试知识整理/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/19/notebook/learn_hadoop/Hadoop知识整理/"/>
 
 
 
@@ -318,8 +317,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
-                2018-04-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-19T16:54:43+08:00">
+                2018-04-19
               </time>
             
 
@@ -446,28 +445,8 @@
 </blockquote>
 <h3 id="简化的一致性模型"><a href="#简化的一致性模型" class="headerlink" title="简化的一致性模型"></a>简化的一致性模型</h3>HDFS应用需要一个“一次写入多次读取”的文件访问模型。一个文件经过创建、写入和关闭之后就不需要改变。这一假设简化了数据一致性问题，并且使高吞吐量的数据访问成为可能。Map/Reduce应用或者网络爬虫应用都非常适合这个模型。目前还有计划在将来扩充这个模型，使之支持文件的附加写操作。</li>
 </ul>
-<h2 id="Hadoop-DataBase"><a href="#Hadoop-DataBase" class="headerlink" title="Hadoop DataBase"></a>Hadoop DataBase</h2><p><img src="http://img.blog.csdn.net/20170528230853515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemdfaG92ZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="HBase架构1"></p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://blog.csdn.net/woshiwanxin102213/article/details/17584043" target="_blank" rel="noopener">Hbase原理、基本概念、基本架构</a></li>
-<li><a href="http://blog.javachen.com/2013/06/15/hbase-note-about-data-structure.html" target="_blank" rel="noopener">HBase笔记：存储结构</a></li>
-</ul>
-<h3 id="总结性介绍-1"><a href="#总结性介绍-1" class="headerlink" title="总结性介绍"></a>总结性介绍</h3><ul>
-<li>HBase是一个构建在HDFS上的分布式列存储系统，是基于Google BigTable模型开发的，典型的key/value系统。</li>
-<li>与传统mysql、Oracle数据库的主要区别就是列式存储和夯实存储的区别。</li>
-<li>Hbase适合大量插入同时又有读的情况。输入一个Key获取一个value或输入一些key获得一些value。</li>
-<li>Hbase目标主要依靠横向扩展，通过不断增加廉价的商用服务器，来增加计算和存储能力。</li>
-<li>Hbase表的特点<ul>
-<li>大：一个表可以有数十亿行，上百万列；</li>
-<li>无模式：每行都有一个可排序的主键和任意多的列，列可以根据需要动态的增加，同一张表中不同的行可以有截然不同的列；</li>
-<li>面向列：面向列（族）的存储和权限控制，列（族）独立检索；</li>
-<li>稀疏：空（null）列并不占用存储空间，表可以设计的非常稀疏；</li>
-<li>数据多版本：每个单元中的数据可以有多个版本，默认情况下版本号自动分配，是单元格插入时的时间戳；</li>
-<li>数据类型单一：Hbase中的数据都是字符串，没有类型。</li>
-</ul>
-</li>
-</ul>
-<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3>
+<h2 id="Hadoop-DataBase"><a href="#Hadoop-DataBase" class="headerlink" title="Hadoop DataBase"></a>Hadoop DataBase</h2><p>参见: <a href="HBase知识整理.md">HBase知识整理</a></p>
+
       
     </div>
     
@@ -509,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../Hadoop及WordCount详解/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="../HBase知识整理/" rel="next" title="HBase面试整理">
+                <i class="fa fa-chevron-left"></i> HBase面试整理
               </a>
             
           </div>
@@ -519,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="../详解shuffle过程/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="../../learn_java/java.io与java.nio/" rel="prev" title="Java.io与Java.nio总结">
+                Java.io与Java.nio总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -602,7 +581,7 @@
               
                 <a href="../../../../../../archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -613,7 +592,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="../../../../../../categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -624,7 +603,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../../../tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -680,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop面试内容整理"><span class="nav-number">1.</span> <span class="nav-text">Hadoop面试内容整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-MapReduce"><span class="nav-number">1.1.</span> <span class="nav-text">Hadoop MapReduce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper任务的执行过程详解"><span class="nav-number">1.1.1.</span> <span class="nav-text">Mapper任务的执行过程详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer任务的执行过程详解"><span class="nav-number">1.1.2.</span> <span class="nav-text">Reducer任务的执行过程详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-Distributed-File-System"><span class="nav-number">1.2.</span> <span class="nav-text">Hadoop Distributed File System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结性介绍"><span class="nav-number">1.2.1.</span> <span class="nav-text">总结性介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些缺点"><span class="nav-number">1.2.2.</span> <span class="nav-text">一些缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的一致性模型"><span class="nav-number">1.2.3.</span> <span class="nav-text">简化的一致性模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-DataBase"><span class="nav-number">1.3.</span> <span class="nav-text">Hadoop DataBase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结性介绍-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">总结性介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构"><span class="nav-number">1.3.2.</span> <span class="nav-text">存储结构</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop面试内容整理"><span class="nav-number">1.</span> <span class="nav-text">Hadoop面试内容整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-MapReduce"><span class="nav-number">1.1.</span> <span class="nav-text">Hadoop MapReduce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mapper任务的执行过程详解"><span class="nav-number">1.1.1.</span> <span class="nav-text">Mapper任务的执行过程详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer任务的执行过程详解"><span class="nav-number">1.1.2.</span> <span class="nav-text">Reducer任务的执行过程详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-Distributed-File-System"><span class="nav-number">1.2.</span> <span class="nav-text">Hadoop Distributed File System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结性介绍"><span class="nav-number">1.2.1.</span> <span class="nav-text">总结性介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些缺点"><span class="nav-number">1.2.2.</span> <span class="nav-text">一些缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的一致性模型"><span class="nav-number">1.2.3.</span> <span class="nav-text">简化的一致性模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-DataBase"><span class="nav-number">1.3.</span> <span class="nav-text">Hadoop DataBase</span></a></li></ol></li></ol></div>
             
 
           </div>

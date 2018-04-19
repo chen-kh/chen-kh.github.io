@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="postgresql和postgis拓展  1. postgresql安装 2. postgresql使用 3. postgis扩展安装 3.1. ubuntu 安装 3.2. centos 7 安装 3.3. 创建扩展   4. 什么是 PostGIS 5. 如何安装 PostGIS 6. 如何使用 PostGIS 6.1. 简单示例 6.2. PostGIS的Geometry数据类型 6.3.">
+<meta name="description" content="postgresql和postgis拓展  1. postgresql安装 2. postgresql使用 3. postgis扩展安装 3.1. ubuntu 安装 3.2. centos 7 安装 3.3. 创建扩展   4. 什么是 PostGIS 5. 如何使用 PostGIS 5.1. 简单示例 5.2. PostGIS的Geometry数据类型 5.3. PostGIS函数的分类 5.">
 <meta name="keywords" content="postgres,postgis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PostGIS 学习笔记">
 <meta property="og:url" content="http://yoursite.com/2018/04/12/notebook/OSMandPostGISandMapMatcher/postgresql和postgis拓展/index.html">
 <meta property="og:site_name" content="其鬼不神">
-<meta property="og:description" content="postgresql和postgis拓展  1. postgresql安装 2. postgresql使用 3. postgis扩展安装 3.1. ubuntu 安装 3.2. centos 7 安装 3.3. 创建扩展   4. 什么是 PostGIS 5. 如何安装 PostGIS 6. 如何使用 PostGIS 6.1. 简单示例 6.2. PostGIS的Geometry数据类型 6.3.">
+<meta property="og:description" content="postgresql和postgis拓展  1. postgresql安装 2. postgresql使用 3. postgis扩展安装 3.1. ubuntu 安装 3.2. centos 7 安装 3.3. 创建扩展   4. 什么是 PostGIS 5. 如何使用 PostGIS 5.1. 简单示例 5.2. PostGIS的Geometry数据类型 5.3. PostGIS函数的分类 5.">
 <meta property="og:locale" content="Java, Python, C, Go language">
-<meta property="og:updated_time" content="2018-04-12T06:40:38.462Z">
+<meta property="og:updated_time" content="2018-04-19T08:54:43.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostGIS 学习笔记">
-<meta name="twitter:description" content="postgresql和postgis拓展  1. postgresql安装 2. postgresql使用 3. postgis扩展安装 3.1. ubuntu 安装 3.2. centos 7 安装 3.3. 创建扩展   4. 什么是 PostGIS 5. 如何安装 PostGIS 6. 如何使用 PostGIS 6.1. 简单示例 6.2. PostGIS的Geometry数据类型 6.3.">
+<meta name="twitter:description" content="postgresql和postgis拓展  1. postgresql安装 2. postgresql使用 3. postgis扩展安装 3.1. ubuntu 安装 3.2. centos 7 安装 3.3. 创建扩展   4. 什么是 PostGIS 5. 如何使用 PostGIS 5.1. 简单示例 5.2. PostGIS的Geometry数据类型 5.3. PostGIS函数的分类 5.">
 
 
 
@@ -385,29 +385,28 @@
 </ul>
 </li>
 <li><a href="#4-什么是-postgis">4. 什么是 PostGIS</a></li>
-<li><a href="#5-如何安装-postgis">5. 如何安装 PostGIS</a></li>
-<li><a href="#6-如何使用-postgis">6. 如何使用 PostGIS</a><ul>
-<li><a href="#61-简单示例">6.1. 简单示例</a></li>
-<li><a href="#62-postgis的geometry数据类型">6.2. PostGIS的Geometry数据类型</a></li>
-<li><a href="#63-postgis函数的分类">6.3. PostGIS函数的分类</a><ul>
-<li><a href="#631-字段处理函数">6.3.1. 字段处理函数</a></li>
-<li><a href="#632-几何关系函数">6.3.2. 几何关系函数</a></li>
-<li><a href="#633-几何分析函数">6.3.3. 几何分析函数</a></li>
-<li><a href="#634-读写函数">6.3.4. 读写函数</a></li>
+<li><a href="#5-如何使用-postgis">5. 如何使用 PostGIS</a><ul>
+<li><a href="#51-简单示例">5.1. 简单示例</a></li>
+<li><a href="#52-postgis的geometry数据类型">5.2. PostGIS的Geometry数据类型</a></li>
+<li><a href="#53-postgis函数的分类">5.3. PostGIS函数的分类</a><ul>
+<li><a href="#531-字段处理函数">5.3.1. 字段处理函数</a></li>
+<li><a href="#532-几何关系函数">5.3.2. 几何关系函数</a></li>
+<li><a href="#533-几何分析函数">5.3.3. 几何分析函数</a></li>
+<li><a href="#534-读写函数">5.3.4. 读写函数</a></li>
 </ul>
 </li>
-<li><a href="#64-使用postgis扩展函数">6.4. 使用PostGIS扩展函数</a><ul>
-<li><a href="#641-管理类函数">6.4.1. 管理类函数</a></li>
-<li><a href="#642-数据类型的输入输出函数">6.4.2. 数据类型的输入输出函数</a></li>
-<li><a href="#643-量算函数">6.4.3. 量算函数</a></li>
-<li><a href="#644-几何操作函数">6.4.4. 几何操作函数</a></li>
-<li><a href="#645-postgis函数使用示例">6.4.5. PostGIS函数使用示例</a></li>
+<li><a href="#54-使用postgis扩展函数">5.4. 使用PostGIS扩展函数</a><ul>
+<li><a href="#541-管理类函数">5.4.1. 管理类函数</a></li>
+<li><a href="#542-数据类型的输入输出函数">5.4.2. 数据类型的输入输出函数</a></li>
+<li><a href="#543-量算函数">5.4.3. 量算函数</a></li>
+<li><a href="#544-几何操作函数">5.4.4. 几何操作函数</a></li>
+<li><a href="#545-postgis函数使用示例">5.4.5. PostGIS函数使用示例</a></li>
 </ul>
 </li>
-<li><a href="#65-建立postgis索引">6.5. 建立PostGIS索引</a></li>
+<li><a href="#55-建立postgis索引">5.5. 建立PostGIS索引</a></li>
 </ul>
 </li>
-<li><a href="#7-参考资料">7. 参考资料</a></li>
+<li><a href="#6-参考资料">6. 参考资料</a></li>
 </ul>
 <!-- /TOC -->
 <h2 id="1-postgresql安装"><a href="#1-postgresql安装" class="headerlink" title="1. postgresql安装"></a>1. postgresql安装</h2><p>安装过程参见<a href="http://www.cnblogs.com/z-sm/archive/2016/07/05/5644165.html" target="_blank" rel="noopener">博客</a>,其中涉及到的主要问题： </p>
@@ -424,8 +423,7 @@
 <li>具体使用见<a href="https://www.howtoing.com/how-to-install-and-configure-postgis-on-ubuntu-14-04" target="_blank" rel="noopener">博客</a></li>
 </ul>
 <h2 id="4-什么是-PostGIS"><a href="#4-什么是-PostGIS" class="headerlink" title="4. 什么是 PostGIS"></a>4. 什么是 PostGIS</h2><p>参考：<a href="https://postgis.net/" target="_blank" rel="noopener">PostGIS官网</a><br><strong>Wiki定义</strong>：<br>PostGIS 是一个开源程序，它为对象－关系型数据库PostgreSQL提供了存储空间地理数据的支持，使PostgreSQL成为了一个空间数据库，能够进行空间数据管理、数量测量与几何拓扑分析。PostGIS 实现了Open Geospatial Consortium所提出的基本要素类（点、线、面、多点、多线、多面等）的SQL实现参考。</p>
-<h2 id="5-如何安装-PostGIS"><a href="#5-如何安装-PostGIS" class="headerlink" title="5. 如何安装 PostGIS"></a>5. 如何安装 PostGIS</h2><p>安装针对Ubuntu系统，参见文档 <a href="postgresql安装和postgis拓展安装.md">Postgresql安装和postgis拓展安装</a></p>
-<h2 id="6-如何使用-PostGIS"><a href="#6-如何使用-PostGIS" class="headerlink" title="6. 如何使用 PostGIS"></a>6. 如何使用 PostGIS</h2><h3 id="6-1-简单示例"><a href="#6-1-简单示例" class="headerlink" title="6.1. 简单示例"></a>6.1. 简单示例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> demo <span class="keyword">TEMPLATE</span>=template_postgis;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> cities ( <span class="keyword">id</span> int4, <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>) );</span><br><span class="line"><span class="keyword">select</span> AddGeometryColumn(<span class="string">'cities'</span>,<span class="string">'the_geom'</span>,<span class="number">-1</span>,<span class="string">'GEOMETRY'</span>,<span class="number">2</span>);</span><br><span class="line"><span class="comment">/* SELECT * from cities; */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> cities (<span class="keyword">id</span>, the_geom, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">1</span>,ST_GeomFromText(<span class="string">'POINT(-0.1257 51.508)'</span>,<span class="number">4326</span>),<span class="string">'London, England'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> cities (<span class="keyword">id</span>, the_geom, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">2</span>,ST_GeomFromText(<span class="string">'POINT(-81.233 42.983)'</span>,<span class="number">4326</span>),<span class="string">'London, Ontario'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> cities (<span class="keyword">id</span>, the_geom, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">3</span>,ST_GeomFromText(<span class="string">'POINT(27.91162491 -33.01529)'</span>,<span class="number">4326</span>),<span class="string">'East London,SA'</span>);</span><br><span class="line"><span class="comment">/* 简单查询 */</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> cities;</span><br></pre></td></tr></table></figure>
+<h2 id="5-如何使用-PostGIS"><a href="#5-如何使用-PostGIS" class="headerlink" title="5. 如何使用 PostGIS"></a>5. 如何使用 PostGIS</h2><h3 id="5-1-简单示例"><a href="#5-1-简单示例" class="headerlink" title="5.1. 简单示例"></a>5.1. 简单示例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> demo <span class="keyword">TEMPLATE</span>=template_postgis;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> cities ( <span class="keyword">id</span> int4, <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>) );</span><br><span class="line"><span class="keyword">select</span> AddGeometryColumn(<span class="string">'cities'</span>,<span class="string">'the_geom'</span>,<span class="number">-1</span>,<span class="string">'GEOMETRY'</span>,<span class="number">2</span>);</span><br><span class="line"><span class="comment">/* SELECT * from cities; */</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> cities (<span class="keyword">id</span>, the_geom, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">1</span>,ST_GeomFromText(<span class="string">'POINT(-0.1257 51.508)'</span>,<span class="number">4326</span>),<span class="string">'London, England'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> cities (<span class="keyword">id</span>, the_geom, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">2</span>,ST_GeomFromText(<span class="string">'POINT(-81.233 42.983)'</span>,<span class="number">4326</span>),<span class="string">'London, Ontario'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> cities (<span class="keyword">id</span>, the_geom, <span class="keyword">name</span>) <span class="keyword">VALUES</span> (<span class="number">3</span>,ST_GeomFromText(<span class="string">'POINT(27.91162491 -33.01529)'</span>,<span class="number">4326</span>),<span class="string">'East London,SA'</span>);</span><br><span class="line"><span class="comment">/* 简单查询 */</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> cities;</span><br></pre></td></tr></table></figure>
 <p>结果显示为下表:</p>
 <pre><code>id |      name       |                      the_geom
 ----+-----------------+----------------------------------------------------
@@ -447,18 +445,18 @@ London, Ontario | London, England |   5875766.85191657
 East London,SA  | London, England |   9789646.96784908
 East London,SA  | London, Ontario |   13892160.9525778
 (3 rows)
-</code></pre><h3 id="6-2-PostGIS的Geometry数据类型"><a href="#6-2-PostGIS的Geometry数据类型" class="headerlink" title="6.2. PostGIS的Geometry数据类型"></a>6.2. PostGIS的Geometry数据类型</h3><p>Geometry可以说是PostGIS最重要的一个概念，是“几何体”的意思，由于PostGIS很好地遵守OGC的”Simple Feature for Specification for SQL”规范，目前支持的几何体类型包含其实例有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POINT(1 1)</span><br><span class="line">MULTIPOINT(1 1, 3 4, -1 3)</span><br><span class="line">LINESTRING(1 1, 2 2, 3 4)</span><br><span class="line">POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))</span><br><span class="line">MULTIPOLYGON((0 0, 0 1, 1 1, 1 0, 0 0), (5 5, 5 6, 6 6, 6 5, 5 5))</span><br><span class="line">MULTILINESTRING((1 1, 2 2, 3 4),(2 2, 3 3, 4 5))</span><br></pre></td></tr></table></figure></p>
+</code></pre><h3 id="5-2-PostGIS的Geometry数据类型"><a href="#5-2-PostGIS的Geometry数据类型" class="headerlink" title="5.2. PostGIS的Geometry数据类型"></a>5.2. PostGIS的Geometry数据类型</h3><p>Geometry可以说是PostGIS最重要的一个概念，是“几何体”的意思，由于PostGIS很好地遵守OGC的”Simple Feature for Specification for SQL”规范，目前支持的几何体类型包含其实例有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POINT(1 1)</span><br><span class="line">MULTIPOINT(1 1, 3 4, -1 3)</span><br><span class="line">LINESTRING(1 1, 2 2, 3 4)</span><br><span class="line">POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))</span><br><span class="line">MULTIPOLYGON((0 0, 0 1, 1 1, 1 0, 0 0), (5 5, 5 6, 6 6, 6 5, 5 5))</span><br><span class="line">MULTILINESTRING((1 1, 2 2, 3 4),(2 2, 3 3, 4 5))</span><br></pre></td></tr></table></figure></p>
 <p>而geometry具体表现又有两种形式，一种叫做WKT(Well Known Text)形式，如上面的例子。或者使用如下SQL语句浏览：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> AsText(pt) <span class="keyword">from</span> test1;</span><br><span class="line"><span class="keyword">select</span> AddGeometryColumn(<span class="string">'test1'</span>,<span class="string">'pt'</span>,<span class="number">-1</span>,<span class="string">'GEOMETRY'</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
 <p>另一种叫做“Canonical Form”形式，看上去是一串古怪的数字，其实是一种增强的十六进制编码，使用如下SQL语句就可以浏览了：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pt <span class="keyword">from</span> test1;</span><br></pre></td></tr></table></figure></p>
-<h3 id="6-3-PostGIS函数的分类"><a href="#6-3-PostGIS函数的分类" class="headerlink" title="6.3. PostGIS函数的分类"></a>6.3. PostGIS函数的分类</h3><p>PostGIS函数大致可以分为以下四类:</p>
-<h4 id="6-3-1-字段处理函数"><a href="#6-3-1-字段处理函数" class="headerlink" title="6.3.1. 字段处理函数"></a>6.3.1. 字段处理函数</h4><p>这类函数当前一共有3个，分别是：</p>
+<h3 id="5-3-PostGIS函数的分类"><a href="#5-3-PostGIS函数的分类" class="headerlink" title="5.3. PostGIS函数的分类"></a>5.3. PostGIS函数的分类</h3><p>PostGIS函数大致可以分为以下四类:</p>
+<h4 id="5-3-1-字段处理函数"><a href="#5-3-1-字段处理函数" class="headerlink" title="5.3.1. 字段处理函数"></a>5.3.1. 字段处理函数</h4><p>这类函数当前一共有3个，分别是：</p>
 <ul>
 <li><p><code>AddGeometryColumn(var1,var2,var3,var4,var5,var6)</code>：<br>为已有的数据表增加一个地理几何数据字段。Var1代表数据表的模式(schema)的名字，一般是public，也可以省略，则使用当前的缺省模式；var2是已有的数据表的名字；var3是新的地理数据字段的名字；var4是SRID值，不确定的话就取-1吧；var5是地理数据的类型，可以是POINT等；var6是指该几何数据是二维还是三维数据。<br>前面的SQL语句<code>create table test1 (myID int4, pt geometry, myName varchar)</code>更规范的写法为：</p>
   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test1 (myID int4, myName <span class="built_in">varchar</span> );</span><br><span class="line"><span class="keyword">select</span> AddGeometryColumn(<span class="string">'test1'</span>,<span class="string">'pt'</span>,<span class="number">-1</span>,<span class="string">'GEOMETRY'</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>DropGeometryColumn</code> 函数：<br>显然是删除一个地理数据字段的；</p>
 </li>
-<li><code>SetSRID</code> 函数：<br>显然是设置SRID值的。<h4 id="6-3-2-几何关系函数"><a href="#6-3-2-几何关系函数" class="headerlink" title="6.3.2. 几何关系函数"></a>6.3.2. 几何关系函数</h4>这类函数目前共有10个，分别是：<br><code>Distance Equals Disjoint Intersects Touches Crosses Within Overlaps Contains Relate</code><h4 id="6-3-3-几何分析函数"><a href="#6-3-3-几何分析函数" class="headerlink" title="6.3.3. 几何分析函数"></a>6.3.3. 几何分析函数</h4>这类函数目前共有12个，分别是：<br><code>Centroid Area Lenth PointOnSurface Boundary Buffer ConvexHull Intersection SymDifference Difference GeomUnion MemGeomUnion</code><h4 id="6-3-4-读写函数"><a href="#6-3-4-读写函数" class="headerlink" title="6.3.4. 读写函数"></a>6.3.4. 读写函数</h4>这类函数很多，主要是用于在各种数据类型之间的转换，尤其是在于Geometry数据类型与其他如字符型等数据类型之间的转换，函数名如<code>AsText、GeomFromText</code>等，其作用是显然的。<h3 id="6-4-使用PostGIS扩展函数"><a href="#6-4-使用PostGIS扩展函数" class="headerlink" title="6.4. 使用PostGIS扩展函数"></a>6.4. 使用PostGIS扩展函数</h3>除了上述遵循OpenGIS的函数之外，PostGIS还自行扩展了一些当前OpenGIS规范之外的函数，主要包括以下几类：<h4 id="6-4-1-管理类函数"><a href="#6-4-1-管理类函数" class="headerlink" title="6.4.1. 管理类函数"></a>6.4.1. 管理类函数</h4>扩展的管理类函数主要包括一些软件版本查询函数，如postgis_version()、postgis_geos_version()、postgis_proj_version()函数等，分别查询当前的PostGIS的版本及其使用的Geos和Proj库的版本。<h4 id="6-4-2-数据类型的输入输出函数"><a href="#6-4-2-数据类型的输入输出函数" class="headerlink" title="6.4.2. 数据类型的输入输出函数"></a>6.4.2. 数据类型的输入输出函数</h4>除了OpenGIS定义的地理数据类型之外，PostGIS还对数据类型进行了扩展，这种扩展主要是两方面的扩展，一是把二维的数据向三维和四维扩展；二就是在WKT和WKB数据类型基础上扩展出EWKT和EWKB数据类型。PostGIS提供了在这些地理数据类型和常用数据类型如字符型、浮点型数据之间进行转换的函数。<h4 id="6-4-3-量算函数"><a href="#6-4-3-量算函数" class="headerlink" title="6.4.3. 量算函数"></a>6.4.3. 量算函数</h4>如length3d函数是对length2d函数的扩展。<h4 id="6-4-4-几何操作函数"><a href="#6-4-4-几何操作函数" class="headerlink" title="6.4.4. 几何操作函数"></a>6.4.4. 几何操作函数</h4>如addBBox(geometry)函数给所给的几何体加上一个边框。如simplify(geometry,tolerance)函数可以对折线和多边形利用Douglas-Peuker算法进行一些节点进行删除，从而使表现的图形更简单而清晰，在网络传输数据时具有更高的效率。<h4 id="6-4-5-PostGIS函数使用示例"><a href="#6-4-5-PostGIS函数使用示例" class="headerlink" title="6.4.5. PostGIS函数使用示例"></a>6.4.5. PostGIS函数使用示例</h4></li>
+<li><code>SetSRID</code> 函数：<br>显然是设置SRID值的。<h4 id="5-3-2-几何关系函数"><a href="#5-3-2-几何关系函数" class="headerlink" title="5.3.2. 几何关系函数"></a>5.3.2. 几何关系函数</h4>这类函数目前共有10个，分别是：<br><code>Distance Equals Disjoint Intersects Touches Crosses Within Overlaps Contains Relate</code><h4 id="5-3-3-几何分析函数"><a href="#5-3-3-几何分析函数" class="headerlink" title="5.3.3. 几何分析函数"></a>5.3.3. 几何分析函数</h4>这类函数目前共有12个，分别是：<br><code>Centroid Area Lenth PointOnSurface Boundary Buffer ConvexHull Intersection SymDifference Difference GeomUnion MemGeomUnion</code><h4 id="5-3-4-读写函数"><a href="#5-3-4-读写函数" class="headerlink" title="5.3.4. 读写函数"></a>5.3.4. 读写函数</h4>这类函数很多，主要是用于在各种数据类型之间的转换，尤其是在于Geometry数据类型与其他如字符型等数据类型之间的转换，函数名如<code>AsText、GeomFromText</code>等，其作用是显然的。<h3 id="5-4-使用PostGIS扩展函数"><a href="#5-4-使用PostGIS扩展函数" class="headerlink" title="5.4. 使用PostGIS扩展函数"></a>5.4. 使用PostGIS扩展函数</h3>除了上述遵循OpenGIS的函数之外，PostGIS还自行扩展了一些当前OpenGIS规范之外的函数，主要包括以下几类：<h4 id="5-4-1-管理类函数"><a href="#5-4-1-管理类函数" class="headerlink" title="5.4.1. 管理类函数"></a>5.4.1. 管理类函数</h4>扩展的管理类函数主要包括一些软件版本查询函数，如postgis_version()、postgis_geos_version()、postgis_proj_version()函数等，分别查询当前的PostGIS的版本及其使用的Geos和Proj库的版本。<h4 id="5-4-2-数据类型的输入输出函数"><a href="#5-4-2-数据类型的输入输出函数" class="headerlink" title="5.4.2. 数据类型的输入输出函数"></a>5.4.2. 数据类型的输入输出函数</h4>除了OpenGIS定义的地理数据类型之外，PostGIS还对数据类型进行了扩展，这种扩展主要是两方面的扩展，一是把二维的数据向三维和四维扩展；二就是在WKT和WKB数据类型基础上扩展出EWKT和EWKB数据类型。PostGIS提供了在这些地理数据类型和常用数据类型如字符型、浮点型数据之间进行转换的函数。<h4 id="5-4-3-量算函数"><a href="#5-4-3-量算函数" class="headerlink" title="5.4.3. 量算函数"></a>5.4.3. 量算函数</h4>如length3d函数是对length2d函数的扩展。<h4 id="5-4-4-几何操作函数"><a href="#5-4-4-几何操作函数" class="headerlink" title="5.4.4. 几何操作函数"></a>5.4.4. 几何操作函数</h4>如addBBox(geometry)函数给所给的几何体加上一个边框。如simplify(geometry,tolerance)函数可以对折线和多边形利用Douglas-Peuker算法进行一些节点进行删除，从而使表现的图形更简单而清晰，在网络传输数据时具有更高的效率。<h4 id="5-4-5-PostGIS函数使用示例"><a href="#5-4-5-PostGIS函数使用示例" class="headerlink" title="5.4.5. PostGIS函数使用示例"></a>5.4.5. PostGIS函数使用示例</h4></li>
 <li><p>integer ST_NPoints(geometry g1); 返回geometry中包含多少个point</p>
   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ST_NPoints(ST_GeomFromText(<span class="string">'LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'</span>));</span><br><span class="line"><span class="comment">--result: 4</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -466,8 +464,13 @@ East London,SA  | London, Ontario |   13892160.9525778
   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ST_AsText(ST_PointN(ST_GeomFromText(<span class="string">'CIRCULARSTRING(1 2, 3 2, 1 2)'</span>),<span class="number">2</span>));</span><br><span class="line"><span class="comment">--result:POINT(3 2)</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="6-5-建立PostGIS索引"><a href="#6-5-建立PostGIS索引" class="headerlink" title="6.5. 建立PostGIS索引"></a>6.5. 建立PostGIS索引</h3><p>当数据库的记录增大的时候，如果没有建立索引的话，操作的效率就显著下降。POstGIS建议当记录数超过几千的时候就应该建立索引，而GIS数据库一般都是海量数据，所以对PostGIS而言，索引就非常重要。 </p>
-<h2 id="7-参考资料"><a href="#7-参考资料" class="headerlink" title="7. 参考资料"></a>7. 参考资料</h2><p>[1] <a href="https://zh.wikipedia.org/wiki/PostGIS" target="_blank" rel="noopener">PostGIS维基百科介绍</a><br>[2] <a href="https://live.osgeo.org/zh/quickstart/postgis_quickstart.html" target="_blank" rel="noopener">PostGIS快速入门</a><br>[3] <a href="http://blog.csdn.net/shixiaoguo90/article/details/30034429" target="_blank" rel="noopener">PostGIS简介</a><br>[4] <a href="http://www.cnblogs.com/LCGIS/archive/2013/03/08/2949119.html" target="_blank" rel="noopener">PostGIS管理函数</a></p>
+<h3 id="5-5-建立PostGIS索引"><a href="#5-5-建立PostGIS索引" class="headerlink" title="5.5. 建立PostGIS索引"></a>5.5. 建立PostGIS索引</h3><p>当数据库的记录增大的时候，如果没有建立索引的话，操作的效率就显著下降。POstGIS建议当记录数超过几千的时候就应该建立索引，而GIS数据库一般都是海量数据，所以对PostGIS而言，索引就非常重要。 </p>
+<h2 id="6-参考资料"><a href="#6-参考资料" class="headerlink" title="6. 参考资料"></a>6. 参考资料</h2><ul>
+<li><a href="https://zh.wikipedia.org/wiki/PostGIS" target="_blank" rel="noopener">PostGIS维基百科介绍</a>  </li>
+<li><a href="https://live.osgeo.org/zh/quickstart/postgis_quickstart.html" target="_blank" rel="noopener">PostGIS快速入门</a>  </li>
+<li><a href="http://blog.csdn.net/shixiaoguo90/article/details/30034429" target="_blank" rel="noopener">PostGIS简介</a>  </li>
+<li><a href="http://www.cnblogs.com/LCGIS/archive/2013/03/08/2949119.html" target="_blank" rel="noopener">PostGIS管理函数</a></li>
+</ul>
 
       
     </div>
@@ -517,6 +520,10 @@ East London,SA  | London, Ontario |   13892160.9525778
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="../../../../19/notebook/data_struc_algo/stringmatchproblem/" rel="prev" title="字符串匹配/包含问题">
+                字符串匹配/包含问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -597,7 +604,7 @@ East London,SA  | London, Ontario |   13892160.9525778
               
                 <a href="../../../../../../archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -608,7 +615,7 @@ East London,SA  | London, Ontario |   13892160.9525778
               
               <div class="site-state-item site-state-categories">
                 <a href="../../../../../../categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -619,7 +626,7 @@ East London,SA  | London, Ontario |   13892160.9525778
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../../../tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -675,7 +682,7 @@ East London,SA  | London, Ontario |   13892160.9525778
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#postgresql和postgis拓展"><span class="nav-number">1.</span> <span class="nav-text">postgresql和postgis拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-postgresql安装"><span class="nav-number">1.1.</span> <span class="nav-text">1. postgresql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-postgresql使用"><span class="nav-number">1.2.</span> <span class="nav-text">2. postgresql使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-postgis扩展安装"><span class="nav-number">1.3.</span> <span class="nav-text">3. postgis扩展安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-ubuntu-安装"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1. ubuntu 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-centos-7-安装"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2. centos 7 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-创建扩展"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3. 创建扩展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-什么是-PostGIS"><span class="nav-number">1.4.</span> <span class="nav-text">4. 什么是 PostGIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-如何安装-PostGIS"><span class="nav-number">1.5.</span> <span class="nav-text">5. 如何安装 PostGIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-如何使用-PostGIS"><span class="nav-number">1.6.</span> <span class="nav-text">6. 如何使用 PostGIS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-简单示例"><span class="nav-number">1.6.1.</span> <span class="nav-text">6.1. 简单示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-PostGIS的Geometry数据类型"><span class="nav-number">1.6.2.</span> <span class="nav-text">6.2. PostGIS的Geometry数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-PostGIS函数的分类"><span class="nav-number">1.6.3.</span> <span class="nav-text">6.3. PostGIS函数的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-字段处理函数"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">6.3.1. 字段处理函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-2-几何关系函数"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">6.3.2. 几何关系函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-3-几何分析函数"><span class="nav-number">1.6.3.3.</span> <span class="nav-text">6.3.3. 几何分析函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-4-读写函数"><span class="nav-number">1.6.3.4.</span> <span class="nav-text">6.3.4. 读写函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-使用PostGIS扩展函数"><span class="nav-number">1.6.4.</span> <span class="nav-text">6.4. 使用PostGIS扩展函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-1-管理类函数"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">6.4.1. 管理类函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-2-数据类型的输入输出函数"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">6.4.2. 数据类型的输入输出函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-3-量算函数"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">6.4.3. 量算函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-4-几何操作函数"><span class="nav-number">1.6.4.4.</span> <span class="nav-text">6.4.4. 几何操作函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-5-PostGIS函数使用示例"><span class="nav-number">1.6.4.5.</span> <span class="nav-text">6.4.5. PostGIS函数使用示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-建立PostGIS索引"><span class="nav-number">1.6.5.</span> <span class="nav-text">6.5. 建立PostGIS索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-参考资料"><span class="nav-number">1.7.</span> <span class="nav-text">7. 参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#postgresql和postgis拓展"><span class="nav-number">1.</span> <span class="nav-text">postgresql和postgis拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-postgresql安装"><span class="nav-number">1.1.</span> <span class="nav-text">1. postgresql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-postgresql使用"><span class="nav-number">1.2.</span> <span class="nav-text">2. postgresql使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-postgis扩展安装"><span class="nav-number">1.3.</span> <span class="nav-text">3. postgis扩展安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-ubuntu-安装"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1. ubuntu 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-centos-7-安装"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2. centos 7 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-创建扩展"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3. 创建扩展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-什么是-PostGIS"><span class="nav-number">1.4.</span> <span class="nav-text">4. 什么是 PostGIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-如何使用-PostGIS"><span class="nav-number">1.5.</span> <span class="nav-text">5. 如何使用 PostGIS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-简单示例"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1. 简单示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-PostGIS的Geometry数据类型"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2. PostGIS的Geometry数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-PostGIS函数的分类"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.3. PostGIS函数的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-字段处理函数"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">5.3.1. 字段处理函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-几何关系函数"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">5.3.2. 几何关系函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-3-几何分析函数"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">5.3.3. 几何分析函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-4-读写函数"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">5.3.4. 读写函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-使用PostGIS扩展函数"><span class="nav-number">1.5.4.</span> <span class="nav-text">5.4. 使用PostGIS扩展函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-1-管理类函数"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">5.4.1. 管理类函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-2-数据类型的输入输出函数"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">5.4.2. 数据类型的输入输出函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-3-量算函数"><span class="nav-number">1.5.4.3.</span> <span class="nav-text">5.4.3. 量算函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-4-几何操作函数"><span class="nav-number">1.5.4.4.</span> <span class="nav-text">5.4.4. 几何操作函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-5-PostGIS函数使用示例"><span class="nav-number">1.5.4.5.</span> <span class="nav-text">5.4.5. PostGIS函数使用示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-建立PostGIS索引"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.5. 建立PostGIS索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-参考资料"><span class="nav-number">1.6.</span> <span class="nav-text">6. 参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>

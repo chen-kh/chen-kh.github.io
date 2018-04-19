@@ -91,7 +91,7 @@
 <meta property="og:locale" content="Java, Python, C, Go language">
 <meta property="og:image" content="https://tech.meituan.com/img/java-hashmap/hashMap%20put%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
 <meta property="og:image" content="https://i.stack.imgur.com/IW0vU.gif">
-<meta property="og:updated_time" content="2018-04-07T12:54:24.013Z">
+<meta property="og:updated_time" content="2018-04-19T08:54:43.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 知识随笔">
 <meta name="twitter:description" content="Java 知识随笔  1. 等待线程结束的方法有哪些？ 2. Java中对应数据结构中的队列、栈、双向队列等的内容 2.1. 队列与双向队列 2.2. 链表与双向链表 2.3. 栈 2.4. 树及红黑树实现的结构   3. Java 克隆 3.1. 浅拷贝与深拷贝 3.2. Cloneable接口 3.3. Serializable接口   4. Java中的final关键字 4.1. final">
@@ -422,7 +422,7 @@
 <h2 id="1-等待线程结束的方法有哪些？"><a href="#1-等待线程结束的方法有哪些？" class="headerlink" title="1. 等待线程结束的方法有哪些？"></a>1. 等待线程结束的方法有哪些？</h2><p>等待线程结束的方法，当然可以通过在<code>run()</code>函数里面更改标示位（或者变量），然后检测这个标示位（变量）来判断线程是否已经完成任务。但是，但是，以上都是多余的（而且是非常复杂，不实用的设计）。JDK本身就已经提供了判断线程结束的方法。参考文章：<a href="http://blog.csdn.net/xiao__gui/article/details/9213413" target="_blank" rel="noopener">Java主线程等待子线程、线程池</a></p>
 <ul>
 <li>最基本的方法：调用<code>thread.join()</code></li>
-<li>不太基本的方法：设置<code>CountDownLatch</code>成员</li>
+<li>不太基本的方法：设置<code>CountDownLatch</code>成员，run方法内调用<code>countDownLatch.countDown();</code>主线程调用<code>countDownLatch.await();</code></li>
 <li>等待线程池所有线程执行完成的方法：<code>boolean awaitTermination(long timeout, TimeUnit unit)</code></li>
 </ul>
 <p><strong><em>代码1：join()方法调用</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JoinTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(Thread.currentThread() + <span class="string">": I am sleeping"</span>);</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread.start();</span><br><span class="line">        thread.join();</span><br><span class="line">        System.out.println(<span class="string">"main done"</span>);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -655,7 +655,7 @@
               
                 <a href="../../../../../../archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -666,7 +666,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="../../../../../../categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -677,7 +677,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../../../tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/03/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/learn_c/clang随笔/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaiheng CHEN">
@@ -304,7 +304,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="../../2018/03/29/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="../../2018/04/02/notebook/learn_c/clang随笔/" itemprop="url">C language 随笔</a></h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,169 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T22:36:40+08:00">
-                2018-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/C语言/" itemprop="url" rel="index">
+                    <span itemprop="name">C语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="C-language-随笔"><a href="#C-language-随笔" class="headerlink" title="C language 随笔"></a>C language 随笔</h1><h2 id="结构体指针需要先初始化（分配内存空间）再进行赋值"><a href="#结构体指针需要先初始化（分配内存空间）再进行赋值" class="headerlink" title="结构体指针需要先初始化（分配内存空间）再进行赋值"></a>结构体指针需要先初始化（分配内存空间）再进行赋值</h2><p>关于这个问题网上有很多人问，这里记录一下。我认为网上的一些认识是有误的。先说原理。</p>
+<ul>
+<li><p>指针变量其实是一种数据类型，他有自己的地址，也有自己占的内存空间和值。只不过他的值等于另一个（常规）变量的地址。星号<code>*</code>其实是取值操作，也就是说<code>*pointer</code>就是将<code>pointer</code>的值（指针变量存储的值）对应的地址上的值拿到。</p>
+</li>
+<li><p>对于普通整型变量<code>int a</code>的指针<code>int* a</code>，不能直接通过<code>*a = 10</code>进行赋值，因为这时变量 a 还没有地址，需要首先<code>a = (int*)malloc(sizeof(int))</code>获取内存空间，再进行<code>*a = 10</code>的赋值操作。在<code>*a = 10</code>这一过程中并不是<code>=</code>这个赋值操作的问题，而是<code>*a</code>这个取值操作本身就有问题。显而易见：a变量不在内存中，所以找不到。其实在进行内存分配也就是<code>malloc</code>之前，如果你用<code>&amp;a</code>查看a的地址，其实看到的是指针变量<code>int* a</code>的地址；或者你用<code>sizeof(a)</code>去查看a占用内存的大小，其实看到的也是指针变量占用的字节大小（我这里显示8）；当你使用<code>&amp;(*a)</code>去查看指针指向的变量的地址时，其实等于查看<code>a</code>(也就是指针变量的value)；<code>malloc</code>操作之后，再查看<code>&amp;(*a)</code>或者<code>a</code>，你会发现他跟之前不一样了，也就是说初始化了之后，指针真正指向了内存中的某个地址。也就相当于给指针变量进行了<strong>赋值操作</strong>。指针变量创建（<code>int* a</code>）的时候，并没有初始化的值（即便你看到了也是不被承认的）</p>
+</li>
+<li><p>对于结构体指针，同上，其实道理都是一样的。只要是指针，就不会给指针指向的变量进行初始化，而只会进行指针变量的初始化，但是指针变量的初始值是不被承认的，或者理解为在内存中无法按照这个值找到具体变量的。</p>
+</li>
+</ul>
+<p>下面是我的测试代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">St</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">&#125; S;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));<span class="comment">// check if size of integer is 4, YES</span></span><br><span class="line">	<span class="comment">/*the following 3 line is the normal code for decloration -&gt; malloc -&gt; set value for pointer type variable</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="keyword">int</span>* b;</span><br><span class="line">	b = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">	*b = <span class="number">10</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"============== test for int pointer ==============="</span>); </span><br><span class="line">	<span class="keyword">int</span>* a;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"before malloc: ------------\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer a = %d\n"</span>, &amp;a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer a = %d\n"</span>, a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer pointed = %d\n"</span>, a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"size of value pointer pointer = %d\n"</span>, <span class="keyword">sizeof</span>(*a));</span><br><span class="line">	<span class="comment">// printf("value of pointer pointed = %d\n",*a); // execute this line will cause error cause *a has not value</span></span><br><span class="line">	a = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="number">4</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"before set value: ------------\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer a = %d\n"</span>, &amp;a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer a = %d\n"</span>, a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer pointed = %d\n"</span>, a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer pointed = %d\n"</span>,*a); <span class="comment">// the result is 0</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"size of value pointer pointer = %d\n"</span>, <span class="keyword">sizeof</span>(*a));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"a = %d\n"</span>, *a);</span><br><span class="line">	*a = <span class="number">10</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"after set value: ------------\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer a = %d\n"</span>, &amp;a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer a = %d\n"</span>, a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer pointed = %d\n"</span>, a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer pointed = %d\n"</span>,*a);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"size of value pointer pointer = %d\n"</span>, <span class="keyword">sizeof</span>(*a));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"============= test for struct pointer ==============="</span>);</span><br><span class="line">	S* sb;</span><br><span class="line">	sb = (S*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(S));</span><br><span class="line">	sb-&gt;i = <span class="number">10</span>;</span><br><span class="line">	<span class="comment">// *sb = &#123;1, 2&#125;;// cause error cause we can not init sa like this</span></span><br><span class="line">	S* sa;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"sa = %d\n"</span>, *sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"before malloc: ------------\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer a = %d\n"</span>, &amp;sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer a = %d\n"</span>, sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer pointed = %d\n"</span>, sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"size of value pointer pointer = %d\n"</span>, <span class="keyword">sizeof</span>(*sa));</span><br><span class="line">	sa = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(S));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"before set value: ------------\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer sa = %d\n"</span>, &amp;sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer sa = %d\n"</span>, sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer pointed = %d\n"</span>, sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer pointed = %d\n"</span>,*sa); <span class="comment">// the result is 0</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"size of value pointer pointer = %d\n"</span>, <span class="keyword">sizeof</span>(*sa));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"sa-&gt;i = %d\n"</span>, sa-&gt;i);</span><br><span class="line">	sa-&gt;i = <span class="number">10</span>;</span><br><span class="line">	sa-&gt;j = <span class="number">20</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"after set value: ------------\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer sa = %d\n"</span>, &amp;sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer sa = %d\n"</span>, sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"address of pointer pointed = %d\n"</span>, sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"value of pointer pointed = %d\n"</span>,*sa);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"size of value pointer pointer = %d\n"</span>, <span class="keyword">sizeof</span>(*sa));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"sa-&gt;i = %d\n"</span>, sa-&gt;i);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="C-C-命名规范"><a href="#C-C-命名规范" class="headerlink" title="C C++ 命名规范"></a>C C++ 命名规范</h2><p>请参考<a href="https://www.jianshu.com/p/028a1b22ecfa" target="_blank" rel="noopener">C++命名规范</a>与<a href="http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/" target="_blank" rel="noopener">Google C++命名约定</a></p>
+<h2 id="指针加法"><a href="#指针加法" class="headerlink" title="指针加法"></a>指针加法</h2><p>指针是有类型的，本质上标示的是一个整型（ssize_t)地址，可以进行加减法运算。但是跟普通整型加减法不同的是：指针的加减单位是相应指针类型在内存中的占用空间大小。例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">long</span> *b = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> *c = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%ld\n"</span>, a + <span class="number">1</span>);<span class="comment">//output = 4</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%ld\n"</span>, b + <span class="number">1</span>);<span class="comment">//output = 8</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%ld\n"</span>, c + <span class="number">1</span>);<span class="comment">//output = 1</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="char-str-和-char-str-的区别（涉及到字符串常量的特点）"><a href="#char-str-和-char-str-的区别（涉及到字符串常量的特点）" class="headerlink" title="char str[] 和 char *str 的区别（涉及到字符串常量的特点）"></a><code>char str[]</code> 和 <code>char *str</code> 的区别（涉及到字符串常量的特点）</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// wrong function </span></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">get_str</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[] = &#123;<span class="string">"abcd"</span>&#125;;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// right function </span></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">get_str</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *str = &#123;<span class="string">"abcd"</span>&#125;;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> str[] =<span class="string">"abcd"</span>;       <span class="comment">//abcd存储在堆栈中</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *str =<span class="string">"abcd"</span>;        <span class="comment">//abcd存储在静态存储区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组和指针是不同的数据类型，有本质的区别：</span></span><br><span class="line"><span class="keyword">char</span> str[] =<span class="string">"abcd"</span>;        <span class="comment">//sizeof(str) == 5 * sizeof(char)</span></span><br><span class="line"><span class="keyword">char</span> *str =<span class="string">"abcd"</span>;       <span class="comment">//sizeof(str) == 4(x86) or 8(x64)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>char str[] ={&quot;abcd&quot;};</code>定义了一个局部字符数组（放在堆栈中，函数调用完即销毁此段内存），尽管是数组，但它是一个局部变量，返回它的地址肯定是一个已经释放了的空间的地址。此函数返回的是内部一个局部字符数组str的地址，且函数调用完毕后此数组被销毁，所以你返回的指针也就指向一块被销毁的内存，这种写法是错误的。</li>
+<li>此函数返回的是<strong>字符串常量的地址</strong>，而像这种字符串都是属于全局的，<strong>在编译的时候就已经分配了内存了，只有程序退出的时候才会被销毁</strong>，所以返回它的地址是没有问题的，但是你最好返回常量指针，因为你不能去改变字符串常量的值。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/fitness/健身要领/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/fitness/健身要领/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
               </time>
             
 
@@ -356,15 +517,1348 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h1 id="健身要领"><a href="#健身要领" class="headerlink" title="健身要领"></a>健身要领</h1><p>主要记录一些健身的要领，比如每次健身应该多长时间，如何合理安排健身计划，有哪些健身的基本常识等等。不涉及具体的动作，具体的动作练习可以在<a href="">健身动作</a>中查看。<br><!-- TOC --></p>
+<ul>
+<li><a href="#不错的参考资料">不错的参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<p><img src="http://img.mp.itc.cn/upload/20170516/8ca4c786fe6f420f9b74bae913920945.jpg" alt=""></p>
+<h2 id="不错的参考资料"><a href="#不错的参考资料" class="headerlink" title="不错的参考资料"></a>不错的参考资料</h2><ul>
+<li><a href="http://www.nzjsw.com/jianshen/2012/08/16/19480.htm" target="_blank" rel="noopener">李小龙肌肉锻炼15招，与韦德训练法异曲同工</a></li>
+<li><a href="http://www.nzjsw.com/tuijian/duanlian/" target="_blank" rel="noopener">闹钟健身网</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/fitness/健身动作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/fitness/健身动作/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://img.mp.itc.cn/upload/20170516/f575d6b31ec54e9bb3ebf842c76c3812.jpg" alt="侧平举（中束）"></p>
+<p><img src="http://img.mp.itc.cn/upload/20170516/9092480e8d87439a8ad3a2f85ca65e37.jpg" alt="反向飞鸟（后束）"></p>
+<p><img src="http://img.mp.itc.cn/upload/20170516/8ca4c786fe6f420f9b74bae913920945.jpg" alt="前平举 （前束）"></p>
+<p><img src="http://img.mp.itc.cn/upload/20170516/e0dc2b1158eb481baa5b304b1ff74d68.jpg" alt="哑铃推举 （肩部综合）"></p>
+<p><img src="http://img.mp.itc.cn/upload/20170516/c7d102a0c21c43bf95c120b2d66c7f30.jpg" alt="单手侧平举 （中束）"></p>
+<p><img src="http://img.mp.itc.cn/upload/20170516/31791e6d0103426c8edf5cc54d2b7d6a.jpg" alt="前平举交替 （前束）"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/data_struc_algo/各种树结构总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/data_struc_algo/各种树结构总结/" itemprop="url">各种树结构总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="各种树结构总结"><a href="#各种树结构总结" class="headerlink" title="各种树结构总结"></a>各种树结构总结</h1><p>参考文章: <a href="http://blog.csdn.net/wl044090432/article/details/54585765" target="_blank" rel="noopener">二叉查找树，红黑树，AVL树，B~/B+树(B-tree)，伸展树——优缺点及比较</a><br><!-- TOC --></p>
+<ul>
+<li><a href="#1-树结构按照需求从一般到具体从低效到高效">1. 树结构按照需求从一般到具体，从低效到高效</a></li>
+<li><a href="#2-数的一般结构">2. 数的一般结构</a></li>
+<li><a href="#3-二叉搜索树">3. 二叉搜索树</a></li>
+<li><a href="#4-二叉平衡树avl树">4. 二叉平衡树（AVL树）</a></li>
+<li><a href="#5-红黑树">5. 红黑树</a></li>
+<li><a href="#6-b-树b树">6. B-树、B+树</a></li>
+<li><a href="#7-总结">7. 总结</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-树结构按照需求从一般到具体，从低效到高效"><a href="#1-树结构按照需求从一般到具体，从低效到高效" class="headerlink" title="1. 树结构按照需求从一般到具体，从低效到高效"></a>1. 树结构按照需求从一般到具体，从低效到高效</h2><ul>
+<li>树结构是一种特殊的图结构，但不存在环，树由节点构成，每个树节点可以有多个孩子节点。</li>
+<li>为了查询方便，自然而然设计出了二叉搜索树：根节点的值大于左子树的值，但是小于右子树的值。该结构表明二叉搜索树没有重复的值。查询的效率为logN(大致)，最坏的情况为N。</li>
+<li>为了克服二叉搜索树不稳定的弱点，设计得到了很多平衡树，第一个设计出的平衡树就是AVL树，这里面的精髓就是树结构的旋转：左旋转和右旋转。</li>
+<li>AVL树在删除操作的时候性能表现不够好，所以又出现了红黑树。红黑树拥有稳定的以O(log2n)的时间复杂度进行搜索、插入、删除操作。但是他却不是严格的平衡树。<blockquote>
+<p>大量数据实践证明，RBT的总体统计性能要好于平衡二叉树。</p>
+</blockquote>
+</li>
+<li>虽然红黑树做的很好了，但是当数据量非常大的时候，内存撑不住这么大的索引结构或者磁盘IO太多导致效率太低。所以人们提出了B-树：平衡多路查找树。由于是多路的，所以索引结构小了很多（树变得更矮胖了）。再考虑磁盘IO的情况下，性能上比红黑树要好很多。</li>
+<li>B-树已经够好，但是还可以针对数据库做到更好，这就是B+树。B+树与B-树的区别有不少，最主要的还是B+树的内容都在叶节点上，且叶节点形成排序的链表。这种设计达到了更小的索引结构，更快的查询效果。<blockquote>
+<p>在应用背景下，特别是文件结构存储中。B+树的应用要更多，其效率也要比B~树好。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-数的一般结构"><a href="#2-数的一般结构" class="headerlink" title="2. 数的一般结构"></a>2. 数的一般结构</h2><h2 id="3-二叉搜索树"><a href="#3-二叉搜索树" class="headerlink" title="3. 二叉搜索树"></a>3. 二叉搜索树</h2><h2 id="4-二叉平衡树（AVL树）"><a href="#4-二叉平衡树（AVL树）" class="headerlink" title="4. 二叉平衡树（AVL树）"></a>4. 二叉平衡树（AVL树）</h2><h2 id="5-红黑树"><a href="#5-红黑树" class="headerlink" title="5. 红黑树"></a>5. 红黑树</h2><h2 id="6-B-树、B-树"><a href="#6-B-树、B-树" class="headerlink" title="6. B-树、B+树"></a>6. B-树、B+树</h2><h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/data_struc_algo/min_sum_diff/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/data_struc_algo/min_sum_diff/" itemprop="url">面试算法题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="两个整型数组之间的数据互相调整，使得和之差的绝对值最小"><a href="#两个整型数组之间的数据互相调整，使得和之差的绝对值最小" class="headerlink" title="两个整型数组之间的数据互相调整，使得和之差的绝对值最小"></a>两个整型数组之间的数据互相调整，使得和之差的绝对值最小</h1><p>问题描述：整形数组A和B，长度分别为n和m，设计一个算法：两个数组之间可以交换数值，最终使得 | sum(A) - sum(B) | 最小</p>
+<p>输入：数组A，B</p>
+<p>输出：无</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>问题的终极版：[有一个数字集合，将集合分成多个（固定数量）子集合，使得子集的和的最大值最小]，已经被证明是NP问题了。当然还有集合和的方差最小等等更难的变形。近似算法一般都是基于贪心的。问题太难了，简化一下。数字集合分成两组，数量不必相等，和的差最小，就是与本题类似的一个题目。可以转换为背包问题，背包重量为sum/2。其实再之后的一些问题，就是加一些限制了，比如本题，限制了两个子集的大小。</p>
+<p>下面分别给出没有限制和有限制的解题思路。</p>
+<h3 id="整型数组A，分解为两个数组，使得两个数组的和之差最小。"><a href="#整型数组A，分解为两个数组，使得两个数组的和之差最小。" class="headerlink" title="整型数组A，分解为两个数组，使得两个数组的和之差最小。"></a>整型数组A，分解为两个数组，使得两个数组的和之差最小。</h3><ul>
+<li>解题思路：动态规划中的0-1背包问题，背包重量bagweight=sum/2。  </li>
+<li>算法证明：使用动态规划求解的结果只有两种情况： 1. 背包被装满（物品重量正好等于背包重量） 2. 背包没有被装满。第一种情况当然就是最优解。至于第二种情况，假设存在另外一个解使得原解的物品总重量与背包重量之差abs(w1-bagweight)小于最优解的物品总重量与背包重量之差abs(wi-bagweight)。由于w1 &lt; bagweight，则wi &gt; bagweight，则sum-wi &lt; bagweight。sum-wi，wi与sum/2的距离相等。因此w1 &lt; sum-wi &lt; bagweight，因此sum-wi是0-1背包的最优解，而w1也是，所以矛盾。问题得证！</li>
+<li>解题代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''使用背包问题求解，设原数组S的长度为n, 和为sum。</span></span><br><span class="line"><span class="string">选择背包重量为sum/2，S中每个数值表示一件物品的重量和价值（相等）。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">min_sumdiff_subsets</span><span class="params">(intset)</span>:</span>    </span><br><span class="line">    bagweight = sum(intset)/<span class="number">2</span></span><br><span class="line">    indexarray = get_01knapsack_solution(bagweight, intset)</span><br><span class="line">    A = [intset[i] <span class="keyword">for</span> i <span class="keyword">in</span> indexarray]</span><br><span class="line">    B = [intset[i] <span class="keyword">for</span> i <span class="keyword">not</span> <span class="keyword">in</span> indexarray]</span><br><span class="line">    <span class="keyword">return</span> (A, B)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="在上面的基础上，限定一个集合的大小为-m，其中-m-lt-n"><a href="#在上面的基础上，限定一个集合的大小为-m，其中-m-lt-n" class="headerlink" title="在上面的基础上，限定一个集合的大小为 m，其中 m&lt;n"></a>在上面的基础上，限定一个集合的大小为 m，其中 m&lt;n</h3><ul>
+<li>解题思路：仍然认为是0-1背包问题，与上面一种情况不同的是，这里限定了选择东西的数量。只需要在计算动态规划问题的时候考虑选择东西数量的问题就好了。其实这里思考起来并不难，但是很多边界条件需要考虑进去，也就说如何保证选择确定的m个数值，既不多也不少。</li>
+<li>状态方程：<br><img src="dp_sum_diff_min.png" alt="状态方程"><br>其中w[i]和p[i]分别表示重量数组和价值数组，本题中相等。f(i,j,k)表示从第1到第i个元素中取k个，放在重量为j的包里的最大价值（重量）问题。边界条件主要有3点需要注意：1.当i &lt;= k时，需要将前i-i个元素都取出来；2.当j &lt;= 0而k != 0时，直接舍弃这种情况; 3. 如果重量不得已必须超过j时，开始选小的那一个。一个简单版的递归代码如下，仅仅表示思想，代码很乱，很没有技术含量。。。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knapsack</span><span class="params">(wlist, i, j, k)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i&lt;<span class="number">0</span> <span class="keyword">or</span> j&lt;<span class="number">0</span> <span class="keyword">or</span> k&lt;=<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> i+<span class="number">1</span> == k:</span><br><span class="line">        <span class="keyword">return</span> sum(wlist[:i+<span class="number">1</span>]) <span class="comment"># the sum maybe larger than j</span></span><br><span class="line">    <span class="keyword">if</span> j&lt;=<span class="number">0</span> <span class="keyword">and</span> k != <span class="number">0</span>: <span class="comment"># it tells us that there is no solution</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span> </span><br><span class="line">    <span class="keyword">if</span> wlist[i] &gt; j:</span><br><span class="line">        <span class="keyword">return</span> knapsack(wlist, i<span class="number">-1</span>, j, k)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a = knapsack(wlist, i<span class="number">-1</span>, j, k)</span><br><span class="line">        bt = knapsack(wlist, i<span class="number">-1</span>, j-wlist[i], k<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">if</span> bt <span class="keyword">is</span> <span class="keyword">None</span>: <span class="comment"># </span></span><br><span class="line">            b = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            b = bt + wlist[i]</span><br><span class="line">        <span class="keyword">if</span> a <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            a = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> a &gt;= b <span class="keyword">and</span> a &lt;= j: </span><br><span class="line">            <span class="keyword">return</span> a</span><br><span class="line">        <span class="keyword">if</span> a &lt; b <span class="keyword">and</span> b &lt;= j:</span><br><span class="line">            <span class="keyword">return</span> b</span><br><span class="line">        <span class="keyword">if</span> a &gt; j <span class="keyword">or</span> b &gt; j: <span class="comment"># in case of one of sum larger than j, the best result smaller than j does not exist, then we trying to find the result which is closest to j (althought it's larger than j)</span></span><br><span class="line">            <span class="keyword">return</span> min(a,b)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    wlist = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">10</span>,<span class="number">2</span>]</span><br><span class="line">    i = len(wlist)<span class="number">-1</span></span><br><span class="line">    j = sum(wlist)/<span class="number">2</span></span><br><span class="line">    <span class="comment"># k = len(wlist)/2</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">7</span>):</span><br><span class="line">        a = knapsack(wlist,i,j,k)</span><br><span class="line">        print(wlist,i+<span class="number">1</span>,j,k)</span><br><span class="line">        print(a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="回到最初的问题，交换两个数组的元素，使得数组和的差值最小"><a href="#回到最初的问题，交换两个数组的元素，使得数组和的差值最小" class="headerlink" title="回到最初的问题，交换两个数组的元素，使得数组和的差值最小"></a>回到最初的问题，交换两个数组的元素，使得数组和的差值最小</h3><p>从最初的角度思考问题，交换两个数组的元素。这种方法也达到目标。</p>
+<ul>
+<li>算法过程：从数组A的第一个元素开始，在数组B中寻找最优的下标i，即<code>argmin(sum(A) - A[1] + B[i] - sum(B) + B[i] - A[1]) = argmin(sum(A) - sum(B) - 2 * (A[1] - B[i]))</code>。然后交换A[1]与B[i]。之后对A[2]进行同样的操作。知道将数组A遍历完毕，会得到一个比原来和的差值小很多新的A和B。以上过程为一次迭代，直到和的差值为0或者上一次迭代与本次迭代没有变化，循环完毕。</li>
+<li>算法证明：明显可以看出，只要数组A和B中存在调优的空间（交换数值可以使和的差值更小），每次迭代总会有数值交换，因此总能到达最优的情况。</li>
+<li>问题思考：值得考虑的是，这种算法的时间复杂度有多少，因为迭代多少次似乎是未知的，最坏的情况时每次迭代优化一个单位，这样至少需要迭代abs(sum(A) - sum(B))次，时间复杂度最坏的情况是abs(sum(A) - sum(B)) <em> m </em> n</li>
+<li>算法代码示例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exchange2min_sumdiff</span><span class="params">(arr1, arr2)</span>:</span></span><br><span class="line">    n, m = len(arr1), len(arr2)</span><br><span class="line">    last_absdiff = abs(sum(arr2) - sum(arr1))</span><br><span class="line">    <span class="keyword">if</span> last_absdiff == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    best = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">not</span> best):</span><br><span class="line">        best_absdiff = last_absdiff</span><br><span class="line">        <span class="keyword">for</span> i, a <span class="keyword">in</span> enumerate(arr1):</span><br><span class="line">            best_index = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j, b <span class="keyword">in</span> enumerate(arr2):</span><br><span class="line">                newabsdiff = abs(sum(A) - sum(B) - <span class="number">2</span> * (a - b))</span><br><span class="line">                <span class="keyword">if</span> newabsdiff &lt; best_absdiff:</span><br><span class="line">                    best_absdiff = newabsdiff</span><br><span class="line">                    best_index = j</span><br><span class="line">                    <span class="keyword">if</span> best_absdiff == <span class="number">0</span>:</span><br><span class="line">                        arr1[i], arr2[best_index] = arr2[best_index], arr1[i]</span><br><span class="line">                        <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> best_absdiff &lt; last_absdiff:</span><br><span class="line">                print(<span class="string">'exchange A[&#123;0&#125;]='</span>.format(i) + str(arr1[i]) + <span class="string">' and B[&#123;0&#125;]='</span>.format(best_index) + str(arr2[best_index]) + <span class="string">", "</span> + str(best_absdiff))</span><br><span class="line">                arr1[i], arr2[best_index] = arr2[best_index], arr1[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> best_absdiff == last_absdiff:</span><br><span class="line">            best = <span class="number">1</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> best_absdiff &lt; last_absdiff:</span><br><span class="line">            last_absdiff = best_absdiff</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">    B = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">    exchange2min_sumdiff(A,B)</span><br><span class="line">    print(A)</span><br><span class="line">    print(B)</span><br><span class="line">    print(abs(sum(A) - sum(B)))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/data_struc_algo/classic dynamic program/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/data_struc_algo/classic dynamic program/" itemprop="url">经典动态规划的题目</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="经典动态规划的题目"><a href="#经典动态规划的题目" class="headerlink" title="经典动态规划的题目"></a>经典动态规划的题目</h1><!-- TOC -->
+<ul>
+<li><a href="#1-矩阵联乘问题">1. 矩阵联乘问题</a></li>
+<li><a href="#2-最长公共子序列">2. 最长公共子序列</a></li>
+<li><a href="#3-最长不重复子串">3. 最长不重复子串</a></li>
+<li><a href="#4-最大连续子序列之和">4. 最大连续子序列之和</a></li>
+<li><a href="#5-到达终点的路线条数登台阶问题">5. 到达终点的路线条数/登台阶问题</a></li>
+<li><a href="#6-数塔问题">6. 数塔问题</a></li>
+<li><a href="#7-背包问题及其延伸">7. 背包问题及其延伸</a><ul>
+<li><a href="#0-1背包问题">0-1背包问题</a></li>
+<li><a href="#完全背包问题">完全背包问题</a></li>
+<li><a href="#拼硬币问题">拼硬币问题</a></li>
+</ul>
+</li>
+<li><a href="#8-最长递增子序列lis">8. 最长递增子序列(LIS)</a></li>
+<li><a href="#9-代码及示例">9. 代码及示例</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="1-矩阵联乘问题"><a href="#1-矩阵联乘问题" class="headerlink" title="1. 矩阵联乘问题"></a>1. 矩阵联乘问题</h2><h2 id="2-最长公共子序列"><a href="#2-最长公共子序列" class="headerlink" title="2. 最长公共子序列"></a>2. 最长公共子序列</h2><ul>
+<li><p>描述<br>一个序列 S ，如果分别是两个或多个已知序列的子序列，且是所有符合此条件序列中最长的，则 S 称为已知序列的最长公共子序列。</p>
+</li>
+<li><p>转移方程：<br>问题简化为在已知<code>str1[:i-1]</code>与<code>str2[:j-1]</code>的情况下，个字新添加一个字符之后最长公共子序列的长度的问题。<br><code>dp[i,j] = 0                                 i=0 || j=0</code><br><code>dp[i,j] = dp[i-1][j-1]+1                    i&gt;0,j&gt;0, a[i] = b[j]</code><br><code>dp[i,j] = max(dp[i-1][j],dp[i][j-1])        i&gt;0,j&gt;0, a[i] != b[j]</code></p>
+</li>
+</ul>
+<h2 id="3-最长不重复子串"><a href="#3-最长不重复子串" class="headerlink" title="3. 最长不重复子串"></a>3. 最长不重复子串</h2><ul>
+<li><p>描述<br>针对某个字符串，输出最长的不含有重复字符的子串的长度。注意子串（substring）和子序列（subsequence）是有区别的。</p>
+</li>
+<li><p>转移方程：<br>使用<code>HashMap</code>存储<code>key-value</code>对，其中<code>key=字符</code>，<code>value=字符所在index</code>。问题转换为新填入一个字符之后，最长不重复子串如何变化的问题。<br><code>dp[i]</code>表示以第i个字符为结尾的不重复子串的长度。<br><code>condition = str[i] not in hashmap || str[i] in hashmap but hashmap[str[i]] &lt;= (i - dp[i])</code><br><code>dp[i]=dp[i-1]+1  if condition==true</code><br><code>dp[i]=1          if condition==false</code></p>
+</li>
+</ul>
+<h2 id="4-最大连续子序列之和"><a href="#4-最大连续子序列之和" class="headerlink" title="4. 最大连续子序列之和"></a>4. 最大连续子序列之和</h2><ul>
+<li><p>描述<br>给定K个整数的序列{ N1, N2, …, NK }，其任意连续子序列可表示为{ Ni, Ni+1, …, Nj }，其中 1 &lt;= i &lt;= j &lt;= K。最大连续子序列是所有连续子序中元素和最大的一个， 例如给定序列{ -2, 11, -4, 13, -5, -2 }，其最大连续子序列为{ 11, -4, 13 }，最大和为20。</p>
+</li>
+<li><p>状态转移方程：<br><code>sum[i]=max(sum[i-1]+a[i],a[i])</code></p>
+</li>
+<li><p>提示：<br>可以使用状态矩阵，也可以使用两个变量代替状态矩阵，从而将空间复杂度降低到O(1)</p>
+<h2 id="5-到达终点的路线条数-登台阶问题"><a href="#5-到达终点的路线条数-登台阶问题" class="headerlink" title="5. 到达终点的路线条数/登台阶问题"></a>5. 到达终点的路线条数/登台阶问题</h2><h2 id="6-数塔问题"><a href="#6-数塔问题" class="headerlink" title="6. 数塔问题"></a>6. 数塔问题</h2></li>
+</ul>
+<h2 id="7-背包问题及其延伸"><a href="#7-背包问题及其延伸" class="headerlink" title="7. 背包问题及其延伸"></a>7. 背包问题及其延伸</h2><h3 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h3><ul>
+<li><p>描述<br>有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。</p>
+</li>
+<li><p>转移方程：<br>将问题转化为放不放进最后一个背包进去。<br><code>dp[i][j]</code> 表示前i个物品放到承重为j的背包里的最大价值。<br><code>dp[i][j] = max(dp[i-1][j],dp[i-1][j-weight[i]] + value[i]</code></p>
+<h3 id="完全背包问题"><a href="#完全背包问题" class="headerlink" title="完全背包问题"></a>完全背包问题</h3><h3 id="拼硬币问题"><a href="#拼硬币问题" class="headerlink" title="拼硬币问题"></a>拼硬币问题</h3><h2 id="8-最长递增子序列-LIS"><a href="#8-最长递增子序列-LIS" class="headerlink" title="8. 最长递增子序列(LIS)"></a>8. 最长递增子序列(LIS)</h2></li>
+<li>描述<br>给定一个序列 <code>An = a1 ,a2 ,  ... , an</code> ，找出最长的子序列使得对所有 <code>i&lt;j, ai &lt; aj</code>。</li>
+<li>转移方程：<br><code>b[k]</code>表示以第k个元素为结尾的最长递增子序列的长度，问题转化为放不放入最后一个数字的问题。<br><code>b[k]=max(max(b[j]|a[j]&lt;a[k],j&lt;k)+1,1);</code></li>
+</ul>
+<h2 id="9-代码及示例"><a href="#9-代码及示例" class="headerlink" title="9. 代码及示例"></a>9. 代码及示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> chenkh.basic.dp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassicDP</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; -<span class="number">2</span>, <span class="number">11</span>, -<span class="number">4</span>, <span class="number">13</span>, -<span class="number">5</span>, -<span class="number">2</span> &#125;, <span class="keyword">true</span>);</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; -<span class="number">2</span>, <span class="number">11</span>, -<span class="number">4</span>, <span class="number">13</span>, -<span class="number">5</span>, -<span class="number">2</span> &#125;, <span class="keyword">false</span>);</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;, <span class="keyword">true</span>);</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;, <span class="keyword">false</span>);</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123;&#125;, <span class="keyword">true</span>);</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123;&#125;, <span class="keyword">false</span>);</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; -<span class="number">1</span>, -<span class="number">2</span> &#125;, <span class="keyword">true</span>);</span><br><span class="line">		max = MaxSumofContinousSubSequence(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; -<span class="number">1</span>, -<span class="number">2</span> &#125;, <span class="keyword">false</span>);</span><br><span class="line">		System.out.println(max);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 最大连续子序列之和&lt;p&gt;状态转移方程： sum[i]=max(sum[i-1]+a[i],a[i])&lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * 可以使用状态矩阵，也可以使用两个变量代替状态矩阵，从而将空间复杂度降低到O(1)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">MaxSumofContinousSubSequence</span><span class="params">(<span class="keyword">int</span>[] seq, <span class="keyword">boolean</span> extraSpaceAllowable)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (seq == <span class="keyword">null</span> || seq.length &lt;= <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">		<span class="keyword">if</span> (extraSpaceAllowable) &#123;</span><br><span class="line">			<span class="keyword">int</span>[] sum = <span class="keyword">new</span> <span class="keyword">int</span>[seq.length];</span><br><span class="line">			sum[<span class="number">0</span>] = seq[<span class="number">0</span>];</span><br><span class="line">			max = sum[<span class="number">0</span>] &gt; max ? sum[<span class="number">0</span>] : max;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; seq.length; i++) &#123;</span><br><span class="line">				<span class="keyword">int</span> nextSum = sum[i - <span class="number">1</span>] + seq[i];</span><br><span class="line">				sum[i] = nextSum &gt; seq[i] ? nextSum : seq[i];</span><br><span class="line">				max = sum[i] &gt; max ? sum[i] : max;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">int</span> sum = seq[<span class="number">0</span>];</span><br><span class="line">			max = max &gt; sum ? max : sum;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; seq.length; i++) &#123;</span><br><span class="line">				<span class="keyword">int</span> newSum = sum + seq[i];</span><br><span class="line">				sum = newSum &gt; seq[i] ? newSum : seq[i];</span><br><span class="line">				max = sum &gt; max ? sum : max;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(max);</span><br><span class="line">		<span class="keyword">return</span> max;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 背包问题1：经典（0-1）背包问题&lt;p&gt;</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 登台阶问题：每次可以走a[]里面的步数，走到第n个台阶的走法有多少种。&lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * 状态转移方程：f(n) = f(n-a[0]) + f(n - a[1]) + ... + f(n - a[m-1]);</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">stepUps</span><span class="params">(<span class="keyword">int</span>[] stepType, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">		dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; stepType.length; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (i &gt;= stepType[j]) &#123;</span><br><span class="line">					dp[i] += dp[i - stepType[j]];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> dp[n];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 背包问题?/无限次数拼硬币问题:与登台阶的问题的不同是，这里找的是不同的组合数，而登台阶是不同的排列数，所以是有些不一样的。&lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * 状态转移方程：&lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * f(i, m) = f(i-1, m) + f(i-1, m - 1 * a[i-1]) + f(i-1, m - 2 * a[i - 1]) + ... &lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * f(i, m)表示用前i个硬币拼凑成m的拼法</span></span><br><span class="line"><span class="comment">	 * 或者&lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * f(m) = f() </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">patchCoins</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a_len = a.length;</span><br><span class="line">		<span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[a_len + <span class="number">1</span>][m + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">			dp[<span class="number">0</span>][i] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= a_len; i++)</span><br><span class="line">			dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= a_len; ++i) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">				dp[i][j] = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= j / a[i - <span class="number">1</span>]; ++k) &#123;</span><br><span class="line">					dp[i][j] += dp[i - <span class="number">1</span>][j - k * a[i - <span class="number">1</span>]];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> dp[a_len][m];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/data_struc_algo/bipartite_graph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/data_struc_algo/bipartite_graph/" itemprop="url">初识二分图</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="初识二分图"><a href="#初识二分图" class="headerlink" title="初识二分图"></a>初识二分图</h1><!-- TOC -->
+<ul>
+<li><a href="#什么是二分图">什么是二分图？</a></li>
+<li><a href="#二分图研究问题">二分图研究问题</a><ul>
+<li><a href="#最大匹配问题与完美匹配问题">最大匹配问题与完美匹配问题</a><ul>
+<li><a href="#匈牙利算法">匈牙利算法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="什么是二分图？"><a href="#什么是二分图？" class="headerlink" title="什么是二分图？"></a>什么是二分图？</h2><p><strong>Wiki定义</strong></p>
+<p>二分图指顶点可以分成两个不相交的集 <strong>U</strong> 和 <strong>V</strong>（<strong>U</strong> 和 <strong>V</strong> 皆为独立集：independent sets），使得在同一个集内的顶点不相邻（没有共同边）的图，又称双分图、二部图、偶图。</p>
+<p><strong>符号化描述</strong></p>
+<p>设 <strong><em>G=(V, E)</em></strong> 是一个无向图，如果顶点 <strong>V</strong> 可分割为两个互不相交的子集 <strong>U</strong> , <strong>V</strong>，并且图中的每条边 <strong>(i,j)</strong> 所关联的两个顶点 <strong>i</strong> 和 <strong>j</strong> 分别属于这两个不同的顶点集 ( <strong>i</strong> in <strong>U</strong>, <strong>j</strong> in <strong>V</strong>)，则称图 <strong><em>G</em></strong> 为一个二分图。</p>
+<p><strong>图形化描述</strong></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/250px-Simple-bipartite-graph.svg.png" alt="二分图范例"></p>
+<p><strong>应用场景示例</strong></p>
+<p>学生与课程的关系，商家与顾客的关系，司机与乘客的关系等等。</p>
+<h2 id="二分图研究问题"><a href="#二分图研究问题" class="headerlink" title="二分图研究问题"></a>二分图研究问题</h2><p>先引入几个概念，文章<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>中讲的非常好，这里直接引用。</p>
+<blockquote>
+<p><strong>匹配</strong>：在图论中，一个「匹配」（matching）是一个边的集合，其中任意两条边都没有公共顶点。例如，图 3、图 4 中红色的边就是图 2 的匹配。<br><!-- 图片 --><br><img src="https://img.renfei.org/2013/08/1.png" alt="Bipartite Graph(1)"><br><img src="https://img.renfei.org/2013/08/2.png" alt="Bipartite Graph(2)"><br><img src="https://img.renfei.org/2013/08/3.png" alt="Matching"><br><img src="https://img.renfei.org/2013/08/4.png" alt="Maximum Matching">  </p>
+<p>我们定义匹配点、匹配边、未匹配点、非匹配边，它们的含义非常显然。例如图 3 中 1、4、5、7 为匹配点，其他顶点为未匹配点；1-5、4-7为匹配边，其他边为非匹配边。<br><strong>最大匹配</strong>：一个图所有匹配中，所含匹配边数最多的匹配，称为这个图的最大匹配。图 4 是一个最大匹配，它包含 4 条匹配边。<br><strong>完美匹配</strong>：如果一个图的某个匹配中，所有的顶点都是匹配点，那么它就是一个完美匹配。图 4 是一个完美匹配。显然，完美匹配一定是最大匹配（完美匹配的任何一个点都已经匹配，添加一条新的匹配边一定会与已有的匹配边冲突）。但并非每个图都存在完美匹配。</p>
+</blockquote>
+<h3 id="最大匹配问题与完美匹配问题"><a href="#最大匹配问题与完美匹配问题" class="headerlink" title="最大匹配问题与完美匹配问题"></a>最大匹配问题与完美匹配问题</h3><blockquote>
+<p>举例来说：如下图所示，如果在某一对男孩和女孩之间存在相连的边，就意味着他们彼此喜欢。是否可能让所有男孩和女孩两两配对，使得每对儿都互相喜欢呢？图论中，这就是完美匹配问题。如果换一个说法：最多有多少互相喜欢的男孩/女孩可以配对儿？这就是最大匹配问题。  </p>
+<p><img src="https://img.renfei.org/2013/08/0.png" alt="boys and girls"></p>
+</blockquote>
+<h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><p>详见<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a> 这文章写的太好。</p>
+<p>匈牙利算法是解决最大匹配和完美匹配的一种算法，应用度很高。下面写一下匈牙利算法的大致过程，由于需要图形展示才能更好的理解，所以这里的大部分内容都是<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>中的内容。但我加入了个人的理解，比原版要更容易理解。</p>
+<p>首先明确两个概念：交替路和增广路</p>
+<blockquote>
+<p><img src="https://img.renfei.org/2013/08/5.png" alt="figure 5"></p>
+<p><strong>交替路</strong>：从一个未匹配点出发，依次经过非匹配边、匹配边、非匹配边…形成的路径叫交替路。</p>
+<p><strong>增广路</strong>：从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路（agumenting path）。例如，图 5 中的一条增广路如图 6 所示（图中的匹配点均用红色标出）：</p>
+<p><img src="https://img.renfei.org/2013/08/6.png" alt="figure 6"></p>
+</blockquote>
+<p>增广路的首尾是非匹配点。因此，增广路径的第一条和最后一条边，必然是非匹配边；同时它的第二条边（如果有）和倒数第二条边（如果有），必然是匹配边；以及第三条边（如果有）和倒数第三条边（如果有），一定是非匹配边。</p>
+<p>亦即，增广路径从非匹配边开始，匹配边和非匹配边依次交替，最后由非匹配边结束。这样一来，增广路径中非匹配边的数目会比匹配边大 1。</p>
+<p>如果我们置换增广路径中的匹配边和非匹配边，由于增广路径的首尾是非匹配点，其余则是匹配点，这样的置换不会影响原匹配中其他的匹配边和匹配点，因而不会破坏匹配；亦即增广路径的置换，可以得到比原有匹配更大的匹配（具体来说，匹配的边数增加了 1）。</p>
+<p>由于二分图的最大匹配必然存在（比如，上限是包含所有顶点的完全匹配），所以，再任意匹配的基础上，如果我们有办法不断地搜寻出增广路径，直到最终我们找不到新的增广路径为止，我们就有可能得到二分图的一个最大匹配。这就是<strong>匈牙利算法的核心思想</strong>。</p>
+<p><strong>贪心思路的证明</strong></p>
+<p>唯一的问题在于，在这种贪心的思路下，我们如何保证不存在例外的情况，即：当前匹配不是二分图的最大匹配，但已找不到一条新的增广路径。</p>
+<p>我们从反证法考虑，即假设存在这样的情况。因为当前匹配不是二分图的最大匹配，那么在两个集合中，分别至少存在一个非匹配点。那么情况分为两种：</p>
+<ul>
+<li>这两个点之间存在一条边——那么我们找到了一条新的增广路径，产生矛盾；</li>
+<li>这两个点之间不存在直接的边，即这两个点分别都只与匹配点相连——那么：<ul>
+<li>如果这两个点可以用已有的匹配点相连，那么我们找到了一条新的增广路径，产生矛盾；</li>
+<li>如果这两个点无法用已有的匹配点相连，那么这两个点也就无法增加匹配中边的数量，也就是我们已经找到了二分图的最大匹配，产生矛盾。<br>在所有可能的情况，上述假设都会产生矛盾。因此假设不成立，亦即贪心算法必然能求得最大匹配的解。</li>
+</ul>
+</li>
+</ul>
+<p><strong>贪心算法过程简述</strong></p>
+<p>对二分图中的某一部分遍历，对每个节点查找增广路，如果查找到，交换匹配边与非匹配边；如果没有找到，计算下个节点。遍历完成后便得到了一个最大匹配。<br>代码见<a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a>，此处引用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 顶点、边的编号均从 0 开始</span></span><br><span class="line"><span class="comment">// 邻接表储存</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> from;</span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    <span class="keyword">int</span> weight;</span><br><span class="line"></span><br><span class="line">    Edge(<span class="keyword">int</span> f, <span class="keyword">int</span> t, <span class="keyword">int</span> w):from(f), to(t), weight(w) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[__maxNodes]; <span class="comment">/* G[i] 存储顶点 i 出发的边的编号 */</span></span><br><span class="line"><span class="built_in">vector</span>&lt;Edge&gt; edges;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator <span class="keyword">iterator_t</span>;</span><br><span class="line"><span class="keyword">int</span> num_nodes;</span><br><span class="line"><span class="keyword">int</span> num_left;</span><br><span class="line"><span class="keyword">int</span> num_right;</span><br><span class="line"><span class="keyword">int</span> num_edges;</span><br><span class="line"><span class="keyword">int</span> matching[__maxNodes]; <span class="comment">/* 存储求解结果 */</span></span><br><span class="line"><span class="keyword">int</span> check[__maxNodes];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">iterator_t</span> i = G[u].begin(); i != G[u].end(); ++i) &#123; <span class="comment">// 对 u 的每个邻接点</span></span><br><span class="line">        <span class="keyword">int</span> v = edges[*i].to;</span><br><span class="line">        <span class="keyword">if</span> (!check[v]) &#123;     <span class="comment">// 要求不在交替路中</span></span><br><span class="line">            check[v] = <span class="literal">true</span>; <span class="comment">// 放入交替路</span></span><br><span class="line">            <span class="keyword">if</span> (matching[v] == <span class="number">-1</span> || dfs(matching[v])) &#123;</span><br><span class="line">                <span class="comment">// 如果是未盖点，说明交替路为增广路，则交换路径，并返回成功</span></span><br><span class="line">                matching[v] = u;</span><br><span class="line">                matching[u] = v;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 不存在增广路，返回失败</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(matching, <span class="number">-1</span>, <span class="keyword">sizeof</span>(matching));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> u=<span class="number">0</span>; u &lt; num_left; ++u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (matching[u] == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="built_in">memset</span>(check, <span class="number">0</span>, <span class="keyword">sizeof</span>(check));</span><br><span class="line">            <span class="keyword">if</span> (dfs(u))</span><br><span class="line">                ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line"><span class="keyword">int</span> prev[__maxNodes];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Hungarian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(matching, <span class="number">-1</span>, <span class="keyword">sizeof</span>(matching));</span><br><span class="line">    <span class="built_in">memset</span>(check, <span class="number">-1</span>, <span class="keyword">sizeof</span>(check));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;num_left; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (matching[i] == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!Q.empty()) Q.pop();</span><br><span class="line">            Q.push(i);</span><br><span class="line">            prev[i] = <span class="number">-1</span>; <span class="comment">// 设 i 为路径起点</span></span><br><span class="line">            <span class="keyword">bool</span> flag = <span class="literal">false</span>; <span class="comment">// 尚未找到增广路</span></span><br><span class="line">            <span class="keyword">while</span> (!Q.empty() &amp;&amp; !flag) &#123;</span><br><span class="line">                <span class="keyword">int</span> u = Q.front();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">iterator_t</span> ix = G[u].begin(); ix != G[u].end() &amp;&amp; !flag; ++ix) &#123;</span><br><span class="line">                    <span class="keyword">int</span> v = edges[*ix].to;</span><br><span class="line">                    <span class="keyword">if</span> (check[v] != i) &#123;</span><br><span class="line">                        check[v] = i;</span><br><span class="line">                        Q.push(matching[v]);</span><br><span class="line">                        <span class="keyword">if</span> (matching[v] &gt;= <span class="number">0</span>) &#123; <span class="comment">// 此点为匹配点</span></span><br><span class="line">                            prev[matching[v]] = u;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 找到未匹配点，交替路变为增广路</span></span><br><span class="line">                            flag = <span class="literal">true</span>;</span><br><span class="line">                            <span class="keyword">int</span> d=u, e=v;</span><br><span class="line">                            <span class="keyword">while</span> (d != <span class="number">-1</span>) &#123;</span><br><span class="line">                                <span class="keyword">int</span> t = matching[d];</span><br><span class="line">                                matching[d] = e;</span><br><span class="line">                                matching[e] = d;</span><br><span class="line">                                d = prev[d];</span><br><span class="line">                                e = t;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                Q.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (matching[i] != <span class="number">-1</span>) ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>匈牙利算法的要点如下</strong><br>从左边第 1 个顶点开始，挑选未匹配点进行搜索，寻找增广路。<br>如果经过一个未匹配点，说明寻找成功。更新路径信息，匹配边数 +1，停止搜索。<br>如果一直没有找到增广路，则不再从这个点开始搜索。事实上，此时搜索后会形成一棵匈牙利树。我们可以永久性地把它从图中删去，而不影响结果。<br>由于找到增广路之后需要沿着路径更新匹配，所以我们需要一个结构来记录路径上的点。DFS 版本通过函数调用隐式地使用一个栈，而 BFS 版本使用 prev 数组。  </p>
+<p><strong>性能比较</strong><br>两个版本的时间复杂度均为O(V⋅E)O(V⋅E)。DFS 的优点是思路清晰、代码量少，但是性能不如 BFS。我测试了两种算法的性能。对于稀疏图，BFS 版本明显快于 DFS 版本；而对于稠密图两者则不相上下。在完全随机数据 9000 个顶点 4,0000 条边时前者领先后者大约 97.6%，9000 个顶点 100,0000 条边时前者领先后者 8.6%, 而达到 500,0000 条边时 BFS 仅领先 0.85%。</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">二分图的最大匹配、完美匹配和匈牙利算法</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/data_struc_algo/B树和B+树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/data_struc_algo/B树和B+树/" itemprop="url">B树与B+树</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="B树与B-树"><a href="#B树与B-树" class="headerlink" title="B树与B+树"></a>B树与B+树</h1><p>参考：<a href="https://mp.weixin.qq.com/s?__biz=MzI1MTIzMzI2MA==&amp;mid=2650561220&amp;idx=1&amp;sn=2a6d8a0290f967027b1d54456f586405&amp;chksm=f1feec47c689655113fa65f7911a1f59bbd994030ad685152b30e53d643049f969eefaa13058&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">漫画：什么是B+树</a></p>
+<p>从来没有B减树这种说法，B-树读作B树（Balance Tree）。</p>
+<!-- TOC -->
+<ul>
+<li><a href="#平衡树">平衡树</a><ul>
+<li><a href="#平衡树的定义">平衡树的定义：</a></li>
+<li><a href="#各种平衡树">各种平衡树</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="平衡树"><a href="#平衡树" class="headerlink" title="平衡树"></a>平衡树</h2><p>参见<a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E8%A1%A1%E6%A0%91" target="_blank" rel="noopener">平衡树-维基百科</a></p>
+<h3 id="平衡树的定义："><a href="#平衡树的定义：" class="headerlink" title="平衡树的定义："></a>平衡树的定义：</h3><blockquote>
+<ul>
+<li>平衡树是计算机科学中的一类数据结构。 平衡树是计算机科学中的一类改进的二叉查找树。一般的二叉查找树的查询复杂度是跟目标结点到树根的距离（即深度）有关，因此当结点的深度普遍较大时，查询的均摊复杂度会上升，为了更高效的查询，平衡树应运而生了。  </li>
+<li>平衡指所有叶子的深度趋于平衡</li>
+<li>几乎所有平衡树的操作都基于树旋转操作，通过旋转操作可以使得树趋于平衡。 对一棵查找树（search tree）进行查询/新增/删除 等动作, 所花的时间与树的高度h 成比例, 并不与树的容量 n 成比例。如果可以让树维持矮矮胖胖的好身材, 也就是让h维持在O(log n)左右, 完成上述工作就很省时间。能够一直维持好身材, 不因新增删除而长歪的搜寻树, 叫做balanced search tree（平衡树）。 旋转Rotate —— 不破坏左小右大特性的小手术 平衡树有很多种, 其中有几类树维持平衡的方法, 都是靠整形小手术</li>
+</ul>
+</blockquote>
+<h3 id="各种平衡树"><a href="#各种平衡树" class="headerlink" title="各种平衡树"></a>各种平衡树</h3><ul>
+<li>AVL树，经典平衡树, 所有操作的最坏复杂度都是 {\displaystyle O(\log {n})} O(\log{n})的。</li>
+<li>Treap，利用随机堆的期望深度来优化树的深度，达到较优的期望复杂度。</li>
+<li>伸展树，使得经常查找的结点深度较小，从而降低均摊复杂度。</li>
+<li>红黑树: 是一棵二叉搜索树，确保没有一条路径比其他路径长处两倍，因此是近似平衡的。</li>
+<li>加权平衡树。</li>
+<li>2-3树</li>
+<li>AA树</li>
+<li>替罪羊树</li>
+<li>节点大小平衡树</li>
+</ul>
+<p>数据库采用的是B+树进行索引，其实BST（搜索树）查询效率已经很高了，但是如果考虑磁盘IO的话，我们发现，树的深度一旦变得很高，IO次数会很多，这是很浪费时间的。</p>
+<p>B-树（这里还不是B+树）是一样多路平衡查找树，他的每一个节点最多包含k个孩子，k被称为B树的阶，k的大小取决于磁盘页的大小。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/README/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/README/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="notebook"><a href="#notebook" class="headerlink" title="notebook"></a>notebook</h1><p>记录自己的学习笔记，就当做是一个博客了吧</p>
+<h2 id="data-strc-algo"><a href="#data-strc-algo" class="headerlink" title="data_strc_algo"></a>data_strc_algo</h2><p>记录数据结构与算法方面的笔记</p>
+<h2 id="OSMandPostGISandMapMatcher"><a href="#OSMandPostGISandMapMatcher" class="headerlink" title="OSMandPostGISandMapMatcher"></a>OSMandPostGISandMapMatcher</h2><p>如题，主要包含题目中的三部分</p>
+<h2 id="learn-markdown"><a href="#learn-markdown" class="headerlink" title="learn_markdown"></a>learn_markdown</h2><p>学习markdown</p>
+<h2 id="learn-python"><a href="#learn-python" class="headerlink" title="learn_python"></a>learn_python</h2><p>python非普通用法的笔记</p>
+<h2 id="ml-ai-ann"><a href="#ml-ai-ann" class="headerlink" title="ml_ai_ann"></a>ml_ai_ann</h2><p>机器学习与人工智能学习笔记</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>看文件标题就知道这个文件是做什么事情的了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com../../2018/04/02/notebook/OSMandPostGISandMapMatcher/PRESS的mapmatcher使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaiheng CHEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="其鬼不神">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/04/02/notebook/OSMandPostGISandMapMatcher/PRESS的mapmatcher使用/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T16:39:27+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="PRESS系统使用的地图匹配程序MapMathcer使用说明"><a href="#PRESS系统使用的地图匹配程序MapMathcer使用说明" class="headerlink" title="PRESS系统使用的地图匹配程序MapMathcer使用说明"></a>PRESS系统使用的地图匹配程序MapMathcer使用说明</h1><h2 id="程序地址与说明"><a href="#程序地址与说明" class="headerlink" title="程序地址与说明"></a>程序地址与说明</h2><ul>
+<li>PRESS系统有自己的Github仓库，地址：<a href="https://github.com/RenchuSong/PRESS" target="_blank" rel="noopener">https://github.com/RenchuSong/PRESS</a></li>
+<li>MapMatcher使用的算法提交到了ACM SIGSPATIAL Cup 2012，获得了很好的成绩。程序源码没有公开。算法提出的论文应该是<a href="https://dl.acm.org/citation.cfm?doid=2424321.2424428" target="_blank" rel="noopener">Quick Map Matching Using Multi-Core CPUs</a>，文中提到传统的基于HMM的算法等已经有了<strong>较高的匹配准确率</strong>（论文中的误匹配率平均在1.6-2.0%），所以主要目标考虑如何<strong>减少运行时间，加快匹配速度</strong>。所以这个方法有两点贡献：<ol>
+<li><strong>多线程</strong>匹配技术：路段可以多线程索引，轨迹匹配可以多线程进行（竟然不是废话）</li>
+<li><strong>改进HMM算法</strong>：主要添加了路段速度约束，避免在主干道上运行匹配到辅路上的问题。</li>
+</ol>
+</li>
+</ul>
+<h2 id="程序使用说明"><a href="#程序使用说明" class="headerlink" title="程序使用说明"></a>程序使用说明</h2><p>地图数据从OpenStreetMap获得，对华盛顿的数据来说，分成了三个文件</p>
+<p><strong>WA_Nodes.txt</strong></p>
+<p>该文本文件包含道路网络的节点。该文件定义了1283540个边，每行代表一个边。每行包含四个值，每个值由一个空格分隔。边缘行的形式是：<br><code>&lt;NodeId&gt; &lt;lat&gt; &lt;long&gt;</code></p>
+<ul>
+<li><code>&lt;NodeId&gt;</code>：一个整数值，指定道路网络内节点的唯一标识号码。</li>
+<li><code>&lt;lat&gt;</code>：该值以度为单位指定路网内节点的纬度位置。</li>
+<li><code>&lt;long&gt;</code>：该值以度为单位指定道路网络内节点的经度位置。</li>
+</ul>
+<p><strong>WA_Edges.txt</strong></p>
+<p>这个文本文件包含道路网络的边结构。该文件定义了1283540个边，每行代表一个<br>单边。每行包含四个值，每个值由一个空格分隔。边缘行的形式是：<br><code>&lt;EdgeId&gt; &lt;from&gt; &lt;to&gt; &lt;cost&gt;</code></p>
+<ul>
+<li><code>&lt;EdgeId&gt;</code>：整数值，指定道路网络内边缘的唯一标识号码。</li>
+<li><code>&lt;from&gt;</code>：该值表示位于边缘的节点的id。如果边被定义为(v, w)，则<code>&lt;from&gt;</code>是v， 节点ID值对应于WA_Nodes.txt中的<nodeid>值。</nodeid></li>
+<li><code>&lt;to&gt;</code>：该值表示边缘尾部的节点的id。如果边被定义为(v, w)，则<code>&lt;to&gt;</code>是w。这些节点<br>id值对应于WA_Nodes.txt中的<nodeid>值。</nodeid></li>
+<li><code>&lt;cost&gt;</code>：该值定义车辆从边缘一端到另一端的实际成本。这是一个成本基于边的长度和边表示的路段上的速度限制的函数。请注意，道路网络图是一个有向图。从节点v到节点w的边有不同的<code>&lt;EdgeId&gt;</code><br>沿着另一个方向（从节点w到节点v）的边。请确保您的算法与GPS读数匹配沿着正确的方向前进。</li>
+</ul>
+<p><strong>WA_EdgeGeometry.txt</strong></p>
+<p>该文本文件包含道路网络中每条边的几何数据(geometry data)。边缘几何形状定义边缘所代表的实际道路的多段线。该文件包含1,283,540个条目，每个网络边缘一个，每个条目在一行中。每行至少包含八个值，每个值由一个^符号分隔。每通过指定点的纬度和经度值，沿边缘定义了n个不同的点。边缘几何行的形式为：<code>&lt;EdgeId&gt; ^ &lt;Name&gt; ^ &lt;Type&gt; ^ &lt;Length&gt; ^ &lt;Lat_1&gt; ^ &lt;Lon_1&gt; ^ ... ^ &lt;Lat_n&gt; ^ &lt;Lon_n&gt;</code></p>
+<ul>
+<li><code>&lt;EdgeId&gt;</code>：整数值，指定道路网络中边缘的唯一标识号码。这个值会匹配WA_Edges.txt文件中定义的单个边。  </li>
+<li><code>&lt;name&gt;</code>：该值描述了该特定边所代表的路段的实际名称。如果没有定义名字，属性将包含一个空字符串。</li>
+<li><p><code>&lt;type&gt;</code>：该值描述了由边表示的道路的类型。一些常见的值是：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">motorway: motorway_link</span><br><span class="line">primary: primary_link</span><br><span class="line">secondary: secondary_link</span><br><span class="line">tertiary: residential</span><br><span class="line">living_street: service</span><br><span class="line">trunk: trunk_link</span><br><span class="line">unclassified</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&lt;Length&gt;</code>：该值是边缘的长度（以米为单位）。</p>
+</li>
+<li><code>&lt;Lat_1&gt;</code>：该值是边缘第一个点的纬度。如果边缘被定义为(v, w)，那么&lt;Lat_1&gt;是纬度值</li>
+<li><code>&lt;Lon_1&gt;</code>：这个值是边的第一个点的经度。如果边缘被定义为(v, w)，则&lt;Lon_1&gt;是经度值</li>
+<li><code>&lt;Lat_i&gt; &lt;Lon_i&gt;</code>：边缘的第一点和最后点之间的若干点的纬度和经度值。这些点是可选的，并且可选点的数量根据所表示的边的几何形状而变化。</li>
+<li><code>&lt;Lat_n&gt;</code>：该值是边缘最后一点的纬度。如果边缘被定义为(v, w)，那么&lt;Lat_n&gt;是纬度值w。</li>
+<li><code>&lt;Lon_n&gt;</code>：该值是边缘最后一点的经度。如果边缘被定义为(v, w)，则&lt;Lon_n&gt;是经度值v。</li>
+</ul>
+<h2 id="程序执行顺序"><a href="#程序执行顺序" class="headerlink" title="程序执行顺序"></a>程序执行顺序</h2><p>mapmatch.exe接受三个命令行参数。 mapmatch.exe程序的用法如下：</p>
+<pre><code>mapmatch  RoadNetworkInfo_Path] [Input_Path] [Output_Path]
+</code></pre><ul>
+<li><p><code>RoadNetworkInfo_Path</code>：指定包含三个文本文件（WA_Nodes.txt，WA_Edges.txt和WA_EdgeGeometry.txt）的目录。</p>
+</li>
+<li><p><code>Input_Path</code>：指定包含n个文本文件的目录。每个文件都是单个测试用例，并包含一系列记录<br>在美国华盛顿州记录的GPS读数。文件被命名为：<code>input_01.txt</code>到<code>input_n.txt</code>，其中<code>input_i.txt</code><br>是包含第i个测试用例的文件。输入测试案例的例子可以在训练数据集部分找到。</p>
+</li>
+<li><p><code>Output_Path</code>：指定程序预期放置输出文件的目录。对于每个输入文件 <code>input_i.txt</code>，mapmatch.exe 程序必须生成一个名为<code>output_i.txt</code>的相应输出文件。输出文件的例子可以也可以在训练数据集部分找到。</p>
+</li>
+</ul>
+<p>请注意，输出文件<code>output_i.txt</code>中的行数必须与输入文件<code>inut_i.txt</code>相同。这是为了每一个在输入文件中有一行，在输出文件中存在一个具有相同<code>&lt;Time&gt;</code>值的行，并指示GPS点匹配的<code>&lt;EdgeId&gt;</code>。此外，<code>&lt;EdgeId&gt;</code>必须用置信度值注释。 请注意，所有测试案例都包含使用GPS记录器以可变采样率记录的真实世界GPS数据。 采样率在1秒到30秒之间变化。 这个可变采样率旨在测试稀疏GPS跟踪下提交的地图匹配算法的弹性。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>的程序只能处理不超过10000个点的轨迹。 如果时间较长，请把轨迹进行切分。</p>
 
           
         
@@ -406,7 +1900,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="../5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="../5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../5/">5</a><span class="page-number current">6</span><a class="page-number" href="../7/">7</a><a class="extend next" rel="next" href="../7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -456,7 +1950,7 @@
               
                 <a href="../../archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -467,7 +1961,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="../../categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -478,7 +1972,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
